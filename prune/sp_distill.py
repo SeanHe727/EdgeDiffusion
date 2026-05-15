@@ -63,6 +63,7 @@ import logging
 import glob as _glob
 from pathlib import Path
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from safetensors.torch import save_file
@@ -225,6 +226,86 @@ def build_cosine_lr_lambda(warmup_steps, total_steps, lr_max, lr_min, decay_star
         return min_ratio + (1.0 - min_ratio) * cosine
 
     return lr_lambda
+
+
+# —— Feature distillation helpers ————————————————————————————————————————————
+
+def _get_module_by_dotpath(model: nn.Module, dotpath: str) -> nn.Module:
+    """Navigate a module tree by dot-path, supporting ModuleList indices."""
+    module = model
+    for part in dotpath.split('.'):
+        module = module[int(part)] if part.isdigit() else getattr(module, part)
+    return module
+
+
+def _first_tensor(output):
+    """Extract the primary hidden-state tensor from a block forward output."""
+    if torch.is_tensor(output):
+        return output
+    if isinstance(output, (tuple, list)):
+        for item in output:
+            tensor = _first_tensor(item)
+            if tensor is not None:
+                return tensor
+    return None
+
+
+class FeatureMapRegistry:
+    """Forward-hook registry for large UNet block output features."""
+
+    def __init__(self, detach: bool) -> None:
+        self.detach = detach
+        self.captured: dict[str, torch.Tensor] = {}
+        self._handles = []
+
+    def register(self, model: nn.Module, layer_keys: list[str]) -> None:
+        for key in layer_keys:
+            module = _get_module_by_dotpath(model, key)
+
+            def _hook(_module, _inputs, output, layer_key=key):
+                feat = _first_tensor(output)
+                if feat is not None:
+                    feat = feat.float()
+                    self.captured[layer_key] = feat.detach() if self.detach else feat
+
+            self._handles.append(module.register_forward_hook(_hook))
+
+    def clear(self) -> None:
+        self.captured.clear()
+
+    def remove(self) -> None:
+        for handle in self._handles:
+            handle.remove()
+        self._handles.clear()
+
+
+def normalized_feature_mse(student_feat: torch.Tensor, teacher_feat: torch.Tensor) -> torch.Tensor:
+    """Feature KD loss.
+
+    If shapes match, align z-score-normalized tensors.  If pruning changed the
+    channel count, fall back to a channel-agnostic spatial energy map.
+    """
+    s = student_feat.float()
+    t = teacher_feat.float().detach()
+
+    if s.shape == t.shape:
+        reduce_dims = tuple(range(1, s.ndim))
+        s_mean = s.mean(dim=reduce_dims, keepdim=True)
+        t_mean = t.mean(dim=reduce_dims, keepdim=True)
+        s_std = s.std(dim=reduce_dims, keepdim=True).clamp_min(1e-6)
+        t_std = t.std(dim=reduce_dims, keepdim=True).clamp_min(1e-6)
+        return F.mse_loss((s - s_mean) / s_std, (t - t_mean) / t_std)
+
+    if s.ndim == 4 and t.ndim == 4:
+        s_map = s.pow(2).mean(dim=1, keepdim=True)
+        t_map = t.pow(2).mean(dim=1, keepdim=True)
+        if s_map.shape[-2:] != t_map.shape[-2:]:
+            s_map = F.interpolate(s_map, size=t_map.shape[-2:], mode="bilinear", align_corners=False)
+        s_map = F.normalize(s_map.flatten(1), p=2, dim=1)
+        t_map = F.normalize(t_map.flatten(1), p=2, dim=1)
+        return F.mse_loss(s_map, t_map)
+
+    return s.new_zeros(())
 
 
 # —— Model loading ————————————————————————————————————————————————————————————
@@ -420,6 +501,8 @@ def main():
     parser.add_argument('--grad-clip',       type=float, default=_rc('grad_clip',       1.0))  # L2 norm cap
 
     # Loss
+    parser.add_argument('--lambda-pred', type=float, default=_rc('lambda_pred', 1.0),
+                        help="Weight for prediction-space teacher-student loss.")
     parser.add_argument('--lambda-l1',  type=float, default=_rc('lambda_l1', 0.1),
                         help="Weight of L1 loss term added alongside MSE. "
                              "L1 preserves high-frequency detail that pure MSE blurs away. "
@@ -460,6 +543,11 @@ def main():
                         default=_rc('attn_layers', []),
                         help="Dot-paths of attention modules to distil. "
                              "Empty list disables attention distillation.")
+    parser.add_argument('--lambda-feat', type=float, default=_rc('lambda_feat', 0.0),
+                        help="Weight of normalized block feature distillation. 0 = disabled.")
+    parser.add_argument('--feat-layers', nargs='*',
+                        default=_rc('feat_layers', []),
+                        help="Dot-paths of large UNet blocks whose output features are distilled.")
 
     args = parser.parse_args()
     device = args.device or ('cuda' if torch.cuda.is_available() else 'cpu')
@@ -478,13 +566,15 @@ def main():
     total_steps = args.main_steps + args.finetune_steps
     log.info(f"Distillation: Main={args.main_steps} + Finetune={args.finetune_steps} = {total_steps} total @ {args.resolution}px")
     log.info(f"LR: {args.lr_max} -> {args.lr_min}, warmup={args.lr_warmup_steps}")
-    log.info(f"Loss: MSE + {args.lambda_l1} * L1  |  Timestep normalisation EMA decay={args.ema_norm_decay}")
+    log.info(f"Loss: {args.lambda_pred} * (MSE + {args.lambda_l1} * L1) "
+             f"+ {args.lambda_feat} * feature  |  Timestep normalisation EMA decay={args.ema_norm_decay}")
     log.info(f"Batch: {args.batch_size} × grad_accum={args.grad_accum_steps} → effective_bs={args.batch_size * args.grad_accum_steps}")
     log.info(f"Model EMA decay={args.ema_decay}")
     log.info(f"Base model: {args.base_model}  |  Student: {args.pruned_model}")
 
     use_cache       = bool(args.teacher_cache_dir)
     use_attn_distill = args.lambda_attn > 0 and bool(args.attn_layers)
+    use_feat_distill = args.lambda_feat > 0 and bool(args.feat_layers)
     if use_cache:
         if not Path(args.teacher_cache_dir).exists():
             raise FileNotFoundError(
@@ -492,9 +582,13 @@ def main():
                 f"Run gen_teacher_cache.py first to pre-compute teacher trajectories."
             )
         log.info(f"Cache mode ON: teacher UNet will be offloaded from GPU — cache: {args.teacher_cache_dir}")
+        if use_feat_distill:
+            raise ValueError("Feature distillation is not supported with teacher_cache_dir yet; run live teacher mode.")
     if use_attn_distill:
         log.info(f"Attn distillation ON: λ={args.lambda_attn}, warmup={args.attn_warmup_steps}, "
                  f"layers={len(args.attn_layers)}")
+    if use_feat_distill:
+        log.info(f"Feature distillation ON: λ={args.lambda_feat}, layers={len(args.feat_layers)}")
 
     # ── Model loading ─────────────────────────────────────────────────────────
     log.info("Loading teacher pipeline...")
@@ -542,6 +636,18 @@ def main():
     # Per-timestep EMA normalisation state for attention loss
     # Key format: "a{timestep}" to avoid collision with pred-loss keys
     ema_attn_per_t: dict[str, float] = {}
+
+    student_feature_registry = None
+    teacher_feature_registry = None
+    if use_feat_distill:
+        student_feature_registry = FeatureMapRegistry(detach=False)
+        teacher_feature_registry = FeatureMapRegistry(detach=True)
+        student_feature_registry.register(student_unet, args.feat_layers)
+        teacher_feature_registry.register(teacher_unet, args.feat_layers)
+        log.info(f"Feature hooks registered on {len(args.feat_layers)} large blocks")
+
+    # Per-timestep EMA normalisation state for feature loss
+    ema_feat_per_t: dict[str, float] = {}
 
     # ── Optimizer + LR schedule ───────────────────────────────────────────────
     # Only update parameters that require grad (student weights, not frozen layers)
@@ -659,8 +765,10 @@ def main():
 
             total_loss      = torch.zeros(1, device=device, dtype=torch.float32)  # normalised pred loss, accumulates over steps
             total_attn_loss = torch.zeros(1, device=device, dtype=torch.float32)  # normalised attn loss, accumulates over steps
+            total_feat_loss = torch.zeros(1, device=device, dtype=torch.float32)  # normalised feature loss, accumulates over steps
             total_raw_loss  = 0.0   # un-normalised MSE+L1 sum — detached float, logging only
             total_raw_attn  = 0.0   # un-normalised attn MSE sum — logging only
+            total_raw_feat  = 0.0   # un-normalised feature MSE sum — logging only
 
             # ── Pre-load full trajectory from disk (cache mode only) ──────────
             # Loading all steps here instead of inside the timestep loop avoids
@@ -718,6 +826,8 @@ def main():
                     with torch.no_grad():
                         if teacher_registry is not None:
                             teacher_registry.clear()  # discard previous step's captured maps
+                        if teacher_feature_registry is not None:
+                            teacher_feature_registry.clear()
                         # Must set _step_index manually; EulerAncestral tracks it internally and
                         # would use wrong sigma if we call scale_model_input out of order.
                         teacher_scheduler._step_index = step_i
@@ -730,6 +840,10 @@ def main():
                             for key in args.attn_layers:
                                 if key in teacher_registry.captured:
                                     t_attn_maps[key] = teacher_registry.captured[key].detach()  # no grad needed for target
+                        t_feat_maps = (
+                            dict(teacher_feature_registry.captured)
+                            if teacher_feature_registry is not None else {}
+                        )
 
                 # ── Student step (fp32, grad) ─────────────────────────────────
                 # Student uses t_latent_in (same as teacher's input this step),
@@ -738,6 +852,8 @@ def main():
                 # and corrupt the gradient signal across all remaining steps.
                 if student_registry is not None:
                     student_registry.clear()          # clear previous step's captured maps before forward
+                if student_feature_registry is not None:
+                    student_feature_registry.clear()
                 pipe.scheduler._step_index = step_i   # sync student scheduler index to match teacher
                 s_in   = pipe.scheduler.scale_model_input(t_latent_in, t)  # same sigma scaling as teacher
                 s_pred = student_unet(s_in, t, encoder_hidden_states).sample  # fp32 forward, grad tracked
@@ -772,6 +888,34 @@ def main():
 
                 total_loss     = total_loss + norm_loss   # accumulate over all denoising steps
                 total_raw_loss += raw_loss.item()          # float — no grad, for logging only
+
+                # ── Large-block feature distillation ─────────────────────────
+                # Compare normalized intermediate block outputs at the same
+                # timestep.  Shapes that changed after pruning fall back to a
+                # channel-agnostic spatial energy map inside normalized_feature_mse.
+                if student_feature_registry is not None and t_feat_maps:
+                    step_feat = torch.zeros(1, device=device, dtype=torch.float32)
+                    n_feat = 0
+                    for key in args.feat_layers:
+                        if key in student_feature_registry.captured and key in t_feat_maps:
+                            step_feat = step_feat + normalized_feature_mse(
+                                student_feature_registry.captured[key],
+                                t_feat_maps[key].to(device),
+                            )
+                            n_feat += 1
+                    if n_feat > 0:
+                        step_feat = step_feat / n_feat
+                        feat_t_key = f"f{t_key}"
+                        if feat_t_key not in ema_feat_per_t:
+                            ema_feat_per_t[feat_t_key] = step_feat.item()
+                        else:
+                            ema_feat_per_t[feat_t_key] = (
+                                args.ema_norm_decay * ema_feat_per_t[feat_t_key]
+                                + (1.0 - args.ema_norm_decay) * step_feat.item()
+                            )
+                        norm_feat = step_feat / (ema_feat_per_t[feat_t_key] + 1e-8)
+                        total_feat_loss = total_feat_loss + norm_feat * args.lambda_feat
+                        total_raw_feat += step_feat.item()
 
                 # ── Attention map loss ────────────────────────────────────────
                 # MSE between student and teacher head-averaged attention maps,
@@ -815,7 +959,7 @@ def main():
             # Dividing by grad_accum_steps keeps gradient magnitude consistent with
             # a single-step update — gradients accumulate additively over N batches.
             loss = (
-                (total_loss + total_attn_loss) / len(ts_schedule)
+                (total_loss * args.lambda_pred + total_feat_loss + total_attn_loss) / len(ts_schedule)
             ) / args.grad_accum_steps
 
             # ── NaN guard ─────────────────────────────────────────────────────
@@ -860,6 +1004,7 @@ def main():
             loss_val      = loss.item() * args.grad_accum_steps
             raw_loss_val  = total_raw_loss / len(ts_schedule)
             raw_attn_val  = total_raw_attn  / len(ts_schedule) if use_attn_distill else 0.0
+            raw_feat_val  = total_raw_feat  / len(ts_schedule) if use_feat_distill else 0.0
             running_loss += loss_val
 
             # ── Logging ───────────────────────────────────────────────────────
@@ -868,9 +1013,10 @@ def main():
                 step_time = time.time() - step_t
                 eta       = step_time * (total_steps - global_step)
                 attn_str  = f" attn={raw_attn_val:.5f}" if use_attn_distill else ""
+                feat_str  = f" feat={raw_feat_val:.5f}" if use_feat_distill else ""
                 log.info(
                     f"[{phase_name}] {global_step}/{total_steps} | "
-                    f"loss={loss_val:.6f} raw={raw_loss_val:.6f}{attn_str} n={_n_steps} | "
+                    f"loss={loss_val:.6f} raw={raw_loss_val:.6f}{feat_str}{attn_str} n={_n_steps} | "
                     f"lr={optimizer.param_groups[0]['lr']:.2e} | "
                     f"{step_time:.2f}s/it | elapsed={elapsed/3600:.2f}h ETA={eta/3600:.2f}h"
                 )
@@ -913,6 +1059,10 @@ def main():
         student_registry.restore(student_unet)
     if teacher_registry is not None and teacher_unet is not None:
         teacher_registry.restore(teacher_unet)
+    if student_feature_registry is not None:
+        student_feature_registry.remove()
+    if teacher_feature_registry is not None:
+        teacher_feature_registry.remove()
 
     log.info(f"\nDone: {global_step} steps, {(time.time()-t_start)/3600:.2f}h, avg_loss={avg_loss:.6f}")
     log.info(f"Final model (EMA): {final_path}")

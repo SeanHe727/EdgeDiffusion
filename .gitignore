@@ -1,36 +1,41 @@
-# Python
+# ignore venv
 __pycache__/
 *.py[cod]
-*.egg-info/
-.venv/
-venv/
+.venv
 env/
-
-# Model weights and caches (use HF hub instead)
-*.safetensors
+venv/
+.env
 *.pt
-*.pth
-*.bin
-*.ckpt
-*.onnx
-.hf_cache/
-.tmp/
-
-# Output directories (kept on HF / regenerated locally)
-mp_quant/output/
-prune/output/
-prune/models/
-quantize/output/
 models/
-
-# Training / experiment artifacts
-wandb/
-logs/
-*.log
-
-# IDE / OS
+# ignore ide configs
 .vscode/
 .idea/
-.DS_Store
-Thumbs.db
-*.swp
+# ignore model files and large binaries
+data/
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.h5
+*.ckpt
+*.onnx
+*.pb
+*.model
+*.rknn
+models/
+large_data/
+output/
+wandb/
+prune/training_dataset_lite/
+training_dataset/training_dataset/
+training_dataset/
+models/
+.hf_cache/
+.tmp/
+# dataset: track only .txt prompts, not images or annotation zips
+calib_npy_b2/*.npy
+dataset/*.jpg
+dataset/*.jpeg
+dataset/*.png
+dataset/*.zip
+dataset/annotations_cache/

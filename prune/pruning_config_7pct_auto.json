@@ -1,0 +1,29 @@
+{
+  "method": "sensitivity_threshold_auto",
+  "description": "7% pruning. Auto-generated via sensitivity threshold=2.6724. Attention: mid_block only. All blocks SA-driven.",
+  "total_params_M": 689.04,
+  "threshold": 2.6724,
+  "configs": {
+    "7%": {
+      "target": 0.07,
+      "actual": 0.0713,
+      "params_removed_M": 49.1,
+      "strategy": "sensitivity_threshold_auto",
+      "sensitivity_threshold": 2.6724,
+      "attention_config": "hardcoded_per_head",
+      "protected_blocks": [],
+      "per_block": {
+        "down_blocks.3": {
+          "resnet": 0.4
+        },
+        "up_blocks.0": {
+          "resnet": 0.3
+        },
+        "mid_block": {
+          "ffn": 0.6,
+          "resnet": 0.6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+A clock displaying the time in a passenger bus.

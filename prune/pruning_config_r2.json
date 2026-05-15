@@ -1,0 +1,51 @@
+{
+  "method": "sensitivity_threshold_auto",
+  "description": "8% pruning. Auto-generated via sensitivity threshold=2.8748. Attention hardcoded (per-head). D0/U3 protected for INT8.",
+  "total_params_M": 858.49,
+  "threshold": 2.8748,
+  "configs": {
+    "8%": {
+      "target": 0.08,
+      "actual": 0.0786,
+      "params_removed_M": 67.5,
+      "strategy": "sensitivity_threshold_auto",
+      "sensitivity_threshold": 2.8748,
+      "attention_config": "hardcoded_per_head",
+      "protected_blocks": [
+        "down_blocks.0",
+        "up_blocks.3"
+      ],
+      "per_block": {
+        "down_blocks.0": {
+          "cross_attn": 0.125
+        },
+        "down_blocks.1": {
+          "cross_attn": 0.125
+        },
+        "down_blocks.2": {
+          "self_attn": 0.125,
+          "cross_attn": 0.25
+        },
+        "down_blocks.3": {
+          "resnet": 0.1
+        },
+        "mid_block": {
+          "resnet": 0.3,
+          "self_attn": 0.25,
+          "cross_attn": 0.25,
+          "ffn": 0.6
+        },
+        "up_blocks.1": {
+          "self_attn": 0.125,
+          "cross_attn": 0.25
+        },
+        "up_blocks.2": {
+          "cross_attn": 0.125
+        },
+        "up_blocks.3": {
+          "cross_attn": 0.125
+        }
+      }
+    }
+  }
+}

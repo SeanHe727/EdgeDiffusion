@@ -1,0 +1,65 @@
+{
+  "recipes": {
+    "fp16": {
+      "file_size_mb": 1224.2,
+      "median_inference_sec": 0.17,
+      "per_prompt_sec": [
+        0.17,
+        0.172,
+        0.169,
+        0.17,
+        0.171,
+        0.169,
+        0.169,
+        0.17
+      ],
+      "peak_vram_gb": 2.64
+    },
+    "int8_weight_only": {
+      "file_size_mb": 994.2,
+      "median_inference_sec": 0.173,
+      "per_prompt_sec": [
+        0.174,
+        0.172,
+        0.173,
+        0.172,
+        0.174,
+        0.172,
+        0.175,
+        0.173
+      ],
+      "peak_vram_gb": 2.41
+    },
+    "int8_dynamic": {
+      "file_size_mb": 992.4,
+      "error": "RuntimeError: self.size(0) needs to be greater than 16, but got 1"
+    },
+    "fp8_dynamic": {
+      "file_size_mb": 992.0,
+      "error": "AssertionError: "
+    },
+    "int4_weight_only": {
+      "file_size_mb": 953.9,
+      "error": "AssertionError: "
+    }
+  },
+  "prompts": [
+    "a photo of a tabby cat sitting on a wooden chair, sharp focus",
+    "a portrait of a young woman with red hair, studio lighting",
+    "an oil painting of a stormy ocean at sunset, dramatic clouds",
+    "a futuristic city skyline at night, neon lights, cyberpunk",
+    "a close-up of a red apple with water droplets, macro photography",
+    "a golden retriever puppy running in a meadow, motion blur",
+    "a coffee shop interior with warm lighting, plants, books",
+    "a fantasy castle on a mountain, mist, soft light"
+  ],
+  "config": {
+    "steps": 4,
+    "guidance": 0.0,
+    "resolution": 512,
+    "seed": 42,
+    "base_name": "EdgeDiffusion_distilled_feat_attn_distill_final",
+    "base_model": "stabilityai/sd-turbo",
+    "compile": true
+  }
+}

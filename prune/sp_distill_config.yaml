@@ -21,8 +21,8 @@ dataset:     dataset      # directory of .txt prompt files
 max_samples: 5000         # prompts loaded into dataset (shuffled, seed=42)
 
 # ── Output ────────────────────────────────────────────────────────────────────
-output_dir:           models/distill_2steps_5k          # checkpoints saved here
-save_every:           1000                        # save checkpoint every N steps
+output_dir:           models/distill_feat_4steps_2h      # checkpoints saved here
+save_every:           300                         # save checkpoint every N steps
 keep_checkpoints:     3                           # max checkpoints to keep on disk
 log_every:            20                          # log loss/lr every N steps
 
@@ -30,10 +30,10 @@ log_every:            20                          # log loss/lr every N steps
 resolution:      512
 
 # Main: primary quality recovery
-main_steps:      4000  # short-term: 1500  |  full: 45000
+main_steps:      1200  # ~2h smoke test on G5 with live teacher + feature hooks
 
 # Finetune: low LR final polish (set to 0 to skip)
-finetune_steps:  1000   # short-term: 500   |  full: 5000
+finetune_steps:  0      # disabled for the short feature-loss test
 
 # ── Optimizer ─────────────────────────────────────────────────────────────────
 lr_max:          2.0e-5   # peak learning rate (5e-5 is too aggressive for distillation recovery)
@@ -44,14 +44,16 @@ weight_decay:    0.01
 grad_clip:       1.0      # gradient norm clip
 
 # ── Loss ──────────────────────────────────────────────────────────────────────
+lambda_pred:      0.1     # prediction loss is now an anchor; feature loss is the main distillation signal
 lambda_l1:        0.1     # weight of L1 term alongside MSE — preserves high-frequency detail
                           # MSE alone blurs by averaging; L1 penalises all deviations equally
+lambda_feat:      1.0     # normalized large-block feature distillation weight
 
 # ── Training details ──────────────────────────────────────────────────────────
 batch_size:       1       # cache mode: teacher off GPU, bs=2 fits in VRAM
 grad_accum_steps: 4       # accumulate over N batches before optimizer.step() → effective_bs=4
-n_steps_min:      2       # fixed 4-step inference — consistent timestep schedule [999,749,499,249]
-n_steps_max:      2       # same as min = fixed steps (set min<max to re-enable randomness)
+n_steps_min:      4       # fixed 4-step inference — consistent timestep schedule [999,749,499,249]
+n_steps_max:      4       # same as min = fixed steps (set min<max to re-enable randomness)
 num_workers:      2       # DataLoader workers
 gc_every:         200     # run torch/python GC every N steps
 
@@ -71,7 +73,7 @@ ema_norm_decay:   0.99    # per-timestep loss normalisation EMA — smooths out 
 
 teacher_cache_dir:  null    # path to pre-computed cache dir, or null to run teacher live
 
-lambda_attn:        0.05    # attention map MSE loss weight (relative to EMA-normalised pred loss)
+lambda_attn:        0.0     # disabled for the feature-loss baseline
                             # 0.02 = conservative start; increase to 0.05 if attn loss is stable
 attn_warmup_steps:  500     # ramp lambda_attn from 0 → target over this many optimizer steps
 
@@ -84,3 +86,17 @@ attn_layers:
   - up_blocks.1.attentions.0.transformer_blocks.0.attn2
   - up_blocks.2.attentions.0.transformer_blocks.0.attn1
   - up_blocks.2.attentions.0.transformer_blocks.0.attn2
+
+# ── Large Block Feature Distillation ─────────────────────────────────────────
+# Each layer output is normalized before MSE.  If pruning changes channel count,
+# the script falls back to a normalized spatial energy map for that block.
+feat_layers:
+  - down_blocks.0
+  - down_blocks.1
+  - down_blocks.2
+  - down_blocks.3
+  - mid_block
+  - up_blocks.0
+  - up_blocks.1
+  - up_blocks.2
+  - up_blocks.3

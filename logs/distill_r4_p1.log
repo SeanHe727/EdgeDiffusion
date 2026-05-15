@@ -1,0 +1,1313 @@
+/opt/pytorch/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Run config: /opt/dlami/nvme/model-compression-toolkit/prune/sp_distill_config.yaml
+2026-04-20 05:32:19,947 Distillation: Main=8000 + Finetune=2000 = 10000 total @ 512px
+2026-04-20 05:32:19,947 LR: 2e-05 -> 1e-06, warmup=100
+2026-04-20 05:32:19,947 Loss: MSE + 0.1 * L1  |  Timestep normalisation EMA decay=0.99
+2026-04-20 05:32:19,947 Batch: 2 × grad_accum=2 → effective_bs=4
+2026-04-20 05:32:19,947 Model EMA decay=0.999
+2026-04-20 05:32:19,947 Base model: models/sd-turbo  |  Student: models/distill_r4/distill_final.safetensors
+2026-04-20 05:32:19,947 Cache mode ON: teacher UNet will be offloaded from GPU — cache: teacher_cache
+2026-04-20 05:32:19,947 Attn distillation ON: λ=0.05, warmup=500, layers=8
+2026-04-20 05:32:19,947 Loading teacher pipeline...
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s][0;93m2026-04-20 05:32:28.872793120 [W:onnxruntime:Default, device_discovery.cc:211 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:91 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:01,  3.18it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:10<00:07,  3.95s/it]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:   0%|          | 1/372 [00:00<00:00, 9320.68it/s, Materializing param=text_model.embeddings.position_embedding.weight][A
+Loading weights:   0%|          | 1/372 [00:00<00:00, 4578.93it/s, Materializing param=text_model.embeddings.position_embedding.weight][A
+Loading weights:   1%|          | 2/372 [00:00<00:00, 2775.85it/s, Materializing param=text_model.embeddings.token_embedding.weight]   [A
+Loading weights:   1%|          | 2/372 [00:00<00:00, 2429.37it/s, Materializing param=text_model.embeddings.token_embedding.weight][A
+Loading weights:   1%|          | 3/372 [00:01<03:22,  1.82it/s, Materializing param=text_model.embeddings.token_embedding.weight]  [A
+Loading weights:   1%|          | 3/372 [00:01<03:22,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.bias][A
+Loading weights:   1%|          | 3/372 [00:01<03:22,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.bias][A
+Loading weights:   1%|          | 4/372 [00:01<03:21,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.weight][A
+Loading weights:   1%|          | 4/372 [00:01<03:21,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.weight][A
+Loading weights:   1%|▏         | 5/372 [00:01<03:21,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.bias]  [A
+Loading weights:   1%|▏         | 5/372 [00:01<03:21,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.bias][A
+Loading weights:   2%|▏         | 6/372 [00:01<03:20,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.weight][A
+Loading weights:   2%|▏         | 6/372 [00:01<03:20,  1.82it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.weight][A
+Loading weights:   2%|▏         | 7/372 [00:01<03:20,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.bias]      [A
+Loading weights:   2%|▏         | 7/372 [00:01<03:20,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.bias][A
+Loading weights:   2%|▏         | 8/372 [00:01<03:19,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.weight][A
+Loading weights:   2%|▏         | 8/372 [00:01<03:19,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.weight][A
+Loading weights:   2%|▏         | 9/372 [00:01<03:19,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.bias]  [A
+Loading weights:   2%|▏         | 9/372 [00:01<03:19,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.bias][A
+Loading weights:   3%|▎         | 10/372 [00:01<03:18,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.weight][A
+Loading weights:   3%|▎         | 10/372 [00:01<03:18,  1.82it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.weight][A
+Loading weights:   3%|▎         | 11/372 [00:01<03:18,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.bias][A
+Loading weights:   3%|▎         | 11/372 [00:01<03:18,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.bias][A
+Loading weights:   3%|▎         | 12/372 [00:01<03:17,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.weight][A
+Loading weights:   3%|▎         | 12/372 [00:01<03:17,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.weight][A
+Loading weights:   3%|▎         | 13/372 [00:01<03:16,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.bias][A
+Loading weights:   3%|▎         | 13/372 [00:01<03:16,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.bias][A
+Loading weights:   4%|▍         | 14/372 [00:01<03:16,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.weight][A
+Loading weights:   4%|▍         | 14/372 [00:01<03:16,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.weight][A
+Loading weights:   4%|▍         | 15/372 [00:01<03:15,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.bias]    [A
+Loading weights:   4%|▍         | 15/372 [00:01<03:15,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.bias][A
+Loading weights:   4%|▍         | 16/372 [00:01<03:15,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.weight][A
+Loading weights:   4%|▍         | 16/372 [00:01<03:15,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.weight][A
+Loading weights:   5%|▍         | 17/372 [00:01<03:14,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.bias]  [A
+Loading weights:   5%|▍         | 17/372 [00:01<03:14,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.bias][A
+Loading weights:   5%|▍         | 18/372 [00:01<03:14,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.weight][A
+Loading weights:   5%|▍         | 18/372 [00:01<03:14,  1.82it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.weight][A
+Loading weights:   5%|▌         | 19/372 [00:01<03:13,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.bias]       [A
+Loading weights:   5%|▌         | 19/372 [00:01<03:13,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.bias][A
+Loading weights:   5%|▌         | 20/372 [00:01<03:13,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.weight][A
+Loading weights:   5%|▌         | 20/372 [00:01<03:13,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.weight][A
+Loading weights:   6%|▌         | 21/372 [00:01<03:12,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.bias]  [A
+Loading weights:   6%|▌         | 21/372 [00:01<03:12,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.bias][A
+Loading weights:   6%|▌         | 22/372 [00:01<03:12,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.weight][A
+Loading weights:   6%|▌         | 22/372 [00:01<03:12,  1.82it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.weight][A
+Loading weights:   6%|▌         | 23/372 [00:01<03:11,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.bias]      [A
+Loading weights:   6%|▌         | 23/372 [00:01<03:11,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.bias][A
+Loading weights:   6%|▋         | 24/372 [00:01<03:10,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.weight][A
+Loading weights:   6%|▋         | 24/372 [00:01<03:10,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.weight][A
+Loading weights:   7%|▋         | 25/372 [00:01<03:10,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.bias]  [A
+Loading weights:   7%|▋         | 25/372 [00:01<03:10,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.bias][A
+Loading weights:   7%|▋         | 26/372 [00:01<03:09,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.weight][A
+Loading weights:   7%|▋         | 26/372 [00:01<03:09,  1.82it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.weight][A
+Loading weights:   7%|▋         | 27/372 [00:01<03:09,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.bias][A
+Loading weights:   7%|▋         | 27/372 [00:01<03:09,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.bias][A
+Loading weights:   8%|▊         | 28/372 [00:01<03:08,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.weight][A
+Loading weights:   8%|▊         | 28/372 [00:01<03:08,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.weight][A
+Loading weights:   8%|▊         | 29/372 [00:01<03:08,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.bias][A
+Loading weights:   8%|▊         | 29/372 [00:01<03:08,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.bias][A
+Loading weights:   8%|▊         | 30/372 [00:01<03:07,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.weight][A
+Loading weights:   8%|▊         | 30/372 [00:01<03:07,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.weight][A
+Loading weights:   8%|▊         | 31/372 [00:01<03:07,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.bias]    [A
+Loading weights:   8%|▊         | 31/372 [00:01<03:07,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.bias][A
+Loading weights:   9%|▊         | 32/372 [00:01<03:06,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.weight][A
+Loading weights:   9%|▊         | 32/372 [00:01<03:06,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.weight][A
+Loading weights:   9%|▉         | 33/372 [00:01<03:06,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.bias]  [A
+Loading weights:   9%|▉         | 33/372 [00:01<03:06,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.bias][A
+Loading weights:   9%|▉         | 34/372 [00:01<03:05,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.weight][A
+Loading weights:   9%|▉         | 34/372 [00:01<03:05,  1.82it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.weight][A
+Loading weights:   9%|▉         | 35/372 [00:01<03:04,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.bias]       [A
+Loading weights:   9%|▉         | 35/372 [00:01<03:04,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.bias][A
+Loading weights:  10%|▉         | 36/372 [00:01<03:04,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.weight][A
+Loading weights:  10%|▉         | 36/372 [00:01<03:04,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.weight][A
+Loading weights:  10%|▉         | 37/372 [00:01<03:03,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.bias]  [A
+Loading weights:  10%|▉         | 37/372 [00:01<03:03,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.bias][A
+Loading weights:  10%|█         | 38/372 [00:01<03:03,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.weight][A
+Loading weights:  10%|█         | 38/372 [00:01<03:03,  1.82it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.weight][A
+Loading weights:  10%|█         | 39/372 [00:01<03:02,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.bias]      [A
+Loading weights:  10%|█         | 39/372 [00:01<03:02,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.bias][A
+Loading weights:  11%|█         | 40/372 [00:01<03:02,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.weight][A
+Loading weights:  11%|█         | 40/372 [00:01<03:02,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.weight][A
+Loading weights:  11%|█         | 41/372 [00:01<03:01,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.bias]  [A
+Loading weights:  11%|█         | 41/372 [00:01<03:01,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.bias][A
+Loading weights:  11%|█▏        | 42/372 [00:01<03:01,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.weight][A
+Loading weights:  11%|█▏        | 42/372 [00:01<03:01,  1.82it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.weight][A
+Loading weights:  12%|█▏        | 43/372 [00:01<03:00,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.bias][A
+Loading weights:  12%|█▏        | 43/372 [00:01<03:00,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.bias][A
+Loading weights:  12%|█▏        | 44/372 [00:01<02:59,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.weight][A
+Loading weights:  12%|█▏        | 44/372 [00:01<02:59,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.weight][A
+Loading weights:  12%|█▏        | 45/372 [00:01<02:59,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.bias][A
+Loading weights:  12%|█▏        | 45/372 [00:01<02:59,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.bias][A
+Loading weights:  12%|█▏        | 46/372 [00:01<02:58,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.weight][A
+Loading weights:  12%|█▏        | 46/372 [00:01<02:58,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.weight][A
+Loading weights:  13%|█▎        | 47/372 [00:01<02:58,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.bias]    [A
+Loading weights:  13%|█▎        | 47/372 [00:01<02:58,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.bias][A
+Loading weights:  13%|█▎        | 48/372 [00:01<02:57,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.weight][A
+Loading weights:  13%|█▎        | 48/372 [00:01<02:57,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.weight][A
+Loading weights:  13%|█▎        | 49/372 [00:01<02:57,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.bias]  [A
+Loading weights:  13%|█▎        | 49/372 [00:01<02:57,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.bias][A
+Loading weights:  13%|█▎        | 50/372 [00:01<02:56,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.weight][A
+Loading weights:  13%|█▎        | 50/372 [00:01<02:56,  1.82it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.weight][A
+Loading weights:  14%|█▎        | 51/372 [00:01<02:56,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.bias]       [A
+Loading weights:  14%|█▎        | 51/372 [00:01<02:56,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.bias][A
+Loading weights:  14%|█▍        | 52/372 [00:01<02:55,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.weight][A
+Loading weights:  14%|█▍        | 52/372 [00:01<02:55,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.weight][A
+Loading weights:  14%|█▍        | 53/372 [00:01<02:55,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.bias]  [A
+Loading weights:  14%|█▍        | 53/372 [00:01<02:55,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.bias][A
+Loading weights:  15%|█▍        | 54/372 [00:01<02:54,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.weight][A
+Loading weights:  15%|█▍        | 54/372 [00:01<02:54,  1.82it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.weight][A
+Loading weights:  15%|█▍        | 55/372 [00:01<02:53,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.bias]      [A
+Loading weights:  15%|█▍        | 55/372 [00:01<02:53,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.bias][A
+Loading weights:  15%|█▌        | 56/372 [00:01<02:53,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.weight][A
+Loading weights:  15%|█▌        | 56/372 [00:01<02:53,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.weight][A
+Loading weights:  15%|█▌        | 57/372 [00:01<02:52,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.bias]  [A
+Loading weights:  15%|█▌        | 57/372 [00:01<02:52,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.bias][A
+Loading weights:  16%|█▌        | 58/372 [00:01<02:52,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.weight][A
+Loading weights:  16%|█▌        | 58/372 [00:01<02:52,  1.82it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.weight][A
+Loading weights:  16%|█▌        | 59/372 [00:01<02:51,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.bias][A
+Loading weights:  16%|█▌        | 59/372 [00:01<02:51,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.bias][A
+Loading weights:  16%|█▌        | 60/372 [00:01<02:51,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.weight][A
+Loading weights:  16%|█▌        | 60/372 [00:01<02:51,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.weight][A
+Loading weights:  16%|█▋        | 61/372 [00:01<02:50,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.bias][A
+Loading weights:  16%|█▋        | 61/372 [00:01<02:50,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.bias][A
+Loading weights:  17%|█▋        | 62/372 [00:01<02:50,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.weight][A
+Loading weights:  17%|█▋        | 62/372 [00:01<02:50,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.weight][A
+Loading weights:  17%|█▋        | 63/372 [00:01<02:49,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.bias]    [A
+Loading weights:  17%|█▋        | 63/372 [00:01<02:49,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.bias][A
+Loading weights:  17%|█▋        | 64/372 [00:01<02:48,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.weight][A
+Loading weights:  17%|█▋        | 64/372 [00:01<02:48,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.weight][A
+Loading weights:  17%|█▋        | 65/372 [00:01<02:48,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.bias]  [A
+Loading weights:  17%|█▋        | 65/372 [00:01<02:48,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.bias][A
+Loading weights:  18%|█▊        | 66/372 [00:01<02:47,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.weight][A
+Loading weights:  18%|█▊        | 66/372 [00:01<02:47,  1.82it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.weight][A
+Loading weights:  18%|█▊        | 67/372 [00:01<02:47,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.bias]       [A
+Loading weights:  18%|█▊        | 67/372 [00:01<02:47,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.bias][A
+Loading weights:  18%|█▊        | 68/372 [00:01<02:46,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.weight][A
+Loading weights:  18%|█▊        | 68/372 [00:01<02:46,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.weight][A
+Loading weights:  19%|█▊        | 69/372 [00:01<02:46,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.bias]  [A
+Loading weights:  19%|█▊        | 69/372 [00:01<02:46,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.bias][A
+Loading weights:  19%|█▉        | 70/372 [00:01<02:45,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.weight][A
+Loading weights:  19%|█▉        | 70/372 [00:01<02:45,  1.82it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.weight][A
+Loading weights:  19%|█▉        | 71/372 [00:01<02:45,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.bias]      [A
+Loading weights:  19%|█▉        | 71/372 [00:01<02:45,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.bias][A
+Loading weights:  19%|█▉        | 72/372 [00:01<02:44,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.weight][A
+Loading weights:  19%|█▉        | 72/372 [00:01<02:44,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.weight][A
+Loading weights:  20%|█▉        | 73/372 [00:01<02:44,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.bias]  [A
+Loading weights:  20%|█▉        | 73/372 [00:01<02:44,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.bias][A
+Loading weights:  20%|█▉        | 74/372 [00:01<02:43,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.weight][A
+Loading weights:  20%|█▉        | 74/372 [00:01<02:43,  1.82it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.weight][A
+Loading weights:  20%|██        | 75/372 [00:01<02:42,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.bias][A
+Loading weights:  20%|██        | 75/372 [00:01<02:42,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.bias][A
+Loading weights:  20%|██        | 76/372 [00:01<02:42,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.weight][A
+Loading weights:  20%|██        | 76/372 [00:01<02:42,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.weight][A
+Loading weights:  21%|██        | 77/372 [00:01<02:41,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.bias][A
+Loading weights:  21%|██        | 77/372 [00:01<02:41,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.bias][A
+Loading weights:  21%|██        | 78/372 [00:01<02:41,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.weight][A
+Loading weights:  21%|██        | 78/372 [00:01<02:41,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.weight][A
+Loading weights:  21%|██        | 79/372 [00:01<02:40,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.bias]    [A
+Loading weights:  21%|██        | 79/372 [00:01<02:40,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.bias][A
+Loading weights:  22%|██▏       | 80/372 [00:01<02:40,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.weight][A
+Loading weights:  22%|██▏       | 80/372 [00:01<02:40,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.weight][A
+Loading weights:  22%|██▏       | 81/372 [00:01<02:39,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.bias]  [A
+Loading weights:  22%|██▏       | 81/372 [00:01<02:39,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.bias][A
+Loading weights:  22%|██▏       | 82/372 [00:01<02:39,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.weight][A
+Loading weights:  22%|██▏       | 82/372 [00:01<02:39,  1.82it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.weight][A
+Loading weights:  22%|██▏       | 83/372 [00:01<02:38,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.bias]       [A
+Loading weights:  22%|██▏       | 83/372 [00:01<02:38,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.bias][A
+Loading weights:  23%|██▎       | 84/372 [00:01<02:38,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.weight][A
+Loading weights:  23%|██▎       | 84/372 [00:01<02:38,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.weight][A
+Loading weights:  23%|██▎       | 85/372 [00:01<02:37,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.bias]  [A
+Loading weights:  23%|██▎       | 85/372 [00:01<02:37,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.bias][A
+Loading weights:  23%|██▎       | 86/372 [00:01<02:36,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.weight][A
+Loading weights:  23%|██▎       | 86/372 [00:01<02:36,  1.82it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.weight][A
+Loading weights:  23%|██▎       | 87/372 [00:01<02:36,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.bias]      [A
+Loading weights:  23%|██▎       | 87/372 [00:01<02:36,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.bias][A
+Loading weights:  24%|██▎       | 88/372 [00:01<02:35,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.weight][A
+Loading weights:  24%|██▎       | 88/372 [00:01<02:35,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.weight][A
+Loading weights:  24%|██▍       | 89/372 [00:01<02:35,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.bias]  [A
+Loading weights:  24%|██▍       | 89/372 [00:01<02:35,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.bias][A
+Loading weights:  24%|██▍       | 90/372 [00:01<02:34,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.weight][A
+Loading weights:  24%|██▍       | 90/372 [00:01<02:34,  1.82it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.weight][A
+Loading weights:  24%|██▍       | 91/372 [00:01<02:34,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.bias][A
+Loading weights:  24%|██▍       | 91/372 [00:01<02:34,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.bias][A
+Loading weights:  25%|██▍       | 92/372 [00:01<02:33,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.weight][A
+Loading weights:  25%|██▍       | 92/372 [00:01<02:33,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.weight][A
+Loading weights:  25%|██▌       | 93/372 [00:01<02:33,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.bias][A
+Loading weights:  25%|██▌       | 93/372 [00:01<02:33,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.bias][A
+Loading weights:  25%|██▌       | 94/372 [00:01<02:32,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.weight][A
+Loading weights:  25%|██▌       | 94/372 [00:01<02:32,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.weight][A
+Loading weights:  26%|██▌       | 95/372 [00:01<02:31,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.bias]    [A
+Loading weights:  26%|██▌       | 95/372 [00:01<02:31,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.bias][A
+Loading weights:  26%|██▌       | 96/372 [00:01<02:31,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.weight][A
+Loading weights:  26%|██▌       | 96/372 [00:01<02:31,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.weight][A
+Loading weights:  26%|██▌       | 97/372 [00:01<02:30,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.bias]  [A
+Loading weights:  26%|██▌       | 97/372 [00:01<02:30,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.bias][A
+Loading weights:  26%|██▋       | 98/372 [00:01<02:30,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.weight][A
+Loading weights:  26%|██▋       | 98/372 [00:01<02:30,  1.82it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.weight][A
+Loading weights:  27%|██▋       | 99/372 [00:01<02:29,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.bias]       [A
+Loading weights:  27%|██▋       | 99/372 [00:01<02:29,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.bias][A
+Loading weights:  27%|██▋       | 100/372 [00:01<02:29,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.weight][A
+Loading weights:  27%|██▋       | 100/372 [00:01<02:29,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.weight][A
+Loading weights:  27%|██▋       | 101/372 [00:01<02:28,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.bias]  [A
+Loading weights:  27%|██▋       | 101/372 [00:01<02:28,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.bias][A
+Loading weights:  27%|██▋       | 102/372 [00:01<02:28,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.weight][A
+Loading weights:  27%|██▋       | 102/372 [00:01<02:28,  1.82it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.weight][A
+Loading weights:  28%|██▊       | 103/372 [00:01<02:27,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.bias]      [A
+Loading weights:  28%|██▊       | 103/372 [00:01<02:27,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.bias][A
+Loading weights:  28%|██▊       | 104/372 [00:01<02:27,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.weight][A
+Loading weights:  28%|██▊       | 104/372 [00:01<02:27,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.weight][A
+Loading weights:  28%|██▊       | 105/372 [00:01<02:26,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.bias]  [A
+Loading weights:  28%|██▊       | 105/372 [00:01<02:26,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.bias][A
+Loading weights:  28%|██▊       | 106/372 [00:01<02:25,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.weight][A
+Loading weights:  28%|██▊       | 106/372 [00:01<02:25,  1.82it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.weight][A
+Loading weights:  29%|██▉       | 107/372 [00:01<02:25,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.bias][A
+Loading weights:  29%|██▉       | 107/372 [00:01<02:25,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.bias][A
+Loading weights:  29%|██▉       | 108/372 [00:01<02:24,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.weight][A
+Loading weights:  29%|██▉       | 108/372 [00:01<02:24,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.weight][A
+Loading weights:  29%|██▉       | 109/372 [00:01<02:24,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.bias][A
+Loading weights:  29%|██▉       | 109/372 [00:01<02:24,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.bias][A
+Loading weights:  30%|██▉       | 110/372 [00:01<02:23,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.weight][A
+Loading weights:  30%|██▉       | 110/372 [00:01<02:23,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.weight][A
+Loading weights:  30%|██▉       | 111/372 [00:01<02:23,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.bias]    [A
+Loading weights:  30%|██▉       | 111/372 [00:01<02:23,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.bias][A
+Loading weights:  30%|███       | 112/372 [00:01<02:22,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.weight][A
+Loading weights:  30%|███       | 112/372 [00:01<02:22,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.weight][A
+Loading weights:  30%|███       | 113/372 [00:01<02:22,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.bias]  [A
+Loading weights:  30%|███       | 113/372 [00:01<02:22,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.bias][A
+Loading weights:  31%|███       | 114/372 [00:01<02:21,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.weight][A
+Loading weights:  31%|███       | 114/372 [00:01<02:21,  1.82it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.weight][A
+Loading weights:  31%|███       | 115/372 [00:01<02:21,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.bias]       [A
+Loading weights:  31%|███       | 115/372 [00:01<02:21,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.bias][A
+Loading weights:  31%|███       | 116/372 [00:01<02:20,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.weight][A
+Loading weights:  31%|███       | 116/372 [00:01<02:20,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.weight][A
+Loading weights:  31%|███▏      | 117/372 [00:01<02:19,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.bias]  [A
+Loading weights:  31%|███▏      | 117/372 [00:01<02:19,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.bias][A
+Loading weights:  32%|███▏      | 118/372 [00:01<02:19,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.weight][A
+Loading weights:  32%|███▏      | 118/372 [00:01<02:19,  1.82it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.weight][A
+Loading weights:  32%|███▏      | 119/372 [00:01<02:18,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.bias]      [A
+Loading weights:  32%|███▏      | 119/372 [00:01<02:18,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.bias][A
+Loading weights:  32%|███▏      | 120/372 [00:01<02:18,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.weight][A
+Loading weights:  32%|███▏      | 120/372 [00:01<02:18,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.weight][A
+Loading weights:  33%|███▎      | 121/372 [00:01<02:17,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.bias]  [A
+Loading weights:  33%|███▎      | 121/372 [00:01<02:17,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.bias][A
+Loading weights:  33%|███▎      | 122/372 [00:01<02:17,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.weight][A
+Loading weights:  33%|███▎      | 122/372 [00:01<02:17,  1.82it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.weight][A
+Loading weights:  33%|███▎      | 123/372 [00:01<02:16,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.bias][A
+Loading weights:  33%|███▎      | 123/372 [00:01<02:16,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.bias][A
+Loading weights:  33%|███▎      | 124/372 [00:01<02:16,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.weight][A
+Loading weights:  33%|███▎      | 124/372 [00:01<02:16,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.weight][A
+Loading weights:  34%|███▎      | 125/372 [00:01<02:15,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.bias][A
+Loading weights:  34%|███▎      | 125/372 [00:01<02:15,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.bias][A
+Loading weights:  34%|███▍      | 126/372 [00:01<02:14,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.weight][A
+Loading weights:  34%|███▍      | 126/372 [00:01<02:14,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.weight][A
+Loading weights:  34%|███▍      | 127/372 [00:01<02:14,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.bias]    [A
+Loading weights:  34%|███▍      | 127/372 [00:01<02:14,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.bias][A
+Loading weights:  34%|███▍      | 128/372 [00:01<02:13,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.weight][A
+Loading weights:  34%|███▍      | 128/372 [00:01<02:13,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.weight][A
+Loading weights:  35%|███▍      | 129/372 [00:01<02:13,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.bias]  [A
+Loading weights:  35%|███▍      | 129/372 [00:01<02:13,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.bias][A
+Loading weights:  35%|███▍      | 130/372 [00:01<02:12,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.weight][A
+Loading weights:  35%|███▍      | 130/372 [00:01<02:12,  1.82it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.weight][A
+Loading weights:  35%|███▌      | 131/372 [00:01<02:12,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.bias]       [A
+Loading weights:  35%|███▌      | 131/372 [00:01<02:12,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.bias][A
+Loading weights:  35%|███▌      | 132/372 [00:01<02:11,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.weight][A
+Loading weights:  35%|███▌      | 132/372 [00:01<02:11,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.weight][A
+Loading weights:  36%|███▌      | 133/372 [00:01<02:11,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.bias]  [A
+Loading weights:  36%|███▌      | 133/372 [00:01<02:11,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.bias][A
+Loading weights:  36%|███▌      | 134/372 [00:01<02:10,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.weight][A
+Loading weights:  36%|███▌      | 134/372 [00:01<02:10,  1.82it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.weight][A
+Loading weights:  36%|███▋      | 135/372 [00:01<02:10,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.bias]      [A
+Loading weights:  36%|███▋      | 135/372 [00:01<02:10,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.bias][A
+Loading weights:  37%|███▋      | 136/372 [00:01<02:09,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.weight][A
+Loading weights:  37%|███▋      | 136/372 [00:01<02:09,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.weight][A
+Loading weights:  37%|███▋      | 137/372 [00:01<02:08,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.bias]  [A
+Loading weights:  37%|███▋      | 137/372 [00:01<02:08,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.bias][A
+Loading weights:  37%|███▋      | 138/372 [00:01<02:08,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.weight][A
+Loading weights:  37%|███▋      | 138/372 [00:01<02:08,  1.82it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.weight][A
+Loading weights:  37%|███▋      | 139/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.weight][A
+Loading weights:  37%|███▋      | 139/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.bias][A
+Loading weights:  37%|███▋      | 139/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.bias][A
+Loading weights:  38%|███▊      | 140/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.weight][A
+Loading weights:  38%|███▊      | 140/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.weight][A
+Loading weights:  38%|███▊      | 141/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.bias][A
+Loading weights:  38%|███▊      | 141/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.bias][A
+Loading weights:  38%|███▊      | 142/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.weight][A
+Loading weights:  38%|███▊      | 142/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.weight][A
+Loading weights:  38%|███▊      | 143/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.bias]    [A
+Loading weights:  38%|███▊      | 143/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.bias][A
+Loading weights:  39%|███▊      | 144/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.weight][A
+Loading weights:  39%|███▊      | 144/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.weight][A
+Loading weights:  39%|███▉      | 145/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.bias]  [A
+Loading weights:  39%|███▉      | 145/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.bias][A
+Loading weights:  39%|███▉      | 146/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.weight][A
+Loading weights:  39%|███▉      | 146/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.weight][A
+Loading weights:  40%|███▉      | 147/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.bias]       [A
+Loading weights:  40%|███▉      | 147/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.bias][A
+Loading weights:  40%|███▉      | 148/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.weight][A
+Loading weights:  40%|███▉      | 148/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.weight][A
+Loading weights:  40%|████      | 149/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.bias]  [A
+Loading weights:  40%|████      | 149/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.bias][A
+Loading weights:  40%|████      | 150/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.weight][A
+Loading weights:  40%|████      | 150/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.weight][A
+Loading weights:  41%|████      | 151/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.bias]      [A
+Loading weights:  41%|████      | 151/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.bias][A
+Loading weights:  41%|████      | 152/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.weight][A
+Loading weights:  41%|████      | 152/372 [00:01<00:02, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.weight][A
+Loading weights:  41%|████      | 153/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.bias]  [A
+Loading weights:  41%|████      | 153/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.bias][A
+Loading weights:  41%|████▏     | 154/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.weight][A
+Loading weights:  41%|████▏     | 154/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.weight][A
+Loading weights:  42%|████▏     | 155/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.bias][A
+Loading weights:  42%|████▏     | 155/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.bias][A
+Loading weights:  42%|████▏     | 156/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.weight][A
+Loading weights:  42%|████▏     | 156/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.weight][A
+Loading weights:  42%|████▏     | 157/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.bias][A
+Loading weights:  42%|████▏     | 157/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.bias][A
+Loading weights:  42%|████▏     | 158/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.weight][A
+Loading weights:  42%|████▏     | 158/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.weight][A
+Loading weights:  43%|████▎     | 159/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.bias]    [A
+Loading weights:  43%|████▎     | 159/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.bias][A
+Loading weights:  43%|████▎     | 160/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.weight][A
+Loading weights:  43%|████▎     | 160/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.weight][A
+Loading weights:  43%|████▎     | 161/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.bias]  [A
+Loading weights:  43%|████▎     | 161/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.bias][A
+Loading weights:  44%|████▎     | 162/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.weight][A
+Loading weights:  44%|████▎     | 162/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.weight][A
+Loading weights:  44%|████▍     | 163/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.bias]      [A
+Loading weights:  44%|████▍     | 163/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.bias][A
+Loading weights:  44%|████▍     | 164/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.weight][A
+Loading weights:  44%|████▍     | 164/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.weight][A
+Loading weights:  44%|████▍     | 165/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.bias]  [A
+Loading weights:  44%|████▍     | 165/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.bias][A
+Loading weights:  45%|████▍     | 166/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.weight][A
+Loading weights:  45%|████▍     | 166/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.weight][A
+Loading weights:  45%|████▍     | 167/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.bias]      [A
+Loading weights:  45%|████▍     | 167/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.bias][A
+Loading weights:  45%|████▌     | 168/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.weight][A
+Loading weights:  45%|████▌     | 168/372 [00:01<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.weight][A
+Loading weights:  45%|████▌     | 169/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.bias]  [A
+Loading weights:  45%|████▌     | 169/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.bias][A
+Loading weights:  46%|████▌     | 170/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.weight][A
+Loading weights:  46%|████▌     | 170/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.weight][A
+Loading weights:  46%|████▌     | 171/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.bias][A
+Loading weights:  46%|████▌     | 171/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.bias][A
+Loading weights:  46%|████▌     | 172/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.weight][A
+Loading weights:  46%|████▌     | 172/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.weight][A
+Loading weights:  47%|████▋     | 173/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.bias][A
+Loading weights:  47%|████▋     | 173/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.bias][A
+Loading weights:  47%|████▋     | 174/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.weight][A
+Loading weights:  47%|████▋     | 174/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.weight][A
+Loading weights:  47%|████▋     | 175/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.bias]    [A
+Loading weights:  47%|████▋     | 175/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.bias][A
+Loading weights:  47%|████▋     | 176/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.weight][A
+Loading weights:  47%|████▋     | 176/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.weight][A
+Loading weights:  48%|████▊     | 177/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.bias]  [A
+Loading weights:  48%|████▊     | 177/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.bias][A
+Loading weights:  48%|████▊     | 178/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.weight][A
+Loading weights:  48%|████▊     | 178/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.weight][A
+Loading weights:  48%|████▊     | 179/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.bias]       [A
+Loading weights:  48%|████▊     | 179/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.bias][A
+Loading weights:  48%|████▊     | 180/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.weight][A
+Loading weights:  48%|████▊     | 180/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.weight][A
+Loading weights:  49%|████▊     | 181/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.bias]  [A
+Loading weights:  49%|████▊     | 181/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.bias][A
+Loading weights:  49%|████▉     | 182/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.weight][A
+Loading weights:  49%|████▉     | 182/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.weight][A
+Loading weights:  49%|████▉     | 183/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.bias]      [A
+Loading weights:  49%|████▉     | 183/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.bias][A
+Loading weights:  49%|████▉     | 184/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.weight][A
+Loading weights:  49%|████▉     | 184/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.weight][A
+Loading weights:  50%|████▉     | 185/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.bias]  [A
+Loading weights:  50%|████▉     | 185/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.bias][A
+Loading weights:  50%|█████     | 186/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.weight][A
+Loading weights:  50%|█████     | 186/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.weight][A
+Loading weights:  50%|█████     | 187/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.bias][A
+Loading weights:  50%|█████     | 187/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.bias][A
+Loading weights:  51%|█████     | 188/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.weight][A
+Loading weights:  51%|█████     | 188/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.weight][A
+Loading weights:  51%|█████     | 189/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.bias][A
+Loading weights:  51%|█████     | 189/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.bias][A
+Loading weights:  51%|█████     | 190/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.weight][A
+Loading weights:  51%|█████     | 190/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.weight][A
+Loading weights:  51%|█████▏    | 191/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.bias]    [A
+Loading weights:  51%|█████▏    | 191/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.bias][A
+Loading weights:  52%|█████▏    | 192/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.weight][A
+Loading weights:  52%|█████▏    | 192/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.weight][A
+Loading weights:  52%|█████▏    | 193/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.bias]  [A
+Loading weights:  52%|█████▏    | 193/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.bias][A
+Loading weights:  52%|█████▏    | 194/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.weight][A
+Loading weights:  52%|█████▏    | 194/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.weight][A
+Loading weights:  52%|█████▏    | 195/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.bias]       [A
+Loading weights:  52%|█████▏    | 195/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.bias][A
+Loading weights:  53%|█████▎    | 196/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.weight][A
+Loading weights:  53%|█████▎    | 196/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.weight][A
+Loading weights:  53%|█████▎    | 197/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.bias]  [A
+Loading weights:  53%|█████▎    | 197/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.bias][A
+Loading weights:  53%|█████▎    | 198/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.weight][A
+Loading weights:  53%|█████▎    | 198/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.weight][A
+Loading weights:  53%|█████▎    | 199/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.bias]      [A
+Loading weights:  53%|█████▎    | 199/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.bias][A
+Loading weights:  54%|█████▍    | 200/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.weight][A
+Loading weights:  54%|█████▍    | 200/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.weight][A
+Loading weights:  54%|█████▍    | 201/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.bias]  [A
+Loading weights:  54%|█████▍    | 201/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.bias][A
+Loading weights:  54%|█████▍    | 202/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.weight][A
+Loading weights:  54%|█████▍    | 202/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.weight][A
+Loading weights:  55%|█████▍    | 203/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.bias][A
+Loading weights:  55%|█████▍    | 203/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.bias][A
+Loading weights:  55%|█████▍    | 204/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.weight][A
+Loading weights:  55%|█████▍    | 204/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.weight][A
+Loading weights:  55%|█████▌    | 205/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.bias][A
+Loading weights:  55%|█████▌    | 205/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.bias][A
+Loading weights:  55%|█████▌    | 206/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.weight][A
+Loading weights:  55%|█████▌    | 206/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.weight][A
+Loading weights:  56%|█████▌    | 207/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.bias]    [A
+Loading weights:  56%|█████▌    | 207/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.bias][A
+Loading weights:  56%|█████▌    | 208/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.weight][A
+Loading weights:  56%|█████▌    | 208/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.weight][A
+Loading weights:  56%|█████▌    | 209/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.bias]  [A
+Loading weights:  56%|█████▌    | 209/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.bias][A
+Loading weights:  56%|█████▋    | 210/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.weight][A
+Loading weights:  56%|█████▋    | 210/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.weight][A
+Loading weights:  57%|█████▋    | 211/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.bias]       [A
+Loading weights:  57%|█████▋    | 211/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.bias][A
+Loading weights:  57%|█████▋    | 212/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.weight][A
+Loading weights:  57%|█████▋    | 212/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.weight][A
+Loading weights:  57%|█████▋    | 213/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.bias]  [A
+Loading weights:  57%|█████▋    | 213/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.bias][A
+Loading weights:  58%|█████▊    | 214/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.weight][A
+Loading weights:  58%|█████▊    | 214/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.weight][A
+Loading weights:  58%|█████▊    | 215/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.bias]      [A
+Loading weights:  58%|█████▊    | 215/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.bias][A
+Loading weights:  58%|█████▊    | 216/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.weight][A
+Loading weights:  58%|█████▊    | 216/372 [00:02<00:01, 109.98it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.weight][A
+Loading weights:  58%|█████▊    | 217/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.weight][A
+Loading weights:  58%|█████▊    | 217/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.bias]  [A
+Loading weights:  58%|█████▊    | 217/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.bias][A
+Loading weights:  59%|█████▊    | 218/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.weight][A
+Loading weights:  59%|█████▊    | 218/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.weight][A
+Loading weights:  59%|█████▉    | 219/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.bias][A
+Loading weights:  59%|█████▉    | 219/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.bias][A
+Loading weights:  59%|█████▉    | 220/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.weight][A
+Loading weights:  59%|█████▉    | 220/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.weight][A
+Loading weights:  59%|█████▉    | 221/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.bias][A
+Loading weights:  59%|█████▉    | 221/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.bias][A
+Loading weights:  60%|█████▉    | 222/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.weight][A
+Loading weights:  60%|█████▉    | 222/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.weight][A
+Loading weights:  60%|█████▉    | 223/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.bias]    [A
+Loading weights:  60%|█████▉    | 223/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.bias][A
+Loading weights:  60%|██████    | 224/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.weight][A
+Loading weights:  60%|██████    | 224/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.weight][A
+Loading weights:  60%|██████    | 225/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.bias]  [A
+Loading weights:  60%|██████    | 225/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.bias][A
+Loading weights:  61%|██████    | 226/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.weight][A
+Loading weights:  61%|██████    | 226/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.weight][A
+Loading weights:  61%|██████    | 227/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.bias]       [A
+Loading weights:  61%|██████    | 227/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.bias][A
+Loading weights:  61%|██████▏   | 228/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.weight][A
+Loading weights:  61%|██████▏   | 228/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.weight][A
+Loading weights:  62%|██████▏   | 229/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.bias]  [A
+Loading weights:  62%|██████▏   | 229/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.bias][A
+Loading weights:  62%|██████▏   | 230/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.weight][A
+Loading weights:  62%|██████▏   | 230/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.weight][A
+Loading weights:  62%|██████▏   | 231/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.bias]      [A
+Loading weights:  62%|██████▏   | 231/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.bias][A
+Loading weights:  62%|██████▏   | 232/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.weight][A
+Loading weights:  62%|██████▏   | 232/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.weight][A
+Loading weights:  63%|██████▎   | 233/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.bias]  [A
+Loading weights:  63%|██████▎   | 233/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.bias][A
+Loading weights:  63%|██████▎   | 234/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.weight][A
+Loading weights:  63%|██████▎   | 234/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.weight][A
+Loading weights:  63%|██████▎   | 235/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.bias][A
+Loading weights:  63%|██████▎   | 235/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.bias][A
+Loading weights:  63%|██████▎   | 236/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.weight][A
+Loading weights:  63%|██████▎   | 236/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.weight][A
+Loading weights:  64%|██████▎   | 237/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.bias][A
+Loading weights:  64%|██████▎   | 237/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.bias][A
+Loading weights:  64%|██████▍   | 238/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.weight][A
+Loading weights:  64%|██████▍   | 238/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.weight][A
+Loading weights:  64%|██████▍   | 239/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.bias]    [A
+Loading weights:  64%|██████▍   | 239/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.bias][A
+Loading weights:  65%|██████▍   | 240/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.weight][A
+Loading weights:  65%|██████▍   | 240/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.weight][A
+Loading weights:  65%|██████▍   | 241/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.bias]  [A
+Loading weights:  65%|██████▍   | 241/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.bias][A
+Loading weights:  65%|██████▌   | 242/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.weight][A
+Loading weights:  65%|██████▌   | 242/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.weight][A
+Loading weights:  65%|██████▌   | 243/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.bias]       [A
+Loading weights:  65%|██████▌   | 243/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.bias][A
+Loading weights:  66%|██████▌   | 244/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.weight][A
+Loading weights:  66%|██████▌   | 244/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.weight][A
+Loading weights:  66%|██████▌   | 245/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.bias]  [A
+Loading weights:  66%|██████▌   | 245/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.bias][A
+Loading weights:  66%|██████▌   | 246/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.weight][A
+Loading weights:  66%|██████▌   | 246/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.weight][A
+Loading weights:  66%|██████▋   | 247/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.bias]      [A
+Loading weights:  66%|██████▋   | 247/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.bias][A
+Loading weights:  67%|██████▋   | 248/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.weight][A
+Loading weights:  67%|██████▋   | 248/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.weight][A
+Loading weights:  67%|██████▋   | 249/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.bias]  [A
+Loading weights:  67%|██████▋   | 249/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.bias][A
+Loading weights:  67%|██████▋   | 250/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.weight][A
+Loading weights:  67%|██████▋   | 250/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.weight][A
+Loading weights:  67%|██████▋   | 251/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.bias][A
+Loading weights:  67%|██████▋   | 251/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.bias][A
+Loading weights:  68%|██████▊   | 252/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.weight][A
+Loading weights:  68%|██████▊   | 252/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.weight][A
+Loading weights:  68%|██████▊   | 253/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.bias][A
+Loading weights:  68%|██████▊   | 253/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.bias][A
+Loading weights:  68%|██████▊   | 254/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.weight][A
+Loading weights:  68%|██████▊   | 254/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.weight][A
+Loading weights:  69%|██████▊   | 255/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.bias]    [A
+Loading weights:  69%|██████▊   | 255/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.bias][A
+Loading weights:  69%|██████▉   | 256/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.weight][A
+Loading weights:  69%|██████▉   | 256/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.weight][A
+Loading weights:  69%|██████▉   | 257/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.bias]  [A
+Loading weights:  69%|██████▉   | 257/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.bias][A
+Loading weights:  69%|██████▉   | 258/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.weight][A
+Loading weights:  69%|██████▉   | 258/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.weight][A
+Loading weights:  70%|██████▉   | 259/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.bias]       [A
+Loading weights:  70%|██████▉   | 259/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.bias][A
+Loading weights:  70%|██████▉   | 260/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.weight][A
+Loading weights:  70%|██████▉   | 260/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.weight][A
+Loading weights:  70%|███████   | 261/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.bias]  [A
+Loading weights:  70%|███████   | 261/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.bias][A
+Loading weights:  70%|███████   | 262/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.weight][A
+Loading weights:  70%|███████   | 262/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.weight][A
+Loading weights:  71%|███████   | 263/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.bias]      [A
+Loading weights:  71%|███████   | 263/372 [00:02<00:01, 106.45it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.bias][A
+Loading weights:  71%|███████   | 264/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.bias][A
+Loading weights:  71%|███████   | 264/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.weight][A
+Loading weights:  71%|███████   | 264/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.weight][A
+Loading weights:  71%|███████   | 265/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.bias]  [A
+Loading weights:  71%|███████   | 265/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.bias][A
+Loading weights:  72%|███████▏  | 266/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.weight][A
+Loading weights:  72%|███████▏  | 266/372 [00:02<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.weight][A
+Loading weights:  72%|███████▏  | 267/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.bias][A
+Loading weights:  72%|███████▏  | 267/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.bias][A
+Loading weights:  72%|███████▏  | 268/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.weight][A
+Loading weights:  72%|███████▏  | 268/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.weight][A
+Loading weights:  72%|███████▏  | 269/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.bias][A
+Loading weights:  72%|███████▏  | 269/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.bias][A
+Loading weights:  73%|███████▎  | 270/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.weight][A
+Loading weights:  73%|███████▎  | 270/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.weight][A
+Loading weights:  73%|███████▎  | 271/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.bias]    [A
+Loading weights:  73%|███████▎  | 271/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.bias][A
+Loading weights:  73%|███████▎  | 272/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.weight][A
+Loading weights:  73%|███████▎  | 272/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.weight][A
+Loading weights:  73%|███████▎  | 273/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.bias]  [A
+Loading weights:  73%|███████▎  | 273/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.bias][A
+Loading weights:  74%|███████▎  | 274/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.weight][A
+Loading weights:  74%|███████▎  | 274/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.weight][A
+Loading weights:  74%|███████▍  | 275/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.bias]       [A
+Loading weights:  74%|███████▍  | 275/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.bias][A
+Loading weights:  74%|███████▍  | 276/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.weight][A
+Loading weights:  74%|███████▍  | 276/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.weight][A
+Loading weights:  74%|███████▍  | 277/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.bias]  [A
+Loading weights:  74%|███████▍  | 277/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.bias][A
+Loading weights:  75%|███████▍  | 278/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.weight][A
+Loading weights:  75%|███████▍  | 278/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.weight][A
+Loading weights:  75%|███████▌  | 279/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.bias]      [A
+Loading weights:  75%|███████▌  | 279/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.bias][A
+Loading weights:  75%|███████▌  | 280/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.weight][A
+Loading weights:  75%|███████▌  | 280/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.weight][A
+Loading weights:  76%|███████▌  | 281/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.bias]  [A
+Loading weights:  76%|███████▌  | 281/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.bias][A
+Loading weights:  76%|███████▌  | 282/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.weight][A
+Loading weights:  76%|███████▌  | 282/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.weight][A
+Loading weights:  76%|███████▌  | 283/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.bias][A
+Loading weights:  76%|███████▌  | 283/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.bias][A
+Loading weights:  76%|███████▋  | 284/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.weight][A
+Loading weights:  76%|███████▋  | 284/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.weight][A
+Loading weights:  77%|███████▋  | 285/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.bias][A
+Loading weights:  77%|███████▋  | 285/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.bias][A
+Loading weights:  77%|███████▋  | 286/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.weight][A
+Loading weights:  77%|███████▋  | 286/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.weight][A
+Loading weights:  77%|███████▋  | 287/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.bias]    [A
+Loading weights:  77%|███████▋  | 287/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.bias][A
+Loading weights:  77%|███████▋  | 288/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.weight][A
+Loading weights:  77%|███████▋  | 288/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.weight][A
+Loading weights:  78%|███████▊  | 289/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.bias]  [A
+Loading weights:  78%|███████▊  | 289/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.bias][A
+Loading weights:  78%|███████▊  | 290/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.weight][A
+Loading weights:  78%|███████▊  | 290/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.weight][A
+Loading weights:  78%|███████▊  | 291/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.bias]       [A
+Loading weights:  78%|███████▊  | 291/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.bias][A
+Loading weights:  78%|███████▊  | 292/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.weight][A
+Loading weights:  78%|███████▊  | 292/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.weight][A
+Loading weights:  79%|███████▉  | 293/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.bias]  [A
+Loading weights:  79%|███████▉  | 293/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.bias][A
+Loading weights:  79%|███████▉  | 294/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.weight][A
+Loading weights:  79%|███████▉  | 294/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.weight][A
+Loading weights:  79%|███████▉  | 295/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.bias]      [A
+Loading weights:  79%|███████▉  | 295/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.bias][A
+Loading weights:  80%|███████▉  | 296/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.weight][A
+Loading weights:  80%|███████▉  | 296/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.weight][A
+Loading weights:  80%|███████▉  | 297/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.bias]  [A
+Loading weights:  80%|███████▉  | 297/372 [00:03<00:00, 114.43it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.bias][A
+Loading weights:  80%|████████  | 298/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.bias][A
+Loading weights:  80%|████████  | 298/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.weight][A
+Loading weights:  80%|████████  | 298/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.weight][A
+Loading weights:  80%|████████  | 299/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.bias][A
+Loading weights:  80%|████████  | 299/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.bias][A
+Loading weights:  81%|████████  | 300/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.weight][A
+Loading weights:  81%|████████  | 300/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.weight][A
+Loading weights:  81%|████████  | 301/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.bias][A
+Loading weights:  81%|████████  | 301/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.bias][A
+Loading weights:  81%|████████  | 302/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.weight][A
+Loading weights:  81%|████████  | 302/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.weight][A
+Loading weights:  81%|████████▏ | 303/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.bias]    [A
+Loading weights:  81%|████████▏ | 303/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.bias][A
+Loading weights:  82%|████████▏ | 304/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.weight][A
+Loading weights:  82%|████████▏ | 304/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.weight][A
+Loading weights:  82%|████████▏ | 305/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.bias]  [A
+Loading weights:  82%|████████▏ | 305/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.bias][A
+Loading weights:  82%|████████▏ | 306/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.weight][A
+Loading weights:  82%|████████▏ | 306/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.weight][A
+Loading weights:  83%|████████▎ | 307/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.bias]       [A
+Loading weights:  83%|████████▎ | 307/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.bias][A
+Loading weights:  83%|████████▎ | 308/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.weight][A
+Loading weights:  83%|████████▎ | 308/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.weight][A
+Loading weights:  83%|████████▎ | 309/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.bias]  [A
+Loading weights:  83%|████████▎ | 309/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.bias][A
+Loading weights:  83%|████████▎ | 310/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.weight][A
+Loading weights:  83%|████████▎ | 310/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.weight][A
+Loading weights:  84%|████████▎ | 311/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.bias]      [A
+Loading weights:  84%|████████▎ | 311/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.bias][A
+Loading weights:  84%|████████▍ | 312/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.weight][A
+Loading weights:  84%|████████▍ | 312/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.weight][A
+Loading weights:  84%|████████▍ | 313/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.bias]  [A
+Loading weights:  84%|████████▍ | 313/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.bias][A
+Loading weights:  84%|████████▍ | 314/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.weight][A
+Loading weights:  84%|████████▍ | 314/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.weight][A
+Loading weights:  85%|████████▍ | 315/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.bias][A
+Loading weights:  85%|████████▍ | 315/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.bias][A
+Loading weights:  85%|████████▍ | 316/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.weight][A
+Loading weights:  85%|████████▍ | 316/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.weight][A
+Loading weights:  85%|████████▌ | 317/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.bias][A
+Loading weights:  85%|████████▌ | 317/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.bias][A
+Loading weights:  85%|████████▌ | 318/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.weight][A
+Loading weights:  85%|████████▌ | 318/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.weight][A
+Loading weights:  86%|████████▌ | 319/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.bias]    [A
+Loading weights:  86%|████████▌ | 319/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.bias][A
+Loading weights:  86%|████████▌ | 320/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.weight][A
+Loading weights:  86%|████████▌ | 320/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.weight][A
+Loading weights:  86%|████████▋ | 321/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.bias]  [A
+Loading weights:  86%|████████▋ | 321/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.bias][A
+Loading weights:  87%|████████▋ | 322/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.weight][A
+Loading weights:  87%|████████▋ | 322/372 [00:03<00:00, 103.18it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.weight][A
+Loading weights:  87%|████████▋ | 323/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.weight][A
+Loading weights:  87%|████████▋ | 323/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.bias]       [A
+Loading weights:  87%|████████▋ | 323/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.bias][A
+Loading weights:  87%|████████▋ | 324/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.weight][A
+Loading weights:  87%|████████▋ | 324/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.weight][A
+Loading weights:  87%|████████▋ | 325/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.bias]  [A
+Loading weights:  87%|████████▋ | 325/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.bias][A
+Loading weights:  88%|████████▊ | 326/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.weight][A
+Loading weights:  88%|████████▊ | 326/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.weight][A
+Loading weights:  88%|████████▊ | 327/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.bias]      [A
+Loading weights:  88%|████████▊ | 327/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.bias][A
+Loading weights:  88%|████████▊ | 328/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.weight][A
+Loading weights:  88%|████████▊ | 328/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.weight][A
+Loading weights:  88%|████████▊ | 329/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.bias]  [A
+Loading weights:  88%|████████▊ | 329/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.bias][A
+Loading weights:  89%|████████▊ | 330/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.weight][A
+Loading weights:  89%|████████▊ | 330/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.weight][A
+Loading weights:  89%|████████▉ | 331/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.bias][A
+Loading weights:  89%|████████▉ | 331/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.bias][A
+Loading weights:  89%|████████▉ | 332/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.weight][A
+Loading weights:  89%|████████▉ | 332/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.weight][A
+Loading weights:  90%|████████▉ | 333/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.bias][A
+Loading weights:  90%|████████▉ | 333/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.bias][A
+Loading weights:  90%|████████▉ | 334/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.weight][A
+Loading weights:  90%|████████▉ | 334/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.weight][A
+Loading weights:  90%|█████████ | 335/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.bias]    [A
+Loading weights:  90%|█████████ | 335/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.bias][A
+Loading weights:  90%|█████████ | 336/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.weight][A
+Loading weights:  90%|█████████ | 336/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.weight][A
+Loading weights:  91%|█████████ | 337/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.bias]  [A
+Loading weights:  91%|█████████ | 337/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.bias][A
+Loading weights:  91%|█████████ | 338/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.weight][A
+Loading weights:  91%|█████████ | 338/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.weight][A
+Loading weights:  91%|█████████ | 339/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.bias]       [A
+Loading weights:  91%|█████████ | 339/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.bias][A
+Loading weights:  91%|█████████▏| 340/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.weight][A
+Loading weights:  91%|█████████▏| 340/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.weight][A
+Loading weights:  92%|█████████▏| 341/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.bias]  [A
+Loading weights:  92%|█████████▏| 341/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.bias][A
+Loading weights:  92%|█████████▏| 342/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.weight][A
+Loading weights:  92%|█████████▏| 342/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.weight][A
+Loading weights:  92%|█████████▏| 343/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.bias]      [A
+Loading weights:  92%|█████████▏| 343/372 [00:03<00:00, 107.82it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.bias][A
+Loading weights:  92%|█████████▏| 344/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.bias][A
+Loading weights:  92%|█████████▏| 344/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.weight][A
+Loading weights:  92%|█████████▏| 344/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.weight][A
+Loading weights:  93%|█████████▎| 345/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.bias]  [A
+Loading weights:  93%|█████████▎| 345/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.bias][A
+Loading weights:  93%|█████████▎| 346/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.weight][A
+Loading weights:  93%|█████████▎| 346/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.weight][A
+Loading weights:  93%|█████████▎| 347/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.bias][A
+Loading weights:  93%|█████████▎| 347/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.bias][A
+Loading weights:  94%|█████████▎| 348/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.weight][A
+Loading weights:  94%|█████████▎| 348/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.weight][A
+Loading weights:  94%|█████████▍| 349/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.bias][A
+Loading weights:  94%|█████████▍| 349/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.bias][A
+Loading weights:  94%|█████████▍| 350/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.weight][A
+Loading weights:  94%|█████████▍| 350/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.weight][A
+Loading weights:  94%|█████████▍| 351/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.bias]    [A
+Loading weights:  94%|█████████▍| 351/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.bias][A
+Loading weights:  95%|█████████▍| 352/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.weight][A
+Loading weights:  95%|█████████▍| 352/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.weight][A
+Loading weights:  95%|█████████▍| 353/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.bias]  [A
+Loading weights:  95%|█████████▍| 353/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.bias][A
+Loading weights:  95%|█████████▌| 354/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.weight][A
+Loading weights:  95%|█████████▌| 354/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.weight][A
+Loading weights:  95%|█████████▌| 355/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.bias]       [A
+Loading weights:  95%|█████████▌| 355/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.bias][A
+Loading weights:  96%|█████████▌| 356/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.weight][A
+Loading weights:  96%|█████████▌| 356/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.weight][A
+Loading weights:  96%|█████████▌| 357/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.bias]  [A
+Loading weights:  96%|█████████▌| 357/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.bias][A
+Loading weights:  96%|█████████▌| 358/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.weight][A
+Loading weights:  96%|█████████▌| 358/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.weight][A
+Loading weights:  97%|█████████▋| 359/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.bias]      [A
+Loading weights:  97%|█████████▋| 359/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.bias][A
+Loading weights:  97%|█████████▋| 360/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.weight][A
+Loading weights:  97%|█████████▋| 360/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.weight][A
+Loading weights:  97%|█████████▋| 361/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.bias]  [A
+Loading weights:  97%|█████████▋| 361/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.bias][A
+Loading weights:  97%|█████████▋| 362/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.weight][A
+Loading weights:  97%|█████████▋| 362/372 [00:03<00:00, 113.18it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.weight][A
+Loading weights:  98%|█████████▊| 363/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.weight] [A
+Loading weights:  98%|█████████▊| 363/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.bias][A
+Loading weights:  98%|█████████▊| 363/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.bias][A
+Loading weights:  98%|█████████▊| 364/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.weight][A
+Loading weights:  98%|█████████▊| 364/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.weight][A
+Loading weights:  98%|█████████▊| 365/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.bias][A
+Loading weights:  98%|█████████▊| 365/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.bias][A
+Loading weights:  98%|█████████▊| 366/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.weight][A
+Loading weights:  98%|█████████▊| 366/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.weight][A
+Loading weights:  99%|█████████▊| 367/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.bias]    [A
+Loading weights:  99%|█████████▊| 367/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.bias][A
+Loading weights:  99%|█████████▉| 368/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.weight][A
+Loading weights:  99%|█████████▉| 368/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.weight][A
+Loading weights:  99%|█████████▉| 369/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.bias]  [A
+Loading weights:  99%|█████████▉| 369/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.bias][A
+Loading weights:  99%|█████████▉| 370/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.weight][A
+Loading weights:  99%|█████████▉| 370/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.weight][A
+Loading weights: 100%|█████████▉| 371/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.final_layer_norm.bias]                    [A
+Loading weights: 100%|█████████▉| 371/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.final_layer_norm.bias][A
+Loading weights: 100%|██████████| 372/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.final_layer_norm.weight][A
+Loading weights: 100%|██████████| 372/372 [00:03<00:00, 99.53it/s, Materializing param=text_model.final_layer_norm.weight][ALoading weights: 100%|██████████| 372/372 [00:03<00:00, 95.23it/s, Materializing param=text_model.final_layer_norm.weight]
+Loading pipeline components...:  80%|████████  | 4/5 [00:14<00:04,  4.00s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:14<00:00,  2.98s/it]
+2026-04-20 05:32:44,287 Offloading teacher UNet to CPU (cache mode)...
+2026-04-20 05:32:44,685 Loading student UNet...
+加载 safetensors: models/distill_r4/distill_final.safetensors
+  safetensors 共 686 个张量，641.8M 参数
+  读取配置: models/distill_r4/distill_final.config.json
+  构建标准 UNet 架构...
+  替换了 118 个形状不匹配的层
+/opt/dlami/nvme/model-compression-toolkit/prune/pruned_rebuild.py:110: FutureWarning: Accessing config attribute `in_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'in_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.in_channels'.
+  if hasattr(module, 'in_channels') and hasattr(module, 'conv1'):
+/opt/dlami/nvme/model-compression-toolkit/prune/pruned_rebuild.py:113: FutureWarning: Accessing config attribute `out_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'out_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.out_channels'.
+  if hasattr(module, 'out_channels') and hasattr(module, 'conv2'):
+  ✅ 重建完成，参数量: 641.8M
+/opt/dlami/nvme/model-compression-toolkit/prune/sp_core.py:517: FutureWarning: Accessing config attribute `in_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'in_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.in_channels'.
+  if hasattr(module, "in_channels") and hasattr(module, "conv1"):
+/opt/dlami/nvme/model-compression-toolkit/prune/sp_core.py:519: FutureWarning: Accessing config attribute `out_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'out_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.out_channels'.
+  if hasattr(module, "out_channels") and hasattr(module, "conv2"):
+Student UNet: 641.8M params, fp32, grad_ckpt ON
+2026-04-20 05:32:53,662 Model EMA initialised — 686 parameter tensors tracked
+2026-04-20 05:32:53,663 Student attention hooks registered on 8 layers
+2026-04-20 05:32:53,666 
+============================================================
+Starting Main: 8000 steps @ 512px
+============================================================
+CachedTeacherDataset: 20000 trajectories (5000 prompts)
+2026-04-20 05:33:05,713 [Main] 1/10000 | loss=1.296065 raw=0.008238 attn=0.00011 n=4 | lr=1.19e-06 | 7.06s/it | elapsed=0.00h ETA=19.60h
+2026-04-20 05:33:11,467 [Main] 2/10000 | loss=1.380499 raw=0.009086 attn=0.00012 n=4 | lr=1.38e-06 | 3.60s/it | elapsed=0.00h ETA=10.01h
+2026-04-20 05:33:17,010 [Main] 3/10000 | loss=1.741620 raw=0.011422 attn=0.00008 n=4 | lr=1.57e-06 | 3.62s/it | elapsed=0.01h ETA=10.04h
+2026-04-20 05:34:51,463 [Main] 20/10000 | loss=1.320531 raw=0.009258 attn=0.00008 n=4 | lr=4.80e-06 | 3.60s/it | elapsed=0.03h ETA=9.98h
+2026-04-20 05:36:42,543 [Main] 40/10000 | loss=0.968460 raw=0.007094 attn=0.00011 n=4 | lr=8.60e-06 | 3.69s/it | elapsed=0.06h ETA=10.20h
+2026-04-20 05:38:33,872 [Main] 60/10000 | loss=1.148731 raw=0.009269 attn=0.00009 n=4 | lr=1.24e-05 | 3.59s/it | elapsed=0.09h ETA=9.91h
+2026-04-20 05:40:24,225 [Main] 80/10000 | loss=0.999398 raw=0.008060 attn=0.00011 n=4 | lr=1.62e-05 | 3.55s/it | elapsed=0.13h ETA=9.77h
+2026-04-20 05:42:14,845 [Main] 100/10000 | loss=1.418439 raw=0.011768 attn=0.00009 n=4 | lr=2.00e-05 | 3.57s/it | elapsed=0.16h ETA=9.81h
+2026-04-20 05:44:05,444 [Main] 120/10000 | loss=0.972946 raw=0.007573 attn=0.00011 n=4 | lr=2.00e-05 | 3.38s/it | elapsed=0.19h ETA=9.29h
+2026-04-20 05:45:55,968 [Main] 140/10000 | loss=1.298652 raw=0.012149 attn=0.00011 n=4 | lr=2.00e-05 | 3.58s/it | elapsed=0.22h ETA=9.80h
+2026-04-20 05:47:45,162 [Main] 160/10000 | loss=1.028611 raw=0.009960 attn=0.00012 n=4 | lr=2.00e-05 | 3.55s/it | elapsed=0.25h ETA=9.70h
+2026-04-20 05:49:35,796 [Main] 180/10000 | loss=1.023274 raw=0.009698 attn=0.00010 n=4 | lr=2.00e-05 | 3.70s/it | elapsed=0.28h ETA=10.10h
+2026-04-20 05:51:26,068 [Main] 200/10000 | loss=1.018255 raw=0.009540 attn=0.00008 n=4 | lr=2.00e-05 | 3.56s/it | elapsed=0.31h ETA=9.70h
+2026-04-20 05:53:16,542 [Main] 220/10000 | loss=0.839748 raw=0.007456 attn=0.00012 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=0.34h ETA=9.77h
+2026-04-20 05:55:06,958 [Main] 240/10000 | loss=0.923240 raw=0.008588 attn=0.00010 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=0.37h ETA=9.75h
+2026-04-20 05:56:57,357 [Main] 260/10000 | loss=1.022942 raw=0.009961 attn=0.00011 n=4 | lr=2.00e-05 | 3.38s/it | elapsed=0.40h ETA=9.15h
+2026-04-20 05:58:47,869 [Main] 280/10000 | loss=1.142434 raw=0.011407 attn=0.00008 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=0.43h ETA=9.71h
+2026-04-20 06:00:38,546 [Main] 300/10000 | loss=1.014018 raw=0.009518 attn=0.00012 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=0.46h ETA=9.67h
+2026-04-20 06:02:28,346 [Main] 320/10000 | loss=1.171214 raw=0.011386 attn=0.00007 n=4 | lr=2.00e-05 | 3.56s/it | elapsed=0.49h ETA=9.57h
+2026-04-20 06:04:17,939 [Main] 340/10000 | loss=1.428002 raw=0.014539 attn=0.00010 n=4 | lr=2.00e-05 | 3.53s/it | elapsed=0.52h ETA=9.47h
+2026-04-20 06:06:08,453 [Main] 360/10000 | loss=1.155469 raw=0.011025 attn=0.00009 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=0.55h ETA=9.62h
+2026-04-20 06:07:57,833 [Main] 380/10000 | loss=1.213342 raw=0.012095 attn=0.00010 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=0.58h ETA=9.62h
+2026-04-20 06:09:45,163 [Main] 400/10000 | loss=0.847104 raw=0.007786 attn=0.00013 n=4 | lr=2.00e-05 | 3.39s/it | elapsed=0.61h ETA=9.04h
+2026-04-20 06:11:35,602 [Main] 420/10000 | loss=1.216779 raw=0.011821 attn=0.00013 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=0.64h ETA=9.55h
+2026-04-20 06:13:26,504 [Main] 440/10000 | loss=1.130232 raw=0.011226 attn=0.00007 n=4 | lr=2.00e-05 | 3.61s/it | elapsed=0.68h ETA=9.57h
+2026-04-20 06:15:17,243 [Main] 460/10000 | loss=0.907414 raw=0.008478 attn=0.00010 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=0.71h ETA=9.52h
+2026-04-20 06:17:08,753 [Main] 480/10000 | loss=0.875946 raw=0.008371 attn=0.00011 n=4 | lr=2.00e-05 | 3.72s/it | elapsed=0.74h ETA=9.85h
+2026-04-20 06:18:59,462 [Main] 500/10000 | loss=0.770787 raw=0.007388 attn=0.00011 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=0.77h ETA=9.47h
+2026-04-20 06:20:49,823 [Main] 520/10000 | loss=0.957685 raw=0.009291 attn=0.00011 n=4 | lr=2.00e-05 | 3.61s/it | elapsed=0.80h ETA=9.50h
+2026-04-20 06:22:39,930 [Main] 540/10000 | loss=1.094217 raw=0.010856 attn=0.00013 n=4 | lr=2.00e-05 | 3.61s/it | elapsed=0.83h ETA=9.47h
+2026-04-20 06:24:30,928 [Main] 560/10000 | loss=1.098072 raw=0.011496 attn=0.00006 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=0.86h ETA=9.43h
+2026-04-20 06:26:21,542 [Main] 580/10000 | loss=1.028772 raw=0.009746 attn=0.00009 n=4 | lr=2.00e-05 | 3.62s/it | elapsed=0.89h ETA=9.47h
+2026-04-20 06:28:12,616 [Main] 600/10000 | loss=0.882451 raw=0.008362 attn=0.00009 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=0.92h ETA=9.37h
+2026-04-20 06:30:03,060 [Main] 620/10000 | loss=0.837376 raw=0.007485 attn=0.00018 n=4 | lr=2.00e-05 | 2.96s/it | elapsed=0.95h ETA=7.72h
+2026-04-20 06:31:52,512 [Main] 640/10000 | loss=1.003032 raw=0.009375 attn=0.00011 n=4 | lr=2.00e-05 | 3.56s/it | elapsed=0.98h ETA=9.25h
+2026-04-20 06:33:42,811 [Main] 660/10000 | loss=1.014100 raw=0.009275 attn=0.00018 n=4 | lr=2.00e-05 | 3.38s/it | elapsed=1.01h ETA=8.78h
+2026-04-20 06:35:33,882 [Main] 680/10000 | loss=1.131493 raw=0.011327 attn=0.00010 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=1.04h ETA=9.30h
+2026-04-20 06:37:24,487 [Main] 700/10000 | loss=0.931294 raw=0.009054 attn=0.00008 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.08h ETA=9.30h
+2026-04-20 06:39:15,374 [Main] 720/10000 | loss=0.779969 raw=0.007484 attn=0.00008 n=4 | lr=2.00e-05 | 3.61s/it | elapsed=1.11h ETA=9.29h
+2026-04-20 06:41:06,397 [Main] 740/10000 | loss=1.119073 raw=0.010800 attn=0.00010 n=4 | lr=2.00e-05 | 3.74s/it | elapsed=1.14h ETA=9.63h
+2026-04-20 06:42:56,936 [Main] 760/10000 | loss=1.018703 raw=0.008468 attn=0.00013 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.17h ETA=9.23h
+2026-04-20 06:44:47,570 [Main] 780/10000 | loss=1.207831 raw=0.012325 attn=0.00008 n=4 | lr=2.00e-05 | 3.58s/it | elapsed=1.20h ETA=9.17h
+2026-04-20 06:46:38,658 [Main] 800/10000 | loss=1.045292 raw=0.010476 attn=0.00011 n=4 | lr=2.00e-05 | 3.58s/it | elapsed=1.23h ETA=9.14h
+2026-04-20 06:48:29,255 [Main] 820/10000 | loss=1.081318 raw=0.009577 attn=0.00007 n=4 | lr=2.00e-05 | 3.62s/it | elapsed=1.26h ETA=9.22h
+2026-04-20 06:50:19,932 [Main] 840/10000 | loss=0.964110 raw=0.009364 attn=0.00010 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.29h ETA=9.16h
+2026-04-20 06:52:10,461 [Main] 860/10000 | loss=0.655146 raw=0.006049 attn=0.00011 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=1.32h ETA=9.11h
+2026-04-20 06:54:01,296 [Main] 880/10000 | loss=1.240300 raw=0.011743 attn=0.00014 n=4 | lr=2.00e-05 | 3.70s/it | elapsed=1.35h ETA=9.37h
+2026-04-20 06:55:51,809 [Main] 900/10000 | loss=0.995131 raw=0.009377 attn=0.00011 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.38h ETA=9.10h
+2026-04-20 06:57:42,577 [Main] 920/10000 | loss=1.200741 raw=0.011610 attn=0.00013 n=4 | lr=2.00e-05 | 3.57s/it | elapsed=1.41h ETA=8.99h
+2026-04-20 06:59:33,652 [Main] 940/10000 | loss=0.968771 raw=0.009614 attn=0.00013 n=4 | lr=2.00e-05 | 3.54s/it | elapsed=1.44h ETA=8.90h
+2026-04-20 07:01:25,042 [Main] 960/10000 | loss=0.950487 raw=0.009131 attn=0.00010 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.48h ETA=9.04h
+2026-04-20 07:03:16,072 [Main] 980/10000 | loss=0.968008 raw=0.008923 attn=0.00009 n=4 | lr=2.00e-05 | 3.61s/it | elapsed=1.51h ETA=9.03h
+2026-04-20 07:05:06,982 [Main] 1000/10000 | loss=1.152216 raw=0.011727 attn=0.00014 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.54h ETA=9.00h
+2026-04-20 07:06:57,054 [Main] 1020/10000 | loss=1.068906 raw=0.010255 attn=0.00011 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.57h ETA=8.98h
+2026-04-20 07:08:48,131 [Main] 1040/10000 | loss=1.090878 raw=0.010769 attn=0.00009 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.60h ETA=8.95h
+2026-04-20 07:10:38,081 [Main] 1060/10000 | loss=1.116843 raw=0.010660 attn=0.00014 n=4 | lr=2.00e-05 | 3.40s/it | elapsed=1.63h ETA=8.43h
+2026-04-20 07:12:29,401 [Main] 1080/10000 | loss=1.293753 raw=0.012584 attn=0.00012 n=4 | lr=2.00e-05 | 3.74s/it | elapsed=1.66h ETA=9.26h
+2026-04-20 07:14:20,080 [Main] 1100/10000 | loss=0.886979 raw=0.008852 attn=0.00010 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.69h ETA=8.90h
+2026-04-20 07:16:10,425 [Main] 1120/10000 | loss=0.808630 raw=0.006701 attn=0.00012 n=4 | lr=2.00e-05 | 3.56s/it | elapsed=1.72h ETA=8.79h
+2026-04-20 07:18:00,194 [Main] 1140/10000 | loss=1.130198 raw=0.011217 attn=0.00012 n=4 | lr=2.00e-05 | 3.39s/it | elapsed=1.75h ETA=8.35h
+2026-04-20 07:19:51,401 [Main] 1160/10000 | loss=1.156906 raw=0.010705 attn=0.00013 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.78h ETA=8.84h
+2026-04-20 07:21:40,789 [Main] 1180/10000 | loss=1.294846 raw=0.013481 attn=0.00011 n=4 | lr=2.00e-05 | 3.41s/it | elapsed=1.81h ETA=8.35h
+2026-04-20 07:23:31,488 [Main] 1200/10000 | loss=1.016218 raw=0.009832 attn=0.00013 n=4 | lr=2.00e-05 | 3.61s/it | elapsed=1.84h ETA=8.81h
+2026-04-20 07:25:22,234 [Main] 1220/10000 | loss=0.924374 raw=0.008603 attn=0.00012 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.87h ETA=8.78h
+2026-04-20 07:27:12,160 [Main] 1240/10000 | loss=1.457018 raw=0.014946 attn=0.00006 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=1.91h ETA=8.74h
+2026-04-20 07:29:03,316 [Main] 1260/10000 | loss=1.062019 raw=0.010219 attn=0.00009 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=1.94h ETA=8.75h
+2026-04-20 07:30:53,278 [Main] 1280/10000 | loss=1.106250 raw=0.010847 attn=0.00008 n=4 | lr=2.00e-05 | 3.73s/it | elapsed=1.97h ETA=9.03h
+2026-04-20 07:32:43,577 [Main] 1300/10000 | loss=1.258284 raw=0.012528 attn=0.00012 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=2.00h ETA=8.69h
+2026-04-20 07:34:34,245 [Main] 1320/10000 | loss=0.842355 raw=0.007694 attn=0.00012 n=4 | lr=2.00e-05 | 3.41s/it | elapsed=2.03h ETA=8.23h
+2026-04-20 07:36:24,125 [Main] 1340/10000 | loss=1.027410 raw=0.009350 attn=0.00008 n=4 | lr=2.00e-05 | 3.74s/it | elapsed=2.06h ETA=8.99h
+2026-04-20 07:38:15,135 [Main] 1360/10000 | loss=1.179960 raw=0.011681 attn=0.00012 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=2.09h ETA=8.64h
+2026-04-20 07:40:06,176 [Main] 1380/10000 | loss=0.649942 raw=0.005768 attn=0.00014 n=4 | lr=2.00e-05 | 3.62s/it | elapsed=2.12h ETA=8.67h
+2026-04-20 07:41:57,271 [Main] 1400/10000 | loss=1.242335 raw=0.012213 attn=0.00014 n=4 | lr=2.00e-05 | 3.55s/it | elapsed=2.15h ETA=8.48h
+2026-04-20 07:43:47,589 [Main] 1420/10000 | loss=0.974241 raw=0.009104 attn=0.00012 n=4 | lr=2.00e-05 | 3.39s/it | elapsed=2.18h ETA=8.09h
+2026-04-20 07:45:37,689 [Main] 1440/10000 | loss=1.279963 raw=0.012090 attn=0.00011 n=4 | lr=2.00e-05 | 3.58s/it | elapsed=2.21h ETA=8.51h
+2026-04-20 07:47:28,828 [Main] 1460/10000 | loss=1.027066 raw=0.009730 attn=0.00009 n=4 | lr=2.00e-05 | 3.57s/it | elapsed=2.24h ETA=8.46h
+2026-04-20 07:49:19,914 [Main] 1480/10000 | loss=1.233671 raw=0.011716 attn=0.00012 n=4 | lr=2.00e-05 | 3.75s/it | elapsed=2.27h ETA=8.86h
+2026-04-20 07:51:10,456 [Main] 1500/10000 | loss=0.901530 raw=0.008294 attn=0.00011 n=4 | lr=2.00e-05 | 3.62s/it | elapsed=2.30h ETA=8.55h
+2026-04-20 07:53:01,784 [Main] 1520/10000 | loss=1.013479 raw=0.009563 attn=0.00012 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=2.34h ETA=8.47h
+2026-04-20 07:54:52,790 [Main] 1540/10000 | loss=1.055605 raw=0.010154 attn=0.00010 n=4 | lr=2.00e-05 | 3.75s/it | elapsed=2.37h ETA=8.82h
+2026-04-20 07:56:43,782 [Main] 1560/10000 | loss=1.024968 raw=0.009659 attn=0.00015 n=4 | lr=2.00e-05 | 3.57s/it | elapsed=2.40h ETA=8.37h
+2026-04-20 07:58:34,542 [Main] 1580/10000 | loss=1.047252 raw=0.010075 attn=0.00008 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=2.43h ETA=8.43h
+2026-04-20 08:00:25,651 [Main] 1600/10000 | loss=0.811129 raw=0.007720 attn=0.00012 n=4 | lr=2.00e-05 | 3.55s/it | elapsed=2.46h ETA=8.29h
+2026-04-20 08:02:16,569 [Main] 1620/10000 | loss=1.106109 raw=0.010515 attn=0.00010 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=2.49h ETA=8.37h
+2026-04-20 08:04:07,309 [Main] 1640/10000 | loss=0.953318 raw=0.009286 attn=0.00010 n=4 | lr=2.00e-05 | 3.59s/it | elapsed=2.52h ETA=8.34h
+2026-04-20 08:05:57,744 [Main] 1660/10000 | loss=1.166433 raw=0.011566 attn=0.00011 n=4 | lr=2.00e-05 | 3.57s/it | elapsed=2.55h ETA=8.28h
+2026-04-20 08:07:48,993 [Main] 1680/10000 | loss=0.966190 raw=0.009112 attn=0.00013 n=4 | lr=2.00e-05 | 3.54s/it | elapsed=2.58h ETA=8.19h
+2026-04-20 08:09:39,849 [Main] 1700/10000 | loss=1.037553 raw=0.010215 attn=0.00012 n=4 | lr=2.00e-05 | 3.60s/it | elapsed=2.61h ETA=8.29h
+2026-04-20 08:11:30,494 [Main] 1720/10000 | loss=1.046320 raw=0.009487 attn=0.00011 n=4 | lr=2.00e-05 | 3.58s/it | elapsed=2.64h ETA=8.23h
+2026-04-20 08:13:21,675 [Main] 1740/10000 | loss=1.208988 raw=0.011597 attn=0.00013 n=4 | lr=2.00e-05 | 3.69s/it | elapsed=2.67h ETA=8.46h
+2026-04-20 08:15:12,459 [Main] 1760/10000 | loss=0.978612 raw=0.009044 attn=0.00013 n=4 | lr=2.00e-05 | 3.39s/it | elapsed=2.71h ETA=7.76h
+2026-04-20 08:17:02,467 [Main] 1780/10000 | loss=1.041723 raw=0.009917 attn=0.00011 n=4 | lr=1.99e-05 | 3.55s/it | elapsed=2.74h ETA=8.11h
+2026-04-20 08:18:53,464 [Main] 1800/10000 | loss=1.193434 raw=0.010808 attn=0.00010 n=4 | lr=1.99e-05 | 3.59s/it | elapsed=2.77h ETA=8.19h
+2026-04-20 08:20:44,222 [Main] 1820/10000 | loss=1.047073 raw=0.010496 attn=0.00011 n=4 | lr=1.99e-05 | 3.60s/it | elapsed=2.80h ETA=8.18h
+2026-04-20 08:22:34,927 [Main] 1840/10000 | loss=0.923354 raw=0.008742 attn=0.00012 n=4 | lr=1.99e-05 | 3.60s/it | elapsed=2.83h ETA=8.17h
+2026-04-20 08:24:25,610 [Main] 1860/10000 | loss=1.062305 raw=0.009762 attn=0.00010 n=4 | lr=1.99e-05 | 3.57s/it | elapsed=2.86h ETA=8.08h
+2026-04-20 08:26:16,638 [Main] 1880/10000 | loss=0.836022 raw=0.008103 attn=0.00009 n=4 | lr=1.99e-05 | 3.71s/it | elapsed=2.89h ETA=8.38h
+2026-04-20 08:28:07,326 [Main] 1900/10000 | loss=1.026742 raw=0.009546 attn=0.00011 n=4 | lr=1.99e-05 | 3.40s/it | elapsed=2.92h ETA=7.65h
+2026-04-20 08:29:58,142 [Main] 1920/10000 | loss=1.126258 raw=0.010918 attn=0.00010 n=4 | lr=1.99e-05 | 3.76s/it | elapsed=2.95h ETA=8.44h
+2026-04-20 08:31:48,840 [Main] 1940/10000 | loss=0.936491 raw=0.008807 attn=0.00011 n=4 | lr=1.99e-05 | 3.40s/it | elapsed=2.98h ETA=7.61h
+2026-04-20 08:33:38,131 [Main] 1960/10000 | loss=1.029923 raw=0.009650 attn=0.00013 n=4 | lr=1.99e-05 | 3.69s/it | elapsed=3.01h ETA=8.23h
+2026-04-20 08:35:28,517 [Main] 1980/10000 | loss=0.914911 raw=0.008835 attn=0.00006 n=4 | lr=1.99e-05 | 3.60s/it | elapsed=3.04h ETA=8.03h
+2026-04-20 08:37:19,562 [Main] 2000/10000 | loss=1.196180 raw=0.011110 attn=0.00011 n=4 | lr=1.98e-05 | 3.74s/it | elapsed=3.07h ETA=8.32h
+2026-04-20 08:39:10,596 [Main] 2020/10000 | loss=0.917968 raw=0.008450 attn=0.00015 n=4 | lr=1.98e-05 | 3.41s/it | elapsed=3.10h ETA=7.56h
+2026-04-20 08:41:00,939 [Main] 2040/10000 | loss=0.724403 raw=0.006118 attn=0.00017 n=4 | lr=1.98e-05 | 3.41s/it | elapsed=3.14h ETA=7.53h
+2026-04-20 08:42:51,976 [Main] 2060/10000 | loss=0.955069 raw=0.008726 attn=0.00014 n=4 | lr=1.98e-05 | 3.54s/it | elapsed=3.17h ETA=7.81h
+2026-04-20 08:44:42,997 [Main] 2080/10000 | loss=0.776727 raw=0.007165 attn=0.00011 n=4 | lr=1.98e-05 | 3.74s/it | elapsed=3.20h ETA=8.23h
+2026-04-20 08:46:33,507 [Main] 2100/10000 | loss=1.168439 raw=0.011217 attn=0.00009 n=4 | lr=1.98e-05 | 3.61s/it | elapsed=3.23h ETA=7.91h
+2026-04-20 08:48:24,772 [Main] 2120/10000 | loss=1.032871 raw=0.010018 attn=0.00013 n=4 | lr=1.98e-05 | 3.61s/it | elapsed=3.26h ETA=7.90h
+2026-04-20 08:50:15,555 [Main] 2140/10000 | loss=1.124914 raw=0.010748 attn=0.00010 n=4 | lr=1.97e-05 | 3.59s/it | elapsed=3.29h ETA=7.84h
+2026-04-20 08:52:06,513 [Main] 2160/10000 | loss=0.730940 raw=0.006549 attn=0.00013 n=4 | lr=1.97e-05 | 3.58s/it | elapsed=3.32h ETA=7.80h
+2026-04-20 08:53:57,565 [Main] 2180/10000 | loss=1.035277 raw=0.009687 attn=0.00010 n=4 | lr=1.97e-05 | 3.61s/it | elapsed=3.35h ETA=7.84h
+2026-04-20 08:55:48,964 [Main] 2200/10000 | loss=0.767452 raw=0.006835 attn=0.00009 n=4 | lr=1.97e-05 | 3.61s/it | elapsed=3.38h ETA=7.82h
+2026-04-20 08:57:40,172 [Main] 2220/10000 | loss=1.071264 raw=0.009872 attn=0.00015 n=4 | lr=1.97e-05 | 3.42s/it | elapsed=3.41h ETA=7.39h
+2026-04-20 08:59:31,195 [Main] 2240/10000 | loss=1.003748 raw=0.009162 attn=0.00017 n=4 | lr=1.96e-05 | 3.39s/it | elapsed=3.44h ETA=7.30h
+2026-04-20 09:01:21,994 [Main] 2260/10000 | loss=1.213073 raw=0.011570 attn=0.00012 n=4 | lr=1.96e-05 | 3.60s/it | elapsed=3.47h ETA=7.74h
+2026-04-20 09:03:12,947 [Main] 2280/10000 | loss=1.134915 raw=0.010753 attn=0.00013 n=4 | lr=1.96e-05 | 3.71s/it | elapsed=3.51h ETA=7.95h
+2026-04-20 09:05:04,250 [Main] 2300/10000 | loss=1.089647 raw=0.010264 attn=0.00014 n=4 | lr=1.96e-05 | 3.55s/it | elapsed=3.54h ETA=7.60h
+2026-04-20 09:06:55,506 [Main] 2320/10000 | loss=1.014709 raw=0.009310 attn=0.00010 n=4 | lr=1.96e-05 | 3.60s/it | elapsed=3.57h ETA=7.68h
+2026-04-20 09:08:46,479 [Main] 2340/10000 | loss=0.982399 raw=0.009034 attn=0.00010 n=4 | lr=1.95e-05 | 3.60s/it | elapsed=3.60h ETA=7.66h
+2026-04-20 09:10:36,868 [Main] 2360/10000 | loss=1.026806 raw=0.009007 attn=0.00011 n=4 | lr=1.95e-05 | 3.61s/it | elapsed=3.63h ETA=7.66h
+2026-04-20 09:12:27,735 [Main] 2380/10000 | loss=1.120511 raw=0.010963 attn=0.00011 n=4 | lr=1.95e-05 | 3.60s/it | elapsed=3.66h ETA=7.63h
+2026-04-20 09:14:18,673 [Main] 2400/10000 | loss=0.905166 raw=0.008541 attn=0.00013 n=4 | lr=1.95e-05 | 3.60s/it | elapsed=3.69h ETA=7.61h
+2026-04-20 09:16:09,636 [Main] 2420/10000 | loss=1.257976 raw=0.012652 attn=0.00013 n=4 | lr=1.95e-05 | 3.56s/it | elapsed=3.72h ETA=7.50h
+2026-04-20 09:18:00,677 [Main] 2440/10000 | loss=1.115239 raw=0.010400 attn=0.00010 n=4 | lr=1.94e-05 | 3.55s/it | elapsed=3.75h ETA=7.46h
+2026-04-20 09:19:51,631 [Main] 2460/10000 | loss=1.158062 raw=0.010946 attn=0.00012 n=4 | lr=1.94e-05 | 3.55s/it | elapsed=3.78h ETA=7.43h
+2026-04-20 09:21:42,118 [Main] 2480/10000 | loss=0.999091 raw=0.009407 attn=0.00010 n=4 | lr=1.94e-05 | 3.73s/it | elapsed=3.81h ETA=7.80h
+2026-04-20 09:23:33,013 [Main] 2500/10000 | loss=0.956840 raw=0.008664 attn=0.00008 n=4 | lr=1.94e-05 | 3.61s/it | elapsed=3.84h ETA=7.52h
+  Saved (EMA): models/distill_r4_10k/distill_step_2500.safetensors (2.39GB) step=2500
+2026-04-20 09:25:37,766 [Main] 2520/10000 | loss=0.982937 raw=0.008853 attn=0.00013 n=4 | lr=1.93e-05 | 3.59s/it | elapsed=3.88h ETA=7.46h
+2026-04-20 09:27:26,904 [Main] 2540/10000 | loss=1.049018 raw=0.009660 attn=0.00011 n=4 | lr=1.93e-05 | 3.73s/it | elapsed=3.91h ETA=7.72h
+2026-04-20 09:29:18,092 [Main] 2560/10000 | loss=1.096568 raw=0.010095 attn=0.00014 n=4 | lr=1.93e-05 | 3.61s/it | elapsed=3.94h ETA=7.47h
+2026-04-20 09:31:08,396 [Main] 2580/10000 | loss=1.027824 raw=0.009497 attn=0.00011 n=4 | lr=1.93e-05 | 3.73s/it | elapsed=3.97h ETA=7.70h
+2026-04-20 09:32:58,734 [Main] 2600/10000 | loss=1.085970 raw=0.010228 attn=0.00014 n=4 | lr=1.92e-05 | 3.59s/it | elapsed=4.00h ETA=7.39h
+2026-04-20 09:34:49,753 [Main] 2620/10000 | loss=1.104798 raw=0.009869 attn=0.00012 n=4 | lr=1.92e-05 | 3.57s/it | elapsed=4.03h ETA=7.31h
+2026-04-20 09:36:40,917 [Main] 2640/10000 | loss=1.379986 raw=0.013650 attn=0.00010 n=4 | lr=1.92e-05 | 3.65s/it | elapsed=4.06h ETA=7.45h
+2026-04-20 09:38:31,846 [Main] 2660/10000 | loss=1.145791 raw=0.010409 attn=0.00012 n=4 | lr=1.91e-05 | 3.65s/it | elapsed=4.09h ETA=7.43h
+2026-04-20 09:40:22,226 [Main] 2680/10000 | loss=1.175412 raw=0.010848 attn=0.00013 n=4 | lr=1.91e-05 | 3.57s/it | elapsed=4.12h ETA=7.25h
+2026-04-20 09:42:13,433 [Main] 2700/10000 | loss=1.124104 raw=0.010624 attn=0.00009 n=4 | lr=1.91e-05 | 3.59s/it | elapsed=4.16h ETA=7.28h
+2026-04-20 09:44:03,788 [Main] 2720/10000 | loss=1.094783 raw=0.010344 attn=0.00014 n=4 | lr=1.91e-05 | 3.56s/it | elapsed=4.19h ETA=7.20h
+2026-04-20 09:45:54,657 [Main] 2740/10000 | loss=1.145330 raw=0.010544 attn=0.00012 n=4 | lr=1.90e-05 | 3.73s/it | elapsed=4.22h ETA=7.53h
+2026-04-20 09:47:45,803 [Main] 2760/10000 | loss=1.192032 raw=0.011501 attn=0.00010 n=4 | lr=1.90e-05 | 3.57s/it | elapsed=4.25h ETA=7.17h
+2026-04-20 09:49:36,330 [Main] 2780/10000 | loss=1.010575 raw=0.009419 attn=0.00012 n=4 | lr=1.90e-05 | 3.39s/it | elapsed=4.28h ETA=6.80h
+2026-04-20 09:51:27,133 [Main] 2800/10000 | loss=1.417894 raw=0.014084 attn=0.00009 n=4 | lr=1.89e-05 | 3.60s/it | elapsed=4.31h ETA=7.20h
+2026-04-20 09:53:17,873 [Main] 2820/10000 | loss=1.319408 raw=0.012391 attn=0.00014 n=4 | lr=1.89e-05 | 3.54s/it | elapsed=4.34h ETA=7.06h
+2026-04-20 09:55:08,489 [Main] 2840/10000 | loss=1.220063 raw=0.011509 attn=0.00017 n=4 | lr=1.89e-05 | 3.56s/it | elapsed=4.37h ETA=7.08h
+2026-04-20 09:56:59,170 [Main] 2860/10000 | loss=0.867583 raw=0.008218 attn=0.00013 n=4 | lr=1.88e-05 | 3.54s/it | elapsed=4.40h ETA=7.02h
+2026-04-20 09:58:50,420 [Main] 2880/10000 | loss=0.942097 raw=0.008244 attn=0.00010 n=4 | lr=1.88e-05 | 3.74s/it | elapsed=4.43h ETA=7.39h
+2026-04-20 10:00:41,563 [Main] 2900/10000 | loss=1.394949 raw=0.013617 attn=0.00010 n=4 | lr=1.88e-05 | 3.60s/it | elapsed=4.46h ETA=7.10h
+2026-04-20 10:02:32,759 [Main] 2920/10000 | loss=0.900202 raw=0.008017 attn=0.00009 n=4 | lr=1.87e-05 | 3.60s/it | elapsed=4.49h ETA=7.09h
+2026-04-20 10:04:23,091 [Main] 2940/10000 | loss=1.167480 raw=0.010854 attn=0.00013 n=4 | lr=1.87e-05 | 3.55s/it | elapsed=4.52h ETA=6.96h
+2026-04-20 10:06:14,214 [Main] 2960/10000 | loss=0.967361 raw=0.008821 attn=0.00008 n=4 | lr=1.87e-05 | 3.61s/it | elapsed=4.56h ETA=7.06h
+2026-04-20 10:08:05,270 [Main] 2980/10000 | loss=0.970699 raw=0.008689 attn=0.00011 n=4 | lr=1.86e-05 | 3.59s/it | elapsed=4.59h ETA=7.01h
+2026-04-20 10:09:56,119 [Main] 3000/10000 | loss=1.215548 raw=0.010827 attn=0.00011 n=4 | lr=1.86e-05 | 3.59s/it | elapsed=4.62h ETA=6.99h
+2026-04-20 10:11:47,162 [Main] 3020/10000 | loss=1.061131 raw=0.009380 attn=0.00011 n=4 | lr=1.85e-05 | 3.55s/it | elapsed=4.65h ETA=6.89h
+2026-04-20 10:13:38,301 [Main] 3040/10000 | loss=1.309702 raw=0.012641 attn=0.00012 n=4 | lr=1.85e-05 | 3.60s/it | elapsed=4.68h ETA=6.97h
+2026-04-20 10:15:29,174 [Main] 3060/10000 | loss=1.044833 raw=0.009151 attn=0.00018 n=4 | lr=1.85e-05 | 3.56s/it | elapsed=4.71h ETA=6.86h
+2026-04-20 10:17:20,162 [Main] 3080/10000 | loss=0.907275 raw=0.008054 attn=0.00010 n=4 | lr=1.84e-05 | 3.73s/it | elapsed=4.74h ETA=7.18h
+2026-04-20 10:19:10,972 [Main] 3100/10000 | loss=0.835268 raw=0.007524 attn=0.00008 n=4 | lr=1.84e-05 | 3.61s/it | elapsed=4.77h ETA=6.91h
+2026-04-20 10:21:01,864 [Main] 3120/10000 | loss=1.152468 raw=0.011237 attn=0.00010 n=4 | lr=1.83e-05 | 3.58s/it | elapsed=4.80h ETA=6.85h
+2026-04-20 10:22:52,544 [Main] 3140/10000 | loss=1.273279 raw=0.011946 attn=0.00015 n=4 | lr=1.83e-05 | 3.40s/it | elapsed=4.83h ETA=6.47h
+2026-04-20 10:24:43,743 [Main] 3160/10000 | loss=0.872802 raw=0.008200 attn=0.00011 n=4 | lr=1.83e-05 | 3.60s/it | elapsed=4.86h ETA=6.84h
+2026-04-20 10:26:35,067 [Main] 3180/10000 | loss=1.092469 raw=0.010064 attn=0.00010 n=4 | lr=1.82e-05 | 3.62s/it | elapsed=4.89h ETA=6.85h
+2026-04-20 10:28:26,251 [Main] 3200/10000 | loss=1.149119 raw=0.010370 attn=0.00010 n=4 | lr=1.82e-05 | 3.58s/it | elapsed=4.93h ETA=6.76h
+2026-04-20 10:30:17,442 [Main] 3220/10000 | loss=0.834694 raw=0.007644 attn=0.00010 n=4 | lr=1.81e-05 | 3.59s/it | elapsed=4.96h ETA=6.77h
+2026-04-20 10:32:08,020 [Main] 3240/10000 | loss=0.822077 raw=0.007107 attn=0.00011 n=4 | lr=1.81e-05 | 3.58s/it | elapsed=4.99h ETA=6.73h
+2026-04-20 10:33:58,736 [Main] 3260/10000 | loss=0.797841 raw=0.006827 attn=0.00012 n=4 | lr=1.81e-05 | 3.59s/it | elapsed=5.02h ETA=6.72h
+2026-04-20 10:35:49,462 [Main] 3280/10000 | loss=0.965911 raw=0.008906 attn=0.00010 n=4 | lr=1.80e-05 | 3.71s/it | elapsed=5.05h ETA=6.92h
+2026-04-20 10:37:40,659 [Main] 3300/10000 | loss=1.640252 raw=0.016643 attn=0.00009 n=4 | lr=1.80e-05 | 3.59s/it | elapsed=5.08h ETA=6.68h
+2026-04-20 10:39:31,017 [Main] 3320/10000 | loss=1.151549 raw=0.010080 attn=0.00014 n=4 | lr=1.79e-05 | 3.57s/it | elapsed=5.11h ETA=6.62h
+2026-04-20 10:41:21,098 [Main] 3340/10000 | loss=0.986527 raw=0.008822 attn=0.00008 n=4 | lr=1.79e-05 | 3.60s/it | elapsed=5.14h ETA=6.67h
+2026-04-20 10:43:12,227 [Main] 3360/10000 | loss=0.952249 raw=0.008470 attn=0.00010 n=4 | lr=1.78e-05 | 3.59s/it | elapsed=5.17h ETA=6.62h
+2026-04-20 10:45:02,292 [Main] 3380/10000 | loss=1.014440 raw=0.009477 attn=0.00009 n=4 | lr=1.78e-05 | 3.59s/it | elapsed=5.20h ETA=6.61h
+2026-04-20 10:46:53,024 [Main] 3400/10000 | loss=1.079298 raw=0.010127 attn=0.00012 n=4 | lr=1.78e-05 | 3.39s/it | elapsed=5.23h ETA=6.21h
+2026-04-20 10:48:43,725 [Main] 3420/10000 | loss=0.964199 raw=0.008866 attn=0.00008 n=4 | lr=1.77e-05 | 3.59s/it | elapsed=5.26h ETA=6.56h
+2026-04-20 10:50:34,493 [Main] 3440/10000 | loss=1.131479 raw=0.010403 attn=0.00017 n=4 | lr=1.77e-05 | 3.42s/it | elapsed=5.29h ETA=6.22h
+2026-04-20 10:52:25,627 [Main] 3460/10000 | loss=1.157559 raw=0.010843 attn=0.00010 n=4 | lr=1.76e-05 | 3.59s/it | elapsed=5.33h ETA=6.51h
+2026-04-20 10:54:15,753 [Main] 3480/10000 | loss=1.162199 raw=0.010572 attn=0.00011 n=4 | lr=1.76e-05 | 3.74s/it | elapsed=5.36h ETA=6.77h
+2026-04-20 10:56:06,973 [Main] 3500/10000 | loss=0.913027 raw=0.008169 attn=0.00013 n=4 | lr=1.75e-05 | 3.60s/it | elapsed=5.39h ETA=6.49h
+2026-04-20 10:57:57,686 [Main] 3520/10000 | loss=0.822669 raw=0.006959 attn=0.00014 n=4 | lr=1.75e-05 | 3.57s/it | elapsed=5.42h ETA=6.43h
+2026-04-20 10:59:48,633 [Main] 3540/10000 | loss=1.101418 raw=0.010528 attn=0.00014 n=4 | lr=1.74e-05 | 3.60s/it | elapsed=5.45h ETA=6.46h
+2026-04-20 11:01:39,789 [Main] 3560/10000 | loss=1.004336 raw=0.008904 attn=0.00013 n=4 | lr=1.74e-05 | 3.58s/it | elapsed=5.48h ETA=6.41h
+2026-04-20 11:03:30,984 [Main] 3580/10000 | loss=0.895444 raw=0.007397 attn=0.00021 n=4 | lr=1.73e-05 | 3.58s/it | elapsed=5.51h ETA=6.38h
+2026-04-20 11:05:21,251 [Main] 3600/10000 | loss=1.180077 raw=0.010989 attn=0.00011 n=4 | lr=1.73e-05 | 3.60s/it | elapsed=5.54h ETA=6.41h
+2026-04-20 11:07:11,594 [Main] 3620/10000 | loss=1.020479 raw=0.008970 attn=0.00014 n=4 | lr=1.72e-05 | 3.39s/it | elapsed=5.57h ETA=6.01h
+2026-04-20 11:09:02,750 [Main] 3640/10000 | loss=0.807385 raw=0.007584 attn=0.00013 n=4 | lr=1.72e-05 | 3.59s/it | elapsed=5.60h ETA=6.34h
+2026-04-20 11:10:52,807 [Main] 3660/10000 | loss=1.116821 raw=0.010309 attn=0.00014 n=4 | lr=1.71e-05 | 3.60s/it | elapsed=5.63h ETA=6.34h
+2026-04-20 11:12:43,253 [Main] 3680/10000 | loss=1.074718 raw=0.009468 attn=0.00012 n=4 | lr=1.71e-05 | 3.75s/it | elapsed=5.66h ETA=6.58h
+2026-04-20 11:14:34,573 [Main] 3700/10000 | loss=1.142365 raw=0.010469 attn=0.00010 n=4 | lr=1.70e-05 | 3.59s/it | elapsed=5.69h ETA=6.29h
+2026-04-20 11:16:24,858 [Main] 3720/10000 | loss=0.847739 raw=0.007133 attn=0.00016 n=4 | lr=1.70e-05 | 3.55s/it | elapsed=5.73h ETA=6.19h
+2026-04-20 11:18:15,593 [Main] 3740/10000 | loss=1.462448 raw=0.013866 attn=0.00012 n=4 | lr=1.69e-05 | 3.60s/it | elapsed=5.76h ETA=6.27h
+2026-04-20 11:20:06,912 [Main] 3760/10000 | loss=1.089943 raw=0.009735 attn=0.00008 n=4 | lr=1.69e-05 | 3.60s/it | elapsed=5.79h ETA=6.23h
+2026-04-20 11:21:57,074 [Main] 3780/10000 | loss=1.139900 raw=0.010139 attn=0.00009 n=4 | lr=1.68e-05 | 3.61s/it | elapsed=5.82h ETA=6.23h
+2026-04-20 11:23:47,777 [Main] 3800/10000 | loss=1.200908 raw=0.010625 attn=0.00016 n=4 | lr=1.68e-05 | 3.62s/it | elapsed=5.85h ETA=6.23h
+2026-04-20 11:25:38,700 [Main] 3820/10000 | loss=1.479904 raw=0.013602 attn=0.00018 n=4 | lr=1.67e-05 | 3.39s/it | elapsed=5.88h ETA=5.82h
+2026-04-20 11:27:29,955 [Main] 3840/10000 | loss=0.962850 raw=0.008324 attn=0.00011 n=4 | lr=1.67e-05 | 3.60s/it | elapsed=5.91h ETA=6.16h
+2026-04-20 11:29:20,562 [Main] 3860/10000 | loss=1.070825 raw=0.009767 attn=0.00012 n=4 | lr=1.66e-05 | 3.55s/it | elapsed=5.94h ETA=6.06h
+2026-04-20 11:31:11,117 [Main] 3880/10000 | loss=0.805665 raw=0.007019 attn=0.00013 n=4 | lr=1.66e-05 | 3.73s/it | elapsed=5.97h ETA=6.34h
+2026-04-20 11:33:02,105 [Main] 3900/10000 | loss=1.006162 raw=0.008908 attn=0.00013 n=4 | lr=1.65e-05 | 3.62s/it | elapsed=6.00h ETA=6.13h
+2026-04-20 11:34:52,801 [Main] 3920/10000 | loss=1.030947 raw=0.009492 attn=0.00006 n=4 | lr=1.64e-05 | 3.62s/it | elapsed=6.03h ETA=6.12h
+2026-04-20 11:36:44,031 [Main] 3940/10000 | loss=1.101106 raw=0.009457 attn=0.00011 n=4 | lr=1.64e-05 | 3.61s/it | elapsed=6.06h ETA=6.07h
+2026-04-20 11:38:34,658 [Main] 3960/10000 | loss=1.071853 raw=0.009584 attn=0.00011 n=4 | lr=1.63e-05 | 3.40s/it | elapsed=6.09h ETA=5.71h
+2026-04-20 11:40:25,910 [Main] 3980/10000 | loss=0.991851 raw=0.008504 attn=0.00009 n=4 | lr=1.63e-05 | 3.61s/it | elapsed=6.13h ETA=6.03h
+2026-04-20 11:42:17,230 [Main] 4000/10000 | loss=1.100055 raw=0.009783 attn=0.00009 n=4 | lr=1.62e-05 | 3.60s/it | elapsed=6.16h ETA=6.01h
+2026-04-20 11:44:08,236 [Main] 4020/10000 | loss=1.222883 raw=0.011204 attn=0.00007 n=4 | lr=1.62e-05 | 3.61s/it | elapsed=6.19h ETA=6.00h
+2026-04-20 11:45:58,590 [Main] 4040/10000 | loss=0.824950 raw=0.006740 attn=0.00011 n=4 | lr=1.61e-05 | 3.60s/it | elapsed=6.22h ETA=5.96h
+2026-04-20 11:47:49,398 [Main] 4060/10000 | loss=1.085329 raw=0.009820 attn=0.00010 n=4 | lr=1.61e-05 | 3.61s/it | elapsed=6.25h ETA=5.96h
+2026-04-20 11:49:40,643 [Main] 4080/10000 | loss=1.069111 raw=0.009253 attn=0.00010 n=4 | lr=1.60e-05 | 3.74s/it | elapsed=6.28h ETA=6.15h
+2026-04-20 11:51:31,678 [Main] 4100/10000 | loss=1.269719 raw=0.011447 attn=0.00014 n=4 | lr=1.59e-05 | 3.55s/it | elapsed=6.31h ETA=5.81h
+2026-04-20 11:53:22,737 [Main] 4120/10000 | loss=0.839565 raw=0.007270 attn=0.00011 n=4 | lr=1.59e-05 | 3.60s/it | elapsed=6.34h ETA=5.87h
+2026-04-20 11:55:13,785 [Main] 4140/10000 | loss=1.187823 raw=0.010576 attn=0.00011 n=4 | lr=1.58e-05 | 3.59s/it | elapsed=6.37h ETA=5.84h
+2026-04-20 11:57:04,554 [Main] 4160/10000 | loss=1.001681 raw=0.008659 attn=0.00015 n=4 | lr=1.58e-05 | 3.60s/it | elapsed=6.40h ETA=5.83h
+2026-04-20 11:58:55,176 [Main] 4180/10000 | loss=0.975064 raw=0.008517 attn=0.00010 n=4 | lr=1.57e-05 | 3.59s/it | elapsed=6.43h ETA=5.81h
+2026-04-20 12:00:45,778 [Main] 4200/10000 | loss=0.877497 raw=0.007508 attn=0.00010 n=4 | lr=1.56e-05 | 3.62s/it | elapsed=6.46h ETA=5.84h
+2026-04-20 12:02:36,541 [Main] 4220/10000 | loss=0.987348 raw=0.008353 attn=0.00013 n=4 | lr=1.56e-05 | 3.55s/it | elapsed=6.50h ETA=5.71h
+2026-04-20 12:04:27,605 [Main] 4240/10000 | loss=0.922163 raw=0.008098 attn=0.00008 n=4 | lr=1.55e-05 | 3.60s/it | elapsed=6.53h ETA=5.76h
+2026-04-20 12:06:17,929 [Main] 4260/10000 | loss=0.916390 raw=0.008006 attn=0.00009 n=4 | lr=1.55e-05 | 3.61s/it | elapsed=6.56h ETA=5.76h
+2026-04-20 12:08:09,026 [Main] 4280/10000 | loss=0.813119 raw=0.007018 attn=0.00009 n=4 | lr=1.54e-05 | 3.74s/it | elapsed=6.59h ETA=5.95h
+2026-04-20 12:09:59,863 [Main] 4300/10000 | loss=0.760649 raw=0.006479 attn=0.00009 n=4 | lr=1.54e-05 | 3.59s/it | elapsed=6.62h ETA=5.69h
+2026-04-20 12:11:50,845 [Main] 4320/10000 | loss=0.754501 raw=0.006420 attn=0.00010 n=4 | lr=1.53e-05 | 3.60s/it | elapsed=6.65h ETA=5.69h
+2026-04-20 12:13:41,890 [Main] 4340/10000 | loss=0.814145 raw=0.006754 attn=0.00009 n=4 | lr=1.52e-05 | 3.66s/it | elapsed=6.68h ETA=5.76h
+2026-04-20 12:15:32,637 [Main] 4360/10000 | loss=1.240179 raw=0.011525 attn=0.00017 n=4 | lr=1.52e-05 | 3.57s/it | elapsed=6.71h ETA=5.59h
+2026-04-20 12:17:23,416 [Main] 4380/10000 | loss=1.139865 raw=0.010336 attn=0.00011 n=4 | lr=1.51e-05 | 3.65s/it | elapsed=6.74h ETA=5.70h
+2026-04-20 12:19:13,490 [Main] 4400/10000 | loss=1.210962 raw=0.010647 attn=0.00011 n=4 | lr=1.50e-05 | 3.56s/it | elapsed=6.77h ETA=5.54h
+2026-04-20 12:21:05,030 [Main] 4420/10000 | loss=1.128074 raw=0.009985 attn=0.00008 n=4 | lr=1.50e-05 | 3.60s/it | elapsed=6.80h ETA=5.58h
+2026-04-20 12:22:56,389 [Main] 4440/10000 | loss=1.511948 raw=0.013738 attn=0.00010 n=4 | lr=1.49e-05 | 3.62s/it | elapsed=6.83h ETA=5.58h
+2026-04-20 12:24:47,405 [Main] 4460/10000 | loss=0.716226 raw=0.006194 attn=0.00011 n=4 | lr=1.49e-05 | 3.57s/it | elapsed=6.86h ETA=5.50h
+2026-04-20 12:26:38,000 [Main] 4480/10000 | loss=1.174744 raw=0.010276 attn=0.00012 n=4 | lr=1.48e-05 | 3.53s/it | elapsed=6.90h ETA=5.42h
+2026-04-20 12:28:28,919 [Main] 4500/10000 | loss=0.980717 raw=0.007864 attn=0.00012 n=4 | lr=1.47e-05 | 3.40s/it | elapsed=6.93h ETA=5.19h
+2026-04-20 12:30:19,254 [Main] 4520/10000 | loss=0.854137 raw=0.007222 attn=0.00016 n=4 | lr=1.47e-05 | 3.39s/it | elapsed=6.96h ETA=5.17h
+2026-04-20 12:32:09,773 [Main] 4540/10000 | loss=0.804663 raw=0.006760 attn=0.00014 n=4 | lr=1.46e-05 | 3.57s/it | elapsed=6.99h ETA=5.41h
+2026-04-20 12:34:00,851 [Main] 4560/10000 | loss=1.226419 raw=0.010791 attn=0.00016 n=4 | lr=1.45e-05 | 3.58s/it | elapsed=7.02h ETA=5.41h
+2026-04-20 12:35:52,094 [Main] 4580/10000 | loss=1.154501 raw=0.010167 attn=0.00017 n=4 | lr=1.45e-05 | 3.58s/it | elapsed=7.05h ETA=5.40h
+2026-04-20 12:37:43,028 [Main] 4600/10000 | loss=0.763879 raw=0.006660 attn=0.00012 n=4 | lr=1.44e-05 | 3.60s/it | elapsed=7.08h ETA=5.40h
+2026-04-20 12:39:34,041 [Main] 4620/10000 | loss=0.999488 raw=0.008289 attn=0.00013 n=4 | lr=1.44e-05 | 3.57s/it | elapsed=7.11h ETA=5.34h
+2026-04-20 12:41:24,547 [Main] 4640/10000 | loss=0.984361 raw=0.008488 attn=0.00009 n=4 | lr=1.43e-05 | 3.61s/it | elapsed=7.14h ETA=5.38h
+2026-04-20 12:43:15,795 [Main] 4660/10000 | loss=1.085580 raw=0.009285 attn=0.00010 n=4 | lr=1.42e-05 | 3.60s/it | elapsed=7.17h ETA=5.34h
+2026-04-20 12:45:06,857 [Main] 4680/10000 | loss=1.094110 raw=0.009189 attn=0.00016 n=4 | lr=1.42e-05 | 3.72s/it | elapsed=7.20h ETA=5.50h
+2026-04-20 12:46:58,123 [Main] 4700/10000 | loss=1.065704 raw=0.009184 attn=0.00014 n=4 | lr=1.41e-05 | 3.58s/it | elapsed=7.23h ETA=5.27h
+2026-04-20 12:48:48,772 [Main] 4720/10000 | loss=0.812827 raw=0.006141 attn=0.00009 n=4 | lr=1.40e-05 | 3.59s/it | elapsed=7.27h ETA=5.27h
+2026-04-20 12:50:39,390 [Main] 4740/10000 | loss=1.029997 raw=0.008765 attn=0.00012 n=4 | lr=1.40e-05 | 3.60s/it | elapsed=7.30h ETA=5.27h
+2026-04-20 12:52:30,484 [Main] 4760/10000 | loss=1.123095 raw=0.009647 attn=0.00009 n=4 | lr=1.39e-05 | 3.61s/it | elapsed=7.33h ETA=5.25h
+2026-04-20 12:54:20,991 [Main] 4780/10000 | loss=1.030817 raw=0.009293 attn=0.00010 n=4 | lr=1.38e-05 | 3.60s/it | elapsed=7.36h ETA=5.22h
+2026-04-20 12:56:11,768 [Main] 4800/10000 | loss=0.690539 raw=0.005142 attn=0.00014 n=4 | lr=1.38e-05 | 3.57s/it | elapsed=7.39h ETA=5.15h
+2026-04-20 12:58:02,827 [Main] 4820/10000 | loss=1.123265 raw=0.009703 attn=0.00008 n=4 | lr=1.37e-05 | 3.61s/it | elapsed=7.42h ETA=5.20h
+2026-04-20 12:59:53,544 [Main] 4840/10000 | loss=1.352383 raw=0.012674 attn=0.00008 n=4 | lr=1.36e-05 | 3.60s/it | elapsed=7.45h ETA=5.16h
+2026-04-20 13:01:44,846 [Main] 4860/10000 | loss=1.104450 raw=0.009873 attn=0.00012 n=4 | lr=1.36e-05 | 3.60s/it | elapsed=7.48h ETA=5.14h
+2026-04-20 13:03:36,354 [Main] 4880/10000 | loss=0.938954 raw=0.007561 attn=0.00011 n=4 | lr=1.35e-05 | 3.74s/it | elapsed=7.51h ETA=5.33h
+2026-04-20 13:05:27,246 [Main] 4900/10000 | loss=0.968164 raw=0.007802 attn=0.00015 n=4 | lr=1.34e-05 | 3.40s/it | elapsed=7.54h ETA=4.82h
+2026-04-20 13:07:18,498 [Main] 4920/10000 | loss=1.080031 raw=0.008509 attn=0.00014 n=4 | lr=1.34e-05 | 3.58s/it | elapsed=7.57h ETA=5.06h
+2026-04-20 13:09:09,847 [Main] 4940/10000 | loss=1.243127 raw=0.010532 attn=0.00011 n=4 | lr=1.33e-05 | 3.60s/it | elapsed=7.60h ETA=5.06h
+2026-04-20 13:11:00,811 [Main] 4960/10000 | loss=1.196355 raw=0.009849 attn=0.00013 n=4 | lr=1.32e-05 | 3.58s/it | elapsed=7.64h ETA=5.02h
+2026-04-20 13:12:52,132 [Main] 4980/10000 | loss=0.651476 raw=0.004964 attn=0.00018 n=4 | lr=1.32e-05 | 3.59s/it | elapsed=7.67h ETA=5.00h
+2026-04-20 13:14:43,183 [Main] 5000/10000 | loss=1.378461 raw=0.011765 attn=0.00015 n=4 | lr=1.31e-05 | 3.60s/it | elapsed=7.70h ETA=5.00h
+  Saved (EMA): models/distill_r4_10k/distill_step_5000.safetensors (2.39GB) step=5000
+2026-04-20 13:16:52,993 [Main] 5020/10000 | loss=1.075927 raw=0.008896 attn=0.00009 n=4 | lr=1.30e-05 | 3.61s/it | elapsed=7.73h ETA=5.00h
+2026-04-20 13:18:43,309 [Main] 5040/10000 | loss=0.847397 raw=0.006588 attn=0.00010 n=4 | lr=1.30e-05 | 3.61s/it | elapsed=7.76h ETA=4.97h
+2026-04-20 13:20:33,433 [Main] 5060/10000 | loss=1.054147 raw=0.008395 attn=0.00008 n=4 | lr=1.29e-05 | 3.61s/it | elapsed=7.79h ETA=4.95h
+2026-04-20 13:22:24,858 [Main] 5080/10000 | loss=1.320989 raw=0.010618 attn=0.00015 n=4 | lr=1.28e-05 | 3.69s/it | elapsed=7.83h ETA=5.04h
+2026-04-20 13:24:15,698 [Main] 5100/10000 | loss=0.991451 raw=0.007812 attn=0.00009 n=4 | lr=1.28e-05 | 3.61s/it | elapsed=7.86h ETA=4.91h
+2026-04-20 13:26:06,928 [Main] 5120/10000 | loss=0.992413 raw=0.007717 attn=0.00008 n=4 | lr=1.27e-05 | 3.62s/it | elapsed=7.89h ETA=4.90h
+2026-04-20 13:27:58,247 [Main] 5140/10000 | loss=1.066807 raw=0.008209 attn=0.00009 n=4 | lr=1.26e-05 | 3.61s/it | elapsed=7.92h ETA=4.88h
+2026-04-20 13:29:49,524 [Main] 5160/10000 | loss=0.993674 raw=0.007081 attn=0.00011 n=4 | lr=1.26e-05 | 3.60s/it | elapsed=7.95h ETA=4.85h
+2026-04-20 13:31:41,134 [Main] 5180/10000 | loss=1.370389 raw=0.010047 attn=0.00011 n=4 | lr=1.25e-05 | 3.61s/it | elapsed=7.98h ETA=4.83h
+2026-04-20 13:33:32,697 [Main] 5200/10000 | loss=1.159682 raw=0.008481 attn=0.00009 n=4 | lr=1.24e-05 | 3.60s/it | elapsed=8.01h ETA=4.80h
+2026-04-20 13:35:24,249 [Main] 5220/10000 | loss=1.001846 raw=0.007505 attn=0.00007 n=4 | lr=1.23e-05 | 3.61s/it | elapsed=8.04h ETA=4.79h
+2026-04-20 13:37:15,476 [Main] 5240/10000 | loss=0.780415 raw=0.005658 attn=0.00013 n=4 | lr=1.23e-05 | 3.59s/it | elapsed=8.07h ETA=4.75h
+2026-04-20 13:39:06,928 [Main] 5260/10000 | loss=0.673685 raw=0.004636 attn=0.00010 n=4 | lr=1.22e-05 | 3.60s/it | elapsed=8.10h ETA=4.74h
+2026-04-20 13:40:58,212 [Main] 5280/10000 | loss=0.752178 raw=0.005368 attn=0.00011 n=4 | lr=1.21e-05 | 3.77s/it | elapsed=8.13h ETA=4.94h
+2026-04-20 13:42:49,615 [Main] 5300/10000 | loss=1.153274 raw=0.008869 attn=0.00010 n=4 | lr=1.21e-05 | 3.62s/it | elapsed=8.17h ETA=4.73h
+2026-04-20 13:44:40,826 [Main] 5320/10000 | loss=0.720496 raw=0.004950 attn=0.00013 n=4 | lr=1.20e-05 | 3.60s/it | elapsed=8.20h ETA=4.69h
+2026-04-20 13:46:32,078 [Main] 5340/10000 | loss=0.921038 raw=0.006457 attn=0.00013 n=4 | lr=1.19e-05 | 3.60s/it | elapsed=8.23h ETA=4.66h
+2026-04-20 13:48:23,639 [Main] 5360/10000 | loss=1.153399 raw=0.008585 attn=0.00011 n=4 | lr=1.19e-05 | 3.60s/it | elapsed=8.26h ETA=4.64h
+2026-04-20 13:50:14,948 [Main] 5380/10000 | loss=1.064567 raw=0.008101 attn=0.00008 n=4 | lr=1.18e-05 | 3.61s/it | elapsed=8.29h ETA=4.63h
+2026-04-20 13:52:05,747 [Main] 5400/10000 | loss=1.087173 raw=0.008102 attn=0.00008 n=4 | lr=1.17e-05 | 3.61s/it | elapsed=8.32h ETA=4.62h
+2026-04-20 13:53:56,956 [Main] 5420/10000 | loss=1.395602 raw=0.011037 attn=0.00010 n=4 | lr=1.17e-05 | 3.62s/it | elapsed=8.35h ETA=4.61h
+2026-04-20 13:55:47,376 [Main] 5440/10000 | loss=1.275294 raw=0.009860 attn=0.00010 n=4 | lr=1.16e-05 | 3.58s/it | elapsed=8.38h ETA=4.54h
+2026-04-20 13:57:37,854 [Main] 5460/10000 | loss=1.015736 raw=0.007069 attn=0.00011 n=4 | lr=1.15e-05 | 3.61s/it | elapsed=8.41h ETA=4.55h
+2026-04-20 13:59:29,321 [Main] 5480/10000 | loss=1.077539 raw=0.007544 attn=0.00012 n=4 | lr=1.14e-05 | 3.62s/it | elapsed=8.44h ETA=4.55h
+2026-04-20 14:01:19,915 [Main] 5500/10000 | loss=1.200512 raw=0.008867 attn=0.00010 n=4 | lr=1.14e-05 | 3.61s/it | elapsed=8.47h ETA=4.51h
+2026-04-20 14:03:10,210 [Main] 5520/10000 | loss=1.117226 raw=0.008195 attn=0.00008 n=4 | lr=1.13e-05 | 3.57s/it | elapsed=8.50h ETA=4.44h
+2026-04-20 14:05:01,096 [Main] 5540/10000 | loss=1.145128 raw=0.008200 attn=0.00011 n=4 | lr=1.12e-05 | 3.78s/it | elapsed=8.54h ETA=4.69h
+2026-04-20 14:06:52,286 [Main] 5560/10000 | loss=1.356522 raw=0.009933 attn=0.00013 n=4 | lr=1.12e-05 | 3.63s/it | elapsed=8.57h ETA=4.47h
+2026-04-20 14:08:43,535 [Main] 5580/10000 | loss=1.092999 raw=0.007667 attn=0.00009 n=4 | lr=1.11e-05 | 3.60s/it | elapsed=8.60h ETA=4.43h
+2026-04-20 14:10:34,013 [Main] 5600/10000 | loss=1.074975 raw=0.007815 attn=0.00012 n=4 | lr=1.10e-05 | 3.58s/it | elapsed=8.63h ETA=4.37h
+2026-04-20 14:12:24,866 [Main] 5620/10000 | loss=1.169971 raw=0.008596 attn=0.00012 n=4 | lr=1.10e-05 | 3.60s/it | elapsed=8.66h ETA=4.38h
+2026-04-20 14:14:15,886 [Main] 5640/10000 | loss=1.087327 raw=0.007760 attn=0.00013 n=4 | lr=1.09e-05 | 3.61s/it | elapsed=8.69h ETA=4.37h
+2026-04-20 14:16:07,048 [Main] 5660/10000 | loss=0.769302 raw=0.005401 attn=0.00008 n=4 | lr=1.08e-05 | 3.61s/it | elapsed=8.72h ETA=4.35h
+2026-04-20 14:17:58,357 [Main] 5680/10000 | loss=1.040416 raw=0.007337 attn=0.00011 n=4 | lr=1.07e-05 | 3.73s/it | elapsed=8.75h ETA=4.48h
+2026-04-20 14:19:49,795 [Main] 5700/10000 | loss=0.767655 raw=0.005240 attn=0.00012 n=4 | lr=1.07e-05 | 3.61s/it | elapsed=8.78h ETA=4.31h
+2026-04-20 14:21:41,000 [Main] 5720/10000 | loss=1.084811 raw=0.007775 attn=0.00010 n=4 | lr=1.06e-05 | 3.60s/it | elapsed=8.81h ETA=4.28h
+2026-04-20 14:23:31,415 [Main] 5740/10000 | loss=0.870334 raw=0.006292 attn=0.00012 n=4 | lr=1.05e-05 | 3.58s/it | elapsed=8.84h ETA=4.23h
+2026-04-20 14:25:22,829 [Main] 5760/10000 | loss=1.027420 raw=0.007737 attn=0.00011 n=4 | lr=1.05e-05 | 3.58s/it | elapsed=8.87h ETA=4.22h
+2026-04-20 14:27:12,125 [Main] 5780/10000 | loss=1.102735 raw=0.007961 attn=0.00010 n=4 | lr=1.04e-05 | 3.62s/it | elapsed=8.91h ETA=4.24h
+2026-04-20 14:29:02,825 [Main] 5800/10000 | loss=1.375265 raw=0.010498 attn=0.00009 n=4 | lr=1.03e-05 | 3.62s/it | elapsed=8.94h ETA=4.22h
+2026-04-20 14:30:54,356 [Main] 5820/10000 | loss=0.887381 raw=0.006452 attn=0.00013 n=4 | lr=1.03e-05 | 3.62s/it | elapsed=8.97h ETA=4.20h
+2026-04-20 14:32:45,786 [Main] 5840/10000 | loss=1.032377 raw=0.007896 attn=0.00007 n=4 | lr=1.02e-05 | 3.60s/it | elapsed=9.00h ETA=4.16h
+2026-04-20 14:34:36,455 [Main] 5860/10000 | loss=1.138633 raw=0.008598 attn=0.00010 n=4 | lr=1.01e-05 | 3.55s/it | elapsed=9.03h ETA=4.09h
+2026-04-20 14:36:27,767 [Main] 5880/10000 | loss=0.979726 raw=0.007008 attn=0.00006 n=4 | lr=1.00e-05 | 3.74s/it | elapsed=9.06h ETA=4.28h
+2026-04-20 14:38:19,243 [Main] 5900/10000 | loss=0.947057 raw=0.007118 attn=0.00011 n=4 | lr=9.97e-06 | 3.61s/it | elapsed=9.09h ETA=4.11h
+2026-04-20 14:40:10,050 [Main] 5920/10000 | loss=1.299097 raw=0.009682 attn=0.00007 n=4 | lr=9.90e-06 | 3.60s/it | elapsed=9.12h ETA=4.08h
+2026-04-20 14:42:01,294 [Main] 5940/10000 | loss=0.650232 raw=0.004432 attn=0.00011 n=4 | lr=9.83e-06 | 3.62s/it | elapsed=9.15h ETA=4.08h
+2026-04-20 14:43:52,693 [Main] 5960/10000 | loss=1.498156 raw=0.012291 attn=0.00010 n=4 | lr=9.76e-06 | 3.57s/it | elapsed=9.18h ETA=4.01h
+2026-04-20 14:45:43,905 [Main] 5980/10000 | loss=1.320657 raw=0.010029 attn=0.00012 n=4 | lr=9.69e-06 | 3.61s/it | elapsed=9.21h ETA=4.03h
+2026-04-20 14:47:35,151 [Main] 6000/10000 | loss=0.960256 raw=0.006720 attn=0.00015 n=4 | lr=9.62e-06 | 3.57s/it | elapsed=9.24h ETA=3.97h
+2026-04-20 14:49:26,514 [Main] 6020/10000 | loss=0.929775 raw=0.006326 attn=0.00013 n=4 | lr=9.55e-06 | 3.60s/it | elapsed=9.28h ETA=3.98h
+2026-04-20 14:51:17,938 [Main] 6040/10000 | loss=1.074056 raw=0.007772 attn=0.00009 n=4 | lr=9.48e-06 | 3.60s/it | elapsed=9.31h ETA=3.96h
+2026-04-20 14:53:08,799 [Main] 6060/10000 | loss=1.092130 raw=0.007690 attn=0.00017 n=4 | lr=9.41e-06 | 3.39s/it | elapsed=9.34h ETA=3.71h
+2026-04-20 14:54:59,826 [Main] 6080/10000 | loss=0.920138 raw=0.006252 attn=0.00009 n=4 | lr=9.34e-06 | 3.74s/it | elapsed=9.37h ETA=4.08h
+2026-04-20 14:56:50,831 [Main] 6100/10000 | loss=0.801587 raw=0.005165 attn=0.00015 n=4 | lr=9.27e-06 | 3.56s/it | elapsed=9.40h ETA=3.85h
+2026-04-20 14:58:42,316 [Main] 6120/10000 | loss=1.003681 raw=0.007039 attn=0.00009 n=4 | lr=9.20e-06 | 3.62s/it | elapsed=9.43h ETA=3.90h
+2026-04-20 15:00:33,780 [Main] 6140/10000 | loss=1.001238 raw=0.007015 attn=0.00010 n=4 | lr=9.14e-06 | 3.72s/it | elapsed=9.46h ETA=3.99h
+2026-04-20 15:02:24,655 [Main] 6160/10000 | loss=0.975450 raw=0.006535 attn=0.00021 n=4 | lr=9.07e-06 | 3.56s/it | elapsed=9.49h ETA=3.80h
+2026-04-20 15:04:15,581 [Main] 6180/10000 | loss=1.171068 raw=0.008405 attn=0.00010 n=4 | lr=9.00e-06 | 3.60s/it | elapsed=9.52h ETA=3.82h
+2026-04-20 15:06:06,139 [Main] 6200/10000 | loss=1.143890 raw=0.008082 attn=0.00014 n=4 | lr=8.93e-06 | 3.41s/it | elapsed=9.55h ETA=3.60h
+2026-04-20 15:07:57,249 [Main] 6220/10000 | loss=1.118704 raw=0.007714 attn=0.00010 n=4 | lr=8.86e-06 | 3.63s/it | elapsed=9.58h ETA=3.81h
+2026-04-20 15:09:48,755 [Main] 6240/10000 | loss=1.125058 raw=0.008061 attn=0.00008 n=4 | lr=8.79e-06 | 3.60s/it | elapsed=9.62h ETA=3.76h
+2026-04-20 15:11:39,987 [Main] 6260/10000 | loss=1.034773 raw=0.007169 attn=0.00009 n=4 | lr=8.72e-06 | 3.59s/it | elapsed=9.65h ETA=3.73h
+2026-04-20 15:13:31,418 [Main] 6280/10000 | loss=0.863247 raw=0.005861 attn=0.00011 n=4 | lr=8.65e-06 | 3.73s/it | elapsed=9.68h ETA=3.86h
+2026-04-20 15:15:22,654 [Main] 6300/10000 | loss=1.178926 raw=0.008577 attn=0.00009 n=4 | lr=8.58e-06 | 3.61s/it | elapsed=9.71h ETA=3.71h
+2026-04-20 15:17:13,783 [Main] 6320/10000 | loss=1.363809 raw=0.009969 attn=0.00011 n=4 | lr=8.51e-06 | 3.58s/it | elapsed=9.74h ETA=3.66h
+2026-04-20 15:19:04,674 [Main] 6340/10000 | loss=0.948316 raw=0.006429 attn=0.00009 n=4 | lr=8.44e-06 | 3.60s/it | elapsed=9.77h ETA=3.66h
+2026-04-20 15:20:55,114 [Main] 6360/10000 | loss=1.137828 raw=0.008075 attn=0.00011 n=4 | lr=8.38e-06 | 3.60s/it | elapsed=9.80h ETA=3.64h
+2026-04-20 15:22:46,421 [Main] 6380/10000 | loss=1.181506 raw=0.008313 attn=0.00010 n=4 | lr=8.31e-06 | 3.61s/it | elapsed=9.83h ETA=3.63h
+2026-04-20 15:24:37,253 [Main] 6400/10000 | loss=0.959646 raw=0.006655 attn=0.00010 n=4 | lr=8.24e-06 | 3.62s/it | elapsed=9.86h ETA=3.62h
+2026-04-20 15:26:28,718 [Main] 6420/10000 | loss=1.043189 raw=0.007013 attn=0.00010 n=4 | lr=8.17e-06 | 3.57s/it | elapsed=9.89h ETA=3.55h
+2026-04-20 15:28:19,874 [Main] 6440/10000 | loss=0.932063 raw=0.006467 attn=0.00014 n=4 | lr=8.10e-06 | 3.44s/it | elapsed=9.92h ETA=3.40h
+2026-04-20 15:30:10,665 [Main] 6460/10000 | loss=1.247062 raw=0.008771 attn=0.00013 n=4 | lr=8.04e-06 | 3.56s/it | elapsed=9.95h ETA=3.50h
+2026-04-20 15:32:01,623 [Main] 6480/10000 | loss=1.187664 raw=0.008540 attn=0.00007 n=4 | lr=7.97e-06 | 3.73s/it | elapsed=9.99h ETA=3.64h
+2026-04-20 15:33:52,181 [Main] 6500/10000 | loss=1.033258 raw=0.007259 attn=0.00009 n=4 | lr=7.90e-06 | 3.60s/it | elapsed=10.02h ETA=3.50h
+2026-04-20 15:35:43,287 [Main] 6520/10000 | loss=1.263162 raw=0.009113 attn=0.00010 n=4 | lr=7.83e-06 | 3.61s/it | elapsed=10.05h ETA=3.49h
+2026-04-20 15:37:34,597 [Main] 6540/10000 | loss=1.014962 raw=0.007365 attn=0.00010 n=4 | lr=7.77e-06 | 3.60s/it | elapsed=10.08h ETA=3.46h
+2026-04-20 15:39:24,090 [Main] 6560/10000 | loss=0.969195 raw=0.006527 attn=0.00015 n=4 | lr=7.70e-06 | 3.40s/it | elapsed=10.11h ETA=3.25h
+2026-04-20 15:41:14,943 [Main] 6580/10000 | loss=1.158747 raw=0.008146 attn=0.00011 n=4 | lr=7.63e-06 | 3.63s/it | elapsed=10.14h ETA=3.44h
+2026-04-20 15:43:05,688 [Main] 6600/10000 | loss=1.111923 raw=0.007248 attn=0.00012 n=4 | lr=7.56e-06 | 3.39s/it | elapsed=10.17h ETA=3.20h
+2026-04-20 15:44:56,932 [Main] 6620/10000 | loss=1.129802 raw=0.007643 attn=0.00008 n=4 | lr=7.50e-06 | 3.61s/it | elapsed=10.20h ETA=3.39h
+2026-04-20 15:46:47,464 [Main] 6640/10000 | loss=1.069260 raw=0.007045 attn=0.00009 n=4 | lr=7.43e-06 | 3.59s/it | elapsed=10.23h ETA=3.35h
+2026-04-20 15:48:38,525 [Main] 6660/10000 | loss=0.835882 raw=0.005190 attn=0.00014 n=4 | lr=7.36e-06 | 3.58s/it | elapsed=10.26h ETA=3.32h
+2026-04-20 15:50:29,820 [Main] 6680/10000 | loss=0.977953 raw=0.006549 attn=0.00008 n=4 | lr=7.30e-06 | 3.73s/it | elapsed=10.29h ETA=3.44h
+2026-04-20 15:52:20,721 [Main] 6700/10000 | loss=0.911808 raw=0.006048 attn=0.00012 n=4 | lr=7.23e-06 | 3.61s/it | elapsed=10.32h ETA=3.31h
+2026-04-20 15:54:11,820 [Main] 6720/10000 | loss=0.979897 raw=0.006474 attn=0.00011 n=4 | lr=7.17e-06 | 3.61s/it | elapsed=10.36h ETA=3.29h
+2026-04-20 15:56:02,820 [Main] 6740/10000 | loss=0.771218 raw=0.004777 attn=0.00012 n=4 | lr=7.10e-06 | 3.61s/it | elapsed=10.39h ETA=3.27h
+2026-04-20 15:57:53,945 [Main] 6760/10000 | loss=1.717816 raw=0.012635 attn=0.00011 n=4 | lr=7.04e-06 | 3.56s/it | elapsed=10.42h ETA=3.20h
+2026-04-20 15:59:45,008 [Main] 6780/10000 | loss=0.663275 raw=0.003946 attn=0.00009 n=4 | lr=6.97e-06 | 3.61s/it | elapsed=10.45h ETA=3.23h
+2026-04-20 16:01:35,432 [Main] 6800/10000 | loss=1.207203 raw=0.008482 attn=0.00009 n=4 | lr=6.91e-06 | 3.60s/it | elapsed=10.48h ETA=3.20h
+2026-04-20 16:03:26,788 [Main] 6820/10000 | loss=1.206861 raw=0.007984 attn=0.00016 n=4 | lr=6.84e-06 | 3.56s/it | elapsed=10.51h ETA=3.14h
+2026-04-20 16:05:17,800 [Main] 6840/10000 | loss=0.881965 raw=0.006012 attn=0.00008 n=4 | lr=6.78e-06 | 3.60s/it | elapsed=10.54h ETA=3.16h
+2026-04-20 16:07:08,740 [Main] 6860/10000 | loss=0.826399 raw=0.005136 attn=0.00011 n=4 | lr=6.71e-06 | 3.60s/it | elapsed=10.57h ETA=3.14h
+2026-04-20 16:09:00,089 [Main] 6880/10000 | loss=1.627549 raw=0.011987 attn=0.00008 n=4 | lr=6.65e-06 | 3.74s/it | elapsed=10.60h ETA=3.24h
+2026-04-20 16:10:50,936 [Main] 6900/10000 | loss=0.920932 raw=0.006127 attn=0.00012 n=4 | lr=6.58e-06 | 3.57s/it | elapsed=10.63h ETA=3.07h
+2026-04-20 16:12:41,505 [Main] 6920/10000 | loss=1.235298 raw=0.008544 attn=0.00010 n=4 | lr=6.52e-06 | 3.61s/it | elapsed=10.66h ETA=3.09h
+2026-04-20 16:14:32,444 [Main] 6940/10000 | loss=1.035765 raw=0.006935 attn=0.00008 n=4 | lr=6.46e-06 | 3.75s/it | elapsed=10.69h ETA=3.19h
+2026-04-20 16:16:23,735 [Main] 6960/10000 | loss=1.075688 raw=0.007442 attn=0.00009 n=4 | lr=6.39e-06 | 3.60s/it | elapsed=10.73h ETA=3.04h
+2026-04-20 16:18:14,849 [Main] 6980/10000 | loss=0.920008 raw=0.005795 attn=0.00012 n=4 | lr=6.33e-06 | 3.60s/it | elapsed=10.76h ETA=3.02h
+2026-04-20 16:20:05,678 [Main] 7000/10000 | loss=1.046755 raw=0.007359 attn=0.00008 n=4 | lr=6.27e-06 | 3.61s/it | elapsed=10.79h ETA=3.01h
+2026-04-20 16:21:57,053 [Main] 7020/10000 | loss=0.916531 raw=0.006304 attn=0.00009 n=4 | lr=6.20e-06 | 3.60s/it | elapsed=10.82h ETA=2.98h
+2026-04-20 16:23:47,571 [Main] 7040/10000 | loss=1.132807 raw=0.007674 attn=0.00012 n=4 | lr=6.14e-06 | 3.57s/it | elapsed=10.85h ETA=2.93h
+2026-04-20 16:25:38,494 [Main] 7060/10000 | loss=0.995127 raw=0.006415 attn=0.00011 n=4 | lr=6.08e-06 | 3.61s/it | elapsed=10.88h ETA=2.95h
+2026-04-20 16:27:29,186 [Main] 7080/10000 | loss=1.136495 raw=0.007451 attn=0.00013 n=4 | lr=6.02e-06 | 3.70s/it | elapsed=10.91h ETA=3.00h
+2026-04-20 16:29:19,748 [Main] 7100/10000 | loss=0.957909 raw=0.006396 attn=0.00013 n=4 | lr=5.95e-06 | 3.60s/it | elapsed=10.94h ETA=2.90h
+2026-04-20 16:31:10,439 [Main] 7120/10000 | loss=0.976704 raw=0.006292 attn=0.00013 n=4 | lr=5.89e-06 | 3.60s/it | elapsed=10.97h ETA=2.88h
+2026-04-20 16:33:01,222 [Main] 7140/10000 | loss=1.011881 raw=0.006753 attn=0.00010 n=4 | lr=5.83e-06 | 3.58s/it | elapsed=11.00h ETA=2.85h
+2026-04-20 16:34:51,302 [Main] 7160/10000 | loss=0.813868 raw=0.005272 attn=0.00009 n=4 | lr=5.77e-06 | 3.60s/it | elapsed=11.03h ETA=2.84h
+2026-04-20 16:36:42,632 [Main] 7180/10000 | loss=0.785344 raw=0.004923 attn=0.00013 n=4 | lr=5.71e-06 | 3.59s/it | elapsed=11.06h ETA=2.81h
+2026-04-20 16:38:33,568 [Main] 7200/10000 | loss=0.983729 raw=0.005979 attn=0.00013 n=4 | lr=5.65e-06 | 3.62s/it | elapsed=11.09h ETA=2.82h
+2026-04-20 16:40:24,880 [Main] 7220/10000 | loss=1.053588 raw=0.006514 attn=0.00010 n=4 | lr=5.59e-06 | 3.61s/it | elapsed=11.13h ETA=2.79h
+2026-04-20 16:42:16,144 [Main] 7240/10000 | loss=0.941197 raw=0.006576 attn=0.00009 n=4 | lr=5.53e-06 | 3.61s/it | elapsed=11.16h ETA=2.77h
+2026-04-20 16:44:07,357 [Main] 7260/10000 | loss=0.954030 raw=0.006184 attn=0.00011 n=4 | lr=5.47e-06 | 3.62s/it | elapsed=11.19h ETA=2.76h
+2026-04-20 16:45:58,789 [Main] 7280/10000 | loss=1.137789 raw=0.007707 attn=0.00009 n=4 | lr=5.41e-06 | 3.74s/it | elapsed=11.22h ETA=2.82h
+2026-04-20 16:47:50,092 [Main] 7300/10000 | loss=0.979647 raw=0.006338 attn=0.00008 n=4 | lr=5.35e-06 | 3.59s/it | elapsed=11.25h ETA=2.69h
+2026-04-20 16:49:40,945 [Main] 7320/10000 | loss=0.806104 raw=0.005387 attn=0.00009 n=4 | lr=5.29e-06 | 3.60s/it | elapsed=11.28h ETA=2.68h
+2026-04-20 16:51:31,818 [Main] 7340/10000 | loss=1.020096 raw=0.006479 attn=0.00008 n=4 | lr=5.23e-06 | 3.61s/it | elapsed=11.31h ETA=2.67h
+2026-04-20 16:53:21,413 [Main] 7360/10000 | loss=1.209356 raw=0.008206 attn=0.00013 n=4 | lr=5.17e-06 | 3.57s/it | elapsed=11.34h ETA=2.62h
+2026-04-20 16:55:11,872 [Main] 7380/10000 | loss=0.981255 raw=0.006513 attn=0.00010 n=4 | lr=5.12e-06 | 3.61s/it | elapsed=11.37h ETA=2.63h
+2026-04-20 16:57:03,242 [Main] 7400/10000 | loss=0.878055 raw=0.005638 attn=0.00010 n=4 | lr=5.06e-06 | 3.60s/it | elapsed=11.40h ETA=2.60h
+2026-04-20 16:58:54,412 [Main] 7420/10000 | loss=1.379554 raw=0.009165 attn=0.00013 n=4 | lr=5.00e-06 | 3.62s/it | elapsed=11.43h ETA=2.60h
+2026-04-20 17:00:45,238 [Main] 7440/10000 | loss=1.119941 raw=0.007065 attn=0.00012 n=4 | lr=4.94e-06 | 3.59s/it | elapsed=11.46h ETA=2.55h
+2026-04-20 17:02:36,539 [Main] 7460/10000 | loss=1.228161 raw=0.008060 attn=0.00008 n=4 | lr=4.89e-06 | 3.61s/it | elapsed=11.50h ETA=2.55h
+2026-04-20 17:04:27,944 [Main] 7480/10000 | loss=1.166558 raw=0.007433 attn=0.00010 n=4 | lr=4.83e-06 | 3.74s/it | elapsed=11.53h ETA=2.62h
+2026-04-20 17:06:17,911 [Main] 7500/10000 | loss=0.909737 raw=0.005754 attn=0.00016 n=4 | lr=4.77e-06 | 3.56s/it | elapsed=11.56h ETA=2.47h
+  Saved (EMA): models/distill_r4_10k/distill_step_7500.safetensors (2.39GB) step=7500
+2026-04-20 17:08:23,209 [Main] 7520/10000 | loss=0.854530 raw=0.005440 attn=0.00010 n=4 | lr=4.72e-06 | 3.60s/it | elapsed=11.59h ETA=2.48h
+2026-04-20 17:10:13,659 [Main] 7540/10000 | loss=0.931169 raw=0.005885 attn=0.00011 n=4 | lr=4.66e-06 | 3.58s/it | elapsed=11.62h ETA=2.44h
+2026-04-20 17:12:04,841 [Main] 7560/10000 | loss=1.068257 raw=0.006775 attn=0.00011 n=4 | lr=4.61e-06 | 3.60s/it | elapsed=11.65h ETA=2.44h
+2026-04-20 17:13:56,164 [Main] 7580/10000 | loss=1.039419 raw=0.006834 attn=0.00007 n=4 | lr=4.55e-06 | 3.62s/it | elapsed=11.68h ETA=2.43h
+2026-04-20 17:15:47,540 [Main] 7600/10000 | loss=1.252831 raw=0.008032 attn=0.00013 n=4 | lr=4.50e-06 | 3.64s/it | elapsed=11.71h ETA=2.42h
+2026-04-20 17:17:39,277 [Main] 7620/10000 | loss=0.994336 raw=0.006463 attn=0.00007 n=4 | lr=4.44e-06 | 3.63s/it | elapsed=11.75h ETA=2.40h
+2026-04-20 17:19:30,684 [Main] 7640/10000 | loss=1.248546 raw=0.008336 attn=0.00010 n=4 | lr=4.39e-06 | 3.58s/it | elapsed=11.78h ETA=2.35h
+2026-04-20 17:21:21,628 [Main] 7660/10000 | loss=0.879963 raw=0.005300 attn=0.00010 n=4 | lr=4.34e-06 | 3.64s/it | elapsed=11.81h ETA=2.37h
+2026-04-20 17:23:13,002 [Main] 7680/10000 | loss=0.645029 raw=0.004048 attn=0.00010 n=4 | lr=4.28e-06 | 3.73s/it | elapsed=11.84h ETA=2.40h
+2026-04-20 17:25:04,313 [Main] 7700/10000 | loss=1.202299 raw=0.007976 attn=0.00008 n=4 | lr=4.23e-06 | 3.63s/it | elapsed=11.87h ETA=2.32h
+2026-04-20 17:26:56,049 [Main] 7720/10000 | loss=1.120829 raw=0.007631 attn=0.00009 n=4 | lr=4.18e-06 | 3.61s/it | elapsed=11.90h ETA=2.28h
+2026-04-20 17:28:47,690 [Main] 7740/10000 | loss=1.116806 raw=0.006980 attn=0.00017 n=4 | lr=4.13e-06 | 3.63s/it | elapsed=11.93h ETA=2.28h
+2026-04-20 17:30:39,195 [Main] 7760/10000 | loss=0.924747 raw=0.006012 attn=0.00014 n=4 | lr=4.07e-06 | 3.62s/it | elapsed=11.96h ETA=2.25h
+2026-04-20 17:32:30,482 [Main] 7780/10000 | loss=0.809647 raw=0.005477 attn=0.00007 n=4 | lr=4.02e-06 | 3.63s/it | elapsed=11.99h ETA=2.24h
+2026-04-20 17:34:21,921 [Main] 7800/10000 | loss=1.172158 raw=0.007872 attn=0.00010 n=4 | lr=3.97e-06 | 3.60s/it | elapsed=12.02h ETA=2.20h
+2026-04-20 17:36:13,080 [Main] 7820/10000 | loss=0.949180 raw=0.005966 attn=0.00018 n=4 | lr=3.92e-06 | 2.97s/it | elapsed=12.06h ETA=1.80h
+2026-04-20 17:38:04,459 [Main] 7840/10000 | loss=0.990624 raw=0.005800 attn=0.00011 n=4 | lr=3.87e-06 | 3.62s/it | elapsed=12.09h ETA=2.17h
+2026-04-20 17:39:54,582 [Main] 7860/10000 | loss=0.857874 raw=0.005303 attn=0.00008 n=4 | lr=3.82e-06 | 3.61s/it | elapsed=12.12h ETA=2.15h
+2026-04-20 17:41:45,282 [Main] 7880/10000 | loss=1.284746 raw=0.008341 attn=0.00012 n=4 | lr=3.77e-06 | 3.74s/it | elapsed=12.15h ETA=2.20h
+2026-04-20 17:43:35,919 [Main] 7900/10000 | loss=0.910144 raw=0.005700 attn=0.00012 n=4 | lr=3.72e-06 | 3.61s/it | elapsed=12.18h ETA=2.11h
+2026-04-20 17:45:26,778 [Main] 7920/10000 | loss=1.427491 raw=0.009227 attn=0.00009 n=4 | lr=3.67e-06 | 3.62s/it | elapsed=12.21h ETA=2.09h
+2026-04-20 17:47:18,122 [Main] 7940/10000 | loss=1.160761 raw=0.007242 attn=0.00011 n=4 | lr=3.62e-06 | 3.62s/it | elapsed=12.24h ETA=2.07h
+2026-04-20 17:49:09,604 [Main] 7960/10000 | loss=0.993165 raw=0.006676 attn=0.00012 n=4 | lr=3.57e-06 | 3.56s/it | elapsed=12.27h ETA=2.02h
+2026-04-20 17:51:01,112 [Main] 7980/10000 | loss=1.461418 raw=0.009579 attn=0.00009 n=4 | lr=3.53e-06 | 3.61s/it | elapsed=12.30h ETA=2.02h
+2026-04-20 17:52:51,665 [Main] 8000/10000 | loss=0.857021 raw=0.005369 attn=0.00010 n=4 | lr=3.48e-06 | 3.61s/it | elapsed=12.33h ETA=2.00h
+2026-04-20 17:52:51,887 Main done: 8000 steps in 12.33h
+  Saved (EMA): models/distill_r4_10k/distill_Main_done.safetensors (2.39GB) step=8000
+2026-04-20 17:53:06,743 
+============================================================
+Starting Finetune: 2000 steps @ 512px
+============================================================
+CachedTeacherDataset: 20000 trajectories (5000 prompts)
+2026-04-20 17:55:03,035 [Finetune] 8020/10000 | loss=0.991802 raw=0.005956 attn=0.00008 n=4 | lr=3.43e-06 | 3.61s/it | elapsed=12.37h ETA=1.98h
+2026-04-20 17:56:54,051 [Finetune] 8040/10000 | loss=0.913253 raw=0.005301 attn=0.00012 n=4 | lr=3.39e-06 | 3.42s/it | elapsed=12.40h ETA=1.86h
+2026-04-20 17:58:44,757 [Finetune] 8060/10000 | loss=0.720006 raw=0.003692 attn=0.00013 n=4 | lr=3.34e-06 | 3.56s/it | elapsed=12.43h ETA=1.92h
+2026-04-20 18:00:36,396 [Finetune] 8080/10000 | loss=0.827421 raw=0.004511 attn=0.00009 n=4 | lr=3.29e-06 | 3.62s/it | elapsed=12.46h ETA=1.93h
+2026-04-20 18:02:28,114 [Finetune] 8100/10000 | loss=0.629766 raw=0.003356 attn=0.00014 n=4 | lr=3.25e-06 | 3.79s/it | elapsed=12.49h ETA=2.00h
+2026-04-20 18:04:19,882 [Finetune] 8120/10000 | loss=1.046041 raw=0.005674 attn=0.00011 n=4 | lr=3.20e-06 | 3.63s/it | elapsed=12.52h ETA=1.89h
+2026-04-20 18:06:11,092 [Finetune] 8140/10000 | loss=0.898319 raw=0.004916 attn=0.00010 n=4 | lr=3.16e-06 | 3.62s/it | elapsed=12.55h ETA=1.87h
+2026-04-20 18:08:02,118 [Finetune] 8160/10000 | loss=1.092578 raw=0.006041 attn=0.00011 n=4 | lr=3.11e-06 | 3.60s/it | elapsed=12.59h ETA=1.84h
+2026-04-20 18:09:53,762 [Finetune] 8180/10000 | loss=1.055426 raw=0.005818 attn=0.00010 n=4 | lr=3.07e-06 | 3.76s/it | elapsed=12.62h ETA=1.90h
+2026-04-20 18:11:44,547 [Finetune] 8200/10000 | loss=1.182083 raw=0.006341 attn=0.00011 n=4 | lr=3.03e-06 | 3.60s/it | elapsed=12.65h ETA=1.80h
+2026-04-20 18:13:36,094 [Finetune] 8220/10000 | loss=0.975166 raw=0.005076 attn=0.00009 n=4 | lr=2.98e-06 | 3.62s/it | elapsed=12.68h ETA=1.79h
+2026-04-20 18:15:27,594 [Finetune] 8240/10000 | loss=1.433753 raw=0.008491 attn=0.00009 n=4 | lr=2.94e-06 | 3.62s/it | elapsed=12.71h ETA=1.77h
+2026-04-20 18:17:19,199 [Finetune] 8260/10000 | loss=1.115669 raw=0.006383 attn=0.00011 n=4 | lr=2.90e-06 | 3.62s/it | elapsed=12.74h ETA=1.75h
+2026-04-20 18:19:10,736 [Finetune] 8280/10000 | loss=1.211290 raw=0.006809 attn=0.00010 n=4 | lr=2.86e-06 | 3.71s/it | elapsed=12.77h ETA=1.77h
+2026-04-20 18:21:01,968 [Finetune] 8300/10000 | loss=1.254698 raw=0.007253 attn=0.00010 n=4 | lr=2.81e-06 | 3.62s/it | elapsed=12.80h ETA=1.71h
+2026-04-20 18:22:53,471 [Finetune] 8320/10000 | loss=1.247880 raw=0.007141 attn=0.00010 n=4 | lr=2.77e-06 | 3.60s/it | elapsed=12.83h ETA=1.68h
+2026-04-20 18:24:44,888 [Finetune] 8340/10000 | loss=0.916309 raw=0.005183 attn=0.00009 n=4 | lr=2.73e-06 | 3.62s/it | elapsed=12.86h ETA=1.67h
+2026-04-20 18:26:36,527 [Finetune] 8360/10000 | loss=0.981026 raw=0.005308 attn=0.00011 n=4 | lr=2.69e-06 | 3.61s/it | elapsed=12.90h ETA=1.64h
+2026-04-20 18:28:27,961 [Finetune] 8380/10000 | loss=1.091622 raw=0.006049 attn=0.00009 n=4 | lr=2.65e-06 | 3.64s/it | elapsed=12.93h ETA=1.64h
+2026-04-20 18:30:19,117 [Finetune] 8400/10000 | loss=0.969714 raw=0.005116 attn=0.00010 n=4 | lr=2.61e-06 | 3.62s/it | elapsed=12.96h ETA=1.61h
+2026-04-20 18:32:10,417 [Finetune] 8420/10000 | loss=0.987234 raw=0.005454 attn=0.00010 n=4 | lr=2.57e-06 | 3.63s/it | elapsed=12.99h ETA=1.59h
+2026-04-20 18:34:00,972 [Finetune] 8440/10000 | loss=1.007305 raw=0.005505 attn=0.00010 n=4 | lr=2.54e-06 | 3.59s/it | elapsed=13.02h ETA=1.56h
+2026-04-20 18:35:52,106 [Finetune] 8460/10000 | loss=0.869382 raw=0.004867 attn=0.00010 n=4 | lr=2.50e-06 | 3.62s/it | elapsed=13.05h ETA=1.55h
+2026-04-20 18:37:43,420 [Finetune] 8480/10000 | loss=1.069071 raw=0.005760 attn=0.00009 n=4 | lr=2.46e-06 | 3.61s/it | elapsed=13.08h ETA=1.52h
+2026-04-20 18:39:34,427 [Finetune] 8500/10000 | loss=1.283412 raw=0.007261 attn=0.00010 n=4 | lr=2.42e-06 | 3.62s/it | elapsed=13.11h ETA=1.51h
+2026-04-20 18:41:24,568 [Finetune] 8520/10000 | loss=1.180494 raw=0.006435 attn=0.00012 n=4 | lr=2.39e-06 | 2.97s/it | elapsed=13.14h ETA=1.22h
+2026-04-20 18:43:14,975 [Finetune] 8540/10000 | loss=1.130444 raw=0.006321 attn=0.00015 n=4 | lr=2.35e-06 | 3.65s/it | elapsed=13.17h ETA=1.48h
+2026-04-20 18:45:05,910 [Finetune] 8560/10000 | loss=1.080787 raw=0.006005 attn=0.00010 n=4 | lr=2.31e-06 | 3.61s/it | elapsed=13.20h ETA=1.44h
+2026-04-20 18:46:56,758 [Finetune] 8580/10000 | loss=0.885567 raw=0.004694 attn=0.00012 n=4 | lr=2.28e-06 | 3.57s/it | elapsed=13.23h ETA=1.41h
+2026-04-20 18:48:48,041 [Finetune] 8600/10000 | loss=1.256580 raw=0.007257 attn=0.00008 n=4 | lr=2.24e-06 | 3.60s/it | elapsed=13.27h ETA=1.40h
+2026-04-20 18:50:39,787 [Finetune] 8620/10000 | loss=1.237532 raw=0.006812 attn=0.00011 n=4 | lr=2.21e-06 | 3.61s/it | elapsed=13.30h ETA=1.38h
+2026-04-20 18:52:31,292 [Finetune] 8640/10000 | loss=0.746615 raw=0.003928 attn=0.00008 n=4 | lr=2.18e-06 | 3.61s/it | elapsed=13.33h ETA=1.36h
+2026-04-20 18:54:22,269 [Finetune] 8660/10000 | loss=0.964134 raw=0.004837 attn=0.00010 n=4 | lr=2.14e-06 | 3.59s/it | elapsed=13.36h ETA=1.34h
+2026-04-20 18:56:13,303 [Finetune] 8680/10000 | loss=1.525468 raw=0.008630 attn=0.00009 n=4 | lr=2.11e-06 | 3.62s/it | elapsed=13.39h ETA=1.33h
+2026-04-20 18:58:04,527 [Finetune] 8700/10000 | loss=0.811804 raw=0.004313 attn=0.00007 n=4 | lr=2.08e-06 | 3.62s/it | elapsed=13.42h ETA=1.31h
+2026-04-20 18:59:55,855 [Finetune] 8720/10000 | loss=0.915144 raw=0.005062 attn=0.00012 n=4 | lr=2.04e-06 | 3.60s/it | elapsed=13.45h ETA=1.28h
+2026-04-20 19:01:46,730 [Finetune] 8740/10000 | loss=0.944532 raw=0.004930 attn=0.00015 n=4 | lr=2.01e-06 | 3.61s/it | elapsed=13.48h ETA=1.26h
+2026-04-20 19:03:37,873 [Finetune] 8760/10000 | loss=0.815155 raw=0.004458 attn=0.00010 n=4 | lr=1.98e-06 | 3.60s/it | elapsed=13.51h ETA=1.24h
+2026-04-20 19:05:29,447 [Finetune] 8780/10000 | loss=0.841621 raw=0.004611 attn=0.00013 n=4 | lr=1.95e-06 | 3.62s/it | elapsed=13.54h ETA=1.23h
+2026-04-20 19:07:20,548 [Finetune] 8800/10000 | loss=0.664252 raw=0.003399 attn=0.00010 n=4 | lr=1.92e-06 | 3.57s/it | elapsed=13.57h ETA=1.19h
+2026-04-20 19:09:12,049 [Finetune] 8820/10000 | loss=1.056102 raw=0.005939 attn=0.00010 n=4 | lr=1.89e-06 | 3.63s/it | elapsed=13.61h ETA=1.19h
+2026-04-20 19:11:03,035 [Finetune] 8840/10000 | loss=1.101936 raw=0.005411 attn=0.00014 n=4 | lr=1.86e-06 | 3.56s/it | elapsed=13.64h ETA=1.15h
+2026-04-20 19:12:54,248 [Finetune] 8860/10000 | loss=1.020478 raw=0.005476 attn=0.00010 n=4 | lr=1.83e-06 | 3.63s/it | elapsed=13.67h ETA=1.15h
+2026-04-20 19:14:45,740 [Finetune] 8880/10000 | loss=1.424059 raw=0.008285 attn=0.00009 n=4 | lr=1.80e-06 | 3.72s/it | elapsed=13.70h ETA=1.16h
+2026-04-20 19:16:36,980 [Finetune] 8900/10000 | loss=1.202092 raw=0.006864 attn=0.00011 n=4 | lr=1.77e-06 | 3.61s/it | elapsed=13.73h ETA=1.10h
+2026-04-20 19:18:28,051 [Finetune] 8920/10000 | loss=0.946589 raw=0.004928 attn=0.00014 n=4 | lr=1.75e-06 | 3.61s/it | elapsed=13.76h ETA=1.08h
+2026-04-20 19:20:18,847 [Finetune] 8940/10000 | loss=1.122127 raw=0.006200 attn=0.00010 n=4 | lr=1.72e-06 | 3.61s/it | elapsed=13.79h ETA=1.06h
+2026-04-20 19:22:09,348 [Finetune] 8960/10000 | loss=1.065338 raw=0.005614 attn=0.00011 n=4 | lr=1.69e-06 | 3.62s/it | elapsed=13.82h ETA=1.04h
+2026-04-20 19:24:00,057 [Finetune] 8980/10000 | loss=1.467378 raw=0.007981 attn=0.00014 n=4 | lr=1.67e-06 | 3.40s/it | elapsed=13.85h ETA=0.96h
+2026-04-20 19:25:51,309 [Finetune] 9000/10000 | loss=1.182404 raw=0.006509 attn=0.00012 n=4 | lr=1.64e-06 | 3.58s/it | elapsed=13.88h ETA=0.99h
+2026-04-20 19:27:42,106 [Finetune] 9020/10000 | loss=0.782028 raw=0.003987 attn=0.00011 n=4 | lr=1.62e-06 | 3.57s/it | elapsed=13.91h ETA=0.97h
+2026-04-20 19:29:33,554 [Finetune] 9040/10000 | loss=1.144397 raw=0.006281 attn=0.00012 n=4 | lr=1.59e-06 | 3.60s/it | elapsed=13.94h ETA=0.96h
+2026-04-20 19:31:25,092 [Finetune] 9060/10000 | loss=1.082467 raw=0.005869 attn=0.00010 n=4 | lr=1.57e-06 | 3.60s/it | elapsed=13.98h ETA=0.94h
+2026-04-20 19:33:16,212 [Finetune] 9080/10000 | loss=0.800099 raw=0.004259 attn=0.00013 n=4 | lr=1.54e-06 | 3.72s/it | elapsed=14.01h ETA=0.95h
+2026-04-20 19:35:07,391 [Finetune] 9100/10000 | loss=0.996488 raw=0.005244 attn=0.00011 n=4 | lr=1.52e-06 | 3.61s/it | elapsed=14.04h ETA=0.90h
+2026-04-20 19:36:58,640 [Finetune] 9120/10000 | loss=1.211942 raw=0.006382 attn=0.00011 n=4 | lr=1.50e-06 | 3.58s/it | elapsed=14.07h ETA=0.88h
+2026-04-20 19:38:50,032 [Finetune] 9140/10000 | loss=1.484919 raw=0.008030 attn=0.00010 n=4 | lr=1.48e-06 | 3.75s/it | elapsed=14.10h ETA=0.90h
+2026-04-20 19:40:41,290 [Finetune] 9160/10000 | loss=1.174486 raw=0.006275 attn=0.00012 n=4 | lr=1.45e-06 | 3.63s/it | elapsed=14.13h ETA=0.85h
+2026-04-20 19:42:32,221 [Finetune] 9180/10000 | loss=0.840580 raw=0.004645 attn=0.00010 n=4 | lr=1.43e-06 | 3.61s/it | elapsed=14.16h ETA=0.82h
+2026-04-20 19:44:23,640 [Finetune] 9200/10000 | loss=1.185673 raw=0.006329 attn=0.00009 n=4 | lr=1.41e-06 | 3.61s/it | elapsed=14.19h ETA=0.80h
+2026-04-20 19:46:15,116 [Finetune] 9220/10000 | loss=1.114014 raw=0.006066 attn=0.00008 n=4 | lr=1.39e-06 | 3.62s/it | elapsed=14.22h ETA=0.79h
+2026-04-20 19:48:05,856 [Finetune] 9240/10000 | loss=1.299924 raw=0.007492 attn=0.00012 n=4 | lr=1.37e-06 | 2.97s/it | elapsed=14.25h ETA=0.63h
+2026-04-20 19:49:57,009 [Finetune] 9260/10000 | loss=1.104435 raw=0.006312 attn=0.00010 n=4 | lr=1.35e-06 | 3.59s/it | elapsed=14.28h ETA=0.74h
+2026-04-20 19:51:47,043 [Finetune] 9280/10000 | loss=1.393743 raw=0.008136 attn=0.00008 n=4 | lr=1.33e-06 | 3.61s/it | elapsed=14.31h ETA=0.72h
+2026-04-20 19:53:38,201 [Finetune] 9300/10000 | loss=0.939225 raw=0.005057 attn=0.00010 n=4 | lr=1.32e-06 | 3.62s/it | elapsed=14.35h ETA=0.70h
+2026-04-20 19:55:29,513 [Finetune] 9320/10000 | loss=0.956997 raw=0.005066 attn=0.00010 n=4 | lr=1.30e-06 | 3.58s/it | elapsed=14.38h ETA=0.68h
+2026-04-20 19:57:19,304 [Finetune] 9340/10000 | loss=0.776357 raw=0.003898 attn=0.00016 n=4 | lr=1.28e-06 | 2.97s/it | elapsed=14.41h ETA=0.54h
+2026-04-20 19:59:10,519 [Finetune] 9360/10000 | loss=1.185149 raw=0.006449 attn=0.00009 n=4 | lr=1.26e-06 | 3.59s/it | elapsed=14.44h ETA=0.64h
+2026-04-20 20:01:01,024 [Finetune] 9380/10000 | loss=0.845873 raw=0.004605 attn=0.00010 n=4 | lr=1.25e-06 | 3.62s/it | elapsed=14.47h ETA=0.62h
+2026-04-20 20:02:52,201 [Finetune] 9400/10000 | loss=1.158178 raw=0.006163 attn=0.00009 n=4 | lr=1.23e-06 | 3.60s/it | elapsed=14.50h ETA=0.60h
+2026-04-20 20:04:43,355 [Finetune] 9420/10000 | loss=1.161608 raw=0.006271 attn=0.00010 n=4 | lr=1.22e-06 | 3.61s/it | elapsed=14.53h ETA=0.58h
+2026-04-20 20:06:34,064 [Finetune] 9440/10000 | loss=1.060369 raw=0.005730 attn=0.00015 n=4 | lr=1.20e-06 | 3.40s/it | elapsed=14.56h ETA=0.53h
+2026-04-20 20:08:24,895 [Finetune] 9460/10000 | loss=0.876500 raw=0.004587 attn=0.00014 n=4 | lr=1.19e-06 | 3.56s/it | elapsed=14.59h ETA=0.53h
+2026-04-20 20:10:16,117 [Finetune] 9480/10000 | loss=1.101341 raw=0.006106 attn=0.00007 n=4 | lr=1.17e-06 | 3.62s/it | elapsed=14.62h ETA=0.52h
+2026-04-20 20:12:06,398 [Finetune] 9500/10000 | loss=1.090532 raw=0.005843 attn=0.00014 n=4 | lr=1.16e-06 | 3.62s/it | elapsed=14.65h ETA=0.50h
+2026-04-20 20:13:57,628 [Finetune] 9520/10000 | loss=1.027121 raw=0.005456 attn=0.00009 n=4 | lr=1.15e-06 | 3.60s/it | elapsed=14.68h ETA=0.48h
+2026-04-20 20:15:48,597 [Finetune] 9540/10000 | loss=0.745654 raw=0.003780 attn=0.00015 n=4 | lr=1.14e-06 | 3.56s/it | elapsed=14.72h ETA=0.45h
+2026-04-20 20:17:39,691 [Finetune] 9560/10000 | loss=1.025393 raw=0.005470 attn=0.00013 n=4 | lr=1.13e-06 | 3.59s/it | elapsed=14.75h ETA=0.44h
+2026-04-20 20:19:30,755 [Finetune] 9580/10000 | loss=1.169690 raw=0.005979 attn=0.00010 n=4 | lr=1.11e-06 | 3.61s/it | elapsed=14.78h ETA=0.42h
+2026-04-20 20:21:21,439 [Finetune] 9600/10000 | loss=1.430177 raw=0.008169 attn=0.00010 n=4 | lr=1.10e-06 | 3.60s/it | elapsed=14.81h ETA=0.40h
+2026-04-20 20:23:12,803 [Finetune] 9620/10000 | loss=1.156304 raw=0.006393 attn=0.00017 n=4 | lr=1.09e-06 | 3.61s/it | elapsed=14.84h ETA=0.38h
+2026-04-20 20:25:04,210 [Finetune] 9640/10000 | loss=0.944340 raw=0.004927 attn=0.00013 n=4 | lr=1.08e-06 | 3.60s/it | elapsed=14.87h ETA=0.36h
+2026-04-20 20:26:55,513 [Finetune] 9660/10000 | loss=1.264069 raw=0.007075 attn=0.00011 n=4 | lr=1.07e-06 | 3.63s/it | elapsed=14.90h ETA=0.34h
+2026-04-20 20:28:46,694 [Finetune] 9680/10000 | loss=1.108675 raw=0.005737 attn=0.00013 n=4 | lr=1.07e-06 | 3.71s/it | elapsed=14.93h ETA=0.33h
+2026-04-20 20:30:37,184 [Finetune] 9700/10000 | loss=1.022208 raw=0.005544 attn=0.00016 n=4 | lr=1.06e-06 | 3.61s/it | elapsed=14.96h ETA=0.30h
+2026-04-20 20:32:28,605 [Finetune] 9720/10000 | loss=0.956988 raw=0.004916 attn=0.00014 n=4 | lr=1.05e-06 | 3.56s/it | elapsed=14.99h ETA=0.28h
+2026-04-20 20:34:19,278 [Finetune] 9740/10000 | loss=1.299577 raw=0.007494 attn=0.00012 n=4 | lr=1.04e-06 | 3.63s/it | elapsed=15.02h ETA=0.26h
+2026-04-20 20:36:10,569 [Finetune] 9760/10000 | loss=0.844887 raw=0.004656 attn=0.00010 n=4 | lr=1.04e-06 | 3.60s/it | elapsed=15.05h ETA=0.24h
+2026-04-20 20:38:01,628 [Finetune] 9780/10000 | loss=0.924697 raw=0.004924 attn=0.00011 n=4 | lr=1.03e-06 | 3.60s/it | elapsed=15.09h ETA=0.22h
+2026-04-20 20:39:52,746 [Finetune] 9800/10000 | loss=1.091120 raw=0.006031 attn=0.00010 n=4 | lr=1.03e-06 | 3.57s/it | elapsed=15.12h ETA=0.20h
+2026-04-20 20:41:43,561 [Finetune] 9820/10000 | loss=1.102429 raw=0.005832 attn=0.00009 n=4 | lr=1.02e-06 | 3.59s/it | elapsed=15.15h ETA=0.18h
+2026-04-20 20:43:33,787 [Finetune] 9840/10000 | loss=1.233654 raw=0.006569 attn=0.00009 n=4 | lr=1.02e-06 | 3.60s/it | elapsed=15.18h ETA=0.16h
+2026-04-20 20:45:24,985 [Finetune] 9860/10000 | loss=1.192383 raw=0.006238 attn=0.00009 n=4 | lr=1.01e-06 | 3.62s/it | elapsed=15.21h ETA=0.14h
+2026-04-20 20:47:15,281 [Finetune] 9880/10000 | loss=1.087236 raw=0.005517 attn=0.00011 n=4 | lr=1.01e-06 | 3.72s/it | elapsed=15.24h ETA=0.12h
+2026-04-20 20:49:06,097 [Finetune] 9900/10000 | loss=0.748260 raw=0.003770 attn=0.00010 n=4 | lr=1.01e-06 | 3.60s/it | elapsed=15.27h ETA=0.10h
+2026-04-20 20:50:57,295 [Finetune] 9920/10000 | loss=1.269765 raw=0.006856 attn=0.00011 n=4 | lr=1.00e-06 | 3.58s/it | elapsed=15.30h ETA=0.08h
+2026-04-20 20:52:48,107 [Finetune] 9940/10000 | loss=1.268450 raw=0.007039 attn=0.00011 n=4 | lr=1.00e-06 | 3.76s/it | elapsed=15.33h ETA=0.06h
+2026-04-20 20:54:38,997 [Finetune] 9960/10000 | loss=1.098156 raw=0.005899 attn=0.00012 n=4 | lr=1.00e-06 | 3.56s/it | elapsed=15.36h ETA=0.04h
+2026-04-20 20:56:29,454 [Finetune] 9980/10000 | loss=0.739919 raw=0.003733 attn=0.00009 n=4 | lr=1.00e-06 | 3.62s/it | elapsed=15.39h ETA=0.02h
+2026-04-20 20:58:20,295 [Finetune] 10000/10000 | loss=1.066115 raw=0.005609 attn=0.00010 n=4 | lr=1.00e-06 | 3.61s/it | elapsed=15.42h ETA=0.00h
+  Saved (EMA): models/distill_r4_10k/distill_step_10000.safetensors (2.39GB) step=10000
+2026-04-20 20:58:34,582   Removed old checkpoint: distill_step_10000.safetensors
+2026-04-20 20:58:34,804 Finetune done: 2000 steps in 3.09h
+  Saved (EMA): models/distill_r4_10k/distill_Finetune_done.safetensors (2.39GB) step=10000
+  Saved (EMA): models/distill_r4_10k/distill_final.safetensors (2.39GB) step=10000
+2026-04-20 20:59:03,335 
+Done: 10000 steps, 15.44h, avg_loss=1.046342
+2026-04-20 20:59:03,349 Final model (EMA): models/distill_r4_10k/distill_final.safetensors
