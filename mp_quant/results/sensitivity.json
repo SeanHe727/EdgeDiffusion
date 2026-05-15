@@ -1,0 +1,1175 @@
+{
+  "config": {
+    "base_model": "stabilityai/sd-turbo",
+    "unet_source": "C:\\Users\\Administrator\\.cache\\huggingface\\hub\\models--ChenHe727--EdgeDiffusion_distilled_feat_attn\\snapshots\\b649feb55b51a8177a976aed459bb932b88c50c8\\distill_final.safetensors",
+    "n_prompts": 32,
+    "n_steps": 4,
+    "resolution": 512,
+    "seed": 42,
+    "skip_layers": [
+      "conv_in",
+      "conv_out",
+      "time_embedding",
+      "time_emb_proj",
+      "add_embedding"
+    ],
+    "bits": [
+      "int8",
+      "int4"
+    ]
+  },
+  "layers": {
+    "down_blocks.0.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 4.8e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 5.1e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.9e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 3.6e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.4e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 4.4e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 2.5e-05,
+      "int4": 0.000207
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 82240,
+      "int8": 2.6e-05,
+      "int4": 0.000323
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 81920,
+      "int8": 2.6e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 3.1e-05,
+      "int4": 0.000256
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 821760,
+      "int8": 4.2e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 409920,
+      "int8": 4.1e-05,
+      "int4": 0.000384
+    },
+    "down_blocks.0.attentions.1.proj_in": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 5e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.proj_out": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 5.6e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 3e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 4e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.7e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 4.1e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 2.5e-05,
+      "int4": 0.000211
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 82240,
+      "int8": 2.2e-05,
+      "int4": 0.000216
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 81920,
+      "int8": 2.3e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 2.2e-05,
+      "int4": 0.000241
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 821760,
+      "int8": 3.5e-05,
+      "int4": 0.0
+    },
+    "down_blocks.0.attentions.1.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 409920,
+      "int8": 3.3e-05,
+      "int4": 0.000312
+    },
+    "down_blocks.1.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 3.7e-05,
+      "int4": 0.000451
+    },
+    "down_blocks.1.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 3.8e-05,
+      "int4": 0.000449
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.8e-05,
+      "int4": 0.000218
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 3.5e-05,
+      "int4": 0.000368
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.4e-05,
+      "int4": 0.000229
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 3.8e-05,
+      "int4": 0.000375
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.8e-05,
+      "int4": 0.000215
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 328320,
+      "int8": 3.2e-05,
+      "int4": 0.000278
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 327680,
+      "int8": 2.4e-05,
+      "int4": 0.000207
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.8e-05,
+      "int4": 0.000266
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 3281920,
+      "int8": 3.4e-05,
+      "int4": 0.000517
+    },
+    "down_blocks.1.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 1639040,
+      "int8": 3.6e-05,
+      "int4": 0.000339
+    },
+    "down_blocks.1.attentions.1.proj_in": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 3.8e-05,
+      "int4": 0.000355
+    },
+    "down_blocks.1.attentions.1.proj_out": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": NaN,
+      "int4": 0.000382
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.3e-05,
+      "int4": 0.000228
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 3.1e-05,
+      "int4": 0.00032
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.4e-05,
+      "int4": 0.00021
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 3.3e-05,
+      "int4": 0.000344
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.4e-05,
+      "int4": 0.000181
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 328320,
+      "int8": 2.3e-05,
+      "int4": 0.000229
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 327680,
+      "int8": 2.3e-05,
+      "int4": 0.000201
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.5e-05,
+      "int4": 0.000206
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 3281920,
+      "int8": 2.9e-05,
+      "int4": 0.000289
+    },
+    "down_blocks.1.attentions.1.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 1639040,
+      "int8": 2.7e-05,
+      "int4": 0.000221
+    },
+    "down_blocks.2.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2.9e-05,
+      "int4": 0.0003
+    },
+    "down_blocks.2.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 3.1e-05,
+      "int4": 0.00029
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.3e-05,
+      "int4": 0.000202
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 1312000,
+      "int8": 2.8e-05,
+      "int4": 0.000285
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.4e-05,
+      "int4": 0.000185
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.7e-05,
+      "int4": 0.000248
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 3.2e-05,
+      "int4": 0.000229
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 902400,
+      "int8": 2.8e-05,
+      "int4": 0.0
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 901120,
+      "int8": 2.1e-05,
+      "int4": 0.000205
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.9e-05,
+      "int4": 0.000306
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 13117440,
+      "int8": 3.4e-05,
+      "int4": 0.000294
+    },
+    "down_blocks.2.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 6554880,
+      "int8": 2.7e-05,
+      "int4": 0.000255
+    },
+    "down_blocks.2.attentions.1.proj_in": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 3e-05,
+      "int4": 0.000294
+    },
+    "down_blocks.2.attentions.1.proj_out": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2.8e-05,
+      "int4": 0.00027
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.4e-05,
+      "int4": 0.000195
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 1312000,
+      "int8": 2.8e-05,
+      "int4": 0.000284
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.3e-05,
+      "int4": 0.000191
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.9e-05,
+      "int4": 0.000265
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.7e-05,
+      "int4": 0.000202
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 902400,
+      "int8": 2.6e-05,
+      "int4": 0.0
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 901120,
+      "int8": 2.4e-05,
+      "int4": 0.000217
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.6e-05,
+      "int4": 0.000275
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 13117440,
+      "int8": 2.9e-05,
+      "int4": 0.00028
+    },
+    "down_blocks.2.attentions.1.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 6554880,
+      "int8": 2.7e-05,
+      "int4": 0.000239
+    },
+    "mid_block.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2e-05,
+      "int4": 0.000184
+    },
+    "mid_block.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2e-05,
+      "int4": 0.00017
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 655360,
+      "int8": 2.2e-05,
+      "int4": 0.00018
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 656640,
+      "int8": 2.5e-05,
+      "int4": 0.000182
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 655360,
+      "int8": 2.1e-05,
+      "int4": 0.000178
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 655360,
+      "int8": 2.1e-05,
+      "int4": 0.000192
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.2e-05,
+      "int4": 0.000158
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 656640,
+      "int8": 2.1e-05,
+      "int4": 0.000172
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 655360,
+      "int8": 2e-05,
+      "int4": 0.000174
+    },
+    "mid_block.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.1e-05,
+      "int4": 0.000186
+    },
+    "mid_block.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 327936,
+      "int8": 2.2e-05,
+      "int4": 0.000171
+    },
+    "mid_block.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 165120,
+      "int8": 2e-05,
+      "int4": 0.000176
+    },
+    "up_blocks.1.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2.9e-05,
+      "int4": 0.000294
+    },
+    "up_blocks.1.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2.9e-05,
+      "int4": 0.000279
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.1e-05,
+      "int4": 0.000201
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 1312000,
+      "int8": 2.6e-05,
+      "int4": 0.000273
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.2e-05,
+      "int4": 0.000192
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.9e-05,
+      "int4": 0.000247
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.4e-05,
+      "int4": 0.000186
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 902400,
+      "int8": 2.2e-05,
+      "int4": 0.0
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 901120,
+      "int8": 2.1e-05,
+      "int4": 0.000172
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.7e-05,
+      "int4": 0.000226
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 13117440,
+      "int8": 2.9e-05,
+      "int4": 0.000281
+    },
+    "up_blocks.1.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 6554880,
+      "int8": 2.8e-05,
+      "int4": 0.000258
+    },
+    "up_blocks.1.attentions.1.proj_in": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 2.9e-05,
+      "int4": 0.000312
+    },
+    "up_blocks.1.attentions.1.proj_out": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 3.2e-05,
+      "int4": 0.000318
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.3e-05,
+      "int4": 0.000212
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 1312000,
+      "int8": 3.3e-05,
+      "int4": 0.000309
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.2e-05,
+      "int4": 0.000205
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.7e-05,
+      "int4": 0.000276
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.4e-05,
+      "int4": 0.000213
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 902400,
+      "int8": 2.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 901120,
+      "int8": 2.1e-05,
+      "int4": 0.000177
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.9e-05,
+      "int4": 0.000276
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 13117440,
+      "int8": 3.1e-05,
+      "int4": 0.000347
+    },
+    "up_blocks.1.attentions.1.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 6554880,
+      "int8": 3.2e-05,
+      "int4": 0.000268
+    },
+    "up_blocks.1.attentions.2.proj_in": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 3.7e-05,
+      "int4": 0.000413
+    },
+    "up_blocks.1.attentions.2.proj_out": {
+      "type": "Linear",
+      "param_count": 1639680,
+      "int8": 3.9e-05,
+      "int4": 0.000345
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2e-05,
+      "int4": 0.00018
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 1312000,
+      "int8": 3.5e-05,
+      "int4": 0.000338
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 2.2e-05,
+      "int4": 0.000193
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 1310720,
+      "int8": 3.5e-05,
+      "int4": 0.000313
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.3e-05,
+      "int4": 0.000192
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 902400,
+      "int8": 2.7e-05,
+      "int4": 0.0
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 901120,
+      "int8": 2.1e-05,
+      "int4": 0.000181
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 720896,
+      "int8": 2.9e-05,
+      "int4": 0.000355
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 13117440,
+      "int8": 4.1e-05,
+      "int4": 0.000426
+    },
+    "up_blocks.1.attentions.2.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 6554880,
+      "int8": 2.8e-05,
+      "int4": 0.000281
+    },
+    "up_blocks.2.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": NaN,
+      "int4": 0.000389
+    },
+    "up_blocks.2.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": NaN,
+      "int4": 0.00042
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.3e-05,
+      "int4": 0.000224
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 3.9e-05,
+      "int4": 0.000384
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.5e-05,
+      "int4": 0.000229
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 3.2e-05,
+      "int4": 0.000362
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.1e-05,
+      "int4": 0.000163
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 328320,
+      "int8": 2.5e-05,
+      "int4": 0.000249
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 327680,
+      "int8": 2e-05,
+      "int4": 0.00014
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.7e-05,
+      "int4": 0.000258
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 3281920,
+      "int8": 3.8e-05,
+      "int4": 0.00036
+    },
+    "up_blocks.2.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 1639040,
+      "int8": 3.6e-05,
+      "int4": 0.000342
+    },
+    "up_blocks.2.attentions.1.proj_in": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 4.7e-05,
+      "int4": 0.000613
+    },
+    "up_blocks.2.attentions.1.proj_out": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 4.8e-05,
+      "int4": 0.000529
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.5e-05,
+      "int4": 0.000229
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 6.1e-05,
+      "int4": 0.000591
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.3e-05,
+      "int4": 0.000231
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 5.1e-05,
+      "int4": 0.000693
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.1e-05,
+      "int4": 0.000186
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 328320,
+      "int8": 2.3e-05,
+      "int4": 0.00019
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 327680,
+      "int8": 2.1e-05,
+      "int4": 0.000193
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 3.7e-05,
+      "int4": 0.000329
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 3281920,
+      "int8": 5e-05,
+      "int4": 0.000531
+    },
+    "up_blocks.2.attentions.1.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 1639040,
+      "int8": 4.7e-05,
+      "int4": 0.00044
+    },
+    "up_blocks.2.attentions.2.proj_in": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 6e-05,
+      "int4": 0.000809
+    },
+    "up_blocks.2.attentions.2.proj_out": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 5.7e-05,
+      "int4": 0.000582
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.8e-05,
+      "int4": 0.000253
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 410240,
+      "int8": 6.3e-05,
+      "int4": 0.000728
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 2.4e-05,
+      "int4": 0.000219
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 409600,
+      "int8": 6.9e-05,
+      "int4": 0.000795
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 2.9e-05,
+      "int4": 0.000259
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 328320,
+      "int8": 3.5e-05,
+      "int4": 0.000417
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 327680,
+      "int8": 2.2e-05,
+      "int4": 0.000223
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 524288,
+      "int8": 3.2e-05,
+      "int4": 0.000335
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 3281920,
+      "int8": 6.4e-05,
+      "int4": 0.000718
+    },
+    "up_blocks.2.attentions.2.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 1639040,
+      "int8": 3.7e-05,
+      "int4": 0.000382
+    },
+    "up_blocks.3.attentions.0.proj_in": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 5.7e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.proj_out": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 5.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.8e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 4.9e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 6.8e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 2.9e-05,
+      "int4": 0.000146
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 82240,
+      "int8": 3.1e-05,
+      "int4": 0.000267
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 81920,
+      "int8": 2.2e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 2.5e-05,
+      "int4": 0.000254
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 821760,
+      "int8": 5.3e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.0.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 409920,
+      "int8": 4.8e-05,
+      "int4": 0.00046
+    },
+    "up_blocks.3.attentions.1.proj_in": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 7.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.proj_out": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 7.8e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 6.2e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 3e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 8.1e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 2.4e-05,
+      "int4": 0.000229
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 82240,
+      "int8": 3.5e-05,
+      "int4": 0.000482
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 81920,
+      "int8": 3.6e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 3.5e-05,
+      "int4": 0.000309
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 821760,
+      "int8": 6.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.1.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 409920,
+      "int8": 7.7e-05,
+      "int4": 0.000874
+    },
+    "up_blocks.3.attentions.2.proj_in": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 0.000166,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.proj_out": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 9.1e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_k": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 4.1e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0": {
+      "type": "Linear",
+      "param_count": 102720,
+      "int8": 8.5e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_q": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 2.7e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_v": {
+      "type": "Linear",
+      "param_count": 102400,
+      "int8": 0.000136,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_k": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 3.3e-05,
+      "int4": 0.000153
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0": {
+      "type": "Linear",
+      "param_count": 82240,
+      "int8": 2.1e-05,
+      "int4": 0.000291
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_q": {
+      "type": "Linear",
+      "param_count": 81920,
+      "int8": 3.7e-05,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_v": {
+      "type": "Linear",
+      "param_count": 262144,
+      "int8": 4.5e-05,
+      "int4": 0.000303
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.ff.net.0.proj": {
+      "type": "Linear",
+      "param_count": 821760,
+      "int8": 0.000107,
+      "int4": 0.0
+    },
+    "up_blocks.3.attentions.2.transformer_blocks.0.ff.net.2": {
+      "type": "Linear",
+      "param_count": 409920,
+      "int8": 5.8e-05,
+      "int4": 0.000965
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "variants": {
+    "sd_turbo_original": {
+      "size_mb": 3303.3,
+      "median_latency_sec": 0.146,
+      "per_prompt_sec": [
+        0.146,
+        0.146,
+        0.147,
+        0.145,
+        0.147,
+        0.146,
+        0.144,
+        0.145
+      ],
+      "peak_vram_gb": 3.05,
+      "lpips_vs_sd_turbo_original": 0.0,
+      "lpips_vs_fp16": 0.2776
+    },
+    "fp16": {
+      "size_mb": 2448.2,
+      "median_latency_sec": 0.142,
+      "per_prompt_sec": [
+        0.144,
+        0.139,
+        0.143,
+        0.14,
+        0.14,
+        0.14,
+        0.143,
+        0.142
+      ],
+      "peak_vram_gb": 2.64,
+      "lpips_vs_sd_turbo_original": 0.2776,
+      "lpips_vs_fp16": 0.0
+    },
+    "mp_quant_ptq": {
+      "size_mb": 1224.2,
+      "median_latency_sec": 0.145,
+      "per_prompt_sec": [
+        0.145,
+        0.147,
+        0.143,
+        0.146,
+        0.145,
+        0.144,
+        0.143,
+        0.145
+      ],
+      "peak_vram_gb": 2.64,
+      "lpips_vs_sd_turbo_original": 0.277,
+      "lpips_vs_fp16": 0.0618
+    },
+    "mp_quant_qlora": {
+      "size_mb": 1233.1,
+      "median_latency_sec": 0.171,
+      "per_prompt_sec": [
+        0.17,
+        0.169,
+        0.169,
+        0.172,
+        0.169,
+        0.172,
+        0.171,
+        0.172
+      ],
+      "peak_vram_gb": 2.65,
+      "lpips_vs_sd_turbo_original": 0.2779,
+      "lpips_vs_fp16": 0.0568
+    }
+  },
+  "config": {
+    "steps": 2,
+    "guidance": 0.0,
+    "resolution": 512,
+    "seed": 42,
+    "prompts": [
+      "a photo of a tabby cat sitting on a wooden chair, sharp focus",
+      "a portrait of a young woman with red hair, studio lighting",
+      "an oil painting of a stormy ocean at sunset, dramatic clouds",
+      "a futuristic city skyline at night, neon lights, cyberpunk",
+      "a close-up of a red apple with water droplets, macro photography",
+      "a golden retriever puppy running in a meadow, motion blur",
+      "a coffee shop interior with warm lighting, plants, books",
+      "a fantasy castle on a mountain, mist, soft light"
+    ]
+  }
+}

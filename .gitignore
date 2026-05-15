@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Model weights and caches (use HF hub instead)
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.onnx
+.hf_cache/
+.tmp/
+
+# Output directories (kept on HF / regenerated locally)
+mp_quant/output/
+prune/output/
+prune/models/
+quantize/output/
+models/
+
+# Training / experiment artifacts
+wandb/
+logs/
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

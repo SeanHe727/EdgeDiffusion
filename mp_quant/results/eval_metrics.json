@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "fp16": {
+      "size_mb": 2448.2,
+      "median_latency_sec": 0.198,
+      "per_prompt_sec": [
+        0.199,
+        0.199,
+        0.196,
+        0.198,
+        0.198,
+        0.198,
+        0.197,
+        0.197
+      ],
+      "peak_vram_gb": 2.64,
+      "lpips_vs_fp16": 0.0
+    },
+    "mp_quant_ptq": {
+      "size_mb": 1224.2,
+      "median_latency_sec": 0.205,
+      "per_prompt_sec": [
+        0.207,
+        0.203,
+        0.213,
+        0.204,
+        0.205,
+        0.207,
+        0.205,
+        0.203
+      ],
+      "peak_vram_gb": 2.64,
+      "lpips_vs_fp16": 0.0665
+    }
+  },
+  "config": {
+    "steps": 4,
+    "guidance": 0.0,
+    "resolution": 512,
+    "seed": 42,
+    "prompts": [
+      "a photo of a tabby cat sitting on a wooden chair, sharp focus",
+      "a portrait of a young woman with red hair, studio lighting",
+      "an oil painting of a stormy ocean at sunset, dramatic clouds",
+      "a futuristic city skyline at night, neon lights, cyberpunk",
+      "a close-up of a red apple with water droplets, macro photography",
+      "a golden retriever puppy running in a meadow, motion blur",
+      "a coffee shop interior with warm lighting, plants, books",
+      "a fantasy castle on a mountain, mist, soft light"
+    ]
+  }
+}

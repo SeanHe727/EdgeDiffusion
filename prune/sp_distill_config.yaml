@@ -1,0 +1,86 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# sp_distill_config.yaml  —  Single source of truth for distillation
+#
+# Usage:
+#   python prune/sp_distill.py                           # uses this file
+#   python prune/sp_distill.py --phase1-steps 500        # CLI overrides one value
+#   python prune/sp_distill.py --run-config other.yaml   # swap config file
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Environment paths ─────────────────────────────────────────────────────────
+hf_cache: .hf_cache
+tmp_dir:  .tmp
+
+# ── Model ─────────────────────────────────────────────────────────────────────
+base_model:    models/sd-turbo
+pruned_model:  models/distill_feat_attn/distill_final.safetensors    # student starting point
+device:        null                               # null = auto (cuda if available)
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+dataset:     dataset      # directory of .txt prompt files
+max_samples: 5000         # prompts loaded into dataset (shuffled, seed=42)
+
+# ── Output ────────────────────────────────────────────────────────────────────
+output_dir:           models/distill_2steps_5k          # checkpoints saved here
+save_every:           1000                        # save checkpoint every N steps
+keep_checkpoints:     3                           # max checkpoints to keep on disk
+log_every:            20                          # log loss/lr every N steps
+
+# ── Training phases — both at native 512px ────────────────────────────────────
+resolution:      512
+
+# Main: primary quality recovery
+main_steps:      4000  # short-term: 1500  |  full: 45000
+
+# Finetune: low LR final polish (set to 0 to skip)
+finetune_steps:  1000   # short-term: 500   |  full: 5000
+
+# ── Optimizer ─────────────────────────────────────────────────────────────────
+lr_max:          2.0e-5   # peak learning rate (5e-5 is too aggressive for distillation recovery)
+lr_min:          1.0e-6   # floor for cosine decay
+lr_warmup_steps: 100      # linear warmup from lr_min → lr_max
+lr_decay_start:  1500     # step to start cosine decay (null = start after warmup)
+weight_decay:    0.01
+grad_clip:       1.0      # gradient norm clip
+
+# ── Loss ──────────────────────────────────────────────────────────────────────
+lambda_l1:        0.1     # weight of L1 term alongside MSE — preserves high-frequency detail
+                          # MSE alone blurs by averaging; L1 penalises all deviations equally
+
+# ── Training details ──────────────────────────────────────────────────────────
+batch_size:       1       # cache mode: teacher off GPU, bs=2 fits in VRAM
+grad_accum_steps: 4       # accumulate over N batches before optimizer.step() → effective_bs=4
+n_steps_min:      2       # fixed 4-step inference — consistent timestep schedule [999,749,499,249]
+n_steps_max:      2       # same as min = fixed steps (set min<max to re-enable randomness)
+num_workers:      2       # DataLoader workers
+gc_every:         200     # run torch/python GC every N steps
+
+# ── Model EMA ─────────────────────────────────────────────────────────────────
+ema_decay:        0.9995  # shadow weight decay — memory ~1000 steps (1/(1-decay))
+ema_norm_decay:   0.99    # per-timestep loss normalisation EMA — smooths out scale differences
+                          # between high-noise (t=999) and near-clean (t=249) timesteps
+
+# ── Attention Map Distillation ────────────────────────────────────────────────
+# Set teacher_cache_dir to a pre-computed cache to remove the teacher UNet from
+# GPU during training (~3-5 GB VRAM freed → allows larger batch_size).
+# Generate cache first:  python prune/gen_teacher_cache.py --cache-dir teacher_cache
+#
+# lambda_attn = 0 disables attention map loss entirely (pure prediction-space distillation).
+# Ramp-up: lambda_attn grows linearly from 0 → target over attn_warmup_steps so the
+# student first establishes basic prediction quality before attention alignment is added.
+
+teacher_cache_dir:  null    # path to pre-computed cache dir, or null to run teacher live
+
+lambda_attn:        0.05    # attention map MSE loss weight (relative to EMA-normalised pred loss)
+                            # 0.02 = conservative start; increase to 0.05 if attn loss is stable
+attn_warmup_steps:  500     # ramp lambda_attn from 0 → target over this many optimizer steps
+
+attn_layers:
+  - mid_block.attentions.0.transformer_blocks.0.attn1
+  - mid_block.attentions.0.transformer_blocks.0.attn2
+  - down_blocks.2.attentions.0.transformer_blocks.0.attn1
+  - down_blocks.2.attentions.0.transformer_blocks.0.attn2
+  - up_blocks.1.attentions.0.transformer_blocks.0.attn1
+  - up_blocks.1.attentions.0.transformer_blocks.0.attn2
+  - up_blocks.2.attentions.0.transformer_blocks.0.attn1
+  - up_blocks.2.attentions.0.transformer_blocks.0.attn2
