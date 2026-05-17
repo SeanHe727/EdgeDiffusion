@@ -10,10 +10,9 @@ Core idea — per-step teacher-student matching:
   Gaussian noise and run 1 to 4 denoising steps. At EVERY denoising step:
     1. Save the teacher's current latent as the shared input (t_latent_in).
     2. Teacher runs one step → t_latent (teacher's next latent).
-    3. Student predicts from the SAME t_latent_in (no scheduler.step).
-    4. Loss = MSE(s_pred, t_pred) + lambda_l1 * L1(s_pred, t_pred).
-       Prediction-space loss avoids EulerAncestral stochastic noise that
-       would corrupt latent-space targets.
+    3. Student predicts from the SAME t_latent_in.
+    4. Loss can match prediction-space output, post-step latent output, or
+       optional intermediate features/attention maps.
     5. Student's next step uses t_latent (teacher's output) as input,
        not its own output — so errors never accumulate across steps.
 
@@ -23,6 +22,9 @@ Core idea — per-step teacher-student matching:
 Loss design:
   - MSE + L1 mixed loss: MSE minimises mean error; L1 preserves high-frequency
     detail that MSE blurs away by averaging over valid outputs.
+  - Latent loss: optional MSE(student scheduler.step output,
+    teacher scheduler.step output), matching the LD signal used by
+    sensitivity_ld.py.
   - Per-timestep loss normalisation: each timestep's loss is divided by a
     running EMA of that timestep's historical loss magnitude. This prevents
     high-noise steps (t=999, large raw MSE) from dominating gradient direction
@@ -548,6 +550,18 @@ def main():
     parser.add_argument('--feat-layers', nargs='*',
                         default=_rc('feat_layers', []),
                         help="Dot-paths of large UNet blocks whose output features are distilled.")
+    parser.add_argument('--lambda-latent', type=float, default=_rc('lambda_latent', 0.0),
+                        help="Weight of post-step latent distillation. 0 = disabled. "
+                             "Matches scheduler.step(student_pred) to the teacher next latent, "
+                             "the same target used by sensitivity_ld.py.")
+    parser.add_argument('--lambda-final-latent', type=float, default=_rc('lambda_final_latent', 0.0),
+                        help="Weight of full student-rollout final latent distillation. 0 = disabled. "
+                             "Runs the student through all denoising steps from the initial noise and "
+                             "matches its final latent to the teacher final latent.")
+    parser.add_argument('--lambda-rollout-latent', type=float, default=_rc('lambda_rollout_latent', 0.0),
+                        help="Weight of full student-rollout intermediate latent distillation. 0 = disabled. "
+                             "Runs the student from the initial noise and matches every intermediate "
+                             "student latent to the teacher trajectory latent at the same step.")
 
     args = parser.parse_args()
     device = args.device or ('cuda' if torch.cuda.is_available() else 'cpu')
@@ -567,7 +581,10 @@ def main():
     log.info(f"Distillation: Main={args.main_steps} + Finetune={args.finetune_steps} = {total_steps} total @ {args.resolution}px")
     log.info(f"LR: {args.lr_max} -> {args.lr_min}, warmup={args.lr_warmup_steps}")
     log.info(f"Loss: {args.lambda_pred} * (MSE + {args.lambda_l1} * L1) "
-             f"+ {args.lambda_feat} * feature  |  Timestep normalisation EMA decay={args.ema_norm_decay}")
+             f"+ {args.lambda_feat} * feature + {args.lambda_latent} * latent "
+             f"+ {args.lambda_rollout_latent} * rollout_latent "
+             f"+ {args.lambda_final_latent} * final_latent  |  "
+             f"Timestep normalisation EMA decay={args.ema_norm_decay}")
     log.info(f"Batch: {args.batch_size} × grad_accum={args.grad_accum_steps} → effective_bs={args.batch_size * args.grad_accum_steps}")
     log.info(f"Model EMA decay={args.ema_decay}")
     log.info(f"Base model: {args.base_model}  |  Student: {args.pruned_model}")
@@ -575,6 +592,12 @@ def main():
     use_cache       = bool(args.teacher_cache_dir)
     use_attn_distill = args.lambda_attn > 0 and bool(args.attn_layers)
     use_feat_distill = args.lambda_feat > 0 and bool(args.feat_layers)
+    use_latent_distill = args.lambda_latent > 0
+    use_final_latent_distill = args.lambda_final_latent > 0
+    use_rollout_latent_distill = args.lambda_rollout_latent > 0
+    use_teacher_forced_student = (
+        args.lambda_pred > 0 or use_latent_distill or use_feat_distill or use_attn_distill
+    )
     if use_cache:
         if not Path(args.teacher_cache_dir).exists():
             raise FileNotFoundError(
@@ -589,6 +612,17 @@ def main():
                  f"layers={len(args.attn_layers)}")
     if use_feat_distill:
         log.info(f"Feature distillation ON: λ={args.lambda_feat}, layers={len(args.feat_layers)}")
+    if not use_teacher_forced_student:
+        log.info("Teacher-forced student branch OFF: only rollout/final latent losses require student forwards")
+    if use_latent_distill:
+        log.info(f"Latent distillation ON: λ={args.lambda_latent} (post-step teacher_next_latent target)")
+    if use_rollout_latent_distill:
+        log.info(
+            f"Rollout latent distillation ON: λ={args.lambda_rollout_latent} "
+            "(full student trajectory, every intermediate latent target)"
+        )
+    if use_final_latent_distill:
+        log.info(f"Final latent distillation ON: λ={args.lambda_final_latent} (full student rollout target)")
 
     # ── Model loading ─────────────────────────────────────────────────────────
     log.info("Loading teacher pipeline...")
@@ -649,6 +683,11 @@ def main():
     # Per-timestep EMA normalisation state for feature loss
     ema_feat_per_t: dict[str, float] = {}
 
+    # Per-timestep EMA normalisation state for post-step latent loss
+    ema_latent_per_t: dict[str, float] = {}
+    ema_rollout_latent_per_t: dict[str, float] = {}
+    ema_final_latent: float | None = None
+
     # ── Optimizer + LR schedule ───────────────────────────────────────────────
     # Only update parameters that require grad (student weights, not frozen layers)
     # Only pass params with requires_grad=True; frozen layers (if any) are excluded
@@ -708,7 +747,8 @@ def main():
         latent_w = res // 8
 
         for _ in range(phase_steps * args.grad_accum_steps):
-            step_t = time.time()
+            if accum_step == 0:
+                optimizer_step_t = time.time()
             try:
                 batch = next(data_iter)
             except StopIteration:
@@ -761,14 +801,21 @@ def main():
                 ) * pipe.scheduler.init_noise_sigma  # scale to noise level at first timestep
                 # t_latent is the teacher's current denoising state; updated each step by teacher.step()
                 t_latent = latents.clone()
+                initial_latent = latents.clone()
+            else:
+                initial_latent = None
             # Cache mode: input_latent is loaded per-step from disk (no running state needed).
 
             total_loss      = torch.zeros(1, device=device, dtype=torch.float32)  # normalised pred loss, accumulates over steps
             total_attn_loss = torch.zeros(1, device=device, dtype=torch.float32)  # normalised attn loss, accumulates over steps
             total_feat_loss = torch.zeros(1, device=device, dtype=torch.float32)  # normalised feature loss, accumulates over steps
+            total_latent_loss = torch.zeros(1, device=device, dtype=torch.float32)  # normalised latent loss, accumulates over steps
             total_raw_loss  = 0.0   # un-normalised MSE+L1 sum — detached float, logging only
             total_raw_attn  = 0.0   # un-normalised attn MSE sum — logging only
             total_raw_feat  = 0.0   # un-normalised feature MSE sum — logging only
+            total_raw_latent = 0.0   # un-normalised post-step latent MSE sum — logging only
+            total_rollout_latent_loss = torch.zeros(1, device=device, dtype=torch.float32)
+            total_raw_rollout_latent = 0.0
 
             # ── Pre-load full trajectory from disk (cache mode only) ──────────
             # Loading all steps here instead of inside the timestep loop avoids
@@ -789,6 +836,12 @@ def main():
                             torch.load(sp, map_location='cpu', weights_only=True)
                         )
                     all_step_data.append(step_batch)
+                initial_latent = torch.cat(
+                    [d['input_latent'].float() for d in all_step_data[0]]
+                ).to(device)
+
+            # Teacher next-latent trajectory used by student rollout losses.
+            teacher_latent_targets = []
 
             # ── Per-step denoising loop ───────────────────────────────────────
             for step_i, t in enumerate(ts_schedule):
@@ -845,49 +898,60 @@ def main():
                             if teacher_feature_registry is not None else {}
                         )
 
-                # ── Student step (fp32, grad) ─────────────────────────────────
-                # Student uses t_latent_in (same as teacher's input this step),
-                # NOT its own previous output. This prevents error accumulation:
-                # a blurry student step-1 output would degrade step-2 inputs
-                # and corrupt the gradient signal across all remaining steps.
-                if student_registry is not None:
-                    student_registry.clear()          # clear previous step's captured maps before forward
-                if student_feature_registry is not None:
-                    student_feature_registry.clear()
-                pipe.scheduler._step_index = step_i   # sync student scheduler index to match teacher
-                s_in   = pipe.scheduler.scale_model_input(t_latent_in, t)  # same sigma scaling as teacher
-                s_pred = student_unet(s_in, t, encoder_hidden_states).sample  # fp32 forward, grad tracked
-                # No scheduler.step() for student — EulerAncestral samples fresh
-                # random noise inside step(), so student and teacher latents would
-                # diverge stochastically. Loss on predictions bypasses that entirely.
+                if use_rollout_latent_distill or use_final_latent_distill:
+                    teacher_latent_targets.append(t_latent.detach().float())
 
-                # ── Prediction loss with timestep normalisation ───────────────
-                # Compare UNet epsilon predictions directly (prediction space).
-                # t_pred is a constant target (no_grad / from cache); s_pred has grad.
-                # L1 alongside MSE preserves high-frequency detail that MSE blurs.
-                s_f = s_pred.float()   # ensure fp32 for stable loss computation
-                t_f = t_pred.float()   # teacher target — no gradient flows through this
-                # MSE: minimises mean squared error (good for overall accuracy)
-                # L1:  preserves sharp edges / high-frequency detail that MSE blurs by averaging
-                raw_loss = F.mse_loss(s_f, t_f) + args.lambda_l1 * F.l1_loss(s_f, t_f)
+                # ── Teacher-forced student branch (optional, fp32, grad) ───────
+                # This branch compares the student on teacher latents. It is only
+                # needed when prediction, post-step latent, feature, or attention
+                # losses are enabled. Rollout-only runs skip it to avoid wasting
+                # one extra student pass per timestep.
+                if use_teacher_forced_student:
+                    if student_registry is not None:
+                        student_registry.clear()          # clear previous step's captured maps before forward
+                    if student_feature_registry is not None:
+                        student_feature_registry.clear()
+                    pipe.scheduler._step_index = step_i   # sync student scheduler index to match teacher
+                    s_in   = pipe.scheduler.scale_model_input(t_latent_in, t)  # same sigma scaling as teacher
+                    s_pred = student_unet(s_in, t, encoder_hidden_states).sample  # fp32 forward, grad tracked
 
-                # Per-timestep EMA normalisation:
-                # raw MSE at t=999 (high noise) can be 100× larger than at t=249 (near-clean).
-                # Without normalisation, gradients at noisy steps drown out near-clean steps.
-                # Dividing by the EMA makes each timestep contribute ~equally to the gradient.
-                t_key = int(t.item())  # e.g. 999, 749, 499, 249
-                if t_key not in ema_loss_per_t:
-                    ema_loss_per_t[t_key] = raw_loss.item()  # initialise on first encounter
-                else:
-                    # Running EMA of loss magnitude for this specific timestep
-                    ema_loss_per_t[t_key] = (
-                        args.ema_norm_decay * ema_loss_per_t[t_key]
-                        + (1.0 - args.ema_norm_decay) * raw_loss.item()
-                    )
-                norm_loss = raw_loss / (ema_loss_per_t[t_key] + 1e-8)  # +1e-8 prevents div-by-zero
+                    # ── Prediction loss with timestep normalisation ───────────
+                    # Compare UNet epsilon predictions directly (prediction space).
+                    # t_pred is a constant target (no_grad / from cache); s_pred has grad.
+                    # L1 alongside MSE preserves high-frequency detail that MSE blurs.
+                    s_f = s_pred.float()   # ensure fp32 for stable loss computation
+                    t_f = t_pred.float()   # teacher target — no gradient flows through this
+                    raw_loss = F.mse_loss(s_f, t_f) + args.lambda_l1 * F.l1_loss(s_f, t_f)
 
-                total_loss     = total_loss + norm_loss   # accumulate over all denoising steps
-                total_raw_loss += raw_loss.item()          # float — no grad, for logging only
+                    t_key = int(t.item())  # e.g. 999, 749, 499, 249
+                    if t_key not in ema_loss_per_t:
+                        ema_loss_per_t[t_key] = raw_loss.item()
+                    else:
+                        ema_loss_per_t[t_key] = (
+                            args.ema_norm_decay * ema_loss_per_t[t_key]
+                            + (1.0 - args.ema_norm_decay) * raw_loss.item()
+                        )
+                    norm_loss = raw_loss / (ema_loss_per_t[t_key] + 1e-8)
+
+                    total_loss     = total_loss + norm_loss
+                    total_raw_loss += raw_loss.item()
+
+                    # ── Post-step latent distillation ────────────────────────
+                    if use_latent_distill:
+                        pipe.scheduler._step_index = step_i
+                        s_latent = pipe.scheduler.step(s_pred.float(), t, t_latent_in).prev_sample.to(torch.float32)
+                        step_latent = F.mse_loss(s_latent, t_latent.detach().float())
+                        latent_t_key = f"l{t_key}"
+                        if latent_t_key not in ema_latent_per_t:
+                            ema_latent_per_t[latent_t_key] = step_latent.item()
+                        else:
+                            ema_latent_per_t[latent_t_key] = (
+                                args.ema_norm_decay * ema_latent_per_t[latent_t_key]
+                                + (1.0 - args.ema_norm_decay) * step_latent.item()
+                            )
+                        norm_latent = step_latent / (ema_latent_per_t[latent_t_key] + 1e-8)
+                        total_latent_loss = total_latent_loss + norm_latent * args.lambda_latent
+                        total_raw_latent += step_latent.item()
 
                 # ── Large-block feature distillation ─────────────────────────
                 # Compare normalized intermediate block outputs at the same
@@ -954,12 +1018,73 @@ def main():
                         total_attn_loss = total_attn_loss + norm_attn * lambda_now
                         total_raw_attn  += step_attn.item()
 
+            total_final_latent_loss = torch.zeros(1, device=device, dtype=torch.float32)
+            total_raw_final_latent = 0.0
+            if use_rollout_latent_distill or use_final_latent_distill:
+                # Full student rollout from the initial noise. This exposes the
+                # exact drift seen at inference time.  The rollout latent loss
+                # aligns every intermediate student latent to the teacher
+                # trajectory; the final latent loss keeps the old endpoint-only
+                # objective available as a separate knob.
+                s_rollout_latent = initial_latent
+                for rollout_i, rollout_t in enumerate(ts_schedule):
+                    pipe.scheduler._step_index = rollout_i
+                    s_rollout_in = pipe.scheduler.scale_model_input(s_rollout_latent, rollout_t)
+                    s_rollout_pred = student_unet(
+                        s_rollout_in, rollout_t, encoder_hidden_states
+                    ).sample
+                    pipe.scheduler._step_index = rollout_i
+                    s_rollout_latent = pipe.scheduler.step(
+                        s_rollout_pred.float(), rollout_t, s_rollout_latent
+                    ).prev_sample.to(torch.float32)
+
+                    if use_rollout_latent_distill:
+                        rollout_target = teacher_latent_targets[rollout_i]
+                        raw_rollout_latent = F.mse_loss(s_rollout_latent, rollout_target)
+                        rollout_t_key = f"r{int(rollout_t.item())}"
+                        if rollout_t_key not in ema_rollout_latent_per_t:
+                            ema_rollout_latent_per_t[rollout_t_key] = raw_rollout_latent.item()
+                        else:
+                            ema_rollout_latent_per_t[rollout_t_key] = (
+                                args.ema_norm_decay * ema_rollout_latent_per_t[rollout_t_key]
+                                + (1.0 - args.ema_norm_decay) * raw_rollout_latent.item()
+                            )
+                        norm_rollout_latent = raw_rollout_latent / (
+                            ema_rollout_latent_per_t[rollout_t_key] + 1e-8
+                        )
+                        total_rollout_latent_loss = (
+                            total_rollout_latent_loss
+                            + norm_rollout_latent * args.lambda_rollout_latent
+                        )
+                        total_raw_rollout_latent += raw_rollout_latent.item()
+
+                if use_final_latent_distill:
+                    raw_final_latent = F.mse_loss(s_rollout_latent, teacher_latent_targets[-1])
+                    if ema_final_latent is None:
+                        ema_final_latent = raw_final_latent.item()
+                    else:
+                        ema_final_latent = (
+                            args.ema_norm_decay * ema_final_latent
+                            + (1.0 - args.ema_norm_decay) * raw_final_latent.item()
+                        )
+                    total_final_latent_loss = (
+                        raw_final_latent / (ema_final_latent + 1e-8)
+                    ) * args.lambda_final_latent
+                    total_raw_final_latent = raw_final_latent.item()
+
             # Average across denoising steps, then scale down for gradient accumulation.
             # Both pred loss and attn loss are averaged over ts_schedule length.
             # Dividing by grad_accum_steps keeps gradient magnitude consistent with
             # a single-step update — gradients accumulate additively over N batches.
             loss = (
-                (total_loss * args.lambda_pred + total_feat_loss + total_attn_loss) / len(ts_schedule)
+                (
+                    total_loss * args.lambda_pred
+                    + total_feat_loss
+                    + total_attn_loss
+                    + total_latent_loss
+                    + total_rollout_latent_loss
+                ) / len(ts_schedule)
+                + total_final_latent_loss
             ) / args.grad_accum_steps
 
             # ── NaN guard ─────────────────────────────────────────────────────
@@ -1005,20 +1130,37 @@ def main():
             raw_loss_val  = total_raw_loss / len(ts_schedule)
             raw_attn_val  = total_raw_attn  / len(ts_schedule) if use_attn_distill else 0.0
             raw_feat_val  = total_raw_feat  / len(ts_schedule) if use_feat_distill else 0.0
+            raw_latent_val = total_raw_latent / len(ts_schedule) if use_latent_distill else 0.0
+            raw_rollout_latent_val = (
+                total_raw_rollout_latent / len(ts_schedule)
+                if use_rollout_latent_distill else 0.0
+            )
+            raw_final_latent_val = total_raw_final_latent if use_final_latent_distill else 0.0
             running_loss += loss_val
 
             # ── Logging ───────────────────────────────────────────────────────
             if global_step % args.log_every == 0 or global_step <= 3:
-                elapsed   = time.time() - t_start
-                step_time = time.time() - step_t
-                eta       = step_time * (total_steps - global_step)
+                elapsed = time.time() - t_start
+                last_step_time = time.time() - optimizer_step_t
+                avg_step_time = elapsed / max(1, global_step)
+                eta = avg_step_time * (total_steps - global_step)
                 attn_str  = f" attn={raw_attn_val:.5f}" if use_attn_distill else ""
                 feat_str  = f" feat={raw_feat_val:.5f}" if use_feat_distill else ""
+                latent_str = f" latent={raw_latent_val:.5f}" if use_latent_distill else ""
+                rollout_latent_str = (
+                    f" rollout_latent={raw_rollout_latent_val:.5f}"
+                    if use_rollout_latent_distill else ""
+                )
+                final_latent_str = (
+                    f" final_latent={raw_final_latent_val:.5f}"
+                    if use_final_latent_distill else ""
+                )
                 log.info(
                     f"[{phase_name}] {global_step}/{total_steps} | "
-                    f"loss={loss_val:.6f} raw={raw_loss_val:.6f}{feat_str}{attn_str} n={_n_steps} | "
+                    f"loss={loss_val:.6f} raw={raw_loss_val:.6f}{feat_str}{attn_str}{latent_str}{rollout_latent_str}{final_latent_str} n={_n_steps} | "
                     f"lr={optimizer.param_groups[0]['lr']:.2e} | "
-                    f"{step_time:.2f}s/it | elapsed={elapsed/3600:.2f}h ETA={eta/3600:.2f}h"
+                    f"step={last_step_time:.2f}s avg={avg_step_time:.2f}s | "
+                    f"elapsed={elapsed/3600:.2f}h ETA={eta/3600:.2f}h"
                 )
 
             # ── Periodic checkpoint ───────────────────────────────────────────
@@ -1026,7 +1168,16 @@ def main():
                 ckpt = os.path.join(args.output_dir, f"distill_step_{global_step}.safetensors")
                 save_checkpoint(student_unet, ckpt, global_step, loss_val, ema_params)
                 # Keep only the N most recent periodic checkpoints to save disk space
-                old_ckpts = sorted(_glob.glob(os.path.join(args.output_dir, "distill_step_*.safetensors")))
+                def _ckpt_step(path: str) -> int:
+                    stem = os.path.basename(path).replace(".safetensors", "")
+                    try:
+                        return int(stem.rsplit("_", 1)[-1])
+                    except ValueError:
+                        return -1
+                old_ckpts = sorted(
+                    _glob.glob(os.path.join(args.output_dir, "distill_step_*.safetensors")),
+                    key=_ckpt_step,
+                )
                 while len(old_ckpts) > args.keep_checkpoints:
                     old = old_ckpts.pop(0)
                     os.remove(old)

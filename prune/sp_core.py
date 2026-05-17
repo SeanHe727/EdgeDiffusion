@@ -575,6 +575,12 @@ def _is_ffn_out_proj(name: str) -> bool:
     return "ff.net.2" in name and "ff.net.0" not in name
 
 
+def _is_transformer_ffn_name(name: str) -> bool:
+    """Transformer block FFN path, separate from attention heads/projections."""
+    lname = name.lower()
+    return ".transformer_blocks." in lname and any(k in lname for k in FFN_KEYWORDS)
+
+
 def _get_parent_and_attr(model: nn.Module, dotted_name: str):
     """Return (parent_module, attr_name) for setattr replacement."""
     parts = dotted_name.split('.')
@@ -891,6 +897,7 @@ def prune_zones(*, student_unet, pipe, zones, grad_inputs, importance=None, roun
         keywords = zone.get("keywords", [])
         zone_round_to = zone.get("round_to", round_to_val)          # per-zone 粒度覆盖
         zone_max_conv = zone.get("max_conv_prune", max_prune_ratio_per_layer)  # per-zone conv cap
+        include_transformer_ffn = bool(zone.get("include_transformer_ffn", True))
         print(f"\n   [Zone: {zone.get('name')}] Base pruning ratio={ratio}, conv cap={zone_max_conv}, round_to={zone_round_to}...")
 
         sync_diffusers_attributes(student_unet)
@@ -904,6 +911,8 @@ def prune_zones(*, student_unet, pipe, zones, grad_inputs, importance=None, roun
             name for name, module in named_modules_dict.items()
             if any(k in name for k in keywords)
             and not _is_attention_name(name)
+            and not _is_sampler_module(name)
+            and (include_transformer_ffn or not _is_transformer_ffn_name(name))
             and _is_prunable_module(name, module)
             and not _is_interface_conv(name)   # 排除 conv2/conv_shortcut 接口层，避免级联过度剪枝
         ]

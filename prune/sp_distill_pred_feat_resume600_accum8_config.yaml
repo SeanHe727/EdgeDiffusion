@@ -1,0 +1,66 @@
+# sp_distill_pred_feat_resume600_accum8_config.yaml
+# Resume from pred+feat step 600 with smoother gradients.
+
+hf_cache: .hf_cache
+tmp_dir:  .tmp
+
+base_model:    models/sd-turbo
+pruned_model:  models/distill_pred_feat_from_feat_attn_4steps_3k/distill_step_600.safetensors
+device:        null
+
+dataset:     dataset
+max_samples: 5000
+
+output_dir:           models/distill_pred_feat_from_step600_accum8_4steps
+save_every:           300
+keep_checkpoints:     4
+log_every:            20
+
+resolution:      512
+main_steps:      1800
+finetune_steps:  0
+
+lr_max:          1.0e-5
+lr_min:          5.0e-7
+lr_warmup_steps: 80
+lr_decay_start:  600
+weight_decay:    0.01
+grad_clip:       1.0
+
+lambda_pred:      0.3
+lambda_l1:        0.0
+lambda_feat:      0.08
+
+batch_size:       1
+grad_accum_steps: 8
+n_steps_min:      4
+n_steps_max:      4
+num_workers:      2
+gc_every:         200
+
+ema_decay:        0.9995
+ema_norm_decay:   0.99
+
+teacher_cache_dir:  null
+
+lambda_latent:         0.0
+lambda_final_latent:   0.0
+lambda_rollout_latent: 0.0
+
+lambda_attn:        0.0
+attn_warmup_steps:  500
+
+attn_layers:
+  - mid_block.attentions.0.transformer_blocks.0.attn1
+  - mid_block.attentions.0.transformer_blocks.0.attn2
+  - down_blocks.2.attentions.0.transformer_blocks.0.attn1
+  - down_blocks.2.attentions.0.transformer_blocks.0.attn2
+  - up_blocks.1.attentions.0.transformer_blocks.0.attn1
+  - up_blocks.1.attentions.0.transformer_blocks.0.attn2
+  - up_blocks.2.attentions.0.transformer_blocks.0.attn1
+  - up_blocks.2.attentions.0.transformer_blocks.0.attn2
+
+feat_layers:
+  - mid_block
+  - up_blocks.1
+  - up_blocks.2
