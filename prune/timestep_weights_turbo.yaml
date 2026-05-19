@@ -1,8 +1,0 @@
-# SD-Turbo pruning timestep weights.
-# Derived from prune/TIMESTEP_WEIGHT_ABLATION.md.
-
-timestep_weights:
-  999: 0.70
-  749: 0.25
-  499: 0.05
-  249: 0.05

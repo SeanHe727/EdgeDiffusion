@@ -1,0 +1,39 @@
+W0518 17:51:27.733000 18632 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 17:51:27.767000 18632 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading FP16 SDXL-Lightning UNet (4-step)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+Applying torchao Int8WeightOnlyConfig...
+  targets: 722 Linears (skipping conv_in/conv_out/embeddings)
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py:936: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\dtypes\utils.py:89: UserWarning: Deprecation: PlainLayout is deprecated and will be removed in a future release of torchao, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\dtypes\uintx\plain_layout.py:82: UserWarning: Deprecation: PlainAQTTensorImpl is deprecated and will be removed in a future release of torchao, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\dtypes\affine_quantized_tensor.py:116: UserWarning: Deprecation: AffineQuantizedTensor is deprecated and will be removed in a future release of torchao, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+  after quant: current=2891 MB, peak=9963 MB
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  57%|¨€¨€¨€¨€¨€¨ƒ    | 4/7 [00:00<00:00, 25.89it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 29.79it/s]
+Eval set: 64 prompts at 1024x1024, 4 steps
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\image_processor.py:148: RuntimeWarning: invalid value encountered in cast
+  images = (images * 255).round().astype("uint8")
+  [08/64] 1370ms  A llama looks at the camera from a fenced in, grassy area.  mse=0.23261
+  [16/64] 1406ms  A traffic light is showing a green arrow.  mse=0.35200
+  [24/64] 1393ms  A silver computer mouse on a table next to a keyboard.  mse=0.29825
+  [32/64] 1395ms  a baseball player is going to swing a bat  mse=0.22602
+  [40/64] 1396ms  A train engine traveling down train tracks through a country  mse=0.19123
+  [48/64] 1386ms  A brown table with white plate holding a pizza.  mse=0.25183
+  [56/64] 1397ms  A horse is attached to a carriage.  mse=0.17376
+  [64/64] 1398ms  Young man wearing glasses lounging on a sofa with three whit  mse=0.38134
+
+=== torchao Int8 RESULTS (64 prompts) ===
+  MSE mean: 0.28297  MAE mean: 0.47765
+  MSE max:  0.46482   MAE max:  0.65621
+  Latency:  median=1399ms  mean=1412ms  min=1368ms  max=2277ms
+  After quant alloc:    2891 MB
+  Generation peak VRAM: 8668 MB

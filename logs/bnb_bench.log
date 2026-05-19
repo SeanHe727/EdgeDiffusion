@@ -1,0 +1,61 @@
+=== BNB NF4 ===
+W0518 16:26:10.963000 49196 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 16:26:10.994000 49196 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+[bnb_nf4] Loading FP16 UNet (4-step)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  replacing 722 Linears with bnb nf4...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\bitsandbytes\backends\cuda\ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+  after unet load: peak=9963MB, current=6104MB
+Building SDXL pipeline...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  86%|¨€¨€¨€¨€¨€¨€¨€¨€¨„ | 6/7 [00:00<00:00, 40.82it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 39.77it/s]
+Warmup 2 iters...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  warmup [1/2]: 4365 ms
+  warmup [2/2]: 3474 ms
+Timing 5 iters (1024x1024, 4 steps)...
+  iter [1/5]: 3530 ms
+  iter [2/5]: 3634 ms
+  iter [3/5]: 3457 ms
+  iter [4/5]: 3636 ms
+  iter [5/5]: 3586 ms
+
+=== bnb_nf4 RESULTS ===
+  Quantized Linear layers:  722
+  After UNet load peak:     9963 MB
+  Generation peak VRAM:     11870 MB
+  Latency: min=3457ms  median=3586ms  max=3636ms  mean=3568ms
+=== BNB INT8 ===
+W0518 16:27:02.315000 34560 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 16:27:02.348000 34560 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+[bnb_int8] Loading FP16 UNet (4-step)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  replacing 722 Linears with bnb int8...
+  after unet load: peak=9963MB, current=4998MB
+Building SDXL pipeline...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  57%|¨€¨€¨€¨€¨€¨ƒ    | 4/7 [00:00<00:00, 30.08it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 38.64it/s]
+Warmup 2 iters...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  warmup [1/2]: 11466 ms
+  warmup [2/2]: 10661 ms
+Timing 5 iters (1024x1024, 4 steps)...
+  iter [1/5]: 10561 ms
+  iter [2/5]: 10614 ms
+  iter [3/5]: 10483 ms
+  iter [4/5]: 10316 ms
+  iter [5/5]: 10444 ms
+
+=== bnb_int8 RESULTS ===
+  Quantized Linear layers:  722
+  After UNet load peak:     9963 MB
+  Generation peak VRAM:     13092 MB
+  Latency: min=10316ms  median=10483ms  max=10614ms  mean=10484ms
+=== DONE ===

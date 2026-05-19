@@ -1,0 +1,56 @@
+W0518 13:43:55.419000 37092 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 13:43:55.451000 37092 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading packed UNet manifest...
+Loading packed state...
+Building packed UNet (PackedInt4/Int8) on GPU...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  replaced: 612 W4 + 110 W8 packed layers
+Wrapping packed layers with LoRA r=16, alpha=16.0...
+  wrapped 722 layers
+  trainable LoRA params: 42.56 M (rank=16 over 722 layers)
+Enabling gradient checkpointing on UNet for low activation VRAM...
+Loading teacher cache: D:\chenh\EdgeDiffusion\EdgeDiffusion\qlora_teacher_cache_128p_1024
+  512 samples; meta={'base_model': 'stabilityai/stable-diffusion-xl-base-1.0', 'lightning_repo': 'ByteDance/SDXL-Lightning', 'steps': 4, 'height': 1024, 'width': 1024, 'prompt_count': 128}
+
+Training: 3 epochs x 512 samples / batch 1 = ~1536 steps
+Optimizer: AdamW lr=0.0001, wd=0.0
+  epoch 1/3  step 1/1536  loss=0.00024  peak_vram=2754MB  elapsed=1s  eta=2002s
+  epoch 1/3  step 50/1536  loss=0.00070  peak_vram=3079MB  elapsed=44s  eta=1298s
+  epoch 1/3  step 100/1536  loss=0.00061  peak_vram=3079MB  elapsed=87s  eta=1248s
+  epoch 1/3  step 150/1536  loss=0.00062  peak_vram=3079MB  elapsed=130s  eta=1199s
+  epoch 1/3  step 200/1536  loss=0.00056  peak_vram=3079MB  elapsed=173s  eta=1153s
+  epoch 1/3  step 250/1536  loss=0.00078  peak_vram=3079MB  elapsed=215s  eta=1108s
+  epoch 1/3  step 300/1536  loss=0.00072  peak_vram=3079MB  elapsed=258s  eta=1063s
+  epoch 1/3  step 350/1536  loss=0.00072  peak_vram=3079MB  elapsed=301s  eta=1019s
+  epoch 1/3  step 400/1536  loss=0.00076  peak_vram=3079MB  elapsed=344s  eta=976s
+  epoch 1/3  step 450/1536  loss=0.00064  peak_vram=3079MB  elapsed=386s  eta=932s
+  epoch 1/3  step 500/1536  loss=0.00073  peak_vram=3079MB  elapsed=429s  eta=889s
+    [checkpoint] lora_step512.safetensors
+  epoch 2/3  step 550/1536  loss=0.00078  peak_vram=3079MB  elapsed=472s  eta=847s
+  epoch 2/3  step 600/1536  loss=0.00062  peak_vram=3079MB  elapsed=515s  eta=804s
+  epoch 2/3  step 650/1536  loss=0.00065  peak_vram=3079MB  elapsed=558s  eta=761s
+  epoch 2/3  step 700/1536  loss=0.00063  peak_vram=3079MB  elapsed=601s  eta=718s
+  epoch 2/3  step 750/1536  loss=0.00083  peak_vram=3079MB  elapsed=644s  eta=675s
+  epoch 2/3  step 800/1536  loss=0.00068  peak_vram=3079MB  elapsed=687s  eta=632s
+  epoch 2/3  step 850/1536  loss=0.00067  peak_vram=3079MB  elapsed=730s  eta=589s
+  epoch 2/3  step 900/1536  loss=0.00065  peak_vram=3079MB  elapsed=773s  eta=546s
+  epoch 2/3  step 950/1536  loss=0.00064  peak_vram=3079MB  elapsed=816s  eta=503s
+  epoch 2/3  step 1000/1536  loss=0.00066  peak_vram=3079MB  elapsed=858s  eta=460s
+    [checkpoint] lora_step1024.safetensors
+  epoch 3/3  step 1050/1536  loss=0.00085  peak_vram=3079MB  elapsed=902s  eta=417s
+  epoch 3/3  step 1100/1536  loss=0.00075  peak_vram=3079MB  elapsed=944s  eta=374s
+  epoch 3/3  step 1150/1536  loss=0.00077  peak_vram=3079MB  elapsed=987s  eta=331s
+  epoch 3/3  step 1200/1536  loss=0.00065  peak_vram=3079MB  elapsed=1030s  eta=288s
+  epoch 3/3  step 1250/1536  loss=0.00067  peak_vram=3079MB  elapsed=1073s  eta=246s
+  epoch 3/3  step 1300/1536  loss=0.00066  peak_vram=3079MB  elapsed=1116s  eta=203s
+  epoch 3/3  step 1350/1536  loss=0.00061  peak_vram=3079MB  elapsed=1159s  eta=160s
+  epoch 3/3  step 1400/1536  loss=0.00068  peak_vram=3079MB  elapsed=1202s  eta=117s
+  epoch 3/3  step 1450/1536  loss=0.00067  peak_vram=3079MB  elapsed=1245s  eta=74s
+  epoch 3/3  step 1500/1536  loss=0.00083  peak_vram=3079MB  elapsed=1288s  eta=31s
+    [checkpoint] lora_step1536.safetensors
+
+Final loss: 0.00077
+Saved: D:\chenh\EdgeDiffusion\EdgeDiffusion\qlora_rank16_e3_lr1e4\lora_final.safetensors
+Done. 1319s elapsed.

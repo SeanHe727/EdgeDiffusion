@@ -1,826 +1,0 @@
-/opt/pytorch/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-Loading pipeline...
-Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s][0;93m2026-04-16 18:56:27.894253744 [W:onnxruntime:Default, device_discovery.cc:211 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:91 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
-Loading pipeline components...:  20%|██        | 1/5 [00:00<00:01,  2.92it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:00<00:00,  7.59it/s]
-Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
-Loading weights:   0%|          | 1/372 [00:00<00:00, 11125.47it/s, Materializing param=text_model.embeddings.position_embedding.weight][A
-Loading weights:   0%|          | 1/372 [00:00<00:00, 4798.97it/s, Materializing param=text_model.embeddings.position_embedding.weight] [A
-Loading weights:   1%|          | 2/372 [00:00<00:00, 1595.70it/s, Materializing param=text_model.embeddings.token_embedding.weight]   [A
-Loading weights:   1%|          | 2/372 [00:00<00:00, 699.69it/s, Materializing param=text_model.embeddings.token_embedding.weight] [A
-Loading weights:   1%|          | 3/372 [00:00<00:00, 955.06it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.bias][A
-Loading weights:   1%|          | 3/372 [00:00<00:00, 758.24it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.bias][A
-Loading weights:   1%|          | 4/372 [00:00<00:00, 934.20it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.weight][A
-Loading weights:   1%|          | 4/372 [00:00<00:00, 678.74it/s, Materializing param=text_model.encoder.layers.0.layer_norm1.weight][A
-Loading weights:   1%|▏         | 5/372 [00:00<00:00, 814.97it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.bias]  [A
-Loading weights:   1%|▏         | 5/372 [00:00<00:00, 711.26it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.bias][A
-Loading weights:   2%|▏         | 6/372 [00:00<00:00, 805.54it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.weight][A
-Loading weights:   2%|▏         | 6/372 [00:00<00:00, 792.55it/s, Materializing param=text_model.encoder.layers.0.layer_norm2.weight][A
-Loading weights:   2%|▏         | 7/372 [00:00<00:00, 698.47it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.bias]      [A
-Loading weights:   2%|▏         | 7/372 [00:00<00:00, 685.63it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.bias][A
-Loading weights:   2%|▏         | 8/372 [00:00<00:00, 654.80it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.weight][A
-Loading weights:   2%|▏         | 8/372 [00:00<00:00, 645.18it/s, Materializing param=text_model.encoder.layers.0.mlp.fc1.weight][A
-Loading weights:   2%|▏         | 9/372 [00:00<00:00, 660.46it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.bias]  [A
-Loading weights:   2%|▏         | 9/372 [00:00<00:00, 652.10it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.bias][A
-Loading weights:   3%|▎         | 10/372 [00:00<00:00, 643.31it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.weight][A
-Loading weights:   3%|▎         | 10/372 [00:00<00:00, 594.81it/s, Materializing param=text_model.encoder.layers.0.mlp.fc2.weight][A
-Loading weights:   3%|▎         | 11/372 [00:00<00:00, 497.48it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.bias][A
-Loading weights:   3%|▎         | 11/372 [00:00<00:00, 475.39it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.bias][A
-Loading weights:   3%|▎         | 12/372 [00:00<00:00, 509.45it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.weight][A
-Loading weights:   3%|▎         | 12/372 [00:00<00:00, 505.76it/s, Materializing param=text_model.encoder.layers.0.self_attn.k_proj.weight][A
-Loading weights:   3%|▎         | 13/372 [00:00<00:00, 505.87it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.bias][A
-Loading weights:   3%|▎         | 13/372 [00:00<00:00, 487.62it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.bias][A
-Loading weights:   4%|▍         | 14/372 [00:00<00:00, 488.94it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.weight][A
-Loading weights:   4%|▍         | 14/372 [00:00<00:00, 473.88it/s, Materializing param=text_model.encoder.layers.0.self_attn.out_proj.weight][A
-Loading weights:   4%|▍         | 15/372 [00:00<00:00, 503.07it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.bias]    [A
-Loading weights:   4%|▍         | 15/372 [00:00<00:00, 500.06it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.bias][A
-Loading weights:   4%|▍         | 16/372 [00:00<00:00, 507.21it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.weight][A
-Loading weights:   4%|▍         | 16/372 [00:00<00:00, 505.50it/s, Materializing param=text_model.encoder.layers.0.self_attn.q_proj.weight][A
-Loading weights:   5%|▍         | 17/372 [00:00<00:00, 528.39it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.bias]  [A
-Loading weights:   5%|▍         | 17/372 [00:00<00:00, 503.86it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.bias][A
-Loading weights:   5%|▍         | 18/372 [00:00<00:00, 527.44it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.weight][A
-Loading weights:   5%|▍         | 18/372 [00:00<00:00, 525.29it/s, Materializing param=text_model.encoder.layers.0.self_attn.v_proj.weight][A
-Loading weights:   5%|▌         | 19/372 [00:00<00:00, 536.58it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.bias]       [A
-Loading weights:   5%|▌         | 19/372 [00:00<00:00, 511.10it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.bias][A
-Loading weights:   5%|▌         | 20/372 [00:00<00:00, 525.27it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.weight][A
-Loading weights:   5%|▌         | 20/372 [00:00<00:00, 523.23it/s, Materializing param=text_model.encoder.layers.1.layer_norm1.weight][A
-Loading weights:   6%|▌         | 21/372 [00:00<00:00, 544.88it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.bias]  [A
-Loading weights:   6%|▌         | 21/372 [00:00<00:00, 542.37it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.bias][A
-Loading weights:   6%|▌         | 22/372 [00:00<00:00, 532.40it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.weight][A
-Loading weights:   6%|▌         | 22/372 [00:00<00:00, 527.69it/s, Materializing param=text_model.encoder.layers.1.layer_norm2.weight][A
-Loading weights:   6%|▌         | 23/372 [00:00<00:00, 529.38it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.bias]      [A
-Loading weights:   6%|▌         | 23/372 [00:00<00:00, 512.49it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.bias][A
-Loading weights:   6%|▋         | 24/372 [00:00<00:00, 530.87it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.weight][A
-Loading weights:   6%|▋         | 24/372 [00:00<00:00, 517.83it/s, Materializing param=text_model.encoder.layers.1.mlp.fc1.weight][A
-Loading weights:   7%|▋         | 25/372 [00:00<00:00, 527.61it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.bias]  [A
-Loading weights:   7%|▋         | 25/372 [00:00<00:00, 508.96it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.bias][A
-Loading weights:   7%|▋         | 26/372 [00:00<00:00, 523.11it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.weight][A
-Loading weights:   7%|▋         | 26/372 [00:00<00:00, 521.81it/s, Materializing param=text_model.encoder.layers.1.mlp.fc2.weight][A
-Loading weights:   7%|▋         | 27/372 [00:00<00:00, 538.02it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.bias][A
-Loading weights:   7%|▋         | 27/372 [00:00<00:00, 536.48it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.bias][A
-Loading weights:   8%|▊         | 28/372 [00:00<00:00, 552.80it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.weight][A
-Loading weights:   8%|▊         | 28/372 [00:00<00:00, 529.62it/s, Materializing param=text_model.encoder.layers.1.self_attn.k_proj.weight][A
-Loading weights:   8%|▊         | 29/372 [00:00<00:00, 545.72it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.bias][A
-Loading weights:   8%|▊         | 29/372 [00:00<00:00, 544.03it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.bias][A
-Loading weights:   8%|▊         | 30/372 [00:00<00:00, 535.71it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.weight][A
-Loading weights:   8%|▊         | 30/372 [00:00<00:00, 534.11it/s, Materializing param=text_model.encoder.layers.1.self_attn.out_proj.weight][A
-Loading weights:   8%|▊         | 31/372 [00:00<00:00, 548.41it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.bias]    [A
-Loading weights:   8%|▊         | 31/372 [00:00<00:00, 546.79it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.bias][A
-Loading weights:   9%|▊         | 32/372 [00:00<00:00, 560.95it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.weight][A
-Loading weights:   9%|▊         | 32/372 [00:00<00:00, 559.45it/s, Materializing param=text_model.encoder.layers.1.self_attn.q_proj.weight][A
-Loading weights:   9%|▉         | 33/372 [00:00<00:00, 569.00it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.bias]  [A
-Loading weights:   9%|▉         | 33/372 [00:00<00:00, 566.67it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.bias][A
-Loading weights:   9%|▉         | 34/372 [00:00<00:00, 579.96it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.weight][A
-Loading weights:   9%|▉         | 34/372 [00:00<00:00, 578.71it/s, Materializing param=text_model.encoder.layers.1.self_attn.v_proj.weight][A
-Loading weights:   9%|▉         | 35/372 [00:00<00:00, 593.48it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.bias]       [A
-Loading weights:   9%|▉         | 35/372 [00:00<00:00, 578.15it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.bias][A
-Loading weights:  10%|▉         | 36/372 [00:00<00:00, 592.23it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.weight][A
-Loading weights:  10%|▉         | 36/372 [00:00<00:00, 549.73it/s, Materializing param=text_model.encoder.layers.2.layer_norm1.weight][A
-Loading weights:  10%|▉         | 37/372 [00:00<00:00, 559.06it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.bias]  [A
-Loading weights:  10%|▉         | 37/372 [00:00<00:00, 557.78it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.bias][A
-Loading weights:  10%|█         | 38/372 [00:00<00:00, 555.89it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.weight][A
-Loading weights:  10%|█         | 38/372 [00:00<00:00, 554.45it/s, Materializing param=text_model.encoder.layers.2.layer_norm2.weight][A
-Loading weights:  10%|█         | 39/372 [00:00<00:00, 565.48it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.bias]      [A
-Loading weights:  10%|█         | 39/372 [00:00<00:00, 563.96it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.bias][A
-Loading weights:  11%|█         | 40/372 [00:00<00:00, 575.57it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.weight][A
-Loading weights:  11%|█         | 40/372 [00:00<00:00, 568.47it/s, Materializing param=text_model.encoder.layers.2.mlp.fc1.weight][A
-Loading weights:  11%|█         | 41/372 [00:00<00:00, 556.97it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.bias]  [A
-Loading weights:  11%|█         | 41/372 [00:00<00:00, 555.84it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.bias][A
-Loading weights:  11%|█▏        | 42/372 [00:00<00:00, 565.74it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.weight][A
-Loading weights:  11%|█▏        | 42/372 [00:00<00:00, 544.59it/s, Materializing param=text_model.encoder.layers.2.mlp.fc2.weight][A
-Loading weights:  12%|█▏        | 43/372 [00:00<00:00, 540.85it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.bias][A
-Loading weights:  12%|█▏        | 43/372 [00:00<00:00, 540.01it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.bias][A
-Loading weights:  12%|█▏        | 44/372 [00:00<00:00, 543.92it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.weight][A
-Loading weights:  12%|█▏        | 44/372 [00:00<00:00, 516.01it/s, Materializing param=text_model.encoder.layers.2.self_attn.k_proj.weight][A
-Loading weights:  12%|█▏        | 45/372 [00:00<00:00, 519.19it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.bias][A
-Loading weights:  12%|█▏        | 45/372 [00:00<00:00, 518.14it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.bias][A
-Loading weights:  12%|█▏        | 46/372 [00:00<00:00, 510.15it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.weight][A
-Loading weights:  12%|█▏        | 46/372 [00:00<00:00, 508.53it/s, Materializing param=text_model.encoder.layers.2.self_attn.out_proj.weight][A
-Loading weights:  13%|█▎        | 47/372 [00:00<00:00, 517.29it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.bias]    [A
-Loading weights:  13%|█▎        | 47/372 [00:00<00:00, 516.43it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.bias][A
-Loading weights:  13%|█▎        | 48/372 [00:00<00:00, 521.40it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.weight][A
-Loading weights:  13%|█▎        | 48/372 [00:00<00:00, 520.76it/s, Materializing param=text_model.encoder.layers.2.self_attn.q_proj.weight][A
-Loading weights:  13%|█▎        | 49/372 [00:00<00:00, 527.87it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.bias]  [A
-Loading weights:  13%|█▎        | 49/372 [00:00<00:00, 525.43it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.bias][A
-Loading weights:  13%|█▎        | 50/372 [00:00<00:00, 533.54it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.weight][A
-Loading weights:  13%|█▎        | 50/372 [00:00<00:00, 532.67it/s, Materializing param=text_model.encoder.layers.2.self_attn.v_proj.weight][A
-Loading weights:  14%|█▎        | 51/372 [00:00<00:00, 533.43it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.bias]       [A
-Loading weights:  14%|█▎        | 51/372 [00:00<00:00, 532.75it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.bias][A
-Loading weights:  14%|█▍        | 52/372 [00:00<00:00, 523.48it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.weight][A
-Loading weights:  14%|█▍        | 52/372 [00:00<00:00, 521.67it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.weight][A
-Loading weights:  14%|█▍        | 53/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.layer_norm1.weight][A
-Loading weights:  14%|█▍        | 53/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.bias]  [A
-Loading weights:  14%|█▍        | 53/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.bias][A
-Loading weights:  15%|█▍        | 54/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.weight][A
-Loading weights:  15%|█▍        | 54/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.layer_norm2.weight][A
-Loading weights:  15%|█▍        | 55/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.bias]      [A
-Loading weights:  15%|█▍        | 55/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.bias][A
-Loading weights:  15%|█▌        | 56/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.weight][A
-Loading weights:  15%|█▌        | 56/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc1.weight][A
-Loading weights:  15%|█▌        | 57/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.bias]  [A
-Loading weights:  15%|█▌        | 57/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.bias][A
-Loading weights:  16%|█▌        | 58/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.weight][A
-Loading weights:  16%|█▌        | 58/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.mlp.fc2.weight][A
-Loading weights:  16%|█▌        | 59/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.bias][A
-Loading weights:  16%|█▌        | 59/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.bias][A
-Loading weights:  16%|█▌        | 60/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.weight][A
-Loading weights:  16%|█▌        | 60/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.k_proj.weight][A
-Loading weights:  16%|█▋        | 61/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.bias][A
-Loading weights:  16%|█▋        | 61/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.bias][A
-Loading weights:  17%|█▋        | 62/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.weight][A
-Loading weights:  17%|█▋        | 62/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.out_proj.weight][A
-Loading weights:  17%|█▋        | 63/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.bias]    [A
-Loading weights:  17%|█▋        | 63/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.bias][A
-Loading weights:  17%|█▋        | 64/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.weight][A
-Loading weights:  17%|█▋        | 64/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.q_proj.weight][A
-Loading weights:  17%|█▋        | 65/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.bias]  [A
-Loading weights:  17%|█▋        | 65/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.bias][A
-Loading weights:  18%|█▊        | 66/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.weight][A
-Loading weights:  18%|█▊        | 66/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.3.self_attn.v_proj.weight][A
-Loading weights:  18%|█▊        | 67/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.bias]       [A
-Loading weights:  18%|█▊        | 67/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.bias][A
-Loading weights:  18%|█▊        | 68/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.weight][A
-Loading weights:  18%|█▊        | 68/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm1.weight][A
-Loading weights:  19%|█▊        | 69/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.bias]  [A
-Loading weights:  19%|█▊        | 69/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.bias][A
-Loading weights:  19%|█▉        | 70/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.weight][A
-Loading weights:  19%|█▉        | 70/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.layer_norm2.weight][A
-Loading weights:  19%|█▉        | 71/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.bias]      [A
-Loading weights:  19%|█▉        | 71/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.bias][A
-Loading weights:  19%|█▉        | 72/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.weight][A
-Loading weights:  19%|█▉        | 72/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc1.weight][A
-Loading weights:  20%|█▉        | 73/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.bias]  [A
-Loading weights:  20%|█▉        | 73/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.bias][A
-Loading weights:  20%|█▉        | 74/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.weight][A
-Loading weights:  20%|█▉        | 74/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.mlp.fc2.weight][A
-Loading weights:  20%|██        | 75/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.bias][A
-Loading weights:  20%|██        | 75/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.bias][A
-Loading weights:  20%|██        | 76/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.weight][A
-Loading weights:  20%|██        | 76/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.k_proj.weight][A
-Loading weights:  21%|██        | 77/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.bias][A
-Loading weights:  21%|██        | 77/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.bias][A
-Loading weights:  21%|██        | 78/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.weight][A
-Loading weights:  21%|██        | 78/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.out_proj.weight][A
-Loading weights:  21%|██        | 79/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.bias]    [A
-Loading weights:  21%|██        | 79/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.bias][A
-Loading weights:  22%|██▏       | 80/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.weight][A
-Loading weights:  22%|██▏       | 80/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.q_proj.weight][A
-Loading weights:  22%|██▏       | 81/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.bias]  [A
-Loading weights:  22%|██▏       | 81/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.bias][A
-Loading weights:  22%|██▏       | 82/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.weight][A
-Loading weights:  22%|██▏       | 82/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.4.self_attn.v_proj.weight][A
-Loading weights:  22%|██▏       | 83/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.bias]       [A
-Loading weights:  22%|██▏       | 83/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.bias][A
-Loading weights:  23%|██▎       | 84/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.weight][A
-Loading weights:  23%|██▎       | 84/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm1.weight][A
-Loading weights:  23%|██▎       | 85/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.bias]  [A
-Loading weights:  23%|██▎       | 85/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.bias][A
-Loading weights:  23%|██▎       | 86/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.weight][A
-Loading weights:  23%|██▎       | 86/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.layer_norm2.weight][A
-Loading weights:  23%|██▎       | 87/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.bias]      [A
-Loading weights:  23%|██▎       | 87/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.bias][A
-Loading weights:  24%|██▎       | 88/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.weight][A
-Loading weights:  24%|██▎       | 88/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc1.weight][A
-Loading weights:  24%|██▍       | 89/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.bias]  [A
-Loading weights:  24%|██▍       | 89/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.bias][A
-Loading weights:  24%|██▍       | 90/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.weight][A
-Loading weights:  24%|██▍       | 90/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.mlp.fc2.weight][A
-Loading weights:  24%|██▍       | 91/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.bias][A
-Loading weights:  24%|██▍       | 91/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.bias][A
-Loading weights:  25%|██▍       | 92/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.weight][A
-Loading weights:  25%|██▍       | 92/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.k_proj.weight][A
-Loading weights:  25%|██▌       | 93/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.bias][A
-Loading weights:  25%|██▌       | 93/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.bias][A
-Loading weights:  25%|██▌       | 94/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.weight][A
-Loading weights:  25%|██▌       | 94/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.out_proj.weight][A
-Loading weights:  26%|██▌       | 95/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.bias]    [A
-Loading weights:  26%|██▌       | 95/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.bias][A
-Loading weights:  26%|██▌       | 96/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.weight][A
-Loading weights:  26%|██▌       | 96/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.q_proj.weight][A
-Loading weights:  26%|██▌       | 97/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.bias]  [A
-Loading weights:  26%|██▌       | 97/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.bias][A
-Loading weights:  26%|██▋       | 98/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.weight][A
-Loading weights:  26%|██▋       | 98/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.5.self_attn.v_proj.weight][A
-Loading weights:  27%|██▋       | 99/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.bias]       [A
-Loading weights:  27%|██▋       | 99/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.bias][A
-Loading weights:  27%|██▋       | 100/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.weight][A
-Loading weights:  27%|██▋       | 100/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm1.weight][A
-Loading weights:  27%|██▋       | 101/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.bias]  [A
-Loading weights:  27%|██▋       | 101/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.bias][A
-Loading weights:  27%|██▋       | 102/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.weight][A
-Loading weights:  27%|██▋       | 102/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.layer_norm2.weight][A
-Loading weights:  28%|██▊       | 103/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.bias]      [A
-Loading weights:  28%|██▊       | 103/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.bias][A
-Loading weights:  28%|██▊       | 104/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.weight][A
-Loading weights:  28%|██▊       | 104/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc1.weight][A
-Loading weights:  28%|██▊       | 105/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.bias]  [A
-Loading weights:  28%|██▊       | 105/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.bias][A
-Loading weights:  28%|██▊       | 106/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.weight][A
-Loading weights:  28%|██▊       | 106/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.mlp.fc2.weight][A
-Loading weights:  29%|██▉       | 107/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.bias][A
-Loading weights:  29%|██▉       | 107/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.bias][A
-Loading weights:  29%|██▉       | 108/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.weight][A
-Loading weights:  29%|██▉       | 108/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.k_proj.weight][A
-Loading weights:  29%|██▉       | 109/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.bias][A
-Loading weights:  29%|██▉       | 109/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.bias][A
-Loading weights:  30%|██▉       | 110/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.weight][A
-Loading weights:  30%|██▉       | 110/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.out_proj.weight][A
-Loading weights:  30%|██▉       | 111/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.bias]    [A
-Loading weights:  30%|██▉       | 111/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.bias][A
-Loading weights:  30%|███       | 112/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.weight][A
-Loading weights:  30%|███       | 112/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.q_proj.weight][A
-Loading weights:  30%|███       | 113/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.bias]  [A
-Loading weights:  30%|███       | 113/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.bias][A
-Loading weights:  31%|███       | 114/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.weight][A
-Loading weights:  31%|███       | 114/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.6.self_attn.v_proj.weight][A
-Loading weights:  31%|███       | 115/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.bias]       [A
-Loading weights:  31%|███       | 115/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.bias][A
-Loading weights:  31%|███       | 116/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.weight][A
-Loading weights:  31%|███       | 116/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm1.weight][A
-Loading weights:  31%|███▏      | 117/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.bias]  [A
-Loading weights:  31%|███▏      | 117/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.bias][A
-Loading weights:  32%|███▏      | 118/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.weight][A
-Loading weights:  32%|███▏      | 118/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.layer_norm2.weight][A
-Loading weights:  32%|███▏      | 119/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.bias]      [A
-Loading weights:  32%|███▏      | 119/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.bias][A
-Loading weights:  32%|███▏      | 120/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.weight][A
-Loading weights:  32%|███▏      | 120/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc1.weight][A
-Loading weights:  33%|███▎      | 121/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.bias]  [A
-Loading weights:  33%|███▎      | 121/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.bias][A
-Loading weights:  33%|███▎      | 122/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.weight][A
-Loading weights:  33%|███▎      | 122/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.mlp.fc2.weight][A
-Loading weights:  33%|███▎      | 123/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.bias][A
-Loading weights:  33%|███▎      | 123/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.bias][A
-Loading weights:  33%|███▎      | 124/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.weight][A
-Loading weights:  33%|███▎      | 124/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.k_proj.weight][A
-Loading weights:  34%|███▎      | 125/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.bias][A
-Loading weights:  34%|███▎      | 125/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.bias][A
-Loading weights:  34%|███▍      | 126/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.weight][A
-Loading weights:  34%|███▍      | 126/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.out_proj.weight][A
-Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.bias]    [A
-Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.bias][A
-Loading weights:  34%|███▍      | 128/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.weight][A
-Loading weights:  34%|███▍      | 128/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.q_proj.weight][A
-Loading weights:  35%|███▍      | 129/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.bias]  [A
-Loading weights:  35%|███▍      | 129/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.bias][A
-Loading weights:  35%|███▍      | 130/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.weight][A
-Loading weights:  35%|███▍      | 130/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.7.self_attn.v_proj.weight][A
-Loading weights:  35%|███▌      | 131/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.bias]       [A
-Loading weights:  35%|███▌      | 131/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.bias][A
-Loading weights:  35%|███▌      | 132/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.weight][A
-Loading weights:  35%|███▌      | 132/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm1.weight][A
-Loading weights:  36%|███▌      | 133/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.bias]  [A
-Loading weights:  36%|███▌      | 133/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.bias][A
-Loading weights:  36%|███▌      | 134/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.weight][A
-Loading weights:  36%|███▌      | 134/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.layer_norm2.weight][A
-Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.bias]      [A
-Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.bias][A
-Loading weights:  37%|███▋      | 136/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.weight][A
-Loading weights:  37%|███▋      | 136/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc1.weight][A
-Loading weights:  37%|███▋      | 137/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.bias]  [A
-Loading weights:  37%|███▋      | 137/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.bias][A
-Loading weights:  37%|███▋      | 138/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.weight][A
-Loading weights:  37%|███▋      | 138/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.mlp.fc2.weight][A
-Loading weights:  37%|███▋      | 139/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.bias][A
-Loading weights:  37%|███▋      | 139/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.bias][A
-Loading weights:  38%|███▊      | 140/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.weight][A
-Loading weights:  38%|███▊      | 140/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.k_proj.weight][A
-Loading weights:  38%|███▊      | 141/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.bias][A
-Loading weights:  38%|███▊      | 141/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.bias][A
-Loading weights:  38%|███▊      | 142/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.weight][A
-Loading weights:  38%|███▊      | 142/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.out_proj.weight][A
-Loading weights:  38%|███▊      | 143/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.bias]    [A
-Loading weights:  38%|███▊      | 143/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.bias][A
-Loading weights:  39%|███▊      | 144/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.weight][A
-Loading weights:  39%|███▊      | 144/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.q_proj.weight][A
-Loading weights:  39%|███▉      | 145/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.bias]  [A
-Loading weights:  39%|███▉      | 145/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.bias][A
-Loading weights:  39%|███▉      | 146/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.weight][A
-Loading weights:  39%|███▉      | 146/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.8.self_attn.v_proj.weight][A
-Loading weights:  40%|███▉      | 147/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.bias]       [A
-Loading weights:  40%|███▉      | 147/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.bias][A
-Loading weights:  40%|███▉      | 148/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.weight][A
-Loading weights:  40%|███▉      | 148/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm1.weight][A
-Loading weights:  40%|████      | 149/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.bias]  [A
-Loading weights:  40%|████      | 149/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.bias][A
-Loading weights:  40%|████      | 150/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.weight][A
-Loading weights:  40%|████      | 150/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.layer_norm2.weight][A
-Loading weights:  41%|████      | 151/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.bias]      [A
-Loading weights:  41%|████      | 151/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.bias][A
-Loading weights:  41%|████      | 152/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.weight][A
-Loading weights:  41%|████      | 152/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc1.weight][A
-Loading weights:  41%|████      | 153/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.bias]  [A
-Loading weights:  41%|████      | 153/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.bias][A
-Loading weights:  41%|████▏     | 154/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.weight][A
-Loading weights:  41%|████▏     | 154/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.mlp.fc2.weight][A
-Loading weights:  42%|████▏     | 155/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.bias][A
-Loading weights:  42%|████▏     | 155/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.bias][A
-Loading weights:  42%|████▏     | 156/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.weight][A
-Loading weights:  42%|████▏     | 156/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.k_proj.weight][A
-Loading weights:  42%|████▏     | 157/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.bias][A
-Loading weights:  42%|████▏     | 157/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.bias][A
-Loading weights:  42%|████▏     | 158/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.weight][A
-Loading weights:  42%|████▏     | 158/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.out_proj.weight][A
-Loading weights:  43%|████▎     | 159/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.bias]    [A
-Loading weights:  43%|████▎     | 159/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.bias][A
-Loading weights:  43%|████▎     | 160/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.weight][A
-Loading weights:  43%|████▎     | 160/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.q_proj.weight][A
-Loading weights:  43%|████▎     | 161/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.bias]  [A
-Loading weights:  43%|████▎     | 161/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.bias][A
-Loading weights:  44%|████▎     | 162/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.weight][A
-Loading weights:  44%|████▎     | 162/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.9.self_attn.v_proj.weight][A
-Loading weights:  44%|████▍     | 163/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.bias]      [A
-Loading weights:  44%|████▍     | 163/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.bias][A
-Loading weights:  44%|████▍     | 164/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.weight][A
-Loading weights:  44%|████▍     | 164/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm1.weight][A
-Loading weights:  44%|████▍     | 165/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.bias]  [A
-Loading weights:  44%|████▍     | 165/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.bias][A
-Loading weights:  45%|████▍     | 166/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.weight][A
-Loading weights:  45%|████▍     | 166/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.layer_norm2.weight][A
-Loading weights:  45%|████▍     | 167/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.bias]      [A
-Loading weights:  45%|████▍     | 167/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.bias][A
-Loading weights:  45%|████▌     | 168/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.weight][A
-Loading weights:  45%|████▌     | 168/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc1.weight][A
-Loading weights:  45%|████▌     | 169/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.bias]  [A
-Loading weights:  45%|████▌     | 169/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.bias][A
-Loading weights:  46%|████▌     | 170/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.weight][A
-Loading weights:  46%|████▌     | 170/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.mlp.fc2.weight][A
-Loading weights:  46%|████▌     | 171/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.bias][A
-Loading weights:  46%|████▌     | 171/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.bias][A
-Loading weights:  46%|████▌     | 172/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.weight][A
-Loading weights:  46%|████▌     | 172/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.k_proj.weight][A
-Loading weights:  47%|████▋     | 173/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.bias][A
-Loading weights:  47%|████▋     | 173/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.bias][A
-Loading weights:  47%|████▋     | 174/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.weight][A
-Loading weights:  47%|████▋     | 174/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.out_proj.weight][A
-Loading weights:  47%|████▋     | 175/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.bias]    [A
-Loading weights:  47%|████▋     | 175/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.bias][A
-Loading weights:  47%|████▋     | 176/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.weight][A
-Loading weights:  47%|████▋     | 176/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.q_proj.weight][A
-Loading weights:  48%|████▊     | 177/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.bias]  [A
-Loading weights:  48%|████▊     | 177/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.bias][A
-Loading weights:  48%|████▊     | 178/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.weight][A
-Loading weights:  48%|████▊     | 178/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.10.self_attn.v_proj.weight][A
-Loading weights:  48%|████▊     | 179/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.bias]       [A
-Loading weights:  48%|████▊     | 179/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.bias][A
-Loading weights:  48%|████▊     | 180/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.weight][A
-Loading weights:  48%|████▊     | 180/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm1.weight][A
-Loading weights:  49%|████▊     | 181/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.bias]  [A
-Loading weights:  49%|████▊     | 181/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.bias][A
-Loading weights:  49%|████▉     | 182/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.weight][A
-Loading weights:  49%|████▉     | 182/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.layer_norm2.weight][A
-Loading weights:  49%|████▉     | 183/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.bias]      [A
-Loading weights:  49%|████▉     | 183/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.bias][A
-Loading weights:  49%|████▉     | 184/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.weight][A
-Loading weights:  49%|████▉     | 184/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc1.weight][A
-Loading weights:  50%|████▉     | 185/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.bias]  [A
-Loading weights:  50%|████▉     | 185/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.bias][A
-Loading weights:  50%|█████     | 186/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.weight][A
-Loading weights:  50%|█████     | 186/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.mlp.fc2.weight][A
-Loading weights:  50%|█████     | 187/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.bias][A
-Loading weights:  50%|█████     | 187/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.bias][A
-Loading weights:  51%|█████     | 188/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.weight][A
-Loading weights:  51%|█████     | 188/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.k_proj.weight][A
-Loading weights:  51%|█████     | 189/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.bias][A
-Loading weights:  51%|█████     | 189/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.bias][A
-Loading weights:  51%|█████     | 190/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.weight][A
-Loading weights:  51%|█████     | 190/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.out_proj.weight][A
-Loading weights:  51%|█████▏    | 191/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.bias]    [A
-Loading weights:  51%|█████▏    | 191/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.bias][A
-Loading weights:  52%|█████▏    | 192/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.weight][A
-Loading weights:  52%|█████▏    | 192/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.q_proj.weight][A
-Loading weights:  52%|█████▏    | 193/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.bias]  [A
-Loading weights:  52%|█████▏    | 193/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.bias][A
-Loading weights:  52%|█████▏    | 194/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.weight][A
-Loading weights:  52%|█████▏    | 194/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.11.self_attn.v_proj.weight][A
-Loading weights:  52%|█████▏    | 195/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.bias]       [A
-Loading weights:  52%|█████▏    | 195/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.bias][A
-Loading weights:  53%|█████▎    | 196/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.weight][A
-Loading weights:  53%|█████▎    | 196/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm1.weight][A
-Loading weights:  53%|█████▎    | 197/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.bias]  [A
-Loading weights:  53%|█████▎    | 197/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.bias][A
-Loading weights:  53%|█████▎    | 198/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.weight][A
-Loading weights:  53%|█████▎    | 198/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.layer_norm2.weight][A
-Loading weights:  53%|█████▎    | 199/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.bias]      [A
-Loading weights:  53%|█████▎    | 199/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.bias][A
-Loading weights:  54%|█████▍    | 200/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.weight][A
-Loading weights:  54%|█████▍    | 200/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc1.weight][A
-Loading weights:  54%|█████▍    | 201/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.bias]  [A
-Loading weights:  54%|█████▍    | 201/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.bias][A
-Loading weights:  54%|█████▍    | 202/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.weight][A
-Loading weights:  54%|█████▍    | 202/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.mlp.fc2.weight][A
-Loading weights:  55%|█████▍    | 203/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.bias][A
-Loading weights:  55%|█████▍    | 203/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.bias][A
-Loading weights:  55%|█████▍    | 204/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.weight][A
-Loading weights:  55%|█████▍    | 204/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.k_proj.weight][A
-Loading weights:  55%|█████▌    | 205/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.bias][A
-Loading weights:  55%|█████▌    | 205/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.bias][A
-Loading weights:  55%|█████▌    | 206/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.weight][A
-Loading weights:  55%|█████▌    | 206/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.out_proj.weight][A
-Loading weights:  56%|█████▌    | 207/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.bias]    [A
-Loading weights:  56%|█████▌    | 207/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.bias][A
-Loading weights:  56%|█████▌    | 208/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.weight][A
-Loading weights:  56%|█████▌    | 208/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.q_proj.weight][A
-Loading weights:  56%|█████▌    | 209/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.bias]  [A
-Loading weights:  56%|█████▌    | 209/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.bias][A
-Loading weights:  56%|█████▋    | 210/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.weight][A
-Loading weights:  56%|█████▋    | 210/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.12.self_attn.v_proj.weight][A
-Loading weights:  57%|█████▋    | 211/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.bias]       [A
-Loading weights:  57%|█████▋    | 211/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.bias][A
-Loading weights:  57%|█████▋    | 212/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.weight][A
-Loading weights:  57%|█████▋    | 212/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm1.weight][A
-Loading weights:  57%|█████▋    | 213/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.bias]  [A
-Loading weights:  57%|█████▋    | 213/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.bias][A
-Loading weights:  58%|█████▊    | 214/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.weight][A
-Loading weights:  58%|█████▊    | 214/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.layer_norm2.weight][A
-Loading weights:  58%|█████▊    | 215/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.bias]      [A
-Loading weights:  58%|█████▊    | 215/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.bias][A
-Loading weights:  58%|█████▊    | 216/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.weight][A
-Loading weights:  58%|█████▊    | 216/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc1.weight][A
-Loading weights:  58%|█████▊    | 217/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.bias]  [A
-Loading weights:  58%|█████▊    | 217/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.bias][A
-Loading weights:  59%|█████▊    | 218/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.weight][A
-Loading weights:  59%|█████▊    | 218/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.mlp.fc2.weight][A
-Loading weights:  59%|█████▉    | 219/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.bias][A
-Loading weights:  59%|█████▉    | 219/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.bias][A
-Loading weights:  59%|█████▉    | 220/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.weight][A
-Loading weights:  59%|█████▉    | 220/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.k_proj.weight][A
-Loading weights:  59%|█████▉    | 221/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.bias][A
-Loading weights:  59%|█████▉    | 221/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.bias][A
-Loading weights:  60%|█████▉    | 222/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.weight][A
-Loading weights:  60%|█████▉    | 222/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.out_proj.weight][A
-Loading weights:  60%|█████▉    | 223/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.bias]    [A
-Loading weights:  60%|█████▉    | 223/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.bias][A
-Loading weights:  60%|██████    | 224/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.weight][A
-Loading weights:  60%|██████    | 224/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.q_proj.weight][A
-Loading weights:  60%|██████    | 225/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.bias]  [A
-Loading weights:  60%|██████    | 225/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.bias][A
-Loading weights:  61%|██████    | 226/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.weight][A
-Loading weights:  61%|██████    | 226/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.13.self_attn.v_proj.weight][A
-Loading weights:  61%|██████    | 227/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.bias]       [A
-Loading weights:  61%|██████    | 227/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.bias][A
-Loading weights:  61%|██████▏   | 228/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.weight][A
-Loading weights:  61%|██████▏   | 228/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm1.weight][A
-Loading weights:  62%|██████▏   | 229/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.bias]  [A
-Loading weights:  62%|██████▏   | 229/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.bias][A
-Loading weights:  62%|██████▏   | 230/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.weight][A
-Loading weights:  62%|██████▏   | 230/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.layer_norm2.weight][A
-Loading weights:  62%|██████▏   | 231/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.bias]      [A
-Loading weights:  62%|██████▏   | 231/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.bias][A
-Loading weights:  62%|██████▏   | 232/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.weight][A
-Loading weights:  62%|██████▏   | 232/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc1.weight][A
-Loading weights:  63%|██████▎   | 233/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.bias]  [A
-Loading weights:  63%|██████▎   | 233/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.bias][A
-Loading weights:  63%|██████▎   | 234/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.weight][A
-Loading weights:  63%|██████▎   | 234/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.mlp.fc2.weight][A
-Loading weights:  63%|██████▎   | 235/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.bias][A
-Loading weights:  63%|██████▎   | 235/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.bias][A
-Loading weights:  63%|██████▎   | 236/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.weight][A
-Loading weights:  63%|██████▎   | 236/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.k_proj.weight][A
-Loading weights:  64%|██████▎   | 237/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.bias][A
-Loading weights:  64%|██████▎   | 237/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.bias][A
-Loading weights:  64%|██████▍   | 238/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.weight][A
-Loading weights:  64%|██████▍   | 238/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.out_proj.weight][A
-Loading weights:  64%|██████▍   | 239/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.bias]    [A
-Loading weights:  64%|██████▍   | 239/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.bias][A
-Loading weights:  65%|██████▍   | 240/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.weight][A
-Loading weights:  65%|██████▍   | 240/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.q_proj.weight][A
-Loading weights:  65%|██████▍   | 241/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.bias]  [A
-Loading weights:  65%|██████▍   | 241/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.bias][A
-Loading weights:  65%|██████▌   | 242/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.weight][A
-Loading weights:  65%|██████▌   | 242/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.14.self_attn.v_proj.weight][A
-Loading weights:  65%|██████▌   | 243/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.bias]       [A
-Loading weights:  65%|██████▌   | 243/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.bias][A
-Loading weights:  66%|██████▌   | 244/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.weight][A
-Loading weights:  66%|██████▌   | 244/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm1.weight][A
-Loading weights:  66%|██████▌   | 245/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.bias]  [A
-Loading weights:  66%|██████▌   | 245/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.bias][A
-Loading weights:  66%|██████▌   | 246/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.weight][A
-Loading weights:  66%|██████▌   | 246/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.layer_norm2.weight][A
-Loading weights:  66%|██████▋   | 247/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.bias]      [A
-Loading weights:  66%|██████▋   | 247/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.bias][A
-Loading weights:  67%|██████▋   | 248/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.weight][A
-Loading weights:  67%|██████▋   | 248/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc1.weight][A
-Loading weights:  67%|██████▋   | 249/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.bias]  [A
-Loading weights:  67%|██████▋   | 249/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.bias][A
-Loading weights:  67%|██████▋   | 250/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.weight][A
-Loading weights:  67%|██████▋   | 250/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.mlp.fc2.weight][A
-Loading weights:  67%|██████▋   | 251/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.bias][A
-Loading weights:  67%|██████▋   | 251/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.bias][A
-Loading weights:  68%|██████▊   | 252/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.weight][A
-Loading weights:  68%|██████▊   | 252/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.k_proj.weight][A
-Loading weights:  68%|██████▊   | 253/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.bias][A
-Loading weights:  68%|██████▊   | 253/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.bias][A
-Loading weights:  68%|██████▊   | 254/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.weight][A
-Loading weights:  68%|██████▊   | 254/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.out_proj.weight][A
-Loading weights:  69%|██████▊   | 255/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.bias]    [A
-Loading weights:  69%|██████▊   | 255/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.bias][A
-Loading weights:  69%|██████▉   | 256/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.weight][A
-Loading weights:  69%|██████▉   | 256/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.q_proj.weight][A
-Loading weights:  69%|██████▉   | 257/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.bias]  [A
-Loading weights:  69%|██████▉   | 257/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.bias][A
-Loading weights:  69%|██████▉   | 258/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.weight][A
-Loading weights:  69%|██████▉   | 258/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.15.self_attn.v_proj.weight][A
-Loading weights:  70%|██████▉   | 259/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.bias]       [A
-Loading weights:  70%|██████▉   | 259/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.bias][A
-Loading weights:  70%|██████▉   | 260/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.weight][A
-Loading weights:  70%|██████▉   | 260/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm1.weight][A
-Loading weights:  70%|███████   | 261/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.bias]  [A
-Loading weights:  70%|███████   | 261/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.bias][A
-Loading weights:  70%|███████   | 262/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.weight][A
-Loading weights:  70%|███████   | 262/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.layer_norm2.weight][A
-Loading weights:  71%|███████   | 263/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.bias]      [A
-Loading weights:  71%|███████   | 263/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.bias][A
-Loading weights:  71%|███████   | 264/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.weight][A
-Loading weights:  71%|███████   | 264/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc1.weight][A
-Loading weights:  71%|███████   | 265/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.bias]  [A
-Loading weights:  71%|███████   | 265/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.bias][A
-Loading weights:  72%|███████▏  | 266/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.weight][A
-Loading weights:  72%|███████▏  | 266/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.mlp.fc2.weight][A
-Loading weights:  72%|███████▏  | 267/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.bias][A
-Loading weights:  72%|███████▏  | 267/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.bias][A
-Loading weights:  72%|███████▏  | 268/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.weight][A
-Loading weights:  72%|███████▏  | 268/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.k_proj.weight][A
-Loading weights:  72%|███████▏  | 269/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.bias][A
-Loading weights:  72%|███████▏  | 269/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.bias][A
-Loading weights:  73%|███████▎  | 270/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.weight][A
-Loading weights:  73%|███████▎  | 270/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.out_proj.weight][A
-Loading weights:  73%|███████▎  | 271/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.bias]    [A
-Loading weights:  73%|███████▎  | 271/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.bias][A
-Loading weights:  73%|███████▎  | 272/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.weight][A
-Loading weights:  73%|███████▎  | 272/372 [00:00<00:00, 522.42it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.weight][A
-Loading weights:  73%|███████▎  | 273/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.16.self_attn.q_proj.weight][A
-Loading weights:  73%|███████▎  | 273/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.bias]  [A
-Loading weights:  73%|███████▎  | 273/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.bias][A
-Loading weights:  74%|███████▎  | 274/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.weight][A
-Loading weights:  74%|███████▎  | 274/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.16.self_attn.v_proj.weight][A
-Loading weights:  74%|███████▍  | 275/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.bias]       [A
-Loading weights:  74%|███████▍  | 275/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.bias][A
-Loading weights:  74%|███████▍  | 276/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.weight][A
-Loading weights:  74%|███████▍  | 276/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm1.weight][A
-Loading weights:  74%|███████▍  | 277/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.bias]  [A
-Loading weights:  74%|███████▍  | 277/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.bias][A
-Loading weights:  75%|███████▍  | 278/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.weight][A
-Loading weights:  75%|███████▍  | 278/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.layer_norm2.weight][A
-Loading weights:  75%|███████▌  | 279/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.bias]      [A
-Loading weights:  75%|███████▌  | 279/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.bias][A
-Loading weights:  75%|███████▌  | 280/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.weight][A
-Loading weights:  75%|███████▌  | 280/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc1.weight][A
-Loading weights:  76%|███████▌  | 281/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.bias]  [A
-Loading weights:  76%|███████▌  | 281/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.bias][A
-Loading weights:  76%|███████▌  | 282/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.weight][A
-Loading weights:  76%|███████▌  | 282/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.mlp.fc2.weight][A
-Loading weights:  76%|███████▌  | 283/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.bias][A
-Loading weights:  76%|███████▌  | 283/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.bias][A
-Loading weights:  76%|███████▋  | 284/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.weight][A
-Loading weights:  76%|███████▋  | 284/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.k_proj.weight][A
-Loading weights:  77%|███████▋  | 285/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.bias][A
-Loading weights:  77%|███████▋  | 285/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.bias][A
-Loading weights:  77%|███████▋  | 286/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.weight][A
-Loading weights:  77%|███████▋  | 286/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.out_proj.weight][A
-Loading weights:  77%|███████▋  | 287/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.bias]    [A
-Loading weights:  77%|███████▋  | 287/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.bias][A
-Loading weights:  77%|███████▋  | 288/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.weight][A
-Loading weights:  77%|███████▋  | 288/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.q_proj.weight][A
-Loading weights:  78%|███████▊  | 289/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.bias]  [A
-Loading weights:  78%|███████▊  | 289/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.bias][A
-Loading weights:  78%|███████▊  | 290/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.weight][A
-Loading weights:  78%|███████▊  | 290/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.17.self_attn.v_proj.weight][A
-Loading weights:  78%|███████▊  | 291/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.bias]       [A
-Loading weights:  78%|███████▊  | 291/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.bias][A
-Loading weights:  78%|███████▊  | 292/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.weight][A
-Loading weights:  78%|███████▊  | 292/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm1.weight][A
-Loading weights:  79%|███████▉  | 293/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.bias]  [A
-Loading weights:  79%|███████▉  | 293/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.bias][A
-Loading weights:  79%|███████▉  | 294/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.weight][A
-Loading weights:  79%|███████▉  | 294/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.layer_norm2.weight][A
-Loading weights:  79%|███████▉  | 295/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.bias]      [A
-Loading weights:  79%|███████▉  | 295/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.bias][A
-Loading weights:  80%|███████▉  | 296/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.weight][A
-Loading weights:  80%|███████▉  | 296/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc1.weight][A
-Loading weights:  80%|███████▉  | 297/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.bias]  [A
-Loading weights:  80%|███████▉  | 297/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.bias][A
-Loading weights:  80%|████████  | 298/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.weight][A
-Loading weights:  80%|████████  | 298/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.mlp.fc2.weight][A
-Loading weights:  80%|████████  | 299/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.bias][A
-Loading weights:  80%|████████  | 299/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.bias][A
-Loading weights:  81%|████████  | 300/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.weight][A
-Loading weights:  81%|████████  | 300/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.k_proj.weight][A
-Loading weights:  81%|████████  | 301/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.bias][A
-Loading weights:  81%|████████  | 301/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.bias][A
-Loading weights:  81%|████████  | 302/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.weight][A
-Loading weights:  81%|████████  | 302/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.out_proj.weight][A
-Loading weights:  81%|████████▏ | 303/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.bias]    [A
-Loading weights:  81%|████████▏ | 303/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.bias][A
-Loading weights:  82%|████████▏ | 304/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.weight][A
-Loading weights:  82%|████████▏ | 304/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.q_proj.weight][A
-Loading weights:  82%|████████▏ | 305/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.bias]  [A
-Loading weights:  82%|████████▏ | 305/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.bias][A
-Loading weights:  82%|████████▏ | 306/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.weight][A
-Loading weights:  82%|████████▏ | 306/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.18.self_attn.v_proj.weight][A
-Loading weights:  83%|████████▎ | 307/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.bias]       [A
-Loading weights:  83%|████████▎ | 307/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.bias][A
-Loading weights:  83%|████████▎ | 308/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.weight][A
-Loading weights:  83%|████████▎ | 308/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm1.weight][A
-Loading weights:  83%|████████▎ | 309/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.bias]  [A
-Loading weights:  83%|████████▎ | 309/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.bias][A
-Loading weights:  83%|████████▎ | 310/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.weight][A
-Loading weights:  83%|████████▎ | 310/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.layer_norm2.weight][A
-Loading weights:  84%|████████▎ | 311/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.bias]      [A
-Loading weights:  84%|████████▎ | 311/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.bias][A
-Loading weights:  84%|████████▍ | 312/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.weight][A
-Loading weights:  84%|████████▍ | 312/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc1.weight][A
-Loading weights:  84%|████████▍ | 313/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.bias]  [A
-Loading weights:  84%|████████▍ | 313/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.bias][A
-Loading weights:  84%|████████▍ | 314/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.weight][A
-Loading weights:  84%|████████▍ | 314/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.mlp.fc2.weight][A
-Loading weights:  85%|████████▍ | 315/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.bias][A
-Loading weights:  85%|████████▍ | 315/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.bias][A
-Loading weights:  85%|████████▍ | 316/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.weight][A
-Loading weights:  85%|████████▍ | 316/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.k_proj.weight][A
-Loading weights:  85%|████████▌ | 317/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.bias][A
-Loading weights:  85%|████████▌ | 317/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.bias][A
-Loading weights:  85%|████████▌ | 318/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.weight][A
-Loading weights:  85%|████████▌ | 318/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.out_proj.weight][A
-Loading weights:  86%|████████▌ | 319/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.bias]    [A
-Loading weights:  86%|████████▌ | 319/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.bias][A
-Loading weights:  86%|████████▌ | 320/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.weight][A
-Loading weights:  86%|████████▌ | 320/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.q_proj.weight][A
-Loading weights:  86%|████████▋ | 321/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.bias]  [A
-Loading weights:  86%|████████▋ | 321/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.bias][A
-Loading weights:  87%|████████▋ | 322/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.weight][A
-Loading weights:  87%|████████▋ | 322/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.19.self_attn.v_proj.weight][A
-Loading weights:  87%|████████▋ | 323/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.bias]       [A
-Loading weights:  87%|████████▋ | 323/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.bias][A
-Loading weights:  87%|████████▋ | 324/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.weight][A
-Loading weights:  87%|████████▋ | 324/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm1.weight][A
-Loading weights:  87%|████████▋ | 325/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.bias]  [A
-Loading weights:  87%|████████▋ | 325/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.bias][A
-Loading weights:  88%|████████▊ | 326/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.weight][A
-Loading weights:  88%|████████▊ | 326/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.layer_norm2.weight][A
-Loading weights:  88%|████████▊ | 327/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.bias]      [A
-Loading weights:  88%|████████▊ | 327/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.bias][A
-Loading weights:  88%|████████▊ | 328/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.weight][A
-Loading weights:  88%|████████▊ | 328/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc1.weight][A
-Loading weights:  88%|████████▊ | 329/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.bias]  [A
-Loading weights:  88%|████████▊ | 329/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.bias][A
-Loading weights:  89%|████████▊ | 330/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.weight][A
-Loading weights:  89%|████████▊ | 330/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.mlp.fc2.weight][A
-Loading weights:  89%|████████▉ | 331/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.bias][A
-Loading weights:  89%|████████▉ | 331/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.bias][A
-Loading weights:  89%|████████▉ | 332/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.weight][A
-Loading weights:  89%|████████▉ | 332/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.k_proj.weight][A
-Loading weights:  90%|████████▉ | 333/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.bias][A
-Loading weights:  90%|████████▉ | 333/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.bias][A
-Loading weights:  90%|████████▉ | 334/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.weight][A
-Loading weights:  90%|████████▉ | 334/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.out_proj.weight][A
-Loading weights:  90%|█████████ | 335/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.bias]    [A
-Loading weights:  90%|█████████ | 335/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.bias][A
-Loading weights:  90%|█████████ | 336/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.weight][A
-Loading weights:  90%|█████████ | 336/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.q_proj.weight][A
-Loading weights:  91%|█████████ | 337/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.bias]  [A
-Loading weights:  91%|█████████ | 337/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.bias][A
-Loading weights:  91%|█████████ | 338/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.weight][A
-Loading weights:  91%|█████████ | 338/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.20.self_attn.v_proj.weight][A
-Loading weights:  91%|█████████ | 339/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.bias]       [A
-Loading weights:  91%|█████████ | 339/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.bias][A
-Loading weights:  91%|█████████▏| 340/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.weight][A
-Loading weights:  91%|█████████▏| 340/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm1.weight][A
-Loading weights:  92%|█████████▏| 341/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.bias]  [A
-Loading weights:  92%|█████████▏| 341/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.bias][A
-Loading weights:  92%|█████████▏| 342/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.weight][A
-Loading weights:  92%|█████████▏| 342/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.layer_norm2.weight][A
-Loading weights:  92%|█████████▏| 343/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.bias]      [A
-Loading weights:  92%|█████████▏| 343/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.bias][A
-Loading weights:  92%|█████████▏| 344/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.weight][A
-Loading weights:  92%|█████████▏| 344/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc1.weight][A
-Loading weights:  93%|█████████▎| 345/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.bias]  [A
-Loading weights:  93%|█████████▎| 345/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.bias][A
-Loading weights:  93%|█████████▎| 346/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.weight][A
-Loading weights:  93%|█████████▎| 346/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.mlp.fc2.weight][A
-Loading weights:  93%|█████████▎| 347/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.bias][A
-Loading weights:  93%|█████████▎| 347/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.bias][A
-Loading weights:  94%|█████████▎| 348/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.weight][A
-Loading weights:  94%|█████████▎| 348/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.k_proj.weight][A
-Loading weights:  94%|█████████▍| 349/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.bias][A
-Loading weights:  94%|█████████▍| 349/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.bias][A
-Loading weights:  94%|█████████▍| 350/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.weight][A
-Loading weights:  94%|█████████▍| 350/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.out_proj.weight][A
-Loading weights:  94%|█████████▍| 351/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.bias]    [A
-Loading weights:  94%|█████████▍| 351/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.bias][A
-Loading weights:  95%|█████████▍| 352/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.weight][A
-Loading weights:  95%|█████████▍| 352/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.q_proj.weight][A
-Loading weights:  95%|█████████▍| 353/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.bias]  [A
-Loading weights:  95%|█████████▍| 353/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.bias][A
-Loading weights:  95%|█████████▌| 354/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.weight][A
-Loading weights:  95%|█████████▌| 354/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.21.self_attn.v_proj.weight][A
-Loading weights:  95%|█████████▌| 355/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.bias]       [A
-Loading weights:  95%|█████████▌| 355/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.bias][A
-Loading weights:  96%|█████████▌| 356/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.weight][A
-Loading weights:  96%|█████████▌| 356/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm1.weight][A
-Loading weights:  96%|█████████▌| 357/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.bias]  [A
-Loading weights:  96%|█████████▌| 357/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.bias][A
-Loading weights:  96%|█████████▌| 358/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.weight][A
-Loading weights:  96%|█████████▌| 358/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.layer_norm2.weight][A
-Loading weights:  97%|█████████▋| 359/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.bias]      [A
-Loading weights:  97%|█████████▋| 359/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.bias][A
-Loading weights:  97%|█████████▋| 360/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.weight][A
-Loading weights:  97%|█████████▋| 360/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc1.weight][A
-Loading weights:  97%|█████████▋| 361/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.bias]  [A
-Loading weights:  97%|█████████▋| 361/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.bias][A
-Loading weights:  97%|█████████▋| 362/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.weight][A
-Loading weights:  97%|█████████▋| 362/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.mlp.fc2.weight][A
-Loading weights:  98%|█████████▊| 363/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.bias][A
-Loading weights:  98%|█████████▊| 363/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.bias][A
-Loading weights:  98%|█████████▊| 364/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.weight][A
-Loading weights:  98%|█████████▊| 364/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.k_proj.weight][A
-Loading weights:  98%|█████████▊| 365/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.bias][A
-Loading weights:  98%|█████████▊| 365/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.bias][A
-Loading weights:  98%|█████████▊| 366/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.weight][A
-Loading weights:  98%|█████████▊| 366/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.out_proj.weight][A
-Loading weights:  99%|█████████▊| 367/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.bias]    [A
-Loading weights:  99%|█████████▊| 367/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.bias][A
-Loading weights:  99%|█████████▉| 368/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.weight][A
-Loading weights:  99%|█████████▉| 368/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.q_proj.weight][A
-Loading weights:  99%|█████████▉| 369/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.bias]  [A
-Loading weights:  99%|█████████▉| 369/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.bias][A
-Loading weights:  99%|█████████▉| 370/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.weight][A
-Loading weights:  99%|█████████▉| 370/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.encoder.layers.22.self_attn.v_proj.weight][A
-Loading weights: 100%|█████████▉| 371/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.final_layer_norm.bias]                    [A
-Loading weights: 100%|█████████▉| 371/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.final_layer_norm.bias][A
-Loading weights: 100%|██████████| 372/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.final_layer_norm.weight][A
-Loading weights: 100%|██████████| 372/372 [00:00<00:00, 1502.66it/s, Materializing param=text_model.final_layer_norm.weight][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1622.00it/s, Materializing param=text_model.final_layer_norm.weight]
-Loading pipeline components...: 100%|██████████| 5/5 [00:00<00:00,  5.63it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:00<00:00,  5.55it/s]
-加载 safetensors: models/distill_r3/distill_final.safetensors
-  safetensors 共 686 个张量，689.0M 参数
-  读取配置: models/distill_r3/distill_final.config.json
-  构建标准 UNet 架构...
-  替换了 118 个形状不匹配的层
-/opt/dlami/nvme/model-compression-toolkit/prune/pruned_rebuild.py:110: FutureWarning: Accessing config attribute `in_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'in_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.in_channels'.
-  if hasattr(module, 'in_channels') and hasattr(module, 'conv1'):
-/opt/dlami/nvme/model-compression-toolkit/prune/pruned_rebuild.py:113: FutureWarning: Accessing config attribute `out_channels` directly via 'UNet2DConditionModel' object attribute is deprecated. Please access 'out_channels' over 'UNet2DConditionModel's config object instead, e.g. 'unet.config.out_channels'.
-  if hasattr(module, 'out_channels') and hasattr(module, 'conv2'):
-  ✅ 重建完成，参数量: 689.0M
-  Loaded pruned model: 689.0M params
-
-1. Generating calibration data (teacher 4-step inference)...
-  Prompts: 64 loaded from dataset/
-  Generating 64 prompts x 4 timesteps = 256 samples
-  Timesteps fixed to [999, 749, 499, 249]
-  Calibration:   0%|          | 0/64 [00:00<?, ?it/s]  Calibration:   2%|▏         | 1/64 [00:01<01:13,  1.17s/it]  Calibration:   3%|▎         | 2/64 [00:01<00:40,  1.54it/s]  Calibration:   5%|▍         | 3/64 [00:01<00:29,  2.06it/s]  Calibration:   6%|▋         | 4/64 [00:02<00:24,  2.46it/s]  Calibration:   8%|▊         | 5/64 [00:02<00:21,  2.75it/s]  Calibration:   9%|▉         | 6/64 [00:02<00:19,  2.96it/s]  Calibration:  11%|█         | 7/64 [00:02<00:18,  3.12it/s]  Calibration:  12%|█▎        | 8/64 [00:03<00:17,  3.22it/s]  Calibration:  14%|█▍        | 9/64 [00:03<00:16,  3.30it/s]  Calibration:  16%|█▌        | 10/64 [00:03<00:16,  3.35it/s]  Calibration:  17%|█▋        | 11/64 [00:04<00:15,  3.39it/s]  Calibration:  19%|█▉        | 12/64 [00:04<00:15,  3.42it/s]  Calibration:  20%|██        | 13/64 [00:04<00:14,  3.44it/s]  Calibration:  22%|██▏       | 14/64 [00:04<00:14,  3.45it/s]  Calibration:  23%|██▎       | 15/64 [00:05<00:14,  3.46it/s]  Calibration:  25%|██▌       | 16/64 [00:05<00:13,  3.47it/s]  Calibration:  27%|██▋       | 17/64 [00:05<00:13,  3.47it/s]  Calibration:  28%|██▊       | 18/64 [00:06<00:13,  3.48it/s]  Calibration:  30%|██▉       | 19/64 [00:06<00:12,  3.48it/s]  Calibration:  31%|███▏      | 20/64 [00:06<00:12,  3.48it/s]  Calibration:  33%|███▎      | 21/64 [00:06<00:12,  3.48it/s]  Calibration:  34%|███▍      | 22/64 [00:07<00:12,  3.48it/s]  Calibration:  36%|███▌      | 23/64 [00:07<00:11,  3.48it/s]  Calibration:  38%|███▊      | 24/64 [00:07<00:11,  3.48it/s]  Calibration:  39%|███▉      | 25/64 [00:08<00:11,  3.48it/s]  Calibration:  41%|████      | 26/64 [00:08<00:10,  3.48it/s]  Calibration:  42%|████▏     | 27/64 [00:08<00:10,  3.48it/s]  Calibration:  44%|████▍     | 28/64 [00:08<00:10,  3.48it/s]  Calibration:  45%|████▌     | 29/64 [00:09<00:10,  3.48it/s]  Calibration:  47%|████▋     | 30/64 [00:09<00:09,  3.48it/s]  Calibration:  48%|████▊     | 31/64 [00:09<00:09,  3.48it/s]  Calibration:  50%|█████     | 32/64 [00:10<00:09,  3.48it/s]  Calibration:  52%|█████▏    | 33/64 [00:10<00:08,  3.48it/s]  Calibration:  53%|█████▎    | 34/64 [00:10<00:08,  3.48it/s]  Calibration:  55%|█████▍    | 35/64 [00:10<00:08,  3.48it/s]  Calibration:  56%|█████▋    | 36/64 [00:11<00:08,  3.48it/s]  Calibration:  58%|█████▊    | 37/64 [00:11<00:07,  3.48it/s]  Calibration:  59%|█████▉    | 38/64 [00:11<00:07,  3.48it/s]  Calibration:  61%|██████    | 39/64 [00:12<00:07,  3.48it/s]  Calibration:  62%|██████▎   | 40/64 [00:12<00:06,  3.48it/s]  Calibration:  64%|██████▍   | 41/64 [00:12<00:06,  3.48it/s]  Calibration:  66%|██████▌   | 42/64 [00:12<00:06,  3.48it/s]  Calibration:  67%|██████▋   | 43/64 [00:13<00:06,  3.48it/s]  Calibration:  69%|██████▉   | 44/64 [00:13<00:05,  3.48it/s]  Calibration:  70%|███████   | 45/64 [00:13<00:05,  3.48it/s]  Calibration:  72%|███████▏  | 46/64 [00:14<00:05,  3.48it/s]  Calibration:  73%|███████▎  | 47/64 [00:14<00:04,  3.48it/s]  Calibration:  75%|███████▌  | 48/64 [00:14<00:04,  3.48it/s]  Calibration:  77%|███████▋  | 49/64 [00:14<00:04,  3.48it/s]  Calibration:  78%|███████▊  | 50/64 [00:15<00:04,  3.48it/s]  Calibration:  80%|███████▉  | 51/64 [00:15<00:03,  3.48it/s]  Calibration:  81%|████████▏ | 52/64 [00:15<00:03,  3.48it/s]  Calibration:  83%|████████▎ | 53/64 [00:16<00:03,  3.48it/s]  Calibration:  84%|████████▍ | 54/64 [00:16<00:02,  3.48it/s]  Calibration:  86%|████████▌ | 55/64 [00:16<00:02,  3.48it/s]  Calibration:  88%|████████▊ | 56/64 [00:16<00:02,  3.48it/s]  Calibration:  89%|████████▉ | 57/64 [00:17<00:02,  3.48it/s]  Calibration:  91%|█████████ | 58/64 [00:17<00:01,  3.48it/s]  Calibration:  92%|█████████▏| 59/64 [00:17<00:01,  3.48it/s]  Calibration:  94%|█████████▍| 60/64 [00:18<00:01,  3.48it/s]  Calibration:  95%|█████████▌| 61/64 [00:18<00:00,  3.48it/s]  Calibration:  97%|█████████▋| 62/64 [00:18<00:00,  3.48it/s]  Calibration:  98%|█████████▊| 63/64 [00:18<00:00,  3.48it/s]  Calibration: 100%|██████████| 64/64 [00:19<00:00,  3.48it/s]  Calibration: 100%|██████████| 64/64 [00:19<00:00,  3.32it/s]
-
-  Components found:
-    D0: resnet: 6 layers, ffn: 4 layers, self_attn: 8 layers, cross_attn: 8 layers
-    D1: resnet: 7 layers, ffn: 4 layers, self_attn: 8 layers, cross_attn: 8 layers
-    D2: resnet: 7 layers, ffn: 4 layers, self_attn: 8 layers, cross_attn: 8 layers
-    D3: resnet: 6 layers
-    Mid: resnet: 6 layers, ffn: 2 layers, self_attn: 4 layers, cross_attn: 4 layers
-    U0: resnet: 12 layers
-    U1: resnet: 12 layers, ffn: 6 layers, self_attn: 12 layers, cross_attn: 12 layers
-    U2: resnet: 12 layers, ffn: 6 layers, self_attn: 12 layers, cross_attn: 12 layers
-    U3: resnet: 12 layers, ffn: 6 layers, self_attn: 12 layers, cross_attn: 12 layers
-
-2. Computing LD sensitivity...
-
-  Sweeping: 300 measurements over 256 samples (4 timesteps)
-  Metric: LD (paper formula, per-timestep bucketed)
-  [2/300] D0.resnet r=5% | ld=33.56 (avg=17.39 std=16.18)
-  [3/300] D0.resnet r=10% | ld=45.73 (avg=26.49 std=19.23)
-  [10/300] D0.resnet r=70% | ld=109.52 (avg=45.59 std=63.93)
-  [20/300] D0.ffn r=70% | ld=33.82 (avg=15.12 std=18.70)
-  [30/300] D0.self_attn r=70% | ld=30.99 (avg=14.00 std=17.00)
-  [40/300] D0.cross_attn r=70% | ld=15.46 (avg=8.62 std=6.84)
-  [50/300] D1.resnet r=70% | ld=43.60 (avg=24.01 std=19.59)
-  [60/300] D1.ffn r=70% | ld=24.84 (avg=13.18 std=11.66)
-  [70/300] D1.self_attn r=70% | ld=24.51 (avg=12.90 std=11.61)
-  [80/300] D1.cross_attn r=70% | ld=15.17 (avg=8.02 std=7.15)
-  [90/300] D2.resnet r=70% | ld=30.13 (avg=15.79 std=14.34)
-  [100/300] D2.ffn r=70% | ld=28.91 (avg=15.64 std=13.27)
-  [110/300] D2.self_attn r=70% | ld=20.36 (avg=10.59 std=9.77)
-  [120/300] D2.cross_attn r=70% | ld=17.59 (avg=9.06 std=8.53)
-  [130/300] D3.resnet r=70% | ld=4.85 (avg=2.46 std=2.40)
-  [140/300] Mid.resnet r=70% | ld=2.71 (avg=1.39 std=1.32)
-  [150/300] Mid.ffn r=70% | ld=1.37 (avg=0.69 std=0.68)
-  [160/300] Mid.self_attn r=70% | ld=1.80 (avg=0.94 std=0.86)
-  [170/300] Mid.cross_attn r=70% | ld=1.23 (avg=0.62 std=0.61)
-  [180/300] U0.resnet r=70% | ld=12.01 (avg=6.23 std=5.78)
-  [190/300] U1.resnet r=70% | ld=38.71 (avg=18.79 std=19.92)
-  [200/300] U1.ffn r=70% | ld=29.46 (avg=15.29 std=14.17)
-  [210/300] U1.self_attn r=70% | ld=29.38 (avg=14.34 std=15.04)
-  [220/300] U1.cross_attn r=70% | ld=12.92 (avg=6.81 std=6.12)
-  [230/300] U2.resnet r=70% | ld=42.97 (avg=21.01 std=21.96)
-  [240/300] U2.ffn r=70% | ld=26.81 (avg=12.64 std=14.17)
-  [250/300] U2.self_attn r=70% | ld=52.32 (avg=19.70 std=32.62)
-  [260/300] U2.cross_attn r=70% | ld=12.44 (avg=5.69 std=6.75)
-  [270/300] U3.resnet r=70% | ld=673.13 (avg=94.62 std=578.51)
-  [280/300] U3.ffn r=70% | ld=80.45 (avg=17.69 std=62.76)
-  [290/300] U3.self_attn r=70% | ld=112.88 (avg=39.20 std=73.69)
-  [300/300] U3.cross_attn r=70% | ld=32.12 (avg=15.75 std=16.37)
-
-3. Generating chart...
-  Saved chart: gen_test_output/sensitivity_ld.png
-
-  Report saved: prune/sensitivity_ld_report.json
-  Appended round 4 to: prune/sensitivity_record.json
-
-Done.

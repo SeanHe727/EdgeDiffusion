@@ -1,0 +1,62 @@
+=== Mode: FP16 baseline ===
+W0518 16:06:20.922000 49904 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 16:06:20.955000 49904 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+[fp16] Loading FP16 UNet (4-step)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  after unet load: peak=9963MB, current=4998MB
+Building SDXL pipeline...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  57%|¨€¨€¨€¨€¨€¨ƒ    | 4/7 [00:00<00:00, 38.65it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 33.38it/s]
+Warmup 2 iters...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  warmup [1/2]: 4205 ms
+  warmup [2/2]: 3561 ms
+Timing 5 iters (1024x1024, 4 steps)...
+  iter [1/5]: 3362 ms
+  iter [2/5]: 3465 ms
+  iter [3/5]: 3368 ms
+  iter [4/5]: 3322 ms
+  iter [5/5]: 3305 ms
+
+=== fp16 RESULTS ===
+  Quantized Linear layers:  0
+  After UNet load peak:     9963 MB
+  Generation peak VRAM:     10767 MB
+  Latency: min=3305ms  median=3362ms  max=3465ms  mean=3365ms
+=== Mode: torchao Int4WeightOnly ===
+W0518 16:07:05.868000 46304 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 16:07:05.902000 46304 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+[torchao_int4] Loading FP16 UNet (4-step)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  applying torchao Int4WeightOnlyConfig (group=128) to 722 Linear layers...
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\benchmark_torchao_int4.py", line 147, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\benchmark_torchao_int4.py", line 96, in main
+    n_quant = apply_torchao_int4(unet)
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\benchmark_torchao_int4.py", line 63, in apply_torchao_int4
+    quantize_(unet, cfg, filter_fn=filter_fn)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 445, in quantize_
+    _replace_with_custom_fn_if_matches_filter(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 179, in _replace_with_custom_fn_if_matches_filter
+    new_child = _replace_with_custom_fn_if_matches_filter(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 179, in _replace_with_custom_fn_if_matches_filter
+    new_child = _replace_with_custom_fn_if_matches_filter(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 179, in _replace_with_custom_fn_if_matches_filter
+    new_child = _replace_with_custom_fn_if_matches_filter(
+  [Previous line repeated 2 more times]
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 174, in _replace_with_custom_fn_if_matches_filter
+    model = replacement_fn(model, *extra_args)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 806, in _int4_weight_only_transform
+    new_weight = _int4_weight_only_quantize_tensor(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quant_api.py", line 769, in _int4_weight_only_quantize_tensor
+    new_weight = Int4Tensor.from_hp(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torchao\quantization\quantize_\workflows\int4\int4_tensor.py", line 140, in from_hp
+    raise ImportError("Requires mslk >= 1.0.0")
+ImportError: Requires mslk >= 1.0.0
+=== DONE ===

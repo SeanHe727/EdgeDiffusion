@@ -1,0 +1,109 @@
+W0518 00:34:25.250000 26736 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 00:34:25.283000 26736 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+SDXL-Lightning dataset fake quant: prompts=32, steps=4, size=1024x1024, guidance=0.0, dtype=torch.float16, device=cuda
+Output: D:\chenh\EdgeDiffusion\EdgeDiffusion\gen_test_output\sdxl_lightning_gptq_ffw4_attnw8_dataset32_1024
+  prompt 01: [people] 000000139291.txt | Woman riding her bike down a small side path.
+  prompt 02: [animals] 000000366830.txt | A large brown horse walking through a lush green forest.
+  prompt 03: [food] 000000069496.txt | A plate full of food is ready to be eaten.
+  prompt 04: [vehicle] 000000376937.txt | A boat floating on a lake next to a tree covered shore.
+  prompt 05: [sports] 000000498439.txt | Fans observing a baseball game in process.
+  prompt 06: [indoor] 000000531111.txt | A bathroom with a black and white checkered floor.
+  prompt 07: [street] 000000229782.txt | A blue sign in front of a bamboo enclosure.
+  prompt 08: [nature] 000000431521.txt | A llama looks at the camera from a fenced in, grassy area.
+  prompt 09: [objects] 000000282672.txt | A beautiful young lady with a flower in her hair talking on a cell phone.
+  prompt 10: [people] 000000129784.txt | a man that is typing on his laptop
+  prompt 11: [animals] 000000464328.txt | A cow walking across a river near lush green grass.
+  prompt 12: [food] 000000246199.txt | A table topped with baskets filled with ripe bananas.
+  prompt 13: [vehicle] 000000078371.txt | A small airplane taking off from an airport runway.
+  prompt 14: [sports] 000000535668.txt | A baseball player bending over to hit a ball.
+  prompt 15: [indoor] 000000271795.txt | A laptop computer sitting on top of a wooden desk.
+  prompt 16: [street] 000000361400.txt | A traffic light is showing a green arrow.
+  prompt 17: [nature] 000000536444.txt | there is an air plane that is in the sky
+  prompt 18: [objects] 000000366630.txt | A vase of light and dark purple flowers in a white vase.
+  prompt 19: [people] 000000315641.txt | An older woman sitting at a table cutting up donuts.
+  prompt 20: [animals] 000000186009.txt | A brown sheep standing on top of a lush green field.
+  prompt 21: [food] 000000546854.txt | a pitcher of orange juice with orange slices in it
+  prompt 22: [vehicle] 000000021202.txt | cars that are stopped at a traffic light
+  prompt 23: [sports] 000000218947.txt | A photograph of a cross country skier in a greenish tint light.
+  prompt 24: [indoor] 000000487774.txt | A silver computer mouse on a table next to a keyboard.
+  prompt 25: [street] 000000097659.txt | A traffic light under a cloudy blue sky.
+  prompt 26: [nature] 000000572733.txt | A large airliner jet flying through the blue sky.
+  prompt 27: [objects] 000000217183.txt | A doll standing next to a vase filled with flowers and plants.
+  prompt 28: [people] 000000130732.txt | a man is shaving in a mirror in a bathroom
+  prompt 29: [animals] 000000189885.txt | A herd of sheep walking down a rural country road.
+  prompt 30: [food] 000000042492.txt | A kitchen with a center stove top island.
+  prompt 31: [vehicle] 000000290070.txt | Motorcycle on platform to be worked on in garage
+  prompt 32: [sports] 000000505099.txt | a baseball player is going to swing a bat
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+Loaded Lightning UNet: sdxl_lightning_4step_unet.safetensors, missing=0, unexpected=0
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  57%|¨€¨€¨€¨€¨€¨ƒ    | 4/7 [00:00<00:00, 39.21it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 31.67it/s]
+Generating fp16 baseline images...
+  fp16 [1/32] seed=12345: Woman riding her bike down a small side path.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  3.24it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.91it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.09it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.68it/s]
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  fp16 [2/32] seed=22318: A large brown horse walking through a lush green forest.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.99it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.46it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  7.43it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  7.31it/s]
+  fp16 [3/32] seed=32291: A plate full of food is ready to be eaten.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  8.50it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  7.23it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.89it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  7.15it/s]
+  fp16 [4/32] seed=42264: A boat floating on a lake next to a tree covered shore.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.82it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  7.06it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.70it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.90it/s]
+  fp16 [5/32] seed=52237: Fans observing a baseball game in process.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  7.55it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  4.36it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.35it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.04it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.11it/s]
+  fp16 [6/32] seed=62210: A bathroom with a black and white checkered floor.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.59it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.41it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.30it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.27it/s]
+  fp16 [7/32] seed=72183: A blue sign in front of a bamboo enclosure.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.88it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  7.07it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.19it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.55it/s]
+  fp16 [8/32] seed=82156: A llama looks at the camera from a fenced in, grassy area.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.60it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.24it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.56it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.63it/s]
+  fp16 [9/32] seed=92129: A beautiful young lady with a flower in her hair talking on a cell phone.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  7.49it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  4.79it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.54it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.54it/s]
+  fp16 [10/32] seed=102102: a man that is typing on his laptop
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.23it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.62it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.56it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.77it/s]
+  fp16 [11/32] seed=112075: A cow walking across a river near lush green grass.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.23it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  7.45it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.81it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.97it/s]
+  fp16 [12/32] seed=122048: A table topped with baskets filled with ripe bananas.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  7.09it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  6.87it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.86it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.80it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.01it/s]
+  fp16 [13/32] seed=132021: A small airplane taking off from an airport runway.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  5.07it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  4.36it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  4.20it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  4.05it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  4.17it/s]
+  fp16 [14/32] seed=141994: A baseball player bending over to hit a ball.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  8.13it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.57it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.72it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.87it/s]
+  fp16 [15/32] seed=151967: A laptop computer sitting on top of a wooden desk.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  7.86it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  6.06it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.07it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.62it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.52it/s]
+  fp16 [16/32] seed=161940: A traffic light is showing a green arrow.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  6.17it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  5.62it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.95it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.64it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.72it/s]
+  fp16 [17/32] seed=171913: there is an air plane that is in the sky
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  9.36it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.28it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.70it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.15it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.64it/s]
+  fp16 [18/32] seed=181886: A vase of light and dark purple flowers in a white vase.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  5.49it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  5.18it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.85it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.50it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.51it/s]
+  fp16 [19/32] seed=191859: An older woman sitting at a table cutting up donuts.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  7.76it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.59it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.68it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.92it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.16it/s]
+  fp16 [20/32] seed=201832: A brown sheep standing on top of a lush green field.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  5.29it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  4.50it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  4.97it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.37it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.17it/s]
+  fp16 [21/32] seed=211805: a pitcher of orange juice with orange slices in it
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  3.88it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  5.73it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  4.91it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.73it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.38it/s]
+  fp16 [22/32] seed=221778: cars that are stopped at a traffic light
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.07it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  7.16it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.57it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.74it/s]
+  fp16 [23/32] seed=231751: A photograph of a cross country skier in a greenish tint light.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.61it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  7.09it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.65it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.85it/s]
+  fp16 [24/32] seed=241724: A silver computer mouse on a table next to a keyboard.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  5.16it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.30it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.98it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.89it/s]
+  fp16 [25/32] seed=251697: A traffic light under a cloudy blue sky.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.02it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.86it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.82it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.86it/s]
+  fp16 [26/32] seed=261670: A large airliner jet flying through the blue sky.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:01,  2.21it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  2.53it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:01<00:00,  2.35it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:01<00:00,  2.30it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:01<00:00,  2.33it/s]
+  fp16 [27/32] seed=271643: A doll standing next to a vase filled with flowers and plants.
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  8.28it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  6.92it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  7.15it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  7.26it/s]
+  fp16 [28/32] seed=281616: a man is shaving in a mirror in a bathroom
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  5.11it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.54it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.19it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.88it/s]
+  fp16 [29/32] seed=291589: A herd of sheep walking down a rural country road.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  7.79it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  4.98it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.68it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.41it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.14it/s]
+  fp16 [30/32] seed=301562: A kitchen with a center stove top island.
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  8.47it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  6.48it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  4.78it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  4.81it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  5.14it/s]
+  fp16 [31/32] seed=311535: Motorcycle on platform to be worked on in garage
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|¨€¨€¨„       | 1/4 [00:00<00:00,  9.17it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  7.58it/s] 75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 3/4 [00:00<00:00,  5.70it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.28it/s]100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 4/4 [00:00<00:00,  6.46it/s]
+  fp16 [32/32] seed=321508: a baseball player is going to swing a bat
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|¨€¨€¨€¨€¨€     | 2/4 [00:00<00:00,  8.34it/s]

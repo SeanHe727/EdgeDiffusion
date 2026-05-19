@@ -1,0 +1,85 @@
+=== [Mon May 18 14:43:03     2026] EVAL 1/2: packed only ===
+W0518 14:43:08.302000 46444 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 14:43:08.335000 46444 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading packed manifest...
+Loading packed state (CPU)...
+Building packed UNet...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  packed: 612 W4 + 110 W8 layers
+Building SDXL pipeline with this UNet...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  71%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 5/7 [00:00<00:00, 46.30it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 38.67it/s]
+Loaded 64 prompts from selected_prompts.json
+
+Generating 64 images at 1024x1024...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  [08/64] seed=82156 A llama looks at the camera from a fenced in, grassy area.  mse_vs_fp16=0.00457
+  [16/64] seed=161940 A traffic light is showing a green arrow.  mse_vs_fp16=0.00417
+  [24/64] seed=241724 A silver computer mouse on a table next to a keyboard.  mse_vs_fp16=0.01152
+  [32/64] seed=321508 a baseball player is going to swing a bat  mse_vs_fp16=0.00574
+  [40/64] seed=401292 A train engine traveling down train tracks through a country  mse_vs_fp16=0.00324
+  [48/64] seed=481076 A brown table with white plate holding a pizza.  mse_vs_fp16=0.02313
+  [56/64] seed=560860 A horse is attached to a carriage.  mse_vs_fp16=0.01838
+  [64/64] seed=640644 Young man wearing glasses lounging on a sofa with three whit  mse_vs_fp16=0.00643
+
+Vs FP16 baseline (64 pairs):
+  MSE mean = 0.007944
+  MAE mean = 0.045849
+  MSE max  = 0.023134
+  MAE max  = 0.097956
+
+Worst 5 prompts:
+  #48 mse=0.0231 [food] A brown table with white plate holding a pizza.
+  #22 mse=0.0213 [vehicle] cars that are stopped at a traffic light
+  #62 mse=0.0194 [nature] A single engine plane in the air right above a grassy field.
+  #56 mse=0.0184 [animals] A horse is attached to a carriage.
+  #59 mse=0.0152 [sports] a group of baseball players playing baseball at a field
+
+Output: D:\chenh\EdgeDiffusion\EdgeDiffusion\qlora_eval_packed_only_64p_1024
+=== [Mon May 18 14:45:21     2026] EVAL 2/2: packed + lora_final ===
+W0518 14:45:26.139000 45688 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 14:45:26.172000 45688 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading packed manifest...
+Loading packed state (CPU)...
+Building packed UNet...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  packed: 612 W4 + 110 W8 layers
+Wrapping with LoRA r=16, alpha=16.0...
+  wrapped 722 layers; loading LoRA state from lora_final.safetensors
+Building SDXL pipeline with this UNet...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  71%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 5/7 [00:00<00:00, 33.52it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 38.75it/s]
+Loaded 64 prompts from selected_prompts.json
+
+Generating 64 images at 1024x1024...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  [08/64] seed=82156 A llama looks at the camera from a fenced in, grassy area.  mse_vs_fp16=0.00747
+  [16/64] seed=161940 A traffic light is showing a green arrow.  mse_vs_fp16=0.00486
+  [24/64] seed=241724 A silver computer mouse on a table next to a keyboard.  mse_vs_fp16=0.01332
+  [32/64] seed=321508 a baseball player is going to swing a bat  mse_vs_fp16=0.00540
+  [40/64] seed=401292 A train engine traveling down train tracks through a country  mse_vs_fp16=0.00339
+  [48/64] seed=481076 A brown table with white plate holding a pizza.  mse_vs_fp16=0.02180
+  [56/64] seed=560860 A horse is attached to a carriage.  mse_vs_fp16=0.01585
+  [64/64] seed=640644 Young man wearing glasses lounging on a sofa with three whit  mse_vs_fp16=0.00662
+
+Vs FP16 baseline (64 pairs):
+  MSE mean = 0.008778
+  MAE mean = 0.052179
+  MSE max  = 0.021797
+  MAE max  = 0.091597
+
+Worst 5 prompts:
+  #48 mse=0.0218 [food] A brown table with white plate holding a pizza.
+  #22 mse=0.0186 [vehicle] cars that are stopped at a traffic light
+  #09 mse=0.0181 [objects] A beautiful young lady with a flower in her hair talking on a cell phone.
+  #62 mse=0.0177 [nature] A single engine plane in the air right above a grassy field.
+  #56 mse=0.0158 [animals] A horse is attached to a carriage.
+
+Output: D:\chenh\EdgeDiffusion\EdgeDiffusion\qlora_eval_packed_lora_64p_1024
+=== [Mon May 18 14:48:00     2026] ALL DONE ===

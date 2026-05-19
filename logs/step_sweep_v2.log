@@ -1,0 +1,49 @@
+=== LoRA @ 6 steps ===
+W0518 15:50:36.644000 36380 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 15:50:36.676000 36380 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading packed manifest...
+Loading packed state (CPU)...
+Building packed UNet...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  packed: 612 W4 + 145 W8 layers
+Wrapping with LoRA r=16, alpha=4.0...
+  wrapped 722 layers; loading LoRA state from lora_final.safetensors
+Building SDXL pipeline with this UNet...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  43%|¨€¨€¨€¨€¨†     | 3/7 [00:00<00:00, 19.87it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 34.46it/s]
+Loaded 12 prompts from selected_prompts.json
+
+Generating 12 images at 1024x1024...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  [08/12] seed=82156 A llama looks at the camera from a fenced in, grassy area.
+  [12/12] seed=122048 A table topped with baskets filled with ripe bananas.
+
+Output: D:\chenh\EdgeDiffusion\EdgeDiffusion\gen_test_output\step_sweep\lora_step6
+=== LoRA @ 8 steps ===
+W0518 15:51:25.590000 40116 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0518 15:51:25.622000 40116 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading packed manifest...
+Loading packed state (CPU)...
+Building packed UNet...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  packed: 612 W4 + 145 W8 layers
+Wrapping with LoRA r=16, alpha=4.0...
+  wrapped 722 layers; loading LoRA state from lora_final.safetensors
+Building SDXL pipeline with this UNet...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  86%|¨€¨€¨€¨€¨€¨€¨€¨€¨„ | 6/7 [00:00<00:00, 51.95it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 41.73it/s]
+Loaded 12 prompts from selected_prompts.json
+
+Generating 12 images at 1024x1024...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  [08/12] seed=82156 A llama looks at the camera from a fenced in, grassy area.
+  [12/12] seed=122048 A table topped with baskets filled with ripe bananas.
+
+Output: D:\chenh\EdgeDiffusion\EdgeDiffusion\gen_test_output\step_sweep\lora_step8
+=== DONE ===

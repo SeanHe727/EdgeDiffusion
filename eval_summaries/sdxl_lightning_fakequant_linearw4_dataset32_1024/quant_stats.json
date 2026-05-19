@@ -1,0 +1,6824 @@
+{
+  "base_model": "stabilityai/stable-diffusion-xl-base-1.0",
+  "lightning_repo": "ByteDance/SDXL-Lightning",
+  "steps": 4,
+  "linear_bits": 4,
+  "conv_bits": null,
+  "target": "all",
+  "group_size": 128,
+  "conv_include": [],
+  "conv_exclude": [],
+  "prompt_count": 32,
+  "height": 1024,
+  "width": 1024,
+  "guidance": 0.0,
+  "dtype": "torch.float16",
+  "device": "cuda",
+  "skip_patterns": [
+    "time_embedding",
+    "time_emb_proj",
+    "add_embedding",
+    "conv_in",
+    "conv_out"
+  ],
+  "prompts": [
+    {
+      "index": 1,
+      "source": "000000139291.txt",
+      "category": "people",
+      "seed": 12345,
+      "prompt": "Woman riding her bike down a small side path."
+    },
+    {
+      "index": 2,
+      "source": "000000366830.txt",
+      "category": "animals",
+      "seed": 22318,
+      "prompt": "A large brown horse walking through a lush green forest."
+    },
+    {
+      "index": 3,
+      "source": "000000069496.txt",
+      "category": "food",
+      "seed": 32291,
+      "prompt": "A plate full of food is ready to be eaten."
+    },
+    {
+      "index": 4,
+      "source": "000000376937.txt",
+      "category": "vehicle",
+      "seed": 42264,
+      "prompt": "A boat floating on a lake next to a tree covered shore."
+    },
+    {
+      "index": 5,
+      "source": "000000498439.txt",
+      "category": "sports",
+      "seed": 52237,
+      "prompt": "Fans observing a baseball game in process."
+    },
+    {
+      "index": 6,
+      "source": "000000531111.txt",
+      "category": "indoor",
+      "seed": 62210,
+      "prompt": "A bathroom with a black and white checkered floor."
+    },
+    {
+      "index": 7,
+      "source": "000000229782.txt",
+      "category": "street",
+      "seed": 72183,
+      "prompt": "A blue sign in front of a bamboo enclosure."
+    },
+    {
+      "index": 8,
+      "source": "000000431521.txt",
+      "category": "nature",
+      "seed": 82156,
+      "prompt": "A llama looks at the camera from a fenced in, grassy area."
+    },
+    {
+      "index": 9,
+      "source": "000000282672.txt",
+      "category": "objects",
+      "seed": 92129,
+      "prompt": "A beautiful young lady with a flower in her hair talking on a cell phone."
+    },
+    {
+      "index": 10,
+      "source": "000000129784.txt",
+      "category": "people",
+      "seed": 102102,
+      "prompt": "a man that is typing on his laptop"
+    },
+    {
+      "index": 11,
+      "source": "000000464328.txt",
+      "category": "animals",
+      "seed": 112075,
+      "prompt": "A cow walking across a river near lush green grass."
+    },
+    {
+      "index": 12,
+      "source": "000000246199.txt",
+      "category": "food",
+      "seed": 122048,
+      "prompt": "A table topped with baskets filled with ripe bananas."
+    },
+    {
+      "index": 13,
+      "source": "000000078371.txt",
+      "category": "vehicle",
+      "seed": 132021,
+      "prompt": "A small airplane taking off from an airport runway."
+    },
+    {
+      "index": 14,
+      "source": "000000535668.txt",
+      "category": "sports",
+      "seed": 141994,
+      "prompt": "A baseball player bending over to hit a ball."
+    },
+    {
+      "index": 15,
+      "source": "000000271795.txt",
+      "category": "indoor",
+      "seed": 151967,
+      "prompt": "A laptop computer sitting on top of a wooden desk."
+    },
+    {
+      "index": 16,
+      "source": "000000361400.txt",
+      "category": "street",
+      "seed": 161940,
+      "prompt": "A traffic light is showing a green arrow."
+    },
+    {
+      "index": 17,
+      "source": "000000536444.txt",
+      "category": "nature",
+      "seed": 171913,
+      "prompt": "there is an air plane that is in the sky"
+    },
+    {
+      "index": 18,
+      "source": "000000366630.txt",
+      "category": "objects",
+      "seed": 181886,
+      "prompt": "A vase of light and dark purple flowers in a white vase."
+    },
+    {
+      "index": 19,
+      "source": "000000315641.txt",
+      "category": "people",
+      "seed": 191859,
+      "prompt": "An older woman sitting at a table cutting up donuts."
+    },
+    {
+      "index": 20,
+      "source": "000000186009.txt",
+      "category": "animals",
+      "seed": 201832,
+      "prompt": "A brown sheep standing on top of a lush green field."
+    },
+    {
+      "index": 21,
+      "source": "000000546854.txt",
+      "category": "food",
+      "seed": 211805,
+      "prompt": "a pitcher of orange juice with orange slices in it"
+    },
+    {
+      "index": 22,
+      "source": "000000021202.txt",
+      "category": "vehicle",
+      "seed": 221778,
+      "prompt": "cars that are stopped at a traffic light"
+    },
+    {
+      "index": 23,
+      "source": "000000218947.txt",
+      "category": "sports",
+      "seed": 231751,
+      "prompt": "A photograph of a cross country skier in a greenish tint light."
+    },
+    {
+      "index": 24,
+      "source": "000000487774.txt",
+      "category": "indoor",
+      "seed": 241724,
+      "prompt": "A silver computer mouse on a table next to a keyboard."
+    },
+    {
+      "index": 25,
+      "source": "000000097659.txt",
+      "category": "street",
+      "seed": 251697,
+      "prompt": "A traffic light under a cloudy blue sky."
+    },
+    {
+      "index": 26,
+      "source": "000000572733.txt",
+      "category": "nature",
+      "seed": 261670,
+      "prompt": "A large airliner jet flying through the blue sky."
+    },
+    {
+      "index": 27,
+      "source": "000000217183.txt",
+      "category": "objects",
+      "seed": 271643,
+      "prompt": "A doll standing next to a vase filled with flowers and plants."
+    },
+    {
+      "index": 28,
+      "source": "000000130732.txt",
+      "category": "people",
+      "seed": 281616,
+      "prompt": "a man is shaving in a mirror in a bathroom"
+    },
+    {
+      "index": 29,
+      "source": "000000189885.txt",
+      "category": "animals",
+      "seed": 291589,
+      "prompt": "A herd of sheep walking down a rural country road."
+    },
+    {
+      "index": 30,
+      "source": "000000042492.txt",
+      "category": "food",
+      "seed": 301562,
+      "prompt": "A kitchen with a center stove top island."
+    },
+    {
+      "index": 31,
+      "source": "000000290070.txt",
+      "category": "vehicle",
+      "seed": 311535,
+      "prompt": "Motorcycle on platform to be worked on in garage"
+    },
+    {
+      "index": 32,
+      "source": "000000505099.txt",
+      "category": "sports",
+      "seed": 321508,
+      "prompt": "a baseball player is going to swing a bat"
+    }
+  ],
+  "image_metrics": {
+    "mse_each": [
+      0.01582523062825203,
+      0.0041657243855297565,
+      0.021202489733695984,
+      0.01898225024342537,
+      0.015587051399052143,
+      0.03669773042201996,
+      0.009476643055677414,
+      0.014200656674802303,
+      0.02554912678897381,
+      0.03383569046854973,
+      0.012325569987297058,
+      0.012610276229679585,
+      0.021779777482151985,
+      0.00931686069816351,
+      0.023457594215869904,
+      0.014382537454366684,
+      0.008461665362119675,
+      0.007317072246223688,
+      0.023788876831531525,
+      0.03197667375206947,
+      0.009389794431626797,
+      0.04354475438594818,
+      0.017197638750076294,
+      0.0178728885948658,
+      0.016840429976582527,
+      0.015710771083831787,
+      0.031375762075185776,
+      0.022614607587456703,
+      0.0055317445658147335,
+      0.028242340311408043,
+      0.03706354275345802,
+      0.01304344367235899
+    ],
+    "mae_each": [
+      0.0761520192027092,
+      0.04008485749363899,
+      0.09718532115221024,
+      0.07813567668199539,
+      0.07330578565597534,
+      0.12545283138751984,
+      0.062383849173784256,
+      0.07415248453617096,
+      0.1102951392531395,
+      0.13648773729801178,
+      0.06992698460817337,
+      0.07415986806154251,
+      0.10065863281488419,
+      0.052134495228528976,
+      0.08976641297340393,
+      0.09851088374853134,
+      0.04317476227879524,
+      0.062196534126996994,
+      0.10499844700098038,
+      0.10956326127052307,
+      0.05597102269530296,
+      0.16095136106014252,
+      0.0791354551911354,
+      0.08554895967245102,
+      0.07145573198795319,
+      0.06225551292300224,
+      0.12258854508399963,
+      0.10772648453712463,
+      0.051099177449941635,
+      0.11955519765615463,
+      0.1311921924352646,
+      0.05965811014175415
+    ],
+    "mse_mean": 0.01935522550775204,
+    "mae_mean": 0.08705824171192944,
+    "mse_max": 0.04354475438594818,
+    "mae_max": 0.16095136106014252
+  },
+  "layers": [
+    {
+      "name": "down_blocks.1.attentions.0.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1995307067991234e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.175126355723478e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.1572227342403494e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1960870506300125e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1173446364409755e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.3099050011078362e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 9.793266997348837e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 2.8636207218823984e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.0977269084833097e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.3304939966474193e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.245860130438814e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.0103469068999402e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.9475656881695613e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.5517334941250737e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.483873147662962e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1022855687770061e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 6.467586842973105e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.961769200420349e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.059448084106407e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.489868554926943e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.0.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.546818843962683e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "down_blocks.1.attentions.0.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 7.183592697401764e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.2845828860008623e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.0980493718525395e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.0934986605425365e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.3117121125105768e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.2597072236530949e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 9.434867024538107e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 4.84144172219203e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.5447607353280546e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 6.457394988501619e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.3861633669876028e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.32225190554891e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.2532868024427442e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.1685028696083463e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.5729458755231463e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.5380441982415505e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 8.482484190608375e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 4.263065378040665e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.7675761725399752e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.0076445960294222e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.543197467981372e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.1.attentions.1.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.5674105179641627e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "down_blocks.1.attentions.1.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1355582500982564e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "down_blocks.2.attentions.0.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.3776615469396348e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.735376766504486e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.703993151153555e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.579692217201227e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.596649331593654e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.1401857086166275e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.3564858767931582e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.4324150277598164e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0546761984642216e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.090877417998855e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.1214994654365e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.725101547999656e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.640633409915609e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.89624437452585e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.2867579345038395e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.7082946164446183e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.5420586783629915e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.827666077427239e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0846370344097522e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.460906519758282e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.066995130524446e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.192459335987224e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.155063278536545e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.483035369659774e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.066369491643855e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.7966375228061225e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.3699286728628977e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.892590252656646e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.837498000957567e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.522513326170156e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.2.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.804922504168645e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.344952402694616e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.301511206809664e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.288295248348732e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.290311299992027e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.518207361390523e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.01724240156409e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.7526885659767686e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.87446077513232e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.436441748926882e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.3.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.484980753564741e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.037655425141565e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.88054921940784e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.291362180694705e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.4970162586396326e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.206305316576618e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.6297043856638993e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.2336650147281034e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.431013330005954e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.447509208053816e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.4.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.33058122680086e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.542123557868763e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.402986739180051e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.012524656602182e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.163924556152778e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.8020424704445758e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.232060583333805e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.7226172062123624e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.881617710201681e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.418285869993269e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.5.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.16918993677973e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.509582863145624e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.314031043075374e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.226001141840243e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.139895049273036e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.4644430621046923e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 8.672310585211562e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.1406156055215888e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.722803540995301e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.416897435381543e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.6.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 7.995760881840397e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.137712352938251e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.949403339400306e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.932093790761428e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.667159803124377e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.4535024206452363e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 8.852890545085756e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.140106476782421e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.944665877497755e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.395823533646762e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.7.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 7.821568908639165e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.475753550854279e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.241306462266948e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.4787467888672834e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.095239248475991e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.4626129768657848e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 8.912419389162096e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.1607432632843029e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.1062726552354434e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.334056201420025e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.8.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 7.549055419531215e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.253855781324092e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.078312208046555e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.492117679750663e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.675675427279202e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.621395881556964e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 9.725723870701586e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.1347292883101545e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.495366454193572e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.353967587027e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.0.transformer_blocks.9.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 7.253206365476217e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.0.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.48342088930076e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.098221100619412e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.335880465892842e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.476109360344709e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.302455333046964e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.71082866069628e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.64502077193174e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.457644192574662e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.642130429668214e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.9896473077096744e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.480981523462106e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.189574029733194e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.05331116882735e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.243129352398682e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.842880106385564e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.344003865408013e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.823807052569464e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.965261635765273e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.175305285045397e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.6308744509151437e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 9.281630264013075e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.507753043180856e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.218451668857597e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.270404734706972e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.778062783676432e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.174713341053575e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.573934681204264e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.384155256000668e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.377075888825857e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.632492942211684e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 9.669287919678027e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.2.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.79809406089771e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.184947612084215e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.170338762487517e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.421279289905215e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.492068218401982e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.738815136486664e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.81441213398648e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.182435410868493e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.4647433292557254e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0091351578012109e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.3.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0040573306469014e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.934232937463094e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.836369579512393e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.997288685146487e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.873206413933076e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.131110239948612e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.155388436151043e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.819481029651797e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.3753470713927528e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0512085736991139e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.4.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.034214644732856e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.998271187010688e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.875599905877608e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.930003812361975e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.7307561696216e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.532632621907397e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.457197945839653e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.700386364855149e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.340854962312733e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.079166013369104e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.5.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0534195894251752e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.795184567134128e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.643307137390365e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.236380745074712e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.082381782514858e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.224245094519574e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.3107058783343746e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.4210227773410224e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.0164214788565003e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0917680356214987e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.6.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0519255806684668e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.76776639415766e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.664809138281271e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.482586417812854e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.215415027734707e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.823281372206111e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.8834051164494667e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.054650017655149e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.910873629640264e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1046857162000379e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.7.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0492868295841617e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.982789313449758e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.875703133526259e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.973906915343832e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.520999926986406e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.725074839167064e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.6864877611387783e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.5234999390686426e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.6953102885963744e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1085679489042377e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.8.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0265387504659885e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.638580286264186e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.443724138691323e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.43087500470574e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.726066905888729e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.882457692976459e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.920773740948789e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.8663977502674243e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1062570820286054e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0918545831373194e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "down_blocks.2.attentions.1.transformer_blocks.9.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.509838400845183e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "down_blocks.2.attentions.1.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.565332852100255e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.128840974881314e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1209622789465356e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1259520761086605e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.330744614999275e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0454243056301494e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.707018842964317e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.7494075658960355e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.686753158011925e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2578204177771113e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 9.558613419358153e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.048076690040034e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0728305551310768e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0907330579357222e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0852586547116516e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.099612281905138e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.7964767367811875e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.196758732812668e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.527744602635721e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.815855432596436e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0279007437929976e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.06300751440358e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1117745816591196e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1325972445774824e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1261200870649191e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1181292211404071e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.439824068773304e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.43413011150551e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 8.154550812378147e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.296514139743522e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0673266024241456e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.2.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0818767805176321e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1699359401973197e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1801751134044025e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1390190411475488e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.133390151153435e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.852479984649108e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.360749523537379e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.66735195156798e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.315502365490829e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1037900640076259e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.3.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1004377893186756e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1670131152641261e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.179075961772469e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1493067904666533e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1349613942002179e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.356654921546578e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.917613836141754e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.8106886317309545e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.1536037138503163e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.132282131948159e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.4.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1176239399901534e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.151912210843875e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1532123698998475e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1353032277838793e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1164746592839946e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.670803875545971e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.223547236392733e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.289186046615214e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.1010994487369316e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.16006878670305e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.5.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1360772646185069e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1405625718907686e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1417587302275933e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0845060933206696e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0618623036862118e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.507372659645626e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.2696547407340404e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.185155885101267e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.7651119605943677e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1885379171872046e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.6.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1489009330034605e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1439662466727896e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1504772737680469e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0901199129875749e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0616814688546582e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.8060239603510127e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.7864881886330295e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.393452954332133e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.554747154841607e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.210349964821944e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.7.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1611893705776311e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1619075121416244e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.167997033917345e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0767067033157219e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.031406136462465e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.1414305112775764e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.1475749818478107e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.617207099182451e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.3213796933086996e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.2143536514486186e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.8.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1540141736077203e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1721801729436266e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1727871151379076e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0386538724560523e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.330098509963137e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.534119698793802e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.579157832054534e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.385015150707659e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.080003223971289e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1885991898452631e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.0.transformer_blocks.9.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1295367221464403e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.0.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.461472139562829e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.019409428408835e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0891229612752795e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.08976348201395e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.141421378444647e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0244064924336271e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.65356442873599e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.524851746623426e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.396477550017153e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2797247791240806e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 9.383141787111526e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0474556188455608e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.068380461219931e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0769823165901472e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0349622607463971e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0701301744120428e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.572329286631429e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.976816507631156e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.435340452526361e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.9475852695904904e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0195476534136105e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0661900705599692e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1082725632149958e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.114950246119406e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0917590134340572e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0879024193855002e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.23773953015916e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.072190470580608e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.369960599135084e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.168552168768656e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0657265829649986e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.2.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0881663320105872e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1215654922125395e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1259370057814522e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1259708480793052e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1199530672456603e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.819754384603584e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.194886848083115e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.797647441520894e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.3768090613884853e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0974338420055573e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.3.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1101423069703742e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1610548881435534e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1565182194317459e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1138281388411997e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0956378901028074e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.565684927612892e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.875772870922447e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.163232936591157e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.196902778450749e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.121722207244602e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.4.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1229689812353172e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1371950495231432e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1383337277948157e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.12180842734233e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0987359928549267e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.629087511100806e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.917393795267344e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 6.359857195548102e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.004205009598081e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1419573365856194e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.5.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1355216793162981e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1055251343350392e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1037887907150434e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1655252455966547e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1539877777977382e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.755304800914018e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.1897681910541e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.403081132726584e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.7828721865953411e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1584560161281842e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.6.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1427448521317274e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1246150552324253e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1182306752743899e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1650577380351024e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1414547225285787e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.591016886479338e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.1500138248929943e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.495895055356414e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.5677291912652437e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1687785990943666e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.7.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1448127224866766e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.112467925850069e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1073682981077581e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1321799320285209e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1086177983088419e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.67008783541678e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.5491262718446706e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.7056780541888656e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.3660234685630712e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.173343835034757e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.8.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1380270461813779e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1342809921188746e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1241513948334614e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.079462617781246e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0137129902432206e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.14752676331409e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.0355919687631285e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.3399179553962313e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.452800838971598e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1424940839788179e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.1.transformer_blocks.9.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1133811494801193e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.1.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.521400407815236e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1479641307232668e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2233561847097008e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2268177124497015e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.513141463277862e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.952221560321049e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.344344961282331e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 4.864545545046894e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.0226654317289103e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.356929247886e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 9.727280030347174e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.0864190517168027e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1708528745657532e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1854449894599384e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.799336046649842e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.970088128990027e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.540674050687812e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 9.260728745630331e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.435211969664124e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.4478734158274165e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0298114830220584e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.091523870400124e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.211364697155659e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.225126161443768e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.636087270337157e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.523702283331659e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.003320160947624e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 8.376376115393214e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.528050559812982e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.6863788971477334e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0674082477635239e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.2.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1036722776225361e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2338452597759897e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2474853883759352e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.764583774085623e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.352300639875467e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.450596381706418e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.014977986661506e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 5.023172285234523e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1314571224829705e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.0943617235170678e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.3.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1154803473800712e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2396507372613996e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2468226486817002e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0279468551743775e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.9285082796996e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.358186424724409e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.2440376429576645e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.5971461542771976e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.692257551956572e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1226407877984457e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.4.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1327019797136017e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2906971187476302e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2962257551407675e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.307495747634676e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.974303909781156e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.837033978015824e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.726704380506817e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.0198831026950756e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.873159518112515e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.146589429481537e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.5.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1458351036708336e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2834469816880301e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2849594713770785e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.632266392145539e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.011596830532653e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.063536632907926e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.1030092725027316e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.291934492859582e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.194122335045904e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1612678008532384e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.6.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1595877003856003e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2328864977462218e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2326415526331402e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.568014411343028e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.135562868323177e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.80205736089556e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.88275551948891e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.2495168252589792e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 6.569451016957828e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.167940527011524e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.7.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1667964326989021e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2266525573068066e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2258373226359254e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.53253120314912e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.061969012691407e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.5415834670639016e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.5589253266057312e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.7000210021933526e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.594456752078259e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1695229295582976e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.8.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.1779711985582254e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1597846969380043e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.1623507361946395e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.495183076069224e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.762416155150276e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.655986418176326e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.4212824694936899e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.2838190812658468e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.154270155571794e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 1.1602869381022175e-05,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.0.attentions.2.transformer_blocks.9.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 1.2222231134728645e-05,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "up_blocks.0.attentions.2.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.951910174597287e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "up_blocks.1.attentions.0.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.4012483006808907e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.0789743939531035e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.0866745398961938e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.8217406977782958e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.7166849283967166e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1045028259104583e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 5.755334228751963e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 2.0977488688345147e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 4.999028931251814e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.5092527428350877e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.4250113281377708e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.060129045275971e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.114509443345014e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.100157071254216e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.0931990366079845e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1443382572906557e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 6.48606433628629e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 2.4655691035491145e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 7.534236715400766e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.749700131767895e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.0.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.8426468886900694e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "up_blocks.1.attentions.0.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.6363294091424903e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.2615911145985592e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.2470899057225325e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.2372799139702693e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.5131219697650522e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.4463616207649465e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.0218310671916698e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 5.190708918689779e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.2851051955919957e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 4.988080092971359e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.4538523646479008e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.3709485028812195e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.390908521192614e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.316721802344546e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.9184222037438303e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.9257166059105657e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.0377866055932828e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 5.622715804065592e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.653420913072523e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 7.090849294399959e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.635129956412129e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.1.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.7443659089622088e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "up_blocks.1.attentions.1.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.7123135330621152e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.1754323168133851e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.1292703604558482e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.1033024313510396e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.3354378279473166e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.2343212620180567e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 9.275883712689392e-06,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 4.837488262410261e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.2544311935869246e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 3.3359629014739767e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.3974686589790508e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.313319658038381e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 2.044576067419257e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.9761197108891793e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.6227388550760223e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.6403109111706726e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.0081467735290062e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 5.293399681249866e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1310720,
+      "mse": 1.8686078746554813e-06,
+      "out_features": 640,
+      "in_features": 2048
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 4.811402448012813e-07,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 3276800,
+      "mse": 1.5690498548792676e-05,
+      "out_features": 5120,
+      "in_features": 640
+    },
+    {
+      "name": "up_blocks.1.attentions.2.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.6052468799898635e-05,
+      "out_features": 640,
+      "in_features": 2560
+    },
+    {
+      "name": "up_blocks.1.attentions.2.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 409600,
+      "mse": 1.2507897554314696e-05,
+      "out_features": 640,
+      "in_features": 640
+    },
+    {
+      "name": "mid_block.attentions.0.proj_in",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.4740589631401235e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0227030998066766e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0206477054452989e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.876700394466753e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0122999174200232e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.632530708979175e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.1776827097141904e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.778616675414014e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.405129622384266e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.582738246332156e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.0.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 9.24645357827103e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0119144008058356e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0156459757126867e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.001587079372257e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0570840368018253e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 3.0289740379885187e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.4483825953325322e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 3.378953401522722e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.254468011477002e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.73570943440427e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.1.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.971656575340603e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.568419227434787e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.887234682537382e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0303075487172465e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0476596798980609e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 2.5023741272889312e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.9151891308410995e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 2.692925619385278e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.000349282610842e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.784149486018578e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.2.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.801493368082448e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.200660952046746e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.301935460825916e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0474588816578034e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0569807454885449e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.967913578937441e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.3572425601182658e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.9586876405242037e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.993523387815003e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.823028838378378e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.3.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.664534493618704e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.413015322934371e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.450834295421372e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.0759263659565477e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.085229068849003e-05,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.7219793335243594e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.1205503334110745e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.595144560440076e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.212300777657219e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.805912239040481e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.4.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.506720973855408e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.154352028417634e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.136248445429374e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.960651732399129e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.944059365807334e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.583519895120844e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 9.886663967506593e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.4678185564775958e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 5.023934107839523e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.840725331538125e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.5.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.412342958763475e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.735597682767547e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.707267741352553e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.785972931946162e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.618328502052464e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.5047386455080413e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 8.461133624848571e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.1870576059891391e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.27554783755113e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.832205367070856e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.6.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.287070272672281e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.057333980104886e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.034531219891505e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.284427869715728e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.054098245542264e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.379517107125139e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.911022130713263e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.0832349346401315e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.092535107247386e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.801958210824523e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.7.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 8.111933721011155e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.251142935478128e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.215847083192785e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.57783377089072e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 9.273878276871983e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.3599029216493363e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.965301591639218e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 1.055479973643969e-06,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.2662037174068247e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.77862557899789e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.8.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 7.93385476072217e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn1.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.323317797476192e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn1.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.192800305550917e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn1.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.581774818594567e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn1.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 7.744792765151941e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn2.to_q",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 1.2735615769088326e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn2.to_k",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 7.069347773835943e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn2.to_v",
+      "type": "Linear",
+      "bits": 4,
+      "params": 2621440,
+      "mse": 9.157536453585635e-07,
+      "out_features": 1280,
+      "in_features": 2048
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.attn2.to_out.0",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 4.069972135312128e-07,
+      "out_features": 1280,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.ff.net.0.proj",
+      "type": "Linear",
+      "bits": 4,
+      "params": 13107200,
+      "mse": 8.853133931552292e-06,
+      "out_features": 10240,
+      "in_features": 1280
+    },
+    {
+      "name": "mid_block.attentions.0.transformer_blocks.9.ff.net.2",
+      "type": "Linear",
+      "bits": 4,
+      "params": 6553600,
+      "mse": 7.85220325951741e-06,
+      "out_features": 1280,
+      "in_features": 5120
+    },
+    {
+      "name": "mid_block.attentions.0.proj_out",
+      "type": "Linear",
+      "bits": 4,
+      "params": 1638400,
+      "mse": 8.178500866051764e-06,
+      "out_features": 1280,
+      "in_features": 1280
+    }
+  ]
+}

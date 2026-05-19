@@ -1,0 +1,226 @@
+[
+  {
+    "index": 1,
+    "source": "000000139291.txt",
+    "category": "people",
+    "seed": 12345,
+    "prompt": "Woman riding her bike down a small side path."
+  },
+  {
+    "index": 2,
+    "source": "000000366830.txt",
+    "category": "animals",
+    "seed": 22318,
+    "prompt": "A large brown horse walking through a lush green forest."
+  },
+  {
+    "index": 3,
+    "source": "000000069496.txt",
+    "category": "food",
+    "seed": 32291,
+    "prompt": "A plate full of food is ready to be eaten."
+  },
+  {
+    "index": 4,
+    "source": "000000376937.txt",
+    "category": "vehicle",
+    "seed": 42264,
+    "prompt": "A boat floating on a lake next to a tree covered shore."
+  },
+  {
+    "index": 5,
+    "source": "000000498439.txt",
+    "category": "sports",
+    "seed": 52237,
+    "prompt": "Fans observing a baseball game in process."
+  },
+  {
+    "index": 6,
+    "source": "000000531111.txt",
+    "category": "indoor",
+    "seed": 62210,
+    "prompt": "A bathroom with a black and white checkered floor."
+  },
+  {
+    "index": 7,
+    "source": "000000229782.txt",
+    "category": "street",
+    "seed": 72183,
+    "prompt": "A blue sign in front of a bamboo enclosure."
+  },
+  {
+    "index": 8,
+    "source": "000000431521.txt",
+    "category": "nature",
+    "seed": 82156,
+    "prompt": "A llama looks at the camera from a fenced in, grassy area."
+  },
+  {
+    "index": 9,
+    "source": "000000282672.txt",
+    "category": "objects",
+    "seed": 92129,
+    "prompt": "A beautiful young lady with a flower in her hair talking on a cell phone."
+  },
+  {
+    "index": 10,
+    "source": "000000129784.txt",
+    "category": "people",
+    "seed": 102102,
+    "prompt": "a man that is typing on his laptop"
+  },
+  {
+    "index": 11,
+    "source": "000000464328.txt",
+    "category": "animals",
+    "seed": 112075,
+    "prompt": "A cow walking across a river near lush green grass."
+  },
+  {
+    "index": 12,
+    "source": "000000246199.txt",
+    "category": "food",
+    "seed": 122048,
+    "prompt": "A table topped with baskets filled with ripe bananas."
+  },
+  {
+    "index": 13,
+    "source": "000000078371.txt",
+    "category": "vehicle",
+    "seed": 132021,
+    "prompt": "A small airplane taking off from an airport runway."
+  },
+  {
+    "index": 14,
+    "source": "000000535668.txt",
+    "category": "sports",
+    "seed": 141994,
+    "prompt": "A baseball player bending over to hit a ball."
+  },
+  {
+    "index": 15,
+    "source": "000000271795.txt",
+    "category": "indoor",
+    "seed": 151967,
+    "prompt": "A laptop computer sitting on top of a wooden desk."
+  },
+  {
+    "index": 16,
+    "source": "000000361400.txt",
+    "category": "street",
+    "seed": 161940,
+    "prompt": "A traffic light is showing a green arrow."
+  },
+  {
+    "index": 17,
+    "source": "000000536444.txt",
+    "category": "nature",
+    "seed": 171913,
+    "prompt": "there is an air plane that is in the sky"
+  },
+  {
+    "index": 18,
+    "source": "000000366630.txt",
+    "category": "objects",
+    "seed": 181886,
+    "prompt": "A vase of light and dark purple flowers in a white vase."
+  },
+  {
+    "index": 19,
+    "source": "000000315641.txt",
+    "category": "people",
+    "seed": 191859,
+    "prompt": "An older woman sitting at a table cutting up donuts."
+  },
+  {
+    "index": 20,
+    "source": "000000186009.txt",
+    "category": "animals",
+    "seed": 201832,
+    "prompt": "A brown sheep standing on top of a lush green field."
+  },
+  {
+    "index": 21,
+    "source": "000000546854.txt",
+    "category": "food",
+    "seed": 211805,
+    "prompt": "a pitcher of orange juice with orange slices in it"
+  },
+  {
+    "index": 22,
+    "source": "000000021202.txt",
+    "category": "vehicle",
+    "seed": 221778,
+    "prompt": "cars that are stopped at a traffic light"
+  },
+  {
+    "index": 23,
+    "source": "000000218947.txt",
+    "category": "sports",
+    "seed": 231751,
+    "prompt": "A photograph of a cross country skier in a greenish tint light."
+  },
+  {
+    "index": 24,
+    "source": "000000487774.txt",
+    "category": "indoor",
+    "seed": 241724,
+    "prompt": "A silver computer mouse on a table next to a keyboard."
+  },
+  {
+    "index": 25,
+    "source": "000000097659.txt",
+    "category": "street",
+    "seed": 251697,
+    "prompt": "A traffic light under a cloudy blue sky."
+  },
+  {
+    "index": 26,
+    "source": "000000572733.txt",
+    "category": "nature",
+    "seed": 261670,
+    "prompt": "A large airliner jet flying through the blue sky."
+  },
+  {
+    "index": 27,
+    "source": "000000217183.txt",
+    "category": "objects",
+    "seed": 271643,
+    "prompt": "A doll standing next to a vase filled with flowers and plants."
+  },
+  {
+    "index": 28,
+    "source": "000000130732.txt",
+    "category": "people",
+    "seed": 281616,
+    "prompt": "a man is shaving in a mirror in a bathroom"
+  },
+  {
+    "index": 29,
+    "source": "000000189885.txt",
+    "category": "animals",
+    "seed": 291589,
+    "prompt": "A herd of sheep walking down a rural country road."
+  },
+  {
+    "index": 30,
+    "source": "000000042492.txt",
+    "category": "food",
+    "seed": 301562,
+    "prompt": "A kitchen with a center stove top island."
+  },
+  {
+    "index": 31,
+    "source": "000000290070.txt",
+    "category": "vehicle",
+    "seed": 311535,
+    "prompt": "Motorcycle on platform to be worked on in garage"
+  },
+  {
+    "index": 32,
+    "source": "000000505099.txt",
+    "category": "sports",
+    "seed": 321508,
+    "prompt": "a baseball player is going to swing a bat"
+  }
+]
