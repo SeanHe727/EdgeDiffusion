@@ -1,12 +1,14 @@
 # EC2 Handoff — Sprint 1 (ONNX INT8) + Sprint 2 (TensorRT)
 
 You are the agent on the EC2 instance. The user is moving here from a local Windows + RTX 5070 12 GB box because:
-- `onnxruntime.quantization.quantize_static` hits `bad_allocation` at LayerNorm during calibration on Windows even with 64 GB RAM
+- `onnxruntime.quantization.quantize_static` hits **BFCArena fragmentation** in ORT 1.23 on this 10 GB SDXL ONNX. Confirmed locally (Windows 64 GB RAM, 52 GB free) AND on EC2 g5.2xlarge (32 GB RAM). The failure mode is a `bad_allocation` for ~80 MB while tens of GB are free — ORT's internal arena allocator can't find a contiguous block after thousands of allocate/free cycles during calibration. ORT's `quantize_static` is designed for sub-1 GB models (BERT/MobileNet/Whisper-small class); SDXL UNet is out of its design envelope.
 - Windows console GBK encoding fails on ORT/PyTorch unicode prints (✅ emoji)
 - C: drive is 100 % full → temp file paths break
 - TensorRT 10 INT8 kernel coverage on Blackwell consumer (sm_120) is unclear
 
-EC2 instance: **g5.2xlarge** (A10G 24 GB VRAM, 8 vCPU, 32 GB RAM, ~450 GB NVMe ephemeral, Linux). Datacenter A10G is sm_86 (Ampere) with mature ORT/TRT INT8 support.
+**Sprint 1 production path is now NVIDIA modelopt**, not ORT's quantize_static. modelopt is NVIDIA's official PTQ toolkit for LLM/diffusion, designed for multi-GB models, with incremental calibration that avoids ORT's arena bug. The QDQ-format ONNX it produces is what TensorRT consumes optimally (Sprint 2 will reuse the same artifact).
+
+EC2 instance: **g5.2xlarge** (A10G 24 GB VRAM, 8 vCPU, 32 GB RAM, ~450 GB NVMe ephemeral, Linux). Datacenter A10G is sm_86 (Ampere) with mature ORT/TRT INT8 support. The user's AWS quota caps at 8 vCPU, so larger g5/g6 instances are off the table. modelopt + TRT both fit comfortably in 32 GB host RAM.
 
 ---
 
@@ -99,6 +101,10 @@ pip install diffusers transformers safetensors accelerate huggingface_hub
 pip install onnx onnxscript onnxruntime-gpu
 pip install numpy pillow
 
+# Sprint 1 production path: NVIDIA modelopt (PTQ for SDXL-class ONNX)
+pip install "nvidia-modelopt[onnx]"
+# (or `nvidia-modelopt[all]` for all backends)
+
 # For Sprint 2 (install eagerly; we'll use it later)
 pip install tensorrt
 pip install onnx-graphsurgeon polygraphy
@@ -148,43 +154,101 @@ ls gen_test_output/sdxl_lightning_gptq_blockmp_ffn4_attn8_conv8/fp16_*.png | wc 
 
 ---
 
-## 3. Sprint 1 — Static QDQ INT8 ONNX
+## 3. Sprint 1 — INT8 QDQ ONNX via NVIDIA modelopt
 
-### 3.1 Run the quantizer
+### 3.1 Why modelopt (not ORT)
 
-The script is `mp_quant/onnx_quantize_static_qdq.py`. The local failure was `bad_allocation` at LayerNorm during calibration with Percentile + 128 samples + Windows. On Linux + 32 GB RAM + 24 GB A10G this should fit. The key is CUDA-side calibration.
+The repo ships an ORT-based script at `mp_quant/onnx_quantize_static_qdq.py` — DO NOT USE IT for Sprint 1. It is kept only as documentation of the failed local attempts. ORT 1.23's `quantize_static` fragments its BFCArena on the 10 GB SDXL ONNX and crashes with `bad_allocation` for ~80 MB requests despite tens of GB of free RAM. This is a known limitation of ORT's design envelope (intended for <1 GB models).
 
-Run as-is with the recommended config:
+NVIDIA modelopt is the production toolkit. It calibrates incrementally and the output is the canonical QDQ ONNX that TRT consumes.
+
+### 3.2 Verify modelopt installed + API surface
 
 ```bash
-PYTHONPATH=. python mp_quant/onnx_quantize_static_qdq.py \
+python -c "
+import modelopt.onnx.quantization as q
+print('modelopt version:', getattr(q, '__version__', '?'))
+from modelopt.onnx.quantization import quantize
+help(quantize)
+" | head -40
+```
+
+The signature of `modelopt.onnx.quantization.quantize` may have shifted across versions. The Sprint 1 script targets the stable surface (`onnx_path=, output_path=, calibration_data_reader=, quantize_mode='int8', op_types_to_quantize=, calibration_method=`). If your installed version moved arguments, adapt the script call.
+
+### 3.3 Run modelopt quantization
+
+```bash
+PYTHONPATH=. python mp_quant/modelopt_quantize_int8.py \
   --input-onnx  models/onnx/unet_fp32.onnx \
   --output-onnx models/onnx/unet_int8_qdq.onnx \
   --teacher-cache qlora_teacher_cache_128p_1024 \
-  --n-calib 128 \
-  --calib-method percentile \
-  --activation-type uint8 \
-  --skip-preprocess \
-  2>&1 | tee logs/phase_c_static_qdq.log
+  --n-calib 64 \
+  --calib-method entropy \
+  --op-types MatMul,Conv,Gemm \
+  2>&1 | tee logs/phase_c_modelopt.log
 ```
 
-Inside, the script already passes
-`extra_options={"CalibProviders": ["CUDAExecutionProvider", "CPUExecutionProvider"]}`
-so calibration forward should run on A10G GPU. If it doesn't (older ORT version), edit the extra_options key (sometimes named `CalibrationProviders` in different versions) and retry.
-
-Expected runtime: 15-30 min. Expected output (raw, before cleanup):
+Expected runtime: 15-40 min. Expected output:
 ```
-unet_int8_qdq.onnx        ~9 MB graph
-unet_int8_qdq.onnx.data   ~7-9 GB  (still has dead fp32 initializers)
+unet_int8_qdq.onnx        ~5-10 MB graph
+unet_int8_qdq.onnx.data   ~2.5-3.5 GB  (or possibly smaller — modelopt is generally cleaner about not leaving dead initializers)
 ```
 
-If `bad_allocation` still happens:
-1. Drop to `--n-calib 64`
-2. Drop to `--calib-method minmax` (uses less memory than percentile)
-3. Add `--no-conv` (skip Conv quantization — Conv is what triggers LayerNorm-adjacent OOM on 12 GB GPU; on 24 GB this should not be necessary but is the escape hatch)
-4. Verify VRAM with `nvidia-smi` during the run
+If modelopt also throws `bad_allocation` (unlikely but possible on g5.2xlarge with 32 GB RAM if a particularly large intermediate is built):
+1. Drop `--n-calib` to 32
+2. Try `--calib-method max` (cheapest, less memory than entropy/percentile)
+3. Drop `Conv` from `--op-types`: `--op-types MatMul,Gemm`. Document the fallback in the log.
 
-If you change the recipe, document what worked in `logs/phase_c_static_qdq.log`.
+### 3.4 Cleanup (only if needed)
+
+modelopt typically produces a clean ONNX without dead fp32 initializers. Verify:
+
+```bash
+python -c "
+import onnx
+m = onnx.load('models/onnx/unet_int8_qdq.onnx', load_external_data=False)
+from collections import Counter
+types = {1:'fp32', 2:'uint8', 3:'int8', 6:'int32', 7:'int64', 10:'fp16'}
+c = Counter(types.get(i.data_type, str(i.data_type)) for i in m.graph.initializer)
+print('Initializer dtypes:', dict(c))
+
+# Bytes per dtype via external_data lengths
+sz = {}
+for i in m.graph.initializer:
+    dt = types.get(i.data_type, str(i.data_type))
+    for e in i.external_data:
+        if e.key == 'length':
+            sz[dt] = sz.get(dt, 0) + int(e.value)
+print('Bytes per dtype (MB):', {k: v/1024/1024 for k, v in sz.items()})
+"
+```
+
+If fp32 bytes > 1 GB and int8 bytes < 1 GB, modelopt left dead fp32 initializers (rare). Run the cleanup pass:
+
+```bash
+PYTHONPATH=. python mp_quant/onnx_cleanup_dead_initializers.py \
+  --input-onnx  models/onnx/unet_int8_qdq.onnx \
+  --output-onnx models/onnx/unet_int8_qdq_clean.onnx \
+  2>&1 | tee logs/phase_c_cleanup.log
+```
+
+Otherwise rename the modelopt output to the `_clean` name to keep downstream commands consistent:
+```bash
+mv models/onnx/unet_int8_qdq.onnx        models/onnx/unet_int8_qdq_clean.onnx
+mv models/onnx/unet_int8_qdq.onnx.data   models/onnx/unet_int8_qdq_clean.onnx_data
+```
+
+### 3.5 Sprint 1 fallback: if modelopt also fails
+
+Skip Sprint 1 and go straight to Sprint 2 (TensorRT) with the fp32 ONNX as the source. Do not spend more than 2 hours trying to fix modelopt — TRT directly is a stronger story (real production deployment toolkit) than ORT/modelopt INT8 ONNX anyway.
+
+If you skip, note in `logs/SPRINT1_RESULT.md`:
+```
+Sprint 1 outcome: deferred — both ORT static_quantize and NVIDIA modelopt
+hit memory/arena issues on this SDXL UNet. Moved to Sprint 2 TRT path.
+Source artifact for Sprint 2: unet_fp32.onnx (validated MSE 0.00573 vs FP16
+baseline on local RTX 5070 ORT CUDA EP).
+```
 
 ### 3.2 Cleanup dead fp32 initializers
 
@@ -205,7 +269,7 @@ Output size: ~1.5 - 2.5 GB total (unet_int8_qdq_clean.onnx + .onnx_data)
 
 If reduction is only ~10 % then either the quantizer didn't actually convert weights (rare) or some unused-initializer detection is wrong — share the cleanup log and ask the user before continuing.
 
-### 3.3 End-to-end verification
+### 3.6 End-to-end verification
 
 ```bash
 PYTHONPATH=. python mp_quant/eval_onnx_e2e.py \
@@ -229,7 +293,7 @@ If quality is too low:
 
 If you load the ONNX and ORT throws `transformer_memcpy node_provider != nullptr` or `Could not find an implementation for ConvInteger`: that means a wrong op type got quantized. The script already excludes Conv from the QOperator path, so this shouldn't happen with static QDQ — but if it does, re-run with `--no-conv`.
 
-### 3.4 Sprint 1 wrap-up
+### 3.7 Sprint 1 wrap-up
 
 When the cleaned INT8 QDQ ONNX passes the quality gate, write a short summary to `logs/SPRINT1_RESULT.md` with:
 ```
