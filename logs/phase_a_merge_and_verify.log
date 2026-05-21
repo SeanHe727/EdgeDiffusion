@@ -1,0 +1,62 @@
+=== Phase A.1: merge packed + LoRA -> fp16 ===
+W0520 10:26:09.025000 27404 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0520 10:26:09.076000 27404 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading manifest from sdxl_lightning_4step_blockmp_a_gptq_deepconvw8_packed.json
+Loading packed state from sdxl_lightning_4step_blockmp_a_gptq_deepconvw8_packed.safetensors
+Building packed UNet on GPU (PackedInt4Linear / PackedInt8Linear / PackedInt8Conv2d)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  612 W4 Linear, 110 W8 Linear, 35 W8 Conv2d
+Wrapping with LoRA r=16, alpha=4.0 (scaling = 0.2500)
+  722 layers wrapped, loading LoRA state from lora_final.safetensors
+
+Merging Packed + LoRA into standard fp16 modules...
+  LoRA wrappers merged:     722
+  Plain Packed Linears:     0
+  Packed Conv2d dequanted:  35
+  OK: 1680 tensors in state_dict, no Packed/LoRA artifacts
+
+Saving merged fp16 UNet ¡ú D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\sdxl_lightning_unet_fp16_merged.safetensors
+  Wrote 4897 MB
+  Sidecar: D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\sdxl_lightning_unet_fp16_merged.json
+
+Next: run mp_quant/eval_merged_fp16.py to verify MSE matches packed+LoRA baseline.
+=== Phase A.2: eval merged fp16 vs FP16 baseline (target MSE 0.00794) ===
+W0520 10:26:35.129000 26264 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0520 10:26:35.159000 26264 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Loading merged fp16 UNet from sdxl_lightning_unet_fp16_merged.safetensors...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  loaded 1680 tensors; missing=0 unexpected=0
+Building SDXL pipeline...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  43%|¨€¨€¨€¨€¨†     | 3/7 [00:00<00:00, 14.81it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 25.09it/s]Loading pipeline components...: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 7/7 [00:00<00:00, 23.00it/s]
+Eval set: 64 prompts at 1024x1024, 4 steps
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  [08/64] A llama looks at the camera from a fenced in, grassy area.  mse=0.00616
+  [16/64] A traffic light is showing a green arrow.  mse=0.00501
+  [24/64] A silver computer mouse on a table next to a keyboard.  mse=0.01148
+  [32/64] a baseball player is going to swing a bat  mse=0.00576
+  [40/64] A train engine traveling down train tracks through a country  mse=0.00322
+  [48/64] A brown table with white plate holding a pizza.  mse=0.02307
+  [56/64] A horse is attached to a carriage.  mse=0.01661
+  [64/64] Young man wearing glasses lounging on a sofa with three whit  mse=0.00647
+
+=== Merged FP16 RESULTS (64 prompts) ===
+  MSE mean: 0.00795  (target ¡Ö 0.00794 from packed+LoRA ¦Á=4)
+  MAE mean: 0.04612  (target ¡Ö 0.04610)
+  MSE max : 0.02307
+  After-load VRAM peak: 9966 MB
+  Generation peak VRAM: 10772 MB
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_merged_fp16.py", line 123, in <module>
+    main()
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_merged_fp16.py", line 116, in main
+    print(f"  \u2713 PASS ¡ª MSE within ¡À0.0005 of expected. LoRA merge is correct.")
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2713' in position 2: illegal multibyte sequence
+=== DONE ===

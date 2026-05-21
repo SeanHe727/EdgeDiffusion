@@ -1,0 +1,524 @@
+{
+  "mode": "merged_fp16",
+  "n_images": 64,
+  "mse_mean": 0.007951986859552562,
+  "mae_mean": 0.046120354323647916,
+  "mse_max": 0.023073598742485046,
+  "mae_max": 0.09770693629980087,
+  "after_load_peak_mb": 9965.529296875,
+  "generation_peak_mb": 10772.35009765625,
+  "metrics": [
+    {
+      "index": 1,
+      "seed": 12345,
+      "mse": 0.007772078271955252,
+      "mae": 0.04409537836909294,
+      "category": "people",
+      "prompt": "Woman riding her bike down a small side path."
+    },
+    {
+      "index": 2,
+      "seed": 22318,
+      "mse": 0.0013418849557638168,
+      "mae": 0.02121438831090927,
+      "category": "animals",
+      "prompt": "A large brown horse walking through a lush green forest."
+    },
+    {
+      "index": 3,
+      "seed": 32291,
+      "mse": 0.005538165103644133,
+      "mae": 0.04224530979990959,
+      "category": "food",
+      "prompt": "A plate full of food is ready to be eaten."
+    },
+    {
+      "index": 4,
+      "seed": 42264,
+      "mse": 0.008446785621345043,
+      "mae": 0.0450868122279644,
+      "category": "vehicle",
+      "prompt": "A boat floating on a lake next to a tree covered shore."
+    },
+    {
+      "index": 5,
+      "seed": 52237,
+      "mse": 0.008011736907064915,
+      "mae": 0.04745424911379814,
+      "category": "sports",
+      "prompt": "Fans observing a baseball game in process."
+    },
+    {
+      "index": 6,
+      "seed": 62210,
+      "mse": 0.010017422959208488,
+      "mae": 0.05138343200087547,
+      "category": "indoor",
+      "prompt": "A bathroom with a black and white checkered floor."
+    },
+    {
+      "index": 7,
+      "seed": 72183,
+      "mse": 0.0031936734449118376,
+      "mae": 0.0333334319293499,
+      "category": "street",
+      "prompt": "A blue sign in front of a bamboo enclosure."
+    },
+    {
+      "index": 8,
+      "seed": 82156,
+      "mse": 0.006155380513519049,
+      "mae": 0.03996426984667778,
+      "category": "nature",
+      "prompt": "A llama looks at the camera from a fenced in, grassy area."
+    },
+    {
+      "index": 9,
+      "seed": 92129,
+      "mse": 0.014893044717609882,
+      "mae": 0.06620920449495316,
+      "category": "objects",
+      "prompt": "A beautiful young lady with a flower in her hair talking on a cell phone."
+    },
+    {
+      "index": 10,
+      "seed": 102102,
+      "mse": 0.009054042398929596,
+      "mae": 0.05262661352753639,
+      "category": "people",
+      "prompt": "a man that is typing on his laptop"
+    },
+    {
+      "index": 11,
+      "seed": 112075,
+      "mse": 0.002547111129388213,
+      "mae": 0.029205216094851494,
+      "category": "animals",
+      "prompt": "A cow walking across a river near lush green grass."
+    },
+    {
+      "index": 12,
+      "seed": 122048,
+      "mse": 0.008924339897930622,
+      "mae": 0.05868537351489067,
+      "category": "food",
+      "prompt": "A table topped with baskets filled with ripe bananas."
+    },
+    {
+      "index": 13,
+      "seed": 132021,
+      "mse": 0.002409218577668071,
+      "mae": 0.02217744290828705,
+      "category": "vehicle",
+      "prompt": "A small airplane taking off from an airport runway."
+    },
+    {
+      "index": 14,
+      "seed": 141994,
+      "mse": 0.005837170872837305,
+      "mae": 0.02765103615820408,
+      "category": "sports",
+      "prompt": "A baseball player bending over to hit a ball."
+    },
+    {
+      "index": 15,
+      "seed": 151967,
+      "mse": 0.009461232461035252,
+      "mae": 0.05352488160133362,
+      "category": "indoor",
+      "prompt": "A laptop computer sitting on top of a wooden desk."
+    },
+    {
+      "index": 16,
+      "seed": 161940,
+      "mse": 0.005013815592974424,
+      "mae": 0.026788165792822838,
+      "category": "street",
+      "prompt": "A traffic light is showing a green arrow."
+    },
+    {
+      "index": 17,
+      "seed": 171913,
+      "mse": 0.00836144108325243,
+      "mae": 0.042690325528383255,
+      "category": "nature",
+      "prompt": "there is an air plane that is in the sky"
+    },
+    {
+      "index": 18,
+      "seed": 181886,
+      "mse": 0.0031469629611819983,
+      "mae": 0.030193358659744263,
+      "category": "objects",
+      "prompt": "A vase of light and dark purple flowers in a white vase."
+    },
+    {
+      "index": 19,
+      "seed": 191859,
+      "mse": 0.009442581795156002,
+      "mae": 0.058064933866262436,
+      "category": "people",
+      "prompt": "An older woman sitting at a table cutting up donuts."
+    },
+    {
+      "index": 20,
+      "seed": 201832,
+      "mse": 0.0020192351657897234,
+      "mae": 0.02348126284778118,
+      "category": "animals",
+      "prompt": "A brown sheep standing on top of a lush green field."
+    },
+    {
+      "index": 21,
+      "seed": 211805,
+      "mse": 0.006803428288549185,
+      "mae": 0.04039480909705162,
+      "category": "food",
+      "prompt": "a pitcher of orange juice with orange slices in it"
+    },
+    {
+      "index": 22,
+      "seed": 221778,
+      "mse": 0.02103017456829548,
+      "mae": 0.09770693629980087,
+      "category": "vehicle",
+      "prompt": "cars that are stopped at a traffic light"
+    },
+    {
+      "index": 23,
+      "seed": 231751,
+      "mse": 0.0026408920530229807,
+      "mae": 0.02607959508895874,
+      "category": "sports",
+      "prompt": "A photograph of a cross country skier in a greenish tint light."
+    },
+    {
+      "index": 24,
+      "seed": 241724,
+      "mse": 0.011475793085992336,
+      "mae": 0.06405046582221985,
+      "category": "indoor",
+      "prompt": "A silver computer mouse on a table next to a keyboard."
+    },
+    {
+      "index": 25,
+      "seed": 251697,
+      "mse": 0.0053908186964690685,
+      "mae": 0.028306782245635986,
+      "category": "street",
+      "prompt": "A traffic light under a cloudy blue sky."
+    },
+    {
+      "index": 26,
+      "seed": 261670,
+      "mse": 0.003078639740124345,
+      "mae": 0.027087412774562836,
+      "category": "nature",
+      "prompt": "A large airliner jet flying through the blue sky."
+    },
+    {
+      "index": 27,
+      "seed": 271643,
+      "mse": 0.005753537639975548,
+      "mae": 0.04432378709316254,
+      "category": "objects",
+      "prompt": "A doll standing next to a vase filled with flowers and plants."
+    },
+    {
+      "index": 28,
+      "seed": 281616,
+      "mse": 0.011651535518467426,
+      "mae": 0.07012541592121124,
+      "category": "people",
+      "prompt": "a man is shaving in a mirror in a bathroom"
+    },
+    {
+      "index": 29,
+      "seed": 291589,
+      "mse": 0.0016648193122819066,
+      "mae": 0.022140009328722954,
+      "category": "animals",
+      "prompt": "A herd of sheep walking down a rural country road."
+    },
+    {
+      "index": 30,
+      "seed": 301562,
+      "mse": 0.012319318018853664,
+      "mae": 0.06940155476331711,
+      "category": "food",
+      "prompt": "A kitchen with a center stove top island."
+    },
+    {
+      "index": 31,
+      "seed": 311535,
+      "mse": 0.007795372977852821,
+      "mae": 0.0457521416246891,
+      "category": "vehicle",
+      "prompt": "Motorcycle on platform to be worked on in garage"
+    },
+    {
+      "index": 32,
+      "seed": 321508,
+      "mse": 0.005760849919170141,
+      "mae": 0.03711387887597084,
+      "category": "sports",
+      "prompt": "a baseball player is going to swing a bat"
+    },
+    {
+      "index": 33,
+      "seed": 331481,
+      "mse": 0.006723594386130571,
+      "mae": 0.04597248509526253,
+      "category": "indoor",
+      "prompt": "A bathroom with a toilet and a bathtub with a safety rail."
+    },
+    {
+      "index": 34,
+      "seed": 341454,
+      "mse": 0.012896097265183926,
+      "mae": 0.06784389168024063,
+      "category": "street",
+      "prompt": "There is a parking meter with a graffiti stenciled in the background."
+    },
+    {
+      "index": 35,
+      "seed": 351427,
+      "mse": 0.002907137619331479,
+      "mae": 0.031037405133247375,
+      "category": "nature",
+      "prompt": "A field with animals grazing on top of a grass covered field."
+    },
+    {
+      "index": 36,
+      "seed": 361400,
+      "mse": 0.012795139104127884,
+      "mae": 0.06300747394561768,
+      "category": "objects",
+      "prompt": "A group of statues holding metal umbrellas near flowers."
+    },
+    {
+      "index": 37,
+      "seed": 371373,
+      "mse": 0.01111479103565216,
+      "mae": 0.055673837661743164,
+      "category": "people",
+      "prompt": "A large white dog is sitting on a bench beside an elderly man."
+    },
+    {
+      "index": 38,
+      "seed": 381346,
+      "mse": 0.007620542775839567,
+      "mae": 0.05143104866147041,
+      "category": "animals",
+      "prompt": "The picture of a cat under a car."
+    },
+    {
+      "index": 39,
+      "seed": 391319,
+      "mse": 0.009950202889740467,
+      "mae": 0.0555240698158741,
+      "category": "food",
+      "prompt": "Italian blood oranges for sale in a market"
+    },
+    {
+      "index": 40,
+      "seed": 401292,
+      "mse": 0.003217731835320592,
+      "mae": 0.03232729807496071,
+      "category": "vehicle",
+      "prompt": "A train engine traveling down train tracks through a countryside."
+    },
+    {
+      "index": 41,
+      "seed": 411265,
+      "mse": 0.007017163559794426,
+      "mae": 0.04201580211520195,
+      "category": "sports",
+      "prompt": "A pretty young lady walking across a tennis court."
+    },
+    {
+      "index": 42,
+      "seed": 421238,
+      "mse": 0.01139905583113432,
+      "mae": 0.07078389078378677,
+      "category": "indoor",
+      "prompt": "A bathroom with an enclosed shower next to a sink and a toilet."
+    },
+    {
+      "index": 43,
+      "seed": 431211,
+      "mse": 0.0082987817004323,
+      "mae": 0.0537446103990078,
+      "category": "street",
+      "prompt": "There is a tall tower connected to a building."
+    },
+    {
+      "index": 44,
+      "seed": 441184,
+      "mse": 0.002976354444399476,
+      "mae": 0.023318836465477943,
+      "category": "nature",
+      "prompt": "A large jet flying through a cloudy sky."
+    },
+    {
+      "index": 45,
+      "seed": 451157,
+      "mse": 0.0022827358916401863,
+      "mae": 0.019495094195008278,
+      "category": "objects",
+      "prompt": "A black and white still life of a branch with flowers in a vase"
+    },
+    {
+      "index": 46,
+      "seed": 461130,
+      "mse": 0.009197509847581387,
+      "mae": 0.06075708568096161,
+      "category": "people",
+      "prompt": "Lots of people are surfing and swimming in the ocean."
+    },
+    {
+      "index": 47,
+      "seed": 471103,
+      "mse": 0.0038926571141928434,
+      "mae": 0.0351504348218441,
+      "category": "animals",
+      "prompt": "A cat is sitting under a purple umbrella."
+    },
+    {
+      "index": 48,
+      "seed": 481076,
+      "mse": 0.023073598742485046,
+      "mae": 0.0850113034248352,
+      "category": "food",
+      "prompt": "A brown table with white plate holding a pizza."
+    },
+    {
+      "index": 49,
+      "seed": 491049,
+      "mse": 0.00819964800029993,
+      "mae": 0.0445726178586483,
+      "category": "vehicle",
+      "prompt": "Two men standing in front of a white monster truck."
+    },
+    {
+      "index": 50,
+      "seed": 501022,
+      "mse": 0.006659712176769972,
+      "mae": 0.040987055748701096,
+      "category": "sports",
+      "prompt": "A baseball player kneeling down next to a base."
+    },
+    {
+      "index": 51,
+      "seed": 510995,
+      "mse": 0.012044158764183521,
+      "mae": 0.06784775108098984,
+      "category": "indoor",
+      "prompt": "A vase filled with lots of flowers on a table."
+    },
+    {
+      "index": 52,
+      "seed": 520968,
+      "mse": 0.010423813946545124,
+      "mae": 0.03354209288954735,
+      "category": "street",
+      "prompt": "A one way sign that is on a pole."
+    },
+    {
+      "index": 53,
+      "seed": 530941,
+      "mse": 0.0013620873214676976,
+      "mae": 0.018197113648056984,
+      "category": "nature",
+      "prompt": "A group of planes flying in sequence in the sky."
+    },
+    {
+      "index": 54,
+      "seed": 540914,
+      "mse": 0.006436914671212435,
+      "mae": 0.036259427666664124,
+      "category": "objects",
+      "prompt": "Adult with suitcase with purple tag at indoor facility."
+    },
+    {
+      "index": 55,
+      "seed": 550887,
+      "mse": 0.005193858873099089,
+      "mae": 0.03793559595942497,
+      "category": "people",
+      "prompt": "a woman in black walking down a sidewalk by herself"
+    },
+    {
+      "index": 56,
+      "seed": 560860,
+      "mse": 0.016606811434030533,
+      "mae": 0.08148853480815887,
+      "category": "animals",
+      "prompt": "A horse is attached to a carriage."
+    },
+    {
+      "index": 57,
+      "seed": 570833,
+      "mse": 0.0067033786326646805,
+      "mae": 0.0425216406583786,
+      "category": "food",
+      "prompt": "TWO DONUTS WITH SPRINKLES ARE ON A DESK"
+    },
+    {
+      "index": 58,
+      "seed": 580806,
+      "mse": 0.00754039129242301,
+      "mae": 0.04382232949137688,
+      "category": "vehicle",
+      "prompt": "A train that is going by some grass."
+    },
+    {
+      "index": 59,
+      "seed": 590779,
+      "mse": 0.01489068940281868,
+      "mae": 0.06635856628417969,
+      "category": "sports",
+      "prompt": "a group of baseball players playing baseball at a field"
+    },
+    {
+      "index": 60,
+      "seed": 600752,
+      "mse": 0.005815615877509117,
+      "mae": 0.040088456124067307,
+      "category": "indoor",
+      "prompt": "A very nice looking living room with a couch."
+    },
+    {
+      "index": 61,
+      "seed": 610725,
+      "mse": 0.0042280289344489574,
+      "mae": 0.032750941812992096,
+      "category": "street",
+      "prompt": "a street light is hanging on a pole"
+    },
+    {
+      "index": 62,
+      "seed": 620698,
+      "mse": 0.019215699285268784,
+      "mae": 0.06709010154008865,
+      "category": "nature",
+      "prompt": "A single engine plane in the air right above a grassy field."
+    },
+    {
+      "index": 63,
+      "seed": 630671,
+      "mse": 0.014824519865214825,
+      "mae": 0.07695469260215759,
+      "category": "objects",
+      "prompt": "Several older electronics, including cellular phones and a palm pilot with a bro"
+    },
+    {
+      "index": 64,
+      "seed": 640644,
+      "mse": 0.006466232240200043,
+      "mae": 0.039633315056562424,
+      "category": "people",
+      "prompt": "Young man wearing glasses lounging on a sofa with three white laptop computers o"
+    }
+  ]
+}

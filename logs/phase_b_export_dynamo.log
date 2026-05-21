@@ -1,0 +1,52 @@
+W0520 10:57:46.265000 30084 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+W0520 10:57:48.770000 30084 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Loading merged UNet from sdxl_lightning_unet_fp16_merged.safetensors...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  loaded 1680 tensors; missing=0 unexpected=0
+Smoke test wrapped forward on dummy inputs...
+  output shape: (1, 4, 128, 128)  dtype: torch.float16  finite: True
+
+Exporting to D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx  (opset=17, dynamic_batch=False, external_data=True)...
+W0520 10:58:00.765000 30084 site-packages\torch\onnx\_internal\exporter\_compat.py:133] Setting ONNX exporter to use operator set version 18 because the requested opset_version 17 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+[torch.onnx] Obtain model graph for `UNetWrapper([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `UNetWrapper([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+D:\chenh\Anaconda\envs\sd_native\lib\copyreg.py:101: FutureWarning: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+  return cls.__new__(cls, *args)
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 17).
+Failed to convert the model to the target version 17 using the ONNX C API. The model was not modified
+Traceback (most recent call last):
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxscript\version_converter\__init__.py", line 137, in call
+    converted_proto = _c_api_utils.call_onnx_api(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxscript\version_converter\_c_api_utils.py", line 65, in call_onnx_api
+    result = func(proto)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxscript\version_converter\__init__.py", line 132, in _partial_convert_version
+    return onnx.version_converter.convert_version(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnx\version_converter.py", line 39, in convert_version
+    converted_model_str = C.convert_version(model_str, target_version)
+RuntimeError: D:\a\onnx\onnx\onnx/version_converter/BaseConverter.h:64: adapter_lookup: Assertion `false` failed: No Adapter To Version $17 for Resize
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+  Export finished in 83.6s
+Loading ONNX back to validate graph...
+  IR version:   10
+  opset:        18
+  inputs:       ['sample', 'timestep', 'encoder_hidden_states', 'text_embeds', 'time_ids']
+  outputs:      ['noise_pred']
+  nodes:        4693
+  initializers: 1725
+  onnx.checker.check_model: SKIPPED (ValidationError: Data of TensorProto ( tensor name: unet.conv_in.bias) should be stored in unet_fp16.onnx.data, but it is not regular fil)
+  (Checker often complains about external-data sharding; ORT load is the real test.)
+
+Consolidating external data into a single sidecar file...
+  Consolidated. Removed 1 per-tensor files. Final: unet_fp16.onnx + unet_fp16.onnx_data
+  Disk size (.onnx + external data): 4909 MB
+
+Metadata: D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16_export_summary.json
+
+Next: python mp_quant/verify_onnx_vs_pytorch.py --onnx D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx

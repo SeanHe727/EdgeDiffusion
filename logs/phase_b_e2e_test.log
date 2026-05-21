@@ -1,0 +1,56 @@
+W0520 11:09:05.725000 32304 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0520 11:09:05.758000 32304 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Reading SDXL UNet config to seed ORTUNetWrapper.config...
+Building ORTUNetWrapper from unet_fp32.onnx...
+  ORT input dtypes: {'sample': <class 'numpy.float32'>, 'timestep': <class 'numpy.int64'>, 'encoder_hidden_states': <class 'numpy.float32'>, 'text_embeds': <class 'numpy.float32'>, 'time_ids': <class 'numpy.float32'>}
+Building SDXL pipeline with ORT-backed UNet...
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\file_download.py:798: UserWarning: Not enough free disk space to download the file. The expected file size is: 5135.15 MB. The target location C:\Users\Administrator\.cache\huggingface\hub\models--stabilityai--stable-diffusion-xl-base-1.0\blobs only has 4086.73 MB free disk space.
+  warnings.warn(
+Fetching 19 files:  79%|███████▉  | 15/19 [01:24<00:22,  5.66s/it]
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 166, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 115, in main
+    pipe = StableDiffusionXLPipeline.from_pretrained(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\utils\_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\pipeline_utils.py", line 829, in from_pretrained
+    cached_folder = cls.download(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\utils\_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\pipeline_utils.py", line 1747, in download
+    cached_folder = snapshot_download(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\utils\_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\tqdm\contrib\concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\tqdm\contrib\concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "D:\chenh\Anaconda\envs\sd_native\lib\concurrent\futures\_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "D:\chenh\Anaconda\envs\sd_native\lib\concurrent\futures\_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "D:\chenh\Anaconda\envs\sd_native\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "D:\chenh\Anaconda\envs\sd_native\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\utils\_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\file_download.py", line 1007, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\file_download.py", line 1168, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\file_download.py", line 1720, in _download_to_tmp_and_move
+    xet_get(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\huggingface_hub\file_download.py", line 626, in xet_get
+    download_files(
+RuntimeError: Data processing error: CAS service error : IO Error: 磁盘空间不足。 (os error 112)

@@ -1,0 +1,45 @@
+=== Phase B.1: torch.onnx.export merged fp16 UNet ===
+W0520 10:38:05.264000 33336 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+W0520 10:38:07.781000 33336 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Loading merged UNet from sdxl_lightning_unet_fp16_merged.safetensors...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  loaded 1680 tensors; missing=0 unexpected=0
+Smoke test wrapped forward on dummy inputs...
+  output shape: (1, 4, 128, 128)  dtype: torch.float16  finite: True
+
+Exporting to D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx  (opset=17, dynamic_batch=False, external_data=True)...
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\trt_export_onnx.py", line 190, in <module>
+    main()
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\trt_export_onnx.py", line 130, in main
+    torch.onnx.export(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\onnx\__init__.py", line 286, in export
+    from torch.onnx._internal.exporter import _compat
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\onnx\_internal\exporter\_compat.py", line 16, in <module>
+    from torch.onnx._internal.exporter import (
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\onnx\_internal\exporter\_core.py", line 19, in <module>
+    import onnxscript
+ModuleNotFoundError: No module named 'onnxscript'
+=== Phase B.2: ONNX RT (CUDA EP) vs PyTorch on 8 teacher-cache samples ===
+W0520 10:38:22.729000 34128 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+W0520 10:38:25.177000 34128 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Loading PyTorch reference UNet (sdxl_lightning_unet_fp16_merged.safetensors)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+Loading ONNX session (unet_fp16.onnx) with CUDAExecutionProvider...
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\verify_onnx_vs_pytorch.py", line 132, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\verify_onnx_vs_pytorch.py", line 96, in main
+    session = ort.InferenceSession(str(args.onnx), sess_options=so, providers=providers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 485, in __init__
+    self._create_inference_session(providers, provider_options, disabled_optimizers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 573, in _create_inference_session
+    sess = C.InferenceSession(session_options, self._model_path, True, self._read_config_from_model)
+onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx failed:Load model D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx failed. File doesn't exist
+=== DONE ===

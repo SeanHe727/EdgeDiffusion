@@ -1,0 +1,26 @@
+W0520 11:15:45.300000 30592 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0520 11:15:45.333000 30592 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Reading SDXL UNet config to seed ORTUNetWrapper.config...
+Building ORTUNetWrapper from unet_fp32.onnx...
+  ORT input dtypes: {'sample': <class 'numpy.float32'>, 'timestep': <class 'numpy.int64'>, 'encoder_hidden_states': <class 'numpy.float32'>, 'text_embeds': <class 'numpy.float32'>, 'time_ids': <class 'numpy.float32'>}
+Building SDXL pipeline with ORT-backed UNet...
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files:  84%|████████▍ | 16/19 [02:24<00:27,  9.04s/it]Fetching 19 files: 100%|██████████| 19/19 [02:24<00:00,  7.61s/it]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  7.02it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00, 17.00it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 15.54it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 17.03it/s]
+
+Generating 4 images via ONNX RT (fp32 graph, fp16 pipeline)...
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 169, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 137, in main
+    img = pipe(prompt, num_inference_steps=args.steps, guidance_scale=args.guidance,
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py", line 1124, in __call__
+    add_time_ids = self._get_add_time_ids(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py", line 737, in _get_add_time_ids
+    expected_add_embed_dim = self.unet.add_embedding.linear_1.in_features
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\nn\modules\module.py", line 1967, in __getattr__
+    raise AttributeError(
+AttributeError: 'ORTUNetWrapper' object has no attribute 'add_embedding'

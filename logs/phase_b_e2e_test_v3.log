@@ -1,0 +1,24 @@
+W0520 11:19:18.677000 6392 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0520 11:19:18.710000 6392 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Reading SDXL UNet config to seed ORTUNetWrapper.config...
+Building ORTUNetWrapper from unet_fp32.onnx...
+  ORT input dtypes: {'sample': <class 'numpy.float32'>, 'timestep': <class 'numpy.int64'>, 'encoder_hidden_states': <class 'numpy.float32'>, 'text_embeds': <class 'numpy.float32'>, 'time_ids': <class 'numpy.float32'>}
+Building SDXL pipeline with ORT-backed UNet...
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:00, 28.57it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 22.08it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 24.96it/s]
+
+Generating 4 images via ONNX RT (fp32 graph, fp16 pipeline)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\pipelines\stable_diffusion_xl\pipeline_stable_diffusion_xl.py:748: FutureWarning: `upcast_vae` is deprecated and will be removed in version 1.0.0. `upcast_vae` is deprecated. Please use `pipe.vae.to(torch.float32)`. For more details, please refer to: https://github.com/huggingface/diffusers/pull/12619#issue-3606633695.
+  deprecate(
+  [01/4] 107.1s  Woman riding her bike down a small side path.  mse_vs_fp16=0.00776
+  [02/4] 99.2s  A large brown horse walking through a lush green forest  mse_vs_fp16=0.00134
+  [03/4] 99.3s  A plate full of food is ready to be eaten.  mse_vs_fp16=0.00535
+  [04/4] 99.1s  A boat floating on a lake next to a tree covered shore.  mse_vs_fp16=0.00846
+
+=== ORT end-to-end vs FP16 baseline (4 images) ===
+  MSE mean: 0.00573  (target ≈ 0.00794 = packed+LoRA on PyTorch)
+  MSE max : 0.00846
+  ~OK — delta -0.00221. Small drift, acceptable; proceed to Phase C.
+
+Output: D:\chenh\EdgeDiffusion\EdgeDiffusion\gen_test_output\eval_onnx_e2e_4p

@@ -1,0 +1,33 @@
+Skipping pre-processing (--skip-preprocess given)
+Probing ONNX input dtypes from unet_fp32.onnx...
+  ONNX inputs: {'sample': <class 'numpy.float32'>, 'timestep': <class 'numpy.int64'>, 'encoder_hidden_states': <class 'numpy.float32'>, 'text_embeds': <class 'numpy.float32'>, 'time_ids': <class 'numpy.float32'>}
+  CalibrationDataReader: 64 samples queued
+Inspecting ONNX graph to find critical nodes to exclude...
+  Found 55 critical nodes (will stay fp32). Samples:
+    /unet/time_embedding/linear_1/Gemm
+    /unet/time_embedding/act/Sigmoid
+    /unet/time_embedding/act/Mul
+    /unet/time_embedding/linear_2/Gemm
+    /unet/add_time_proj/Constant
+    ... +50 more
+
+Quantizing static QDQ INT8:
+  op_types_to_quantize = ['MatMul', 'Conv', 'Gemm']
+  calib_method          = minmax
+  per_channel           = True
+  weight / activation   = QInt8 / QInt8 (both symmetric)
+  nodes_to_exclude      = 55 critical nodes
+  output                = D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_int8_qdq.onnx
+WARNING:root:Please consider to run pre-processing before quantization. Refer to example: https://github.com/microsoft/onnxruntime-inference-examples/blob/main/quantization/image_classification/cpu/ReadMe.md 
+  calib feed 32/64: prompt0007_step3.safetensors
+  calib feed 64/64: prompt0015_step3.safetensors
+WARNING:root:Please consider pre-processing before quantization. See https://github.com/microsoft/onnxruntime-inference-examples/blob/main/quantization/image_classification/cpu/ReadMe.md 
+
+quantize_static done in 1331s
+
+Size comparison:
+  fp32 source:    9798 MB
+  int8 QDQ:       8849 MB
+  reduction:   9.7%
+
+Next: python mp_quant/eval_onnx_e2e.py --onnx D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_int8_qdq.onnx --ep cuda

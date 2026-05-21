@@ -1,0 +1,21 @@
+Pre-processing ONNX (shape inference + small fusion)...
+ONNX Runtime Model Optimization Failed! Consider rerun with option `--skip_optimization'.
+Traceback (most recent call last):
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\quantization\shape_inference.py", line 146, in quant_pre_process
+    sess = onnxruntime.InferenceSession(input_model, sess_option, providers=["CPUExecutionProvider"])
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 485, in __init__
+    self._create_inference_session(providers, provider_options, disabled_optimizers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 573, in _create_inference_session
+    sess = C.InferenceSession(session_options, self._model_path, True, self._read_config_from_model)
+onnxruntime.capi.onnxruntime_pybind11_state.InvalidProtobuf: [ONNXRuntimeError] : 7 : INVALID_PROTOBUF : Load model from D:\chenh\EdgeDiffusion\EdgeDiffusion\.tmp\pre.quant.f8dp3huq\symbolic_shape_inferred.onnx failed:Protobuf parsing failed.
+
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\onnx_quantize_static_qdq.py", line 231, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\onnx_quantize_static_qdq.py", line 146, in main
+    quant_pre_process(
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\quantization\shape_inference.py", line 190, in quant_pre_process
+    onnx.shape_inference.infer_shapes_path(input_model, inferred_model_path)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnx\shape_inference.py", line 108, in infer_shapes_path
+    C.infer_shapes_path(model_path, output_path, check_type, strict_mode, data_prop)
+onnx.onnx_cpp2py_export.checker.ValidationError: Unable to open proto file: D:\chenh\EdgeDiffusion\EdgeDiffusion\.tmp\pre.quant.f8dp3huq\optimized.onnx. Please check if it is a valid proto. 

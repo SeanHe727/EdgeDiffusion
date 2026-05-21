@@ -1,0 +1,24 @@
+Skipping pre-processing (--skip-preprocess given)
+Probing ONNX input dtypes from unet_fp32.onnx...
+  ONNX inputs: {'sample': <class 'numpy.float32'>, 'timestep': <class 'numpy.int64'>, 'encoder_hidden_states': <class 'numpy.float32'>, 'text_embeds': <class 'numpy.float32'>, 'time_ids': <class 'numpy.float32'>}
+  CalibrationDataReader: 128 samples queued
+Inspecting ONNX graph to find critical nodes to exclude...
+  Found 55 critical nodes (will stay fp32). Samples:
+    /unet/time_embedding/linear_1/Gemm
+    /unet/time_embedding/act/Sigmoid
+    /unet/time_embedding/act/Mul
+    /unet/time_embedding/linear_2/Gemm
+    /unet/add_time_proj/Constant
+    ... +50 more
+
+Quantizing static QDQ INT8:
+  op_types_to_quantize = ['MatMul', 'Conv', 'Gemm']
+  calib_method          = percentile
+  per_channel           = True
+  weight     type       = QInt8 (symmetric)
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\onnx_quantize_static_qdq.py", line 238, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\onnx_quantize_static_qdq.py", line 193, in main
+    print(f"  activation type       = {'QUInt8 (asymmetric)' if act_type == QuantType.QUInt8 else 'QInt8 (symmetric)'}")
+UnboundLocalError: local variable 'act_type' referenced before assignment

@@ -1,0 +1,43 @@
+W0520 10:44:40.830000 14600 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+W0520 10:44:43.338000 14600 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Loading merged UNet from sdxl_lightning_unet_fp16_merged.safetensors...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+  loaded 1680 tensors; missing=0 unexpected=0
+Smoke test wrapped forward on dummy inputs...
+  output shape: (1, 4, 128, 128)  dtype: torch.float16  finite: True
+
+Exporting to D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx  (opset=17, dynamic_batch=False, external_data=True)...
+D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\trt_export_onnx.py:130: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\models\unets\unet_2d_condition.py:1048: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if dim % default_overall_up_factor != 0:
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\models\downsampling.py:136: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert hidden_states.shape[1] == self.channels
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\models\downsampling.py:145: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert hidden_states.shape[1] == self.channels
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\models\upsampling.py:147: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert hidden_states.shape[1] == self.channels
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\models\upsampling.py:162: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if hidden_states.shape[0] >= 64:
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\models\upsampling.py:173: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if hidden_states.numel() * scale_factor > pow(2, 31):
+  Export finished in 15.0s
+Loading ONNX back to validate graph...
+  IR version: 8
+  opset:      17
+  inputs:     ['sample', 'timestep', 'encoder_hidden_states', 'text_embeds', 'time_ids']
+  outputs:    ['noise_pred']
+  nodes:      8383
+  initializers: 1680
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\trt_export_onnx.py", line 191, in <module>
+    main()
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\trt_export_onnx.py", line 155, in main
+    onnx.checker.check_model(onnx_model)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnx\checker.py", line 164, in check_model
+    C.check_model(
+onnx.onnx_cpp2py_export.checker.ValidationError: Data of TensorProto ( tensor name: unet.conv_in.weight) should be stored in unet.conv_in.weight, but it is not regular file.

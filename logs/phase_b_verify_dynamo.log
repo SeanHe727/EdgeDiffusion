@@ -1,0 +1,17 @@
+W0520 11:00:09.958000 30768 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+W0520 11:00:12.456000 30768 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Loading PyTorch reference UNet (sdxl_lightning_unet_fp16_merged.safetensors)...
+D:\chenh\Anaconda\envs\sd_native\lib\site-packages\diffusers\configuration_utils.py:250: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+Loading ONNX session (unet_fp16.onnx) with CUDAExecutionProvider...
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\verify_onnx_vs_pytorch.py", line 132, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\verify_onnx_vs_pytorch.py", line 96, in main
+    session = ort.InferenceSession(str(args.onnx), sess_options=so, providers=providers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 485, in __init__
+    self._create_inference_session(providers, provider_options, disabled_optimizers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 573, in _create_inference_session
+    sess = C.InferenceSession(session_options, self._model_path, True, self._read_config_from_model)
+onnxruntime.capi.onnxruntime_pybind11_state.Fail: [ONNXRuntimeError] : 1 : FAIL : Load model from D:\chenh\EdgeDiffusion\EdgeDiffusion\models\onnx\unet_fp16.onnx failed:Type Error: Type parameter (T) of Optype (Concat) bound to different types (tensor(float16) and tensor(float) in node (node_concat).

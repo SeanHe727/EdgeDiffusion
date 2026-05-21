@@ -1,0 +1,17 @@
+W0520 11:40:10.616000 32852 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W0520 11:40:10.649000 32852 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+Reading SDXL UNet config to seed ORTUNetWrapper.config...
+Building ORTUNetWrapper from unet_int8.onnx  (EP=cpu, disable_opt=False)...
+Traceback (most recent call last):
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 194, in <module>
+    main()
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 137, in main
+    ort_unet = ORTUNetWrapper(args.onnx, ref_unet_cfg, args.base_model, device=device,
+  File "D:\chenh\EdgeDiffusion\EdgeDiffusion\mp_quant\eval_onnx_e2e.py", line 55, in __init__
+    self.session = ort.InferenceSession(str(onnx_path), sess_options=so, providers=providers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 485, in __init__
+    self._create_inference_session(providers, provider_options, disabled_optimizers)
+  File "D:\chenh\Anaconda\envs\sd_native\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 584, in _create_inference_session
+    sess.initialize_session(providers, provider_options, disabled_optimizers)
+onnxruntime.capi.onnxruntime_pybind11_state.NotImplemented: [ONNXRuntimeError] : 9 : NOT_IMPLEMENTED : Could not find an implementation for ConvInteger(10) node with name '/unet/conv_in/Conv_quant'
