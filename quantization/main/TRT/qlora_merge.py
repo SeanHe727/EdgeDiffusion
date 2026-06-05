@@ -199,7 +199,7 @@ def main():
     sidecar_path = args.output_dir / f"{args.output_stem}.json"
     sidecar_path.write_text(json.dumps(sidecar, indent=2), encoding="utf-8")
     print(f"  Sidecar: {sidecar_path}")
-    print("\nNext: run quantization/main/TRT/qlora_merge_eval.py to verify MSE matches packed+LoRA baseline.")
+    print("\nNext: run mp_quant/eval_merged_fp16.py to verify MSE matches packed+LoRA baseline.")
 
 
 if __name__ == "__main__":

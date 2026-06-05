@@ -18,7 +18,7 @@ from pathlib import Path
 
 import tensorrt as trt
 
-from build_trt_engine import INPUT_SPEC
+from quantization.main.TRT.build_trt_engine import INPUT_SPEC
 
 
 def inspect(engine_path: str) -> None:

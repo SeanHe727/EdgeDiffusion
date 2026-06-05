@@ -5,10 +5,10 @@
 
 Writes one PNG per (prompt, backend) into per-backend output dirs.
 The corresponding Phase 2 (PyTorch packed + Q-LoRA) row is produced locally
-by `utils/gen_custom_phase2.py`.
+by `scripts/gen_custom_phase2.py`.
 
 Usage on EC2:
-  python -u utils/gen_custom_3backends.py \
+  python -u mp_quant/gen_custom_3backends.py \
     --output-dir gen_test_output/custom_showcase \
     --implicit-engine models/trt/unet_int8_fp16.engine \
     --b1c-engine     models/trt/unet_int8_b1c.engine
