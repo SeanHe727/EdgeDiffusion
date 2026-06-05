@@ -164,7 +164,7 @@ Runtime VRAM:
 
 ## 7. Resume / GitHub framing
 
-- Post-training mixed-precision quantization pipeline for SDXL-Lightning, achieving **65.5% deployment-size reduction** (4897 MB → 1688 MB) with **32% peak inference VRAM reduction** (10.8 → 7.3 GB on RTX 5070).
+- Post-training mixed-precision quantization pipeline for SDXL-Lightning, achieving **65.5% deployment-size reduction** (4897 MB → 1688 MB) with **32% peak inference VRAM reduction** (10767 → 7303 MB on RTX 5070).
 - Block-level Linear mixed precision (W4 in 3 deepest cross-attention blocks, W8 elsewhere) selected via per-block sensitivity analysis on noisy-latent UNet outputs.
 - Self-implemented GPTQ (Hessian + Cholesky inverse, column-wise error compensation) applied only to W4 Linears; W8 Linears and per-output-channel W8 Conv2d use RTN.
 - Real packed artifact format with INT4 nibble packing (2 weights/byte), INT8 raw, and FP16 pass-through tensors; per-group fp16 scales; manifest JSON for layer metadata.
@@ -203,8 +203,8 @@ Hardware: RTX 5070 (sm_120, Blackwell consumer). Test: 4-step SDXL-Lightning, 10
 
 ### Reproducibility scripts
 
-- `mp_quant/benchmark_torchao_int4.py` — multi-mode latency / VRAM benchmark (fp16, torchao_int4, torchao_int8, bnb_nf4, bnb_int8)
-- `mp_quant/eval_torchao_int8.py` — full 64-prompt quality + latency + VRAM eval
+- `mp_quant/archive_benchmark_torchao_int4.py` — multi-mode latency / VRAM benchmark (fp16, torchao_int4, torchao_int8, bnb_nf4, bnb_int8)
+- `mp_quant/archive_eval_torchao_int8.py` — full 64-prompt quality + latency + VRAM eval
 
 ## 9. Open future work (not in this pipeline)
 

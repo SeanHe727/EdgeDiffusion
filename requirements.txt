@@ -1,0 +1,48 @@
+# EdgeDiffusion — Python dependencies
+#
+# Install layers:
+#   - Phase 1 / 2 (PyTorch quantization + Q-LoRA): all entries below EXCEPT the
+#     Phase 3 group are required.
+#   - Phase 3 (ONNX export / verification): add `onnx` + `onnxruntime-gpu`
+#     (or CPU `onnxruntime` if you only want fp32 ONNX validation).
+#   - Phase 3 TRT engine build / eval: requires `tensorrt>=10.0` and a matching
+#     CUDA stack. This is typically only installed on an EC2 g5/A10G-class
+#     instance, not on the local dev machine.
+#
+# Recommended installation order:
+#   1. Create a fresh Python 3.10–3.12 environment.
+#   2. Install PyTorch matching your local CUDA stack (CUDA 12.8 recommended):
+#        # CUDA 12.8 wheel (sm_120 / Blackwell or A10G):
+#        pip install --index-url https://download.pytorch.org/whl/cu128 \
+#            torch==2.12.0.dev20260408+cu128
+#   3. pip install -r requirements.txt
+#
+# Hardware notes:
+#   - Phase 1 / 2 tested on: RTX 5070 12 GB (Blackwell sm_120), Windows 11.
+#   - Phase 3 TRT engine: AWS g5.2xlarge (A10G 24 GB) + TensorRT 10.
+
+# --- Core PyTorch / diffusion stack (Phase 1 / 2) ----------------------------
+diffusers>=0.30
+transformers>=4.44
+safetensors>=0.4
+accelerate>=0.33
+huggingface_hub>=0.24
+
+# --- Numerics & I/O ---------------------------------------------------------
+numpy>=1.24
+Pillow>=10.0
+tqdm>=4.66
+matplotlib>=3.7
+
+# --- Phase 3: ONNX export + ORT validation ---------------------------------
+onnx>=1.17
+# Choose ONE of the two ORT lines depending on hardware:
+onnxruntime-gpu>=1.24    ; sys_platform != "win32"  # Linux EC2 GPU EP
+# onnxruntime>=1.24                                  # local CPU-only validation
+
+# --- Phase 3: TRT engine (EC2 only — install separately) -------------------
+# tensorrt>=10.0
+# cuda-python>=12.6
+
+# --- Optional: dataset prep -------------------------------------------------
+requests>=2.32          # used by utils/download_coco_subset.py

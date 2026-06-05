@@ -1,0 +1,20 @@
+  [53/64] 0.97s  A group of planes flying in sequence in the sky.  mse_vs_fp16=0.02321
+  [54/64] 0.97s  Adult with suitcase with purple tag at indoor facility.  mse_vs_fp16=0.05020
+  [55/64] 0.97s  a woman in black walking down a sidewalk by herself  mse_vs_fp16=0.04565
+  [56/64] 0.97s  A horse is attached to a carriage.  mse_vs_fp16=0.03922
+  [57/64] 0.97s  TWO DONUTS WITH SPRINKLES ARE ON A DESK  mse_vs_fp16=0.01972
+  [58/64] 0.97s  A train that is going by some grass.  mse_vs_fp16=0.02956
+  [59/64] 0.97s  a group of baseball players playing baseball at a field  mse_vs_fp16=0.03421
+  [60/64] 0.97s  A very nice looking living room with a couch.  mse_vs_fp16=0.02507
+  [61/64] 0.97s  a street light is hanging on a pole  mse_vs_fp16=0.02795
+  [62/64] 0.97s  A single engine plane in the air right above a grassy f  mse_vs_fp16=0.03088
+  [63/64] 0.97s  Several older electronics, including cellular phones an  mse_vs_fp16=0.05094
+  [64/64] 0.97s  Young man wearing glasses lounging on a sofa with three  mse_vs_fp16=0.07729
+
+=== TRT INT8+FP16 vs FP16 baseline (64 images) ===
+  MSE mean: 0.03685  (gate: <= 0.02)
+  MSE max : 0.08980
+  Latency : 0.98 s/image (mean over 64)
+  FAIL — MSE > 0.02 gate.
+
+Output: gen_test_output/eval_trt_b1c_64p

@@ -1,0 +1,5 @@
+=== TRT INT8+FP16 vs FP16 baseline (64 images) ===
+  MSE mean: 0.03685  (gate: <= 0.02)
+  MSE max : 0.08980
+  Latency : 0.98 s/image (mean over 64)
+  FAIL — MSE > 0.02 gate.
